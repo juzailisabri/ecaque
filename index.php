@@ -1,3 +1,5 @@
+<?php include("administrator/formfunction.php"); ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -221,12 +223,18 @@
 
             </div>
             <div class="row">
+              <div class="col-sm-12">
+              </div>
+            </div>
+            <div class="row">
               <div class="col-sm-5">
-                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Bahan-bahan: </p>
-                <p class="m-b-20 text-justify" >100% mentega tulin, Tepung Gandum Penuh Berprotein Tinggi,  Gula pasir, Buah-buahan Campuran Bermutu Tinggi dan Telor Gred A</p>
+                <img src="assets/ecauqe_images/packaging_1.jpg" class="m-b-20" width="100%" alt="">
 
                 <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Cara Penyimpanan / Storage Condition:</p>
                 <p class="m-b-20 text-justify">Simpan yang optimum adalah disimpan di dalam tempat yang sejuk dan kering untuk membenarkan kek untuk bertahan hingga 4 bulan. kek akan bertahan selama 2 bulan jika disimpan pada suhu bilik</p>
+
+              </div>
+              <div class="col-sm-5 no-padding xs-p-l-15 xs-p-r-15 p-l-20">
 
                 <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Berat: </p>
                 <p class="m-b-20">1.0 Kilogram / 1000 gram</p>
@@ -234,19 +242,18 @@
                 <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Ukuran Kek: </p>
                 <p class="m-b-20">6 inch x 6 inch</p>
 
-
-              </div>
-              <div class="col-sm-5 no-padding xs-p-l-15 xs-p-r-15 p-l-20">
                 <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Keistimewaan</p>
-                  <ul class="p-l-20 p-t-0 m-t-0">
-                    <li><p>Tekstur Kek Moist, Gebu Kerana Dihasilkan Dengan Menggunakan Cara Kukus</p></li>
-                    <li><p>Boleh Bertahan Selama 2 Bulan Pada Suhu Bilik</p></li>
-                    <li><p>Kotak Eksklusif Sesuai Untuk Hadiah</p></li>
-                    <li><p>Ramuan Yang Digunakan Adalah Premium</p></li>
-                    <li><p>Menggunakan Pure Butter Jenama Anchor</p></li>
-                    <li><p>Tiada Sebarang Bahan Pengawet</p></li>
-                    <li><p>Produk Kek Kukus Termasuk Bekas Tertutup Diberikan Secara Percuma</p></li>
-                  </ul>
+                <ul class="p-l-20 p-t-0 m-t-0">
+                  <li><p>Tekstur Kek Moist, Gebu Kerana Dihasilkan Dengan Menggunakan Cara Kukus</p></li>
+                  <li><p>Boleh Bertahan Selama 2 Bulan Pada Suhu Bilik</p></li>
+                  <li><p>Kotak Eksklusif Sesuai Untuk Hadiah</p></li>
+                  <li><p>Ramuan Yang Digunakan Adalah Premium</p></li>
+                  <li><p>Menggunakan Pure Butter Jenama Anchor</p></li>
+                  <li><p>Tiada Sebarang Bahan Pengawet</p></li>
+                  <li><p>Produk Kek Kukus Termasuk Bekas Tertutup Diberikan Secara Percuma</p></li>
+                </ul>
+                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Bahan-bahan: </p>
+                <p class="m-b-20 text-justify" >100% mentega tulin, Tepung Gandum Penuh Berprotein Tinggi,  Gula pasir, Buah-buahan Campuran Bermutu Tinggi dan Telor Gred A</p>
               </div>
             </div>
           </div>
@@ -259,21 +266,195 @@
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin">Pencarian Agen Stokis</h5>
             <div class="row">
-              <div class="col-sm-5 col-md-4">
-                <h1 class="m-t-5">Anda memerlukan wang tambahan? </h1>
+              <div class="col-sm-6">
+                <h1 class="m-t-5">Anda memerlukan pendapatan tambahan? </h1>
               </div>
               <div class="col-sm-7 col-md-5 no-padding xs-p-l-15 xs-p-r-15">
                 <div class="p-t-20 p-l-35 md-p-l-5 md-p-t-15">
                   <p class="text-justify">Sertai program Agen Stokist kami dengan segera untuk menjana duit lebih bersama kami. Berminat? Sila daftar sebagai Agen Stokis kami dan mulakan bisness anda dari mana anda berada. </p>
-                  <p class="hint-text font-arial small-text col-md-7 no-padding">
-
-                  </p>
+                  <!-- <p>
+                    <button type="button" class="btn btn-primary" name="button">Daftar Ejen Stokis</button>
+                  </p> -->
+                  <!-- <p class="hint-text font-arial small-text col-md-7 no-padding">
+                  </p> -->
                 </div>
               </div>
             </div>
+
           </div>
+
+
         </div>
       </section>
+
+      <section class="bg-master-dark p-b-85 p-t-75">
+        <div class="container">
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <h5 class="block-title text-white hint-text no-margin">Ejen Stokis eCaque</h5>
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="light text-white m-b-0 p-b-0">Pendaftaran Ejen Stokis eCaque</h1>
+                <h4 class="text-white m-t-0 p-t-0">Daftar jika ingin membuat pendapatan tambahan bersama kami</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-7">
+                <form class="m-t-25 m-b-20">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Nama Penuh</label>
+                        <input id="fullname" name="fullname" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-5 ">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">No. Kad Pengenalan</label>
+                        <input id="identificationNo" name="identificationNo" type="text" class="form-control" placeholder="XXXXXX-XX-XXXX">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-t-5">
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Jantina</label>
+                        <select id="jantina" name="jantina" class="form-control" >
+                          <?php getJantina(); ?>
+                        </select>
+                        <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Warganegara</label>
+                        <select id="nationality" name="nationality" class="form-control" >
+                          <?php getNegara(); ?>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Bangsa</label>
+                        <select id="bangsa" name="bangsa" class="form-control" >
+                          <?php getKeturunan(); ?>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h5 class="text-white block-title">Alamat Surat Menyurat</h5>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Alamat Premis</label>
+                        <input id="alamat" name="alamat" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-t-5">
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Bandar</label>
+                        <input id="bandar" name="bandar" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Negeri</label>
+                        <select id="negeri" name="negeri" class="form-control" >
+                          <?php getNegeri(); ?>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Poskod</label>
+                        <input id="poskod" name="poskod" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <h5 class="text-white block-title">Maklumat Telekomunikasi</h5>
+
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Alamat emel</label>
+                        <input id="email" name="email" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">No. Telefon</label>
+                        <input id="phone" name="phone" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <h5 class="text-white block-title">Maklumat Media Sosial</h5>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Facebook</label>
+                        <input id="facebook" name="facebook" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Instagram</label>
+                        <input id="instagram" name="instagram" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">linkedin</label>
+                        <input id="linkedin" name="linkedin" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <h5 class="text-white block-title">Pengakuan</h5>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p class="text-white">
+                        Saya dengan ini mengaku bahawa segala maklumat yang diberikan di atas adalah benar dan tepat. Saya juga bersetuju untuk mematuhi syarat-syarat dan peraturan-peraturan yang telah ditetapkan oleh pihak ECAQUE ENTERPRISE
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="row m-t-20">
+                    <div class="col-md-12">
+                      <button type="button" class="btn btn-primary" name="button">Daftar Ejen Stokis <i class="fa fa-send m-l-5"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5 m-t-10">
+                <h4 class="text-white">Do</h4>
+                <ul class="text-white">
+                  <li>Hanya ejen yang berdaftar secara sah di bawah eCaque Enterprise sahaja dibenarkan untuk berhubung terus dengan pihak HQ di mana kami akan memberi tip-tip dan panduan serta tunjuk ajar bagi memasarkan produk eCaque.</li>
+                  <li>Untuk tujuan pemasaran, ejen dibenarkan untuk menggunakan platform seperti  FB Personal, FB Ads, Instagram, group-group business, personal wall, e-commerce personal, blog personal, google ads, website personal, group WeChat, group WhatsApp dan lain-lain.</li>
+                  <li>Ejen adalah <b>DIBENARKAN</b> untuk melantik staff jualan bagi tujuan membuat pemasaran secara dalam talian (online) atau secara jualan langsung (offline)</li>
+                  <li>Ejen <b>DIWAJIBKAN</b> untuk mengambil stok sekurang-kurangnya <b>LIMA(5) KOTAK</b> untuk setiap pesanan stok.</li>
+                </ul>
+                <h4 class="text-white">Don't</h4>
+                <ul class="text-white">
+                  <li>Ejen adalah <b>TIDAK DIBENARKAN</b> untuk menjual di <b>PLATFORM MARKETPLACE</b> seperti di Shopee, Mudah.my, Lazada, marketplace FB dan lain-lain. Ini bagi mengelakkan berlakunya isu salah faham mengenai harga oleh pelanggan.</li>
+                  <li><b>DILARANG</b> mengubah harga secara sengaja atau tidak sengaja tanpa kebenaran pihak HQ.</li>
+                  <li>Ejen <b>DILARANG</b> melakukan apa-apa tindakan berunsurkan sabotaj atau perkara-perkara yang boleh menjatuhkan reputasi HQ / Pemilik eCaque / Ejen / pelanggan Ecaque.</li>
+                  <li><b>DILARANG</b> menjual kepada pihak ketiga seperti Pemborong, Kedai Kek, Bazaar Expo dan sebagainya.</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+
+        </div>
+      </section>
+
+
       <!-- END CONTENT SECTION -->
       <!-- BEGIN CONTENT SECTION -->
       <section class="p-b-85 p-t-75 p-b-65 p-t-55  bg-master-lighter">
@@ -281,7 +462,7 @@
           <div class="md-p-l-20 xs-no-padding clearfix">
             <div class="col-sm-4 no-padding">
               <div class="p-r-40 md-pr-30">
-                <img alt="" class="m-b-20" src="assets/images/Parachute.svg">
+                <!-- <img alt="" class="m-b-20" src="assets/images/Parachute.svg"> -->
                 <h6 class="block-title p-b-5">Content Material  <i class="pg-arrow_right m-l-10"></i></h6>
                 <p class="m-b-30">Content Material Akan diberikan kepada anda untuk memudahkan anda untuk penerangan maklumat produk kepada pelanggan-pelanggan anda.</p>
               </div>
@@ -289,7 +470,7 @@
             </div>
             <div class="col-sm-4 no-padding">
               <div class="p-r-40 md-pr-30">
-                <img alt="" class="m-b-20" src="assets/images/Prizemedalion.svg">
+                <!-- <img alt="" class="m-b-20" src="assets/images/Prizemedalion.svg"> -->
                 <h6 class="block-title p-b-5">Guideline<i class="pg-arrow_right m-l-10"></i></h6>
                 <p class="m-b-30">Kami akan berikan panduan kepada anda bagaimana cara-cara yang membolehkan tuan/puan untuk mendapatkan jualan.</p>
                 <!-- <p class="muted font-arial small-text col-sm-9 no-padding">Limitless possibilities, Highly customizable, Great UI & UX</p> -->
@@ -298,7 +479,7 @@
             </div>
             <div class="col-sm-4 no-padding">
               <div class="p-r-40 md-pr-30">
-                <img alt="" class="m-b-20" src="assets/images/Umbrella.svg">
+                <!-- <img alt="" class="m-b-20" src="assets/images/Umbrella.svg"> -->
                 <h6 class="block-title p-b-5">Coaching Online & Offline <i class="pg-arrow_right m-l-10"></i></h6>
                 <p class="m-b-30">Pihak tuan/puan boleh menghubungi atau datang berjumpa dengan kami untuk mendapatkan khidmat coaching bagi melancarkan lagi proses marketing & jualan anda.</p>
                 <!-- <p class="muted font-arial small-text col-sm-9 no-padding">Highly customizable NVD3, rickshaw, Spark Lines, D3.</p> -->
@@ -308,7 +489,7 @@
           <div class="md-p-l-20 m-t-30 xs-no-padding clearfix">
             <div class="col-sm-4 no-padding">
               <div class="p-r-40 md-pr-30">
-                <img alt="" class="m-b-20" src="assets/images/Parachute.svg">
+                <!-- <img alt="" class="m-b-20" src="assets/images/Parachute.svg"> -->
                 <h6 class="block-title p-b-5">Group Whatsapp dan FB <i class="pg-arrow_right m-l-10"></i></h6>
                 <p class="m-b-30">Group diwujudkan bagi memudahkan pihak Tuan/Puan untuk merujuk sesuatu daripada pihak HQ berkenaan produk kek buah eCaque</p>
                 <!-- <p class="muted font-arial small-text col-sm-9 no-padding">Icon Fonts, Vector SVG's, pages 14x14px vector icons.</p> -->
@@ -317,7 +498,7 @@
             </div>
             <div class="col-sm-4 no-padding">
               <div class="p-r-40 md-pr-30">
-                <img alt="" class="m-b-20" src="assets/images/Prizemedalion.svg">
+                <!-- <img alt="" class="m-b-20" src="assets/images/Prizemedalion.svg"> -->
                 <h6 class="block-title p-b-5">Bonus Duit Raya <i class="pg-arrow_right m-l-10"></i></h6>
                 <p class="m-b-30">Berita baik untuk stokis yang mencapai jualan yang ditetapkan oleh pihak HQ akan memperolehi bonus sempena hari raya 2020.</p>
                 <!-- <p class="muted font-arial small-text col-sm-9 no-padding">Limitless possibilities, Highly customizable, Great UI & UX</p> -->
@@ -326,7 +507,7 @@
             </div>
             <div class="col-sm-4 no-padding">
               <div class="p-r-40 md-pr-30">
-                <img alt="" class="m-b-20" src="assets/images/Umbrella.svg">
+                <!-- <img alt="" class="m-b-20" src="assets/images/Umbrella.svg"> -->
                 <h6 class="block-title p-b-5">Produk Senang Dijual <i class="pg-arrow_right m-l-10"></i></h6>
                 <p class="m-b-30">Produk Kek Kukus eCaque sangat senang dijual kerana rasa kek buah yang sangat diminati ramai dijual dengan harga yang berpatutan.</p>
                 <!-- <p class="muted font-arial small-text col-sm-9 no-padding">Highly customizable NVD3, rickshaw, Spark Lines, D3.</p> -->
