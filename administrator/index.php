@@ -76,7 +76,7 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
             <div class="dropdown pull-right sm-m-r-5">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline">
-                  <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+                  <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar.jpg" width="32" height="32">
                   </span>
               </button>
               <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
@@ -95,7 +95,7 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
         </div>
         <div class="header-inner justify-content-start header-lg-height title-bar">
           <div class="brand inline align-self-end">
-            <img src="../assets/images/Logo_2020_White.png" alt="logo" data-src="../assets/images/Logo_2020_White.png" data-src-retina="../assets/img/Jata_selangor.png" height="50">
+            <img src="../assets/images/Logo_2020_White.png" alt="logo" data-src="../assets/images/Logo_2020_White.png" data-src-retina="../assets/images/Logo_2020_White.png" height="50">
           </div>
           <h2 class="page-title align-self-center hidden-xs p-t-10">
             <!-- Sistem Hadiah Pengajian IPT -->
@@ -122,10 +122,10 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
               </a>
               <ul class="">
                 <li class="">
-                  <a class="syslink" href="page/admin/pemohon-tetapan">Inbox</a>
+                  <a class="syslink" href="page/admin/pemohon-tetapan">Senarai Stokis</a>
                 </li>
                 <li class="">
-                  <a class="syslink" href="page/admin/pemohon-tetapan">Senarai Stokis</a>
+                  <a class="syslink" href="page/admin/stockist-order">Order Stok</a>
                 </li>
               </ul>
             </li>

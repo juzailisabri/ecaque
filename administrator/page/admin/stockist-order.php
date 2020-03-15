@@ -86,20 +86,20 @@
             </div>
           </div>
           <div class="card-body no-padding ">
-            <h3 class="font-montserrat "> SENARAI EJEN eCAQUE</h3>
-            <p>Senarai stokis boleh dikemaskini dengan menekan butang kemaskini. Sila pastikan butiran adalah betul.</p>
+            <h3 class="font-montserrat "> STOCK ORDER</h3>
+            <p>Sila pilih Stokis yang berkenaan dan masukkan kuantiti, tarikh pesanan dan tarikh pungutan pesanan.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="row m-b-20">
-        <div class="col-md-6">
+      <div class="row m-b-20 padding-20">
+        <div class="col-md-3 no-padding">
           <div class="form-group form-group-default">
             <label>Carian Stokist</label>
             <input id="filter" name="filter" type="text" class="form-control" required="">
           </div>
         </div>
-        <div class="col-md-3 m-l-0">
+        <div class="col-md-3 no-padding">
           <div class="form-group form-group-default form-group-default-select2">
             <label>Negeri</label>
             <select id="filterNegeri" data-init-plugin='select2' class="full-width" name="filterNegeri">
@@ -107,22 +107,27 @@
             </select>
           </div>
         </div>
-        <div class="col-md-3 m-l-0">
+        <div class="col-md-3 no-padding">
           <div class="form-group form-group-default form-group-default-select2">
-            <label>Status</label>
+            <label>Status Stokis</label>
             <select id="filterStatus" data-init-plugin='select2' class="full-width" name="filterStatus">
-              <option value="">-- Pilih Status --</option>
-              <option value="1000">Not Verified</option>
-              <option value="1001">Verified</option>
-              <option value="1002">Barred</option>
+              <?php getStatus(1) ?>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3 no-padding">
+          <div class="form-group form-group-default form-group-default-select2">
+            <label>Status Pesanan</label>
+            <select id="filterStatusOrder" data-init-plugin='select2' class="full-width" name="filterStatusOrder">
+              <?php getStatus(2) ?>
             </select>
           </div>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-12 no-padding">
           <button id="filterbtn" type="button" class="btn btn-primary" name="button">Filter</button>
           <button id="resetbtn" type="button" class="btn btn-primary" name="button">Reset</button>
-          <button id="addnewstockist" type="button" class="btn btn-success pull-right" name="button"> <i class="fa fa-plus m-r-5"></i> Add New Stockist</button>
+          <button id="addNewOrder" type="button" class="btn btn-success pull-right" name="button"> <i class="fa fa-plus m-r-5"></i> Add New Order</button>
         </div>
       </div>
       <div class="row">
@@ -135,8 +140,8 @@
                   <th class="">Nama Stokist</th>
                   <th class="">Nama Stokist</th>
                   <th style="width:200px;" class="text-center">Contact Details</th>
-                  <th style="width:200px;" class="text-center">Registered Date</th>
-                  <th style="width:100px;" class="text-center">Negeri</th>
+                  <th style="width:100px;" class="text-center">Quantity</th>
+                  <th style="width:200px;" class="text-center">Tarikh</th>
                   <th style="width:90px;" class="text-center">Action</th>
                 </tr>
               </thead>
@@ -162,7 +167,55 @@
   </div>
 </div>
 
+<div class="" id="detailDivStokistOrder" style="display:none">
+  <div class="bg-white padding-20 container-fixed-lg p-b-30">
+    <div class="container full-height">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <?php include("form-template-order-stock.php") ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
+
+
+
+$("#addNewOrder").click(function(e){
+  $('#form-stokist-order').formValidation("resetForm",true);
+  $("#detailDivStokistOrder").show();
+  $("#mainDiv").hide();
+  $("#detailDiv").hide();
+  $('#form-stokist-order').find("select").val("").change();
+  $('#form-stokist-order').formValidation("resetForm",true);
+
+  resetDefValue($("[name='rpprice[]']"));
+  resetDefValue($("[name='rpid[]']"));
+  resetDefValue($("[name='quantity[]']"));
+
+  ESOFUNC = "insertOrder";
+});
+
+$("[name='rpprice[]'],[name='rpid[]'],[name='quantity[]']").change(function(e){
+  CHANGESTABLEPRODUCT = true;
+});
+
+function resetDefValue(element){
+  $(element).each(function(e){
+    $(this).val($(this).attr("defvalue"));
+  })
+}
+
+$("[id='back']").click(function(e){
+  $("#mainDiv").show();
+  $("#detailDiv").hide();
+  $("#detailDivStokistOrder").hide();
+  tablePengguna.ajax.reload(null, false);
+});
 
 function detectDisabled(){
   $("input").parents(".form-group").removeClass("required");
@@ -187,10 +240,11 @@ var tablePengguna = $('#table-pengguna').on('preXhr.dt', function ( e, settings,
     "url": "db",
     "type": "POST",
     "data": function ( d ) {
-      d.func = "getStokist";
+      d.func = "getStokistOrder";
       d.search = $("#filter").val();
       d.negeri = $("#filterNegeri").val();
       d.status = $("#filterStatus").val();
+      d.statusOrder = $("#filterStatusOrder").val();
       // d.kaunterStat = $("#kaunterStatus").val();
     }
   },
@@ -202,6 +256,7 @@ var tablePengguna = $('#table-pengguna').on('preXhr.dt', function ( e, settings,
   fnDrawCallback: function () {
     // $("#counter").html(this.fnSettings().fnRecordsTotal())
     tablePengguna.$("[id='edituser']").click(edituserFunc);
+    tablePengguna.$("[id='editOrder']").click(editOrder);
   }
 });
 
@@ -212,16 +267,41 @@ $("#filter").on("keydown", function(e) {
     }
 });
 
-$("#filterNegeri").change(function(e){
-  tablePengguna.ajax.reload();
-});
-$("#filterStatus").change(function(e){
+$("#filterNegeri, #filterStatusOrder, #filterStatus").change(function(e){
   tablePengguna.ajax.reload();
 });
 
 $("#filterbtn").click(function(e){
   tablePengguna.ajax.reload();
 });
+
+var EOSID;
+var CHANGESTABLEPRODUCT;
+
+function editOrder(){
+  loading();
+  CHANGESTABLEPRODUCT = false;
+  ESOFUNC = "updateOrderStock";
+  EOSID = $(this).attr("key");
+  var fd = new FormData();
+  fd.append("func","getStokistOrderDetail");
+  fd.append("eosid",EOSID);
+  $.ajax({
+      type: 'POST',
+      url: "db",
+      data: fd,
+      dataType: "json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        finishload();
+        setFormOrder(data);
+      },
+      error: function(data) {
+      }
+  });
+}
 
 var ESID = null;
 
@@ -300,8 +380,48 @@ function setForm(data){
 
   $("#mainDiv").hide();
   $("#detailDiv").show();
+  $("#detailDivStokistOrder").hide();
 
   detectDisabled();
+}
+
+function setFormOrder(data){
+  resetDefValue($("[name='rpprice[]']"));
+  resetDefValue($("[name='rpid[]']"));
+  resetDefValue($("[name='quantity[]']"));
+  // var enc_id = data["EOS"][0]["enc_id"];
+  var eos_es_id = data["EOS"][0]["eos_es_id"];
+  var eos_dateorder = data["EOS"][0]["eos_dateorder"];
+  var eos_datepickup = data["EOS"][0]["eos_datepickup"];
+  var eos_rjp_id = data["EOS"][0]["eos_rjp_id"];
+  var eos_rtp_id = data["EOS"][0]["eos_rtp_id"];
+  var eos_otherPlace = data["EOS"][0]["eos_otherPlace"];
+  var eos_deliveryCharges = data["EOS"][0]["eos_deliveryCharges"];
+  var eos_status = data["EOS"][0]["eos_status"];
+
+  $("#stokist").val(eos_es_id).change();
+  $("#orderDate").val(eos_dateorder).change();
+  $("#pickupDate").val(eos_datepickup).change();
+  $("#JenisPenghantaran").val(eos_rjp_id).change();
+  $("#tempatPenghantaran").val(eos_rtp_id).change();
+  $("#tempatOthers").val(eos_otherPlace).change();
+  $("#deliveryCharges").val(eos_deliveryCharges).change();
+  $("#setStatus").val(eos_status).change();
+
+  $("#mainDiv").hide();
+  $("#detailDiv").hide();
+  $("#detailDivStokistOrder").show();
+
+  $.each( data["EOSP"], function( key, value ) {
+    var id = data["EOSP"][key]["eosp_rp_id"];
+    var pr = data["EOSP"][key]["eosp_price"];
+    var qt = data["EOSP"][key]["eosp_quantity"];
+
+    $("[name='rpprice[]'][key='"+id+"']").val(pr);
+    $("[name='quantity[]'][key='"+id+"']").val(qt);
+  });
+
+  $('#form-stokist-order').formValidation("resetForm",false);
 }
 
 function toogleStatus(){
@@ -342,18 +462,22 @@ $("#addnewstockist").click(function(e){
   INSFUNC = 'insertStokist';
 });
 
-$("[id='back']").click(function(e){
-  $("#mainDiv").show();
-  $("#detailDiv").hide();
-  tablePengguna.ajax.reload(null, false);
-});
+
 
 $('#form-stokist').formValidation({
 }).on('success.form.fv', function(e) {
     // Prevent form submission
     e.preventDefault();
     runfunction = save;
-    saConfirm4("Muktamat","Anda pasti untuk simpan data stokis? Sila pastikan butiran stokis adalah betul. Terima Kasih.","warning","Ya, Pasti",runfunction,"Pasti");
+    saConfirm4("Muktamat","Anda pasti untuk stokis data pemohon? Sila pastikan butiran stokis adalah betul. Terima Kasih.","warning","Ya, Pasti",runfunction,"Pasti");
+});
+
+$('#form-stokist-order').formValidation({
+}).on('success.form.fv', function(e) {
+    // Prevent form submission
+    e.preventDefault();
+    runfunction = saveOrder;
+    saConfirm4("Muktamat","Anda pasti untuk simpan data pesanan? Sila pastikan butiran pesanan adalah betul. Terima Kasih.","warning","Ya, Pasti",runfunction,"Pasti");
 });
 
 var INSFUNC = 'insertStokist';
@@ -383,5 +507,72 @@ function save(){
       }
   });
 }
+
+var ESOFUNC = "insertOrder";
+
+function saveOrder(){
+  var myform = document.getElementById('form-stokist-order');
+  var fd = new FormData(myform);
+  fd.append("func",ESOFUNC);
+  fd.append("CHANGESTABLEPRODUCT",CHANGESTABLEPRODUCT);
+  fd.append("eosid",EOSID);
+  $.ajax({
+      type: 'POST',
+      url: "db",
+      data: fd,
+      dataType: "json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        if(data["STATUS"]){
+          saAlert3("Berjaya",data["MSG"],"success");
+        } else {
+          saAlert3("Gagal",data["MSG"],"warning");
+        }
+      },
+      error: function(data) {
+        // saAlert3("Error","Session Log Out Error","warning");
+      }
+  });
+}
+
+
+
+$("#orderDate").datepicker({
+  format: 'dd-mm-yyyy'
+});
+
+$("#pickupDate").datepicker({
+  format: 'dd-mm-yyyy'
+});
+
+$("#JenisPenghantaran").change(function(e){
+  $('#form-stokist-order').formValidation("resetForm",false);
+  var val = $(this).val();
+  if (val == "1") {
+    $("#tempatPenghantaran").prop("disabled",false);
+    $("#deliveryCharges").val("").change();
+    $("#deliveryCharges").prop("disabled",true);
+  } else if (val == "2") {
+    $("#tempatPenghantaran").prop("disabled",true);
+    $("#deliveryCharges").prop("disabled",false);
+  } else {
+    $("#tempatPenghantaran").prop("disabled",true);
+    $("#deliveryCharges").prop("disabled",true);
+    $("#tempatPenghantaran").val("").change();
+  }
+});
+
+$("#tempatPenghantaran").change(function(e){
+  $('#form-stokist-order').formValidation("resetForm",false);
+  var val = $(this).val();
+  if (val == "99") {
+    $("#tempatOthers").prop("disabled",false);
+  } else {
+    $("#tempatOthers").prop("disabled",true);
+    $("#tempatOthers").val("").change();
+  }
+});
 
 </script>

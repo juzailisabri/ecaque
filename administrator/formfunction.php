@@ -58,6 +58,97 @@ function getKeturunan(){
   }
 }
 
+function getJenisPenghantaran(){
+  global $conn;
+
+  $select = "SELECT * FROM ref_jenisPenghantaran WHERE rjp_status = 1";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Jenis Penghantaran --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rjp_id"];
+    $name=$row["rjp_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
+function getTempatPenghantaran(){
+  global $conn;
+
+  $select = "SELECT * FROM ref_tempatPenghantaran WHERE rtp_status = 1";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Tempat Penghantaran --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rtp_id"];
+    $name=$row["rtp_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
+function getStatus($module){
+  global $conn;
+
+  $select = "SELECT * FROM ref_status WHERE rs_module = $module";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Pilih Status --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rs_id"];
+    $name=$row["rs_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
+function getStokist(){
+  global $conn;
+
+  $select = "SELECT es_name, es_id FROM e_stockist WHERE es_status = 1001";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Pilih Stokist --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["es_id"];
+    $name=$row["es_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
+function getProduct(){
+  global $conn;
+
+  $select = "SELECT
+  rp_id,
+  rp_name,
+  rp_desc,
+  rp_price
+  FROM ref_product
+  WHERE rp_status = 1";
+  $result = $conn->query($select);
+
+  while ($row = $result->fetch_assoc())
+  {
+    $rp_id=$row["rp_id"];
+    $rp_name=$row["rp_name"];
+    $rp_desc=$row["rp_desc"];
+    $rp_price=$row["rp_price"];
+    echo "<tr>
+      <td style=\"width:200px;\" class=\"text-left no-padding\">$rp_name</td>
+      <td style=\"width:50px;\" class=\"text-center padding-5\">
+       <input required id=\"rpprice[]\" name=\"rpprice[]\" key=\"$rp_id\" type=\"text\" class=\"form-control text-center no-border\" value=\"$rp_price\" defvalue=\"$rp_price\">
+       <input required id=\"rpid[]\" name=\"rpid[]\" key=\"$rp_id\" type=\"hidden\" class=\"form-control text-center no-border\" value=\"$rp_id\" defvalue=\"$rp_id\">
+      </td>
+      <td style=\"width:50px;\" class=\"text-center padding-5\">
+       <input min=\"0\" required id=\"quantity[]\" name=\"quantity[]\" key=\"$rp_id\" type=\"number\" class=\"form-control text-center no-border\" value=\"0\" defvalue=\"0\">
+      </td>
+    </tr>";
+  }
+}
+
+function defaultinput(){
+  return "<input id=\"instagram\" name=\"instagram\" type=\"text\" class=\"form-control\" placeholder=\"\">";
+}
+
 function dashboardheader(){
   ?>
   <div class="social-wrapper">
