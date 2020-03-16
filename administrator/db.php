@@ -804,6 +804,16 @@ function getStockRecord($data){
 
   $where = "";
 
+  if($data["tarikhDari"] != ""){
+    $tarikhdari = convertdate($data["tarikhDari"]);
+    $where .= " AND esr_datetime >= '$tarikhdari' ";
+  }
+
+  if($data["tarikhHingga"] != ""){
+    $tarikhHingga= convertdate($data["tarikhHingga"]);
+    $where .= " AND esr_datetime <= '$tarikhHingga' ";
+  }
+
   $sql = "SELECT COUNT(esr_id) as count FROM e_stockrecord WHERE TRUE $where";
 
   $result = $conn->query($sql);
