@@ -112,9 +112,9 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
             <!-- <li class="active">
               <a href="page/kaunter/application" class="syslink" id="profileSetting">Inbox</a>
             </li> -->
-            <!-- <li class="active">
-              <a href="page/kaunter/outbox" class="syslink" id="profileSetting">Senarai Stokist</a>
-            </li> -->
+            <li class="active">
+              <a href="page/admin/stock-record" class="syslink" id="profileSetting">Stock Record</a>
+            </li>
             <li class="active">
               <a href="javascript:;" class="syslink2">
                 <span class="title ">Ejen Stokis</span>

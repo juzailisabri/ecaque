@@ -114,6 +114,26 @@ function getStokist(){
   }
 }
 
+function getProductSelect(){
+  global $conn;
+
+  $select = "SELECT
+  rp_id,
+  rp_name,
+  rp_desc,
+  rp_price
+  FROM ref_product
+  WHERE rp_status = 1";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Pilih Produk --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rp_id"];
+    $name=$row["rp_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
 function getProduct(){
   global $conn;
 

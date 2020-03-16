@@ -783,4 +783,195 @@ function convertdatetime($date){
 
   return $date." ".$datetime[1];
 }
+
+if($_POST["func"] == "getStockRecord"){
+  echo json_encode(getStockRecord($_POST));
+}
+
+function getStockRecord($data){
+  global $conn;
+
+  $columns = array(
+    // datatable column index  => database column name
+    0 => 'esr_id',
+    1 => 'rp_name',
+    2 => 'rp_name',
+    3 => 'esr_datetime',
+    4 => 'esr_quantity',
+    5 => 'uu_fullname',
+    6 => 'esr_id'
+  );
+
+  $where = "";
+
+  $sql = "SELECT COUNT(esr_id) as count FROM e_stockrecord WHERE TRUE $where";
+
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  $numrows = $row["count"];
+  $totalData = $numrows;
+
+  $sql = "SELECT
+  SHA2(esr_id,256) as enc_id,
+  esr_id,
+  rp_name,
+  esr_quantity,
+  uu_fullname,
+  esr_datetime
+  FROM e_stockrecord
+  LEFT JOIN ref_product ON rp_id = esr_rp_id
+  LEFT JOIN u_user ON uu_id = esr_uu_id
+  WHERE TRUE $where
+  ";
+
+  if(!empty($data['search'])) {
+    $sql.=" ORDER BY ". $columns[$data['order'][0]['column']]." ".$data['order'][0]['dir']." LIMIT ".$data['start']." ,".$data['length']."   ";
+
+    $result = $conn->query($sql);
+    $numrows = $result->num_rows;
+    $totalFiltered = $numrows;
+  } else {
+    $sql.=" ORDER BY ". $columns[$data['order'][0]['column']]." ".$data['order'][0]['dir']." LIMIT ".$data['start']." ,".$data['length']."   ";
+    $result = $conn->query($sql);
+    $numrows = $result->num_rows;
+    $totalFiltered = $numrows;
+  }
+
+  $x = 1;
+  $datadb = array();
+  while ($row = $result->fetch_assoc()) {
+    $esr_id = $row["esr_id"];
+    $rp_name = $row["rp_name"];
+    $esr_quantity = $row["esr_quantity"];
+    $uu_fullname = $row["uu_fullname"];
+    $esr_datetime = $row["esr_datetime"];
+
+    $nestedData=array();
+    $nestedData[] = $esr_id;
+    $nestedData[] = "<b>$rp_name</b><br><sub>Quantity</sub><br>$esr_quantity Pieces
+    <br><sub>Stock Keeper</sub><br>$uu_fullname";
+    $nestedData[] = $rp_name;
+    $nestedData[] = $esr_datetime;
+    $nestedData[] = $esr_quantity;
+    $nestedData[] = $uu_fullname;
+    $nestedData[] = '
+    <div class="btn-group row w-50">
+      <div class="btn-group col-12 p-0">
+        <button id="editStock" key="'.$row["enc_id"].'" type="button" class="btn btn-success w-100">
+          <span class="p-t-5 p-b-5">
+          <i class="fa fa-edit fs-15"></i>
+          </span>
+        </button>
+      </div>
+    </div>';
+
+    $datadb[] = $nestedData;
+    $x++;
+  }
+
+  error_log(print_r($data,true),0);
+
+  $json_data = array(
+    "draw"            => intval( $data['draw'] ),   // for every request/draw by clientside , they send a number as a parameter, when they recieve a response/data they first check the draw number, so we are sending same number in draw.
+    "recordsTotal"    => intval( $totalFiltered),  // total number of records
+    "recordsFiltered" => intval( $totalData ), // total number of records after searching, if there is no searching then totalFiltered = totalData
+    "data"            => $datadb
+  );
+
+  return $json_data;
+}
+
+if($_POST["func"] == "insertStok"){
+  echo json_encode(insertStok($_POST));
+}
+
+function insertStok($data){
+  global $conn;
+
+  $uuid = $_SESSION['ID'];
+
+  $product = $data["product"];
+  $quantity = $data["quantity"];
+
+  $i = "INSERT INTO e_stockrecord
+  (
+    esr_rp_id,
+    esr_quantity,
+    esr_status,
+    esr_uu_id,
+    esr_datetime
+  )
+    VALUES
+  (
+    $product,
+    $quantity,
+    '3001',
+    $uuid,
+    NOW()
+  )";
+
+  if ($conn->query($i)) {
+    $ret["STATUS"] = true;
+    $ret["MSG"] = "Stok Berjaya Dimasukkan";
+  } else {
+    $ret["STATUS"] = false;
+    $ret["MSG"] = "Stok Tidak Berjaya Dimasukkan, sila hubungi pihak admin sistem";
+  }
+
+  return $ret;
+}
+
+if($_POST["func"] == "updateStock"){
+  echo json_encode(updateStock($_POST));
+}
+
+function updateStock($data){
+  global $conn;
+
+  $esrid = $data["esrid"];
+  $uuid = $_SESSION['ID'];
+  $product = $data["product"];
+  $quantity = $data["quantity"];
+
+  $i = "UPDATE e_stockrecord
+  SET
+    esr_rp_id = $product,
+    esr_quantity = $quantity,
+    esr_status = '3001',
+    esr_uu_id = $uuid
+  WHERE SHA2(esr_id,256) = '$esrid' ";
+
+  if ($conn->query($i)) {
+    $ret["STATUS"] = true;
+    $ret["MSG"] = "Stok Berjaya Dikemaskini";
+  } else {
+    $ret["STATUS"] = false;
+    $ret["MSG"] = "Stok Tidak Berjaya Dikemaskini, sila hubungi pihak admin sistem";
+  }
+  return $ret;
+}
+
+if($_POST["func"] == "getStockDetail"){
+  echo json_encode(getStockDetail($_POST));
+}
+
+function getStockDetail($data){
+  global $conn;
+  $esrid = $data["esrid"];
+
+  $s = "SELECT
+  esr_rp_id,
+  esr_quantity
+  FROM e_stockrecord
+  WHERE SHA2(esr_id,256) = '$esrid'";
+
+  $arr = [];
+  $result = $conn->query($s);
+  while ($row = $result->fetch_assoc())
+  {
+    $arr[] = $row;
+  }
+
+  return $arr;
+}
 ?>
