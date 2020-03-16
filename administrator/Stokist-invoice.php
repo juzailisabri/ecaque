@@ -363,7 +363,7 @@ $pdf->writeHTML($html, true, false, true, false);
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('Surat Tiada Kekosongan - CPSB-G4-223.pdf', 'I');
+$pdf->Output('eCaque Stokist Invoice #0000.pdf', 'I');
 
 //============================================================+
 // END OF FILE
