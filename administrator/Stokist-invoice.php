@@ -22,12 +22,24 @@ function getStokistOrderDetail($id){
   eos_es_id,
   DATE_FORMAT(eos_dateorder,'%d-%m-%Y') as eos_dateorder,
   DATE_FORMAT(eos_datepickup,'%d-%m-%Y') as eos_datepickup,
-  eos_rjp_id,
-  eos_rtp_id,
+  rjp_name,
+  rtp_name,
   eos_otherPlace,
   eos_deliveryCharges,
-  eos_status
+  rs_name,
+  es_name,
+  es_address,
+  es_bandar,
+  rngri_name,
+  es_poskod,
+  es_phone,
+  es_email
   FROM e_orderstock
+  LEFT JOIN e_stockist ON es_id = eos_es_id
+  LEFT JOIN ref_negeri ON rngri_id = es_rngri_id
+  LEFT JOIN ref_jenisPenghantaran ON rjp_id = eos_rjp_id
+  LEFT JOIN ref_tempatPenghantaran ON rtp_id = eos_rtp_id
+  LEFT JOIN ref_status ON rs_id = eos_status
   WHERE eos_id = '$eosid' ";
 
   $arr1 = [];
@@ -83,6 +95,9 @@ function convertToTable($data){
 
 $data = getStokistOrderDetail(13);
 $bodytable = convertToTable($data["EOSP"]);
+
+
+
 $footertable = "";
 //============================================================+
 // File name   : example_061.php
@@ -116,6 +131,21 @@ class MYPDF extends TCPDF {
 
     //Page header
     public function Header() {
+      global $data;
+      $eos_dateorder = $data["EOS"][0]["eos_dateorder"];
+      $eos_datepickup = $data["EOS"][0]["eos_datepickup"];
+      $rjp_name = $data["EOS"][0]["rjp_name"];
+      $rtp_name = $data["EOS"][0]["rtp_name"];
+      $eos_otherPlace = $data["EOS"][0]["eos_otherPlace"];
+      $eos_deliveryCharges = $data["EOS"][0]["eos_deliveryCharges"];
+      $rs_name = $data["EOS"][0]["rs_name"];
+      $es_name = $data["EOS"][0]["es_name"];
+      $es_address = $data["EOS"][0]["es_address"];
+      $es_bandar = $data["EOS"][0]["es_bandar"];
+      $rngri_name = $data["EOS"][0]["rngri_name"];
+      $es_poskod = $data["EOS"][0]["es_poskod"];
+      $es_phone = $data["EOS"][0]["es_phone"];
+      $es_email = $data["EOS"][0]["es_email"];
         // Logo
         // $image_file = K_PATH_IMAGES.'logo_example.jpg';
         // $this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
@@ -128,15 +158,17 @@ class MYPDF extends TCPDF {
         $this->SetFont('helvetica', 'R', 10);
         $this->Cell(0, 10, 'Invoice No: ECQ-HQ-000001', 0, false, 'R', 0, '', 0, false, 'M', 'M');
 
-        $this->SetFont('helvetica', 'R', 10);
-        $this->SetY(46+4);
-        $this->Cell(0, 5, 'Client Name', 0, false, 'L', 0, '', 0, false, 'M', 'M');
-        $this->SetY(52+4);
-        $this->Cell(0, 5, 'Client Address', 0, false, 'L', 0, '', 0, false, 'M', 'M');
-        $this->SetY(58+4);
-        $this->Cell(0, 5, 'Delivery Method', 0, false, 'L', 0, '', 0, false, 'M', 'M');
-        $this->SetY(64+4);
-        $this->Cell(0, 5, 'Delivery Charges', 0, false, 'L', 0, '', 0, false, 'M', 'M');
+        $m = 46;
+        $d = 5;
+        $this->SetFont('helvetica', 'R', 9);
+        $this->SetY($m = $m+$d);
+        $this->Cell(0, 5, 'Client Name: '.$es_name, 0, false, 'L', 0, '', 0, false, 'M', 'M');
+        $this->SetY($m = $m+$d);
+        $this->Cell(0, 5, 'Client Address: '." $es_address, $es_bandar, $es_poskod $rngri_name", 0, false, 'L', 0, '', 0, false, 'M', 'M');
+        $this->SetY($m = $m+$d);
+        $this->Cell(0, 5, 'Delivery Method: '." $rjp_name", 0, false, 'L', 0, '', 0, false, 'M', 'M');
+        $this->SetY($m = $m+$d);
+        $this->Cell(0, 5, 'Delivery Charges:'." RM $eos_deliveryCharges", 0, false, 'L', 0, '', 0, false, 'M', 'M');
 
         $image_file = '../assets/images/Logo_2020_Black.png';
         $this->Image($image_file, 14, 10, 60, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
@@ -144,6 +176,8 @@ class MYPDF extends TCPDF {
 
     // Page footer
     public function Footer() {
+
+
         // global $ppb_pngesah1name;
         // global $ppb_pngesah2name;
         // global $ppb_pngesah3name;
@@ -272,9 +306,14 @@ $html = <<<EOF
     }
     td {
         border: none;
+        height: 40px;
     }
     td.second {
         border: 1;
+    }
+
+    table > tbody > tr.first {
+      border: 1;
     }
 
     .lowercase {
@@ -293,7 +332,7 @@ $html = <<<EOF
 </style>
 
 
-<table cellpadding="5" border="0">
+<table cellpadding="5" border="0.1">
   <tbody>
     <tr>
       <td width="50px" align="center"><b>#</b></td>
@@ -302,7 +341,6 @@ $html = <<<EOF
       <td width="125px" align="center"><b>Harga Seunit</b></td>
       <td width="100px" align="center"><b>Jumlah</b></td>
     </tr>
-    <hr>
     $bodytable
   </tbody>
   <tfooter>
