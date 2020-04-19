@@ -24,6 +24,9 @@ if ($conn->connect_error) {
   $status["DB"] = true;
 }
 
+$emailacc = "no-reply";
+$emailaccpass = "a}TdE@f2Uku%";
+$emailhost = "ecaque.my";
 
 // PASSWORD CONFIGURATION
 $cfg_salt = hash('sha256', "eC@qu32o1G");

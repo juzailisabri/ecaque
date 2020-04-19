@@ -27,6 +27,15 @@
     <link class="main-stylesheet" href="pages/css/pages.css" rel="stylesheet" type="text/css" />
     <link class="main-stylesheet" href="pages/css/pages-icons.css" rel="stylesheet" type="text/css" />
     <!-- BEGIN PAGES CSS -->
+    <link href="administrator/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="administrator/assets/plugins/formvalidation/css/formValidation.css" rel="stylesheet" type="text/css" media="screen" />
+    <style media="screen">
+      .fv-form-bootstrap .help-block {
+        margin-bottom: 0;
+        margin-left: 10px;
+        margin-bottom: 5px;
+      }
+    </style>
   </head>
   <body class="pace-dark">
     <!-- BEGIN HEADER -->
@@ -70,13 +79,13 @@
                 <a href="#" class="active  text-white">Home </a>
               </li>
               <li>
-                <a class="text-white  active"href="pricing.html">Pricing </a>
+                <a class="text-white  active"href="#">Pricing </a>
               </li>
               <li>
-                <a class="text-white  active"href="pricing.html">Where to Buy </a>
+                <a class="text-white  active" href="#">Where to Buy </a>
               </li>
               <li>
-                <a class="text-white active"href="contact.html">Contact Us</a>
+                <a class="text-white active"href="#">Contact Us</a>
               </li>
             </ul>
             <a href="#" class="text-white search-toggle hidden-xs hidden-sm" data-toggle="search"><i class="fs-14 pg-search"></i></a>
@@ -106,7 +115,8 @@
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
                     <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
-                    <div class="background" data-pages-bg-image="assets/slider/Slider3.jpg"></div>
+                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/Slider3.jpg"></div>
+                    <div class="background visible-xs" data-pages-bg-image="assets/slider/Slider3-p.jpg"></div>
                   </div>
                 </div>
                 <!-- END IMAGE PARRALAX -->
@@ -260,19 +270,65 @@
       </section>
       <!-- END CONTENT SECTION -->
       <!-- BEGIN CONTENT SECTION -->
+      <section class="bg-master-dark p-b-85 p-t-75">
+        <div class="container ">
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
+            <div class="row m-t-40">
+              <div class="col-sm-3 text-center">
+                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
+                <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
+                <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
+                <hr>
+                <h1 class="m-t-20 text-white">RM 50 </h1>
+                <h5 class="hint-text no-margin text-white">+ RM10 Postage </h5>
+                <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5>
+              </div>
+              <div class="col-sm-3 text-center">
+                <h5 class="block-title m-t-5 text-whitea bg-success"> <i class="fa fa-star m-r-10"></i> Most Popular </h5>
+                <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
+                <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
+                <hr>
+                <h1 class="m-t-20 text-white">RM 150 </h1>
+                <h5 class="hint-text no-margin text-white">Free Postage </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5>
+              </div>
+              <div class="col-sm-3 text-center">
+                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
+                <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
+                <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
+                <hr>
+                <h1 class="m-t-20 text-white">RM 200 </h1>
+                <h5 class="hint-text no-margin text-white">Free Postage </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5>
+              </div>
+              <div class="col-sm-3 text-center">
+                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
+                <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
+                <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
+                <hr>
+                <h1 class="m-t-20 text-white">RM 250 </h1>
+                <h5 class="hint-text no-margin text-white">Free Postage </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="bg-master-lightest p-b-85 p-t-75">
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin">Pencarian Agen Stokis</h5>
+            <h5 class="block-title hint-text no-margin">Pencarian Agen Dropship</h5>
             <div class="row">
               <div class="col-sm-6">
                 <h1 class="m-t-5">Anda memerlukan pendapatan tambahan? </h1>
               </div>
               <div class="col-sm-7 col-md-5 no-padding xs-p-l-15 xs-p-r-15">
                 <div class="p-t-20 p-l-35 md-p-l-5 md-p-t-15">
-                  <p class="text-justify">Sertai program Agen Stokist kami dengan segera untuk menjana duit lebih bersama kami. Berminat? Sila daftar sebagai Agen Stokis kami dan mulakan bisness anda dari mana anda berada. </p>
+                  <p class="text-justify">Sertai program Agen Dropship kami dengan segera untuk menjana duit lebih bersama kami. Berminat? Sila daftar sebagai Agen Dropship kami dan mulakan bisness anda dari mana anda berada. </p>
                   <!-- <p>
-                    <button type="button" class="btn btn-primary" name="button">Daftar Ejen Stokis</button>
+                    <button type="button" class="btn btn-primary" name="button">Daftar Ejen Dropship</button>
                   </p> -->
                   <!-- <p class="hint-text font-arial small-text col-md-7 no-padding">
                   </p> -->
@@ -289,27 +345,27 @@
       <section class="bg-master-dark p-b-85 p-t-75">
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title text-white hint-text no-margin">Ejen Stokis eCaque</h5>
+            <h5 class="block-title text-white hint-text no-margin">Ejen Dropship eCaque</h5>
             <div class="row">
               <div class="col-md-12">
-                <h1 class="light text-white m-b-0 p-b-0">Pendaftaran Ejen Stokis eCaque</h1>
+                <h1 class="light text-white m-b-0 p-b-0">Pendaftaran Ejen Dropship eCaque</h1>
                 <h4 class="text-white m-t-0 p-t-0">Daftar jika ingin membuat pendapatan tambahan bersama kami</h4>
               </div>
             </div>
             <div class="row">
               <div class="col-md-7">
-                <form class="m-t-25 m-b-20">
+                <form class="m-t-25 m-b-20" id="form-stokist">
                   <div class="row">
                     <div class="col-md-7">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Nama Penuh</label>
-                        <input id="fullname" name="fullname" type="text" class="form-control" placeholder="">
+                        <input id="fullname" required name="fullname" type="text" class="form-control" placeholder="">
                       </div>
                     </div>
                     <div class="col-md-5 ">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">No. Kad Pengenalan</label>
-                        <input id="identificationNo" name="identificationNo" type="text" class="form-control" placeholder="XXXXXX-XX-XXXX">
+                        <input id="identificationNo" required name="identificationNo" type="text" class="form-control" placeholder="XXXXXX-XX-XXXX">
                       </div>
                     </div>
                   </div>
@@ -317,7 +373,7 @@
                     <div class="col-md-4">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Jantina</label>
-                        <select id="jantina" name="jantina" class="form-control" >
+                        <select id="jantina" required name="jantina" class="form-control" >
                           <?php getJantina(); ?>
                         </select>
                         <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
@@ -326,7 +382,7 @@
                     <div class="col-md-4">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Warganegara</label>
-                        <select id="nationality" name="nationality" class="form-control" >
+                        <select id="nationality" required name="nationality" class="form-control" >
                           <?php getNegara(); ?>
                         </select>
                       </div>
@@ -334,7 +390,7 @@
                     <div class="col-md-4">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Bangsa</label>
-                        <select id="bangsa" name="bangsa" class="form-control" >
+                        <select id="bangsa" required name="bangsa" class="form-control" >
                           <?php getKeturunan(); ?>
                         </select>
                       </div>
@@ -347,7 +403,7 @@
                     <div class="col-md-12">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Alamat Premis</label>
-                        <input id="alamat" name="alamat" type="text" class="form-control" placeholder="">
+                        <input id="alamat" required name="alamat" type="text" class="form-control" placeholder="">
                       </div>
                     </div>
                   </div>
@@ -355,13 +411,13 @@
                     <div class="col-md-4">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Bandar</label>
-                        <input id="bandar" name="bandar" type="text" class="form-control" placeholder="">
+                        <input id="bandar" required name="bandar" type="text" class="form-control" placeholder="">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Negeri</label>
-                        <select id="negeri" name="negeri" class="form-control" >
+                        <select id="negeri" required name="negeri" class="form-control" >
                           <?php getNegeri(); ?>
                         </select>
                       </div>
@@ -369,7 +425,7 @@
                     <div class="col-md-4">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Poskod</label>
-                        <input id="poskod" name="poskod" type="text" class="form-control" placeholder="">
+                        <input id="poskod" required name="poskod" type="text" class="form-control" placeholder="">
                       </div>
                     </div>
                   </div>
@@ -380,13 +436,13 @@
                     <div class="col-md-7">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Alamat emel</label>
-                        <input id="email" name="email" type="text" class="form-control" placeholder="">
+                        <input id="email" required name="email" type="text" class="form-control" placeholder="">
                       </div>
                     </div>
                     <div class="col-md-5">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">No. Telefon</label>
-                        <input id="phone" name="phone" type="text" class="form-control" placeholder="">
+                        <input id="phone" required name="phone" type="text" class="form-control" placeholder="">
                       </div>
                     </div>
                   </div>
@@ -426,7 +482,7 @@
 
                   <div class="row m-t-20">
                     <div class="col-md-12">
-                      <button type="button" class="btn btn-primary" name="button">Daftar Ejen Stokis <i class="fa fa-send m-l-5"></i></button>
+                      <button type="submit" class="btn btn-primary" name="button">Daftar Ejen Dropship <i class="fa fa-send m-l-5"></i></button>
                     </div>
                   </div>
                 </form>
@@ -499,7 +555,7 @@
               <div class="p-r-40 md-pr-30">
                 <!-- <img alt="" class="m-b-20" src="assets/images/Prizemedalion.svg"> -->
                 <h6 class="block-title p-b-5">Bonus Duit Raya <i class="pg-arrow_right m-l-10"></i></h6>
-                <p class="m-b-30">Berita baik untuk stokis yang mencapai jualan yang ditetapkan oleh pihak HQ akan memperolehi bonus sempena hari raya 2020.</p>
+                <p class="m-b-30">Berita baik untuk Dropship yang mencapai jualan yang ditetapkan oleh pihak HQ akan memperolehi bonus sempena hari raya 2020.</p>
                 <!-- <p class="muted font-arial small-text col-sm-9 no-padding">Limitless possibilities, Highly customizable, Great UI & UX</p> -->
               </div>
               <div class="visible-xs b-b b-grey-light m-t-30 m-b-30"></div>
@@ -621,8 +677,8 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            Dah banyak saya cuba tapi kek ni paling sedap dan moist keknya… saya brpuas hati sangat, keknya rasanya sedap.. keknya di potong tak berderai...manisnya pun cukup.. Sekarang saya nak order lagi, 3pek <br> <small>- Ema Shadan (Brunei)</small>
-                            </h3>
+                  Dah banyak saya cuba tapi kek ni paling sedap dan moist keknya… saya brpuas hati sangat, keknya rasanya sedap.. keknya di potong tak berderai...manisnya pun cukup.. Sekarang saya nak order lagi, 3pek <br> <small>- Ema Shadan (Brunei)</small>
+                  </h3>
                   <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
@@ -633,8 +689,8 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            Alhamdulillah sedap sungguh kek buah ni. Makannya pun tak jemu sebab tidak terlalu manis. <br> <small>– Nurdin (Alor Setar, Kedah)</small>
-                            </h3>
+                  Alhamdulillah sedap sungguh kek buah ni. Makannya pun tak jemu sebab tidak terlalu manis. <br> <small>– Nurdin (Alor Setar, Kedah)</small>
+                  </h3>
                   <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
@@ -645,8 +701,8 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            Saya sudah beli 5 biji,4 biji saya bagi emak dan akak-akak, menyesal saya cuma 1 biji sahaja sebab dah habis separuh sebelum raya… Saya dan suami tidak jemu makan kek  ni, tidak ada sama kek buah yang lain yang pernah saya makan sebelum ni..  Betul2 sedap <br> <small>– Hjh Zuraidah (Brunei)</small>
-                            </h3>
+                  Saya sudah beli 5 biji,4 biji saya bagi emak dan akak-akak, menyesal saya cuma 1 biji sahaja sebab dah habis separuh sebelum raya… Saya dan suami tidak jemu makan kek  ni, tidak ada sama kek buah yang lain yang pernah saya makan sebelum ni..  Betul2 sedap <br> <small>– Hjh Zuraidah (Brunei)</small>
+                  </h3>
                   <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
@@ -655,8 +711,8 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            Dah makan pun. Allah, sedap betul kek buah nii. Rasa moist dan bau butternya. Buah pun banyak. Sedap sungguh! <br> <small>- Pn Norida Mohamed (Subang, Selangor)</small>
-                            </h3>
+                  Dah makan pun. Allah, sedap betul kek buah nii. Rasa moist dan bau butternya. Buah pun banyak. Sedap sungguh! <br> <small>- Pn Norida Mohamed (Subang, Selangor)</small>
+                  </h3>
                   <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
@@ -665,8 +721,8 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            Saya dengar cerita sedap kek ni, saya pun beli lah 1 bekas.. Subhanallah memang sedap rasanya lembut dan moist lembab rasa kek tu.. penuh buahnya… Tak cukup satu nak lagi..  <br> <small>- Wadiananty Abdullah (Miri, Sarawak)</small>
-                            </h3>
+                  Saya dengar cerita sedap kek ni, saya pun beli lah 1 bekas.. Subhanallah memang sedap rasanya lembut dan moist lembab rasa kek tu.. penuh buahnya… Tak cukup satu nak lagi..  <br> <small>- Wadiananty Abdullah (Miri, Sarawak)</small>
+                  </h3>
                   <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
@@ -675,8 +731,8 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            SubhanaAllah sedap sangat rasanya kek buah ecaque ni… Tak pernah saya rasa kek buah se”Moist” macam ini.. sebiji je tak cukup confirm akan habis sebelum raya. <br> <small>- Adina Rusdi (Dengkil, Selangor)</small>
-                            </h3>
+                  SubhanaAllah sedap sangat rasanya kek buah ecaque ni… Tak pernah saya rasa kek buah se”Moist” macam ini.. sebiji je tak cukup confirm akan habis sebelum raya. <br> <small>- Adina Rusdi (Dengkil, Selangor)</small>
+                  </h3>
                   <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
@@ -802,5 +858,142 @@
     <!-- BEGIN YOUR CUSTOM JS -->
     <script type="text/javascript" src="assets/js/custom.js"></script>
     <!-- END PAGES LIB -->
+    <script src="administrator/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="administrator/assets/plugins/formvalidation/js/formValidation.min.js"></script>
+    <script src="administrator/assets/plugins/formvalidation/js/framework/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $('#form-stokist').formValidation({
+    }).on('success.form.fv', function(e) {
+        // Prevent form submission
+        e.preventDefault();
+        runfunction = save;
+        saConfirm4("Daftar Ejen","Anda pasti maklumat yang dibekalkan adalah benar?","warning","Ya, Pasti",runfunction,"Pasti");
+    });
+
+    function save(){
+      var myform = document.getElementById('form-stokist');
+      var fd = new FormData(myform);
+      fd.append("func","insertAgent");
+      $.ajax({
+          type: 'POST',
+          url: "db?registerAgent",
+          data: fd,
+          dataType: "json",
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(data) {
+            if(data["STATUS"]){
+              saAlert3("Berjaya",data["MSG"],"success");
+              $('#form-stokist').formValidation("resetForm",true);
+            } else {
+              saAlert3("Gagal",data["MSG"],"warning");
+            }
+          },
+          error: function(data) {
+            // saAlert3("Error","Session Log Out Error","warning");
+          }
+      });
+    }
+
+    function saAlert(msg){ swal(msg); }
+    function saAlert2(title,msg){ swal(title,msg); }
+    function saAlert3(title,msg,status){ swal(title,msg,status); }
+    function saConfirm(title,text,type,confirmbtntext,runfunction,confirmtext,confirmdesc,canceltext,canceldesc){
+      swal({
+          title: title,
+          text: text,
+          type: type,
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: confirmbtntext,
+          cancelButtonText: "Cancel",
+          closeOnConfirm: false,
+          closeOnCancel: false
+      }, function(isConfirm){
+          if (isConfirm) {
+            runfunction();
+            swal(confirmtext, confirmdesc, "success");
+          } else {
+            swal(canceltext, canceldesc, "error");
+          }
+      });
+    }
+
+    function saConfirm2(title,text,type,confirmbtntext,runfunction,confirmtext,confirmdesc,canceltext,canceldesc){
+      swal({
+          title: title,
+          text: text,
+          type: type,
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: confirmbtntext,
+          cancelButtonText: "Cancel",
+          closeOnConfirm: false,
+          closeOnCancel: true
+      }, function(isConfirm){
+          if (isConfirm) {
+            runfunction();
+          } else {
+            swal(canceltext, canceldesc, "error");
+          }
+      });
+    }
+
+    function saConfirm4(title,text,type,confirmbtntext,runfunction,confirmtext){
+      swal({
+          title: title,
+          text: text,
+          type: type,
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: confirmbtntext,
+          cancelButtonText: "Cancel",
+          closeOnConfirm: false,
+          closeOnCancel: true
+      }, function(isConfirm){
+          if (isConfirm) {
+            saLoading();
+            runfunction();
+          }
+      });
+    }
+
+    function saConfirm3(title,text,type){
+      swal({
+          title: title,
+          text: text,
+          closeOnConfirm: false,
+          closeOnCancel: false,
+          showCancelButton: false,
+          showConfirmButton: false,
+          imageUrl: "administrator/assets/img/loading3.gif",
+          imageSize: '200x200'
+      }, function(isConfirm){
+
+      });
+    }
+
+    function saLoading(){
+      saConfirm3("Memposes Data","Sila Tunggu Sebentar sementara \n pelayan memproses data. \n\n Terima Kasih","loading");
+    }
+
+    function loading(){
+      // saConfirm3("Sila Tunggu Sebentar","Sementara sistem memproses data dari pengkalan data. Terima Kasih","success");
+      $("#loadingModal").modal({backdrop: 'static', keyboard: false});
+    }
+
+    function loadingMain(){
+      $("#loadingModal").modal({backdrop: 'static', keyboard: false});
+    }
+
+    function loadingMainFinish(){
+      $("#loadingModal").modal('hide');
+    }
+
+    function finishload(){
+      $("#loadingModal").modal('hide');
+    }
+    </script>
   </body>
 </html>
