@@ -270,7 +270,7 @@
       </section>
       <!-- END CONTENT SECTION -->
       <!-- BEGIN CONTENT SECTION -->
-      <section class="bg-master-dark p-b-85 p-t-75">
+      <section class="bg-master-dark p-b-85 p-t-75 hidden-xs">
         <div class="container ">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
@@ -307,6 +307,51 @@
                 <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
                 <hr>
+                <h1 class="m-t-20 text-white">RM 250 </h1>
+                <h5 class="hint-text no-margin text-white">Free Postage </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-master-dark p-b-85 p-t-75 visible-xs">
+        <div class="container ">
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
+            <div class="row m-t-40">
+              <div class="col-sm-3 text-center">
+                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
+                <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
+                <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
+                <h1 class="m-t-20 text-white">RM 50 </h1>
+                <h5 class="hint-text no-margin text-white">+ RM10 Postage </h5>
+                <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5>
+              </div>
+              <hr>
+              <div class="col-sm-3 text-center">
+                <h5 class="block-title m-t-5 text-whitea bg-success"> <i class="fa fa-star m-r-10"></i> Most Popular </h5>
+                <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
+                <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
+                <h1 class="m-t-20 text-white">RM 150 </h1>
+                <h5 class="hint-text no-margin text-white">Free Postage </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5>
+              </div>
+              <hr>
+              <div class="col-sm-3 text-center">
+                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
+                <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
+                <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
+                <h1 class="m-t-20 text-white">RM 200 </h1>
+                <h5 class="hint-text no-margin text-white">Free Postage </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5>
+              </div>
+              <hr>
+              <div class="col-sm-3 text-center">
+                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
+                <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
+                <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
                 <h1 class="m-t-20 text-white">RM 250 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5>
