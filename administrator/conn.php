@@ -1,8 +1,8 @@
 <?php
 
 $servername = "localhost";
-$username = "ecaquemy_ecaquemy";
-$password = "3c4qu3.my";
+$username = "ecaquemy";
+$password = "C9:hMJmj!34k6P";
 $database = "ecaquemy_ecaque";
 
 // Create connection
