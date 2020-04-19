@@ -106,7 +106,7 @@
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
                     <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
-                    <div class="background" data-pages-bg-image="assets/slider/slider3.jpg"></div>
+                    <div class="background" data-pages-bg-image="assets/slider/Slider3.jpg"></div>
                   </div>
                 </div>
                 <!-- END IMAGE PARRALAX -->
