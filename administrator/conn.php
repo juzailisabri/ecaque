@@ -1,9 +1,16 @@
 <?php
 
-$servername = "localhost";
-$username = "ecaquemy";
-$password = "C9:hMJmj!34k6P";
-$database = "ecaquemy_ecaque";
+if ($_SERVER["HTTP_HOST"] == "localhost") {
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $database = "ecaque";
+} else {
+  $servername = "localhost";
+  $username = "ecaquemy";
+  $password = "C9:hMJmj!34k6P";
+  $database = "ecaquemy_ecaque";
+}
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
