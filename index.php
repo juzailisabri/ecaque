@@ -493,7 +493,7 @@
                   <li>Hanya ejen yang berdaftar secara sah di bawah eCaque Enterprise sahaja dibenarkan untuk berhubung terus dengan pihak HQ di mana kami akan memberi tip-tip dan panduan serta tunjuk ajar bagi memasarkan produk eCaque.</li>
                   <li>Untuk tujuan pemasaran, ejen dibenarkan untuk menggunakan platform seperti  FB Personal, FB Ads, Instagram, group-group business, personal wall, e-commerce personal, blog personal, google ads, website personal, group WeChat, group WhatsApp dan lain-lain.</li>
                   <li>Ejen adalah <b>DIBENARKAN</b> untuk melantik staff jualan bagi tujuan membuat pemasaran secara dalam talian (online) atau secara jualan langsung (offline)</li>
-                  <li>Ejen <b>DIWAJIBKAN</b> untuk mengambil stok sekurang-kurangnya <b>LIMA(5) KOTAK</b> untuk setiap pesanan stok.</li>
+                  <!-- <li>Ejen <b>DIWAJIBKAN</b> untuk mengambil stok sekurang-kurangnya <b>LIMA(5) KOTAK</b> untuk setiap pesanan stok.</li> -->
                 </ul>
                 <h4 class="text-white">Don't</h4>
                 <ul class="text-white">
@@ -751,30 +751,31 @@
             <div class="col-sm-4 col-xs-12 xs-m-b-40">
               <img src="assets/images/Logo_2020_White.png" width="300"  data-src-retina="assets/images/Logo_2020_White.png" class="alt" alt="">
             </div>
-            <!-- <div class="col-sm-2 col-xs-6 xs-m-b-20">
-              <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">Company </h6>
+
+            <div class="col-sm-4 xs-m-b-20">
+              <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">Maklumat Syarikat</h6>
               <ul class="no-style">
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Design</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Features</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Team</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Work Station</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Privacy</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Legal</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Jobs</a></li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Alamat Pejabat :</a></li>
+                <li class="m-b-5 no-padding bold text-white">No. 23, Jalan Purnama 2/3, Taman Purnama 2, 45300 Sungai Besar, Selangor Darul Ehsan</li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Contact (WhatsApp/Call) :</a></li>
+                <li class="m-b-5 no-padding bold text-white">+6012 354 3797</li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Alamat Email :</a></li>
+                <li class="m-b-5 no-padding bold text-white">sales@ecaque.my</li>
               </ul>
             </div>
             <div class="col-sm-2 col-xs-6 xs-m-b-20">
-              <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">Work </h6>
+              <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">Media Sosial </h6>
               <ul class="no-style">
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Apps</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Popular</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Web-Arch</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Pages</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Frontend</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Charity</a></li>
-                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Marketplaces</a></li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Instagram</a></li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Facebook</a></li>
+                <!-- <li class="m-b-5 no-padding"><a href="#" class="link text-white">Team</a></li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Work Station</a></li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Privacy</a></li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Legal</a></li>
+                <li class="m-b-5 no-padding"><a href="#" class="link text-white">Jobs</a></li> -->
               </ul>
             </div>
+            <!--
             <div class="col-sm-2 col-xs-6 xs-m-b-20">
               <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">Clients </h6>
               <ul class="no-style">
