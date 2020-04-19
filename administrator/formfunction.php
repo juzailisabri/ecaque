@@ -169,6 +169,22 @@ function defaultinput(){
   return "<input id=\"instagram\" name=\"instagram\" type=\"text\" class=\"form-control\" placeholder=\"\">";
 }
 
+function mediaViewer(){
+  ?>
+  <div class="modal fade " style="background-color:transparent;"  id="mediaPreview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" style="min-width:1200px;background-color:transparent;">
+          <div class="modal-content" style="background-color:transparent;border:0px;">
+              <div class=" p-0" >
+                  <div class="row">
+                      <embed style="z-index:1053" id="pdfpreview" type="application/pdf" src="" width="100%" height="1000">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <?php
+}
+
 function dashboardheader(){
   ?>
   <div class="social-wrapper">

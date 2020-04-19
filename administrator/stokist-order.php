@@ -180,7 +180,7 @@ class MYPDF extends TCPDF {
         $this->SetY(20);
 
         $this->SetFont('helvetica', 'B', 18);
-        $this->Cell(0, 10, 'PAYMENT INVOICE', 0, false, 'R', 0, '', 0, false, 'M', 'M');
+        $this->Cell(0, 10, 'STOCK ORDER', 0, false, 'R', 0, '', 0, false, 'M', 'M');
         $this->SetY(26);
         $this->SetFont('helvetica', 'R', 10);
         $this->Cell(0, 10, 'Invoice No: ECQ-HQ-000001', 0, false, 'R', 0, '', 0, false, 'M', 'M');

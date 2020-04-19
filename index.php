@@ -67,19 +67,19 @@
           <div class="header-inner">
             <ul class="menu ">
               <li>
-                <a href="#" class="active  text-whitea">Home </a>
+                <a href="#" class="active  text-white">Home </a>
               </li>
               <li>
-                <a class="text-whitea  active"href="pricing.html">Pricing </a>
+                <a class="text-white  active"href="pricing.html">Pricing </a>
               </li>
               <li>
-                <a class="text-whitea  active"href="pricing.html">Where to Buy </a>
+                <a class="text-white  active"href="pricing.html">Where to Buy </a>
               </li>
               <li>
-                <a class="text-whitea active"href="contact.html">Contact Us</a>
+                <a class="text-white active"href="contact.html">Contact Us</a>
               </li>
             </ul>
-            <a href="#" class="text-whitea search-toggle hidden-xs hidden-sm" data-toggle="search"><i class="fs-14 pg-search"></i></a>
+            <a href="#" class="text-white search-toggle hidden-xs hidden-sm" data-toggle="search"><i class="fs-14 pg-search"></i></a>
             <!-- BEGIN COPYRIGHT FOR MOBILE -->
             <div class="font-arial m-l-35 m-r-35 m-b-20 visible-sm visible-xs m-t-20">
               <!-- <p class="fs-11 no-margin small-text p-b-20">Exclusive only at ,Themeforest. See Standard licenses & Extended licenses
@@ -117,13 +117,12 @@
                       <div class="col-xs-height col-bottom text-left">
                         <div class="container ">
                           <div class="col-md-offset-6a col-md-12  m-b-100 col-xs-12 ">
-                            <h1 class="hidden-sm hidden-xs text-white sm-text-center no-padding no-margin" data-swiper-parallax="-15%">Rasai keenakkannya... <br>Pasti sedap..  pasti nak lagi! <br> Kek Buah Kukus eCaque</h1>
+                            <!-- <h1 class="hidden-sm hidden-xs text-white sm-text-center no-padding no-margin" data-swiper-parallax="-15%">Rasai keenakkannya... <br>Pasti sedap..  pasti nak lagi! <br> Kek Buah Kukus eCaque</h1>
                             <h1 class="hidden-sm visible-xs text-white sm-text-center no-padding no-margin" data-swiper-parallax="-15%">Rasai keenakkannya... <br>Pasti sedap..  pasti nak lagi! <br> Kek Buah Kukus eCaque</h1>
                             <h2 class="visible-sm text-white sm-text-center no-padding no-margin" data-swiper-parallax="-15%">Rasai keenakkannya... <br>Pasti sedap..  pasti nak lagi! <br> Kek Buah Kukus eCaque</h2>
-                            <!-- <h4 class="bold text-white sm-text-center small no-padding no-margin">oleh Pn. Faridah Borham</h4> -->
                             <hr class="">
                             <h5 class="block-title text-white sm-text-center">KEK BUAH KUKUS eCAQUE</h5>
-                            <p class="hidden-xs hidden-sm text-white" style="text-align: justify;">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi .Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek yang moist, tidak terlalu manis dengan gabungan aroma butter , caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p>
+                            <p class="hidden-xs hidden-sm text-white" style="text-align: justify;">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi .Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek yang moist, tidak terlalu manis dengan gabungan aroma butter , caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p> -->
                           </div>
                         </div>
                       </div>
@@ -218,7 +217,7 @@
             </div>
             <div class="row">
               <div class="col-sm-10">
-                <p class="m-b-20 text-justify">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek yang moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p>
+                <p class="m-b-20 text-justify">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek adalah moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p>
               </div>
 
             </div>
@@ -253,7 +252,7 @@
                   <li><p>Produk Kek Kukus Termasuk Bekas Tertutup Diberikan Secara Percuma</p></li>
                 </ul>
                 <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Bahan-bahan: </p>
-                <p class="m-b-20 text-justify" >100% mentega tulin, Tepung Gandum Penuh Berprotein Tinggi,  Gula pasir, Buah-buahan Campuran Bermutu Tinggi dan Telor Gred A</p>
+                <p class="m-b-20 text-justify" >100% mentega tulen, Tepung Gandum Penuh Berprotein Tinggi,  Gula pasir, Buah-buahan Campuran Bermutu Tinggi dan Telur Gred A</p>
               </div>
             </div>
           </div>
@@ -622,12 +621,9 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            Our motivation "Perfection simplified" helps to
-                            craft meaningful experiences for the people around us, This mission inspires us
-                            to jump out of bed each day and guides every aspect of what we
-                            do.
+                            Dah banyak saya cuba tapi kek ni paling sedap dan moist keknya… saya brpuas hati sangat, keknya rasanya sedap.. keknya di potong tak berderai...manisnya pun cukup.. Sekarang saya nak order lagi, 3pek <br> <small>- Ema Shadan (Brunei)</small>
                             </h3>
-                  <img alt="" class="m-t-20" src="assets/images/signature_sample.png">
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
             </div>
@@ -637,9 +633,9 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            The dashboard will synergize with the colour selection made by the user and appropriately amend. Similarly, all other elements will sync according to the base colours.
+                            Alhamdulillah sedap sungguh kek buah ni. Makannya pun tak jemu sebab tidak terlalu manis. <br> <small>– Nurdin (Alor Setar, Kedah)</small>
                             </h3>
-                  <img alt="" class="m-t-20" src="assets/images/signature_sample.png">
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
             </div>
@@ -649,9 +645,39 @@
               <div class="container">
                 <div class="col-sm-8 col-sm-offset-2">
                   <h3 class="text-center">
-                            Given our emphasis on operational efficiency and optimization, we have focused heavily on GPU performance with animation to ensure an ultra smooth and fast User Experience.
+                            Saya sudah beli 5 biji,4 biji saya bagi emak dan akak-akak, menyesal saya cuma 1 biji sahaja sebab dah habis separuh sebelum raya… Saya dan suami tidak jemu makan kek  ni, tidak ada sama kek buah yang lain yang pernah saya makan sebelum ni..  Betul2 sedap <br> <small>– Hjh Zuraidah (Brunei)</small>
                             </h3>
-                  <img alt="" class="m-t-20" src="assets/images/signature_sample.png">
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="container">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <h3 class="text-center">
+                            Dah makan pun. Allah, sedap betul kek buah nii. Rasa moist dan bau butternya. Buah pun banyak. Sedap sungguh! <br> <small>- Pn Norida Mohamed (Subang, Selangor)</small>
+                            </h3>
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="container">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <h3 class="text-center">
+                            Saya dengar cerita sedap kek ni, saya pun beli lah 1 bekas.. Subhanallah memang sedap rasanya lembut dan moist lembab rasa kek tu.. penuh buahnya… Tak cukup satu nak lagi..  <br> <small>- Wadiananty Abdullah (Miri, Sarawak)</small>
+                            </h3>
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="container">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <h3 class="text-center">
+                            SubhanaAllah sedap sangat rasanya kek buah ecaque ni… Tak pernah saya rasa kek buah se”Moist” macam ini.. sebiji je tak cukup confirm akan habis sebelum raya. <br> <small>- Adina Rusdi (Dengkil, Selangor)</small>
+                            </h3>
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
                 </div>
               </div>
             </div>
@@ -669,7 +695,7 @@
             <div class="col-sm-4 col-xs-12 xs-m-b-40">
               <img src="assets/images/Logo_2020_White.png" width="300"  data-src-retina="assets/images/Logo_2020_White.png" class="alt" alt="">
             </div>
-            <div class="col-sm-2 col-xs-6 xs-m-b-20">
+            <!-- <div class="col-sm-2 col-xs-6 xs-m-b-20">
               <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">Company </h6>
               <ul class="no-style">
                 <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Design</a></li>
@@ -713,7 +739,7 @@
                 <li class="m-b-5 no-padding"><a href="#" class="link text-white">Pricing Page</a></li>
                 <li class="m-b-5 no-padding"><a href="#" class="link text-white">Blog</a></li>
               </ul>
-            </div>
+            </div> -->
           </div>
           <p class="fs-12 hint-text p-t-10 text-white">Copyright &copy; 2020. All Rights Reserved </p>
         </div>

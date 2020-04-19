@@ -76,6 +76,7 @@
 </style>
 
 
+
 <div class=" no-padding container-fixed-lg bg-white p-b-30" id="mainDiv">
   <div class="container">
     <div class="row">
@@ -181,8 +182,26 @@
   </div>
 </div>
 
+<?php mediaViewer(); ?>
+
 <script type="text/javascript">
 
+
+$("#PrintStockOrder").click(function(e){
+  window.open("stokist-order?id="+EOSID);
+});
+
+$("#PrintInvoice").click(function(e){
+  window.open("stokist-invoice?id="+EOSID);
+});
+
+$("#PrintReceipt").click(function(e){
+  window.open("stokist-receipt?id="+EOSID);
+});
+
+$("#PrintDeliveryOrder").click(function(e){
+  window.open("stokist-deliver?id="+EOSID);
+});
 
 
 $("#addNewOrder").click(function(e){
@@ -196,6 +215,8 @@ $("#addNewOrder").click(function(e){
   resetDefValue($("[name='rpprice[]']"));
   resetDefValue($("[name='rpid[]']"));
   resetDefValue($("[name='quantity[]']"));
+
+  $("#cetakDokumenDiv").hide();
 
   ESOFUNC = "insertOrder";
 });
@@ -280,9 +301,11 @@ var CHANGESTABLEPRODUCT;
 
 function editOrder(){
   loading();
+  $("#cetakDokumenDiv").show();
   CHANGESTABLEPRODUCT = false;
   ESOFUNC = "updateOrderStock";
   EOSID = $(this).attr("key");
+  console.log(EOSID);
   var fd = new FormData();
   fd.append("func","getStokistOrderDetail");
   fd.append("eosid",EOSID);

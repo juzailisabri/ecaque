@@ -114,11 +114,28 @@
           </div>
         </div>
 
-        <div class="row m-t-20">
+        <div class="row m-t-10">
           <div class="col-md-12">
             <button type="submit" class="btn btn-primary" name="button">Save <i class="fa fa-send m-l-5"></i></button>
           </div>
         </div>
+
+        <div class="m-t-30" id="cetakDokumenDiv" style="display:none;">
+          <h5 class="text-black block-title m-t-10 m-b-20 font-montserrat text-uppercase bold small">Cetak Dokumen</h5>
+
+          <div class="row m-t-20">
+            <div class="col-md-12">
+              <button type="button" class="btn btn-success" id="PrintStockOrder">Stock Order <i class="fa fa-print m-l-5"></i></button>
+              <button type="button" class="btn btn-success" id="PrintInvoice">Invoice <i class="fa fa-print m-l-5"></i></button>
+              <button type="button" class="btn btn-success" id="PrintReceipt">Receipt <i class="fa fa-print m-l-5"></i></button>
+              <button type="button" class="btn btn-success" id="PrintDeliveryOrder">Delivery Order <i class="fa fa-print m-l-5"></i></button>
+            </div>
+          </div>
+        </div>
+
+
+
+
       </form>
     </div>
   </div>
