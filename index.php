@@ -1039,12 +1039,11 @@
       getPrice();
     });
 
-
-
     $("[id='buyNow']").click(function(e){
       $("#modalSlideUp").modal();
       var quantity = $(this).attr("quantity");
-      $("#quantityOrder").val(quantity).change();
+      $("#quantityOrder").val(quantity);
+      getPrice();
     });
 
     var LINK = "";
