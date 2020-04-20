@@ -1,6 +1,8 @@
 <?php
 include("administrator/formfunction.php");
 $buyPanel = "false"; if (isset($_GET["l"])) { $buyPanel = $_GET["l"]; }
+$ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
+
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +11,13 @@ $buyPanel = "false"; if (isset($_GET["l"])) { $buyPanel = $_GET["l"]; }
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
     <title>eCaque - Homemade Fruit Cake</title>
+
+    <meta property="og:site_name" content="eCaque.my | Homemade Fruit Cake">
+    <meta property="og:title" content="eCaque | Homemade Fruit Cake" />
+    <meta property="og:description" content="Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek adalah moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang." />
+    <meta property="og:image" itemprop="image" content="<?php echo $ogimage ?>">
+    <meta property="og:type" content="website" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="apple-touch-icon" href="pages/ico/60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
