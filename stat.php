@@ -401,20 +401,7 @@ Thank you.<br><br>
 <b>Faridah Borham</b><br>
 eCaque Enterprise";
 
-// output the HTML content
 $pdf->writeHTML($html, true, false, true, false);
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-// add a page
-
-
-// ---------------------------------------------------------
-
-//Close and output PDF document
 $pdf->Output('eCaque Stokist Invoice #0000.pdf', 'I');
 
-//============================================================+
-// END OF FILE
-//============================================================+
 ?>
