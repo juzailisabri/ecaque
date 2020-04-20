@@ -97,10 +97,61 @@ function insertAgent($data){
     $ret["STATUS"] = false;
     $ret["MSG"] = "Harap Maaf, No Kad Pengenalan Berikut Telah Didaftarkan di dalam sistem.";
   }
-
-
-
   return $ret;
+}
+
+if($_POST["func"] == "whatsappOrder"){
+  echo json_encode(whatsappOrder($_POST));
+}
+
+
+function whatsappOrder($data){
+  global $conn;
+
+  $name = $data["fullname"];
+  $address = $data["address"];
+  $clientPhone = $data["phone"];
+  $q = $data["quantityOrder"];
+
+  $phone = "60123543797";
+
+  $s = "SELECT * FROM ref_product WHERE rp_id = 1";
+  $res = $conn->query($s);
+  $row = $res->fetch_assoc();
+
+  $freepostage = $row["rp_freepostagequantity"];
+  $rp_postage = $row["rp_postage"];
+  $rp_price = $row["rp_price"];
+  $rp_name = $row["rp_name"];
+  $postagefee = number_format(0.00,2);
+  $total = 0.00;
+
+  if ($q <= $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
+  $total = number_format($postagefee + ($q * $rp_price), 2);
+
+$text = "
+Hi, eCaque %0D%0D
+Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut; %0D
+_______ %0D
+Nama : *$name* %0D
+Alamat : *$address* %0D
+No Telefon : *$clientPhone* %0D
+_______ %0D
+Barang : *$rp_name* %0D
+Kuantiti : *$q* %0D
+Caj Penghantaran : RM *$postagefee* %0D
+Jumlah Bayaran : RM *$total*
+";
+
+  $link1 = "https://api.whatsapp.com/send?phone=$phone&text=$text";
+
+  $arr["link"] = $link1;
+  $arr["rp_price"] = number_format($rp_price, 2);
+  $arr["postagefee"] = number_format($postagefee, 2);
+  $arr["total"] = number_format($total, 2);
+  $arr["STATUS"] = true;
+
+  return $arr;
 }
 
 ?>

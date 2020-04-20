@@ -38,6 +38,93 @@
     </style>
   </head>
   <body class="pace-dark">
+    <div class="modal fade slide-up disable-scroll" id="modalSlideUp" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+        <div class="modal-dialog ">
+            <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                      <i class="pg-close fs-14"></i>
+                    </button> -->
+                    <h4 class="fs-20">Order <span class="semi-bold">eCaque</span> |  Whatsapp</h4>
+                    <p class="text-black  fs-14">Sila masukkan maklumat Nama, Alamat, No. Telefon dan kuantiti kek yang anda perlukan bagi pesanan ini. Pesanan ini akan dihantar melalui aplikasi WhatsApp.</p>
+                </div>
+                <div class="modal-body">
+                  <form class="m-t-25 m-b-20" id="form-order">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                          <label class="control-label">Nama Penuh</label>
+                          <input id="fullname" required name="fullname" type="text" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                          <label class="control-label">Alamat Penghantaran</label>
+                          <textarea id="address" style="height:100px" required name="address" type="text" class="form-control" placeholder=""></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                          <label class="control-label">No. Telefon</label>
+                          <input id="phone" required name="phone" type="text" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                          <label class="control-label">Kuantiti</label>
+                          <input id="quantityOrder" pattern="[0-9]*" required name="quantityOrder" type="number" class="form-control" placeholder="">
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row m-t-20">
+                      <div class="col-xs-8">
+                        <div class="text-whitea text-right block-title">Total</div>
+                      </div>
+                      <div class="col-xs-4 text-right ">
+                        RM <span id="sTotal">00.00</span>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-8">
+                        <div class="text-whitea text-right block-title">Postage</div>
+                      </div>
+                      <div class="col-xs-4 text-right ">
+                        RM <span id="sPostage">00.00</span>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-8">
+                        <div class="text-whitea text-right block-title">Total</div>
+                      </div>
+                      <div class="col-xs-4 text-right ">
+                        RM <span id="sGtotal">00.00</span>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row m-t-20">
+                      <div class="col-md-12 text-right">
+                        <button data-dismiss="modal" aria-hidden="true" type="button" class="btn btn-dark" name="button"> <i class="fa fa-close"></i></button>
+                        <button type="submit" class="btn btn-primary" name="button">Hantar <i class="fa fa-send m-l-5"></i></button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
     <!-- BEGIN HEADER -->
     <nav class="header bg-header transparent-dark " data-pages="header" data-pages-header="autoresize" data-pages-resize-class="dark">
       <div class="container relative">
@@ -275,7 +362,7 @@
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
             <div class="row m-t-40">
-              <div class="col-sm-3 text-center">
+              <div class="col-sm-3 text-center" id="buyNow" quantity="1">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
@@ -284,7 +371,7 @@
                 <h5 class="hint-text no-margin text-white">+ RM10 Postage </h5>
                 <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5>
               </div>
-              <div class="col-sm-3 text-center">
+              <div class="col-sm-3 text-center" id="buyNow" quantity="3">
                 <h5 class="block-title m-t-5 text-whitea bg-success"> <i class="fa fa-star m-r-10"></i> Most Popular </h5>
                 <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
@@ -293,7 +380,7 @@
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5>
               </div>
-              <div class="col-sm-3 text-center">
+              <div class="col-sm-3 text-center" id="buyNow" quantity="4">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
@@ -302,7 +389,7 @@
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5>
               </div>
-              <div class="col-sm-3 text-center">
+              <div class="col-sm-3 text-center" id="buyNow" quantity="5">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
@@ -321,7 +408,7 @@
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
             <div class="row m-t-40">
-              <div class="col-sm-3 text-center">
+              <div class="col-sm-3 text-center" id="buyNow" quantity="1">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
@@ -330,7 +417,7 @@
                 <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5>
               </div>
               <hr>
-              <div class="col-sm-3 text-center">
+              <div class="col-sm-3 text-center" id="buyNow" quantity="3">
                 <h5 class="block-title m-t-5 text-whitea bg-success"> <i class="fa fa-star m-r-10"></i> Most Popular </h5>
                 <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
@@ -339,7 +426,7 @@
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5>
               </div>
               <hr>
-              <div class="col-sm-3 text-center">
+              <div class="col-sm-3 text-center" id="buyNow" quantity="4">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
@@ -348,7 +435,7 @@
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5>
               </div>
               <hr>
-              <div class="col-sm-3 text-center">
+              <div class="col-sm-3 text-center" id="buyNow" quantity="5">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
@@ -942,6 +1029,62 @@
       });
     }
 
+    $('#form-order').formValidation({
+    }).on('success.form.fv', function(e) {
+        e.preventDefault();
+        window.open(LINK);
+    });
+
+    $("#form-order").find("input").change(function(e){
+      getPrice();
+    });
+
+
+
+    $("[id='buyNow']").click(function(e){
+      $("#modalSlideUp").modal();
+      var quantity = $(this).attr("quantity");
+      $("#quantityOrder").val(quantity).change();
+    });
+
+    var LINK = "";
+
+    function getPrice(){
+      $("#form-order").find("button").prop("disabled",true);
+      var myform = document.getElementById('form-order');
+      var fd = new FormData(myform);
+      fd.append("func","whatsappOrder");
+      $.ajax({
+          type: 'POST',
+          url: "db?whatsappOrder",
+          data: fd,
+          dataType: "json",
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(data) {
+            console.log(data);
+            if(data["STATUS"]){
+              link = data["link"];
+              rp_price = data["rp_price"];
+              postagefee = data["postagefee"];
+              total = data["total"];
+              LINK = link;
+
+              $("#sTotal").html(rp_price);
+              $("#sPostage").html(postagefee);
+              $("#sGtotal").html(total);
+              $("#form-order").find("button").prop("disabled",false);
+            } else {
+              // saAlert3("Gagal",data["MSG"],"warning");
+            }
+          },
+          error: function(data) {
+            // saAlert3("Error","Session Log Out Error","warning");
+          }
+      });
+    }
+
     function saAlert(msg){ swal(msg); }
     function saAlert2(title,msg){ swal(title,msg); }
     function saAlert3(title,msg,status){ swal(title,msg,status); }
@@ -1040,6 +1183,9 @@
     function finishload(){
       $("#loadingModal").modal('hide');
     }
+
+
+
     </script>
   </body>
 </html>
