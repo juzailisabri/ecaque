@@ -1,4 +1,7 @@
-<?php include("administrator/formfunction.php"); ?>
+<?php
+include("administrator/formfunction.php");
+$buyPanel = "false"; if (isset($_GET["l"])) { $buyPanel = $_GET["l"]; }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -1034,6 +1037,14 @@
         e.preventDefault();
         window.open(LINK);
     });
+
+    var buyNOW = '<?php echo $buyPanel;?>';
+
+    if (buyNOW == 'true') {
+      $("#modalSlideUp").modal();
+      $("#quantityOrder").val(1);
+      getPrice();
+    }
 
     $("#form-order").find("input").change(function(e){
       getPrice();
