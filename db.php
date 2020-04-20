@@ -188,23 +188,23 @@ function OrderNow($data){
     if ($conn->query($i2)) {
       $url = "http://".$_SERVER["HTTP_HOST"]."$rootdir/status?oid=$refNumber";
 
-      $text = "
-      Hi eCaque, %0D%0D
-      Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut:- %0D
-      _______ %0D
-      Nama : *$name* %0D
-      Alamat : *$address* %0D
-      No Telefon : *$clientPhone* %0D
-      _______ %0D
-      Barang : *$rp_name* %0D
-      Kuantiti : *$q* %0D
-      Caj Penghantaran : RM *$postagefee* %0D
-      Jumlah Bayaran : RM *$total* %0D
-      Jenis Penghantaran : %0D
-      _________%0D
-      Klik Untuk Status: %0D
-      $url
-      ";
+$text = "
+Hi eCaque, %0D%0D
+Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut:- %0D
+_______ %0D
+Nama : *$name* %0D
+Alamat : *$address* %0D
+No Telefon : *$clientPhone* %0D
+_______ %0D
+Barang : *$rp_name* %0D
+Kuantiti : *$q* %0D
+Caj Penghantaran : RM *$postagefee* %0D
+Jumlah Bayaran : RM *$total* %0D
+Jenis Penghantaran : %0D
+_________%0D
+Status dan Resit : %0D
+$url
+";
       $link1 = "https://api.whatsapp.com/send?phone=$phone&text=$text";
       $arr["STATUS"] = true;
       $arr["MSG"] = "OK";
@@ -217,7 +217,7 @@ function OrderNow($data){
     $arr["MSG"] = "ERROR M";
   }
 
-  $arr["link"] = $link1;
+  $arr["link"] = trim($link1);
 
   return $arr;
 }
