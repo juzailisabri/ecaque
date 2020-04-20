@@ -38,7 +38,7 @@
     </style>
   </head>
   <body class="pace-dark">
-    <div class="modal fade slide-up disable-scroll" id="modalSlideUp" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+    <div class="modal fade disable-scroll" id="modalSlideUp" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
         <div class="modal-dialog ">
             <div class="modal-content-wrapper">
             <div class="modal-content">
@@ -1062,7 +1062,6 @@
           contentType: false,
           processData: false,
           success: function(data) {
-            console.log(data);
             if(data["STATUS"]){
               link = data["link"];
               rp_price = data["rp_price"];
