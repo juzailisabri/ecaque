@@ -180,8 +180,8 @@ class MYPDF extends TCPDF {
         $this->Polygon(array(138,$y,163,$y));
         $this->Polygon(array(182,$y,195,$y));
 
-        $tbl = <<<EOD
-        <table cellspacing="0" cellpadding="0" border="0">
+        $tbl =
+        "<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\">
             <tr>
                 <td><b>PURCHASE ORDER</b></td>
                 <td></td>
@@ -217,21 +217,21 @@ class MYPDF extends TCPDF {
         <br>
         <br>
 
-        <table cellspacing="0" cellpadding="0" border="0">
+        <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\">
           <tr>
-            <td align="center"><b>Order</b></td>
-            <td align="center"><b>Payment</b></td>
-            <td align="center"><b>Packing</b></td>
-            <td align="center"><b>Deliver</b></td>
+            <td align=\"center\"><b>Order</b></td>
+            <td align=\"center\"><b>Payment</b></td>
+            <td align=\"center\"><b>Packing</b></td>
+            <td align=\"center\"><b>Deliver</b></td>
           </tr>
           <tr>
-            <td align="center"><small></small></td>
-            <td align="center"><small></small></td>
-            <td align="center"><small></small></td>
-            <td align="center"><small></small></td>
+            <td align=\"center\"><small></small></td>
+            <td align=\"center\"><small></small></td>
+            <td align=\"center\"><small></small></td>
+            <td align=\"center\"><small></small></td>
           </tr>
-        </table>
-        EOD;
+        </table>";
+
 
         $this->writeHTML($tbl, true, false, false, false, '');
 
@@ -320,7 +320,7 @@ $pdf->AddPage();
 // exit;
 
 // define some HTML content with style
-$html = <<<EOD
+$html = "
 <!-- EXAMPLE OF CSS STYLE -->
 <style>
     h1 {
@@ -375,14 +375,14 @@ $html = <<<EOD
 </style>
 
 
-<table cellpadding="5" border="0.1">
+<table cellpadding=\"5\" border=\"0.1\">
   <tbody>
     <tr>
-      <td width="50px" align="center"><b>#</b></td>
-      <td width="270px"><b>Nama Produk</b></td>
-      <td width="100px"align="center"><b>Kuantiti</b></td>
-      <td width="125px" align="center"><b>Harga Seunit</b></td>
-      <td width="100px" align="center"><b>Jumlah</b></td>
+      <td width=\"50px\" align=\"center\"><b>#</b></td>
+      <td width=\"270px\"><b>Nama Produk</b></td>
+      <td width=\"100px\"align=\"center\"><b>Kuantiti</b></td>
+      <td width=\"125px\" align=\"center\"><b>Harga Seunit</b></td>
+      <td width=\"100px\" align=\"center\"><b>Jumlah</b></td>
     </tr>
     $bodytable
 
@@ -399,9 +399,7 @@ Current Account : 8603 2937 39 <br><br>
 
 Thank you.<br><br>
 <b>Faridah Borham</b><br>
-eCaque Enterprise
-
-EOD;
+eCaque Enterprise";
 
 // output the HTML content
 $pdf->writeHTML($html, true, false, true, false);
