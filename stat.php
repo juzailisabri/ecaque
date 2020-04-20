@@ -1,4 +1,5 @@
 <?php
+ini_set('memory_limit', '512M');
 session_start();
 // error_reporting(0);
 
@@ -167,7 +168,6 @@ class MYPDF extends TCPDF {
         'module_width' => 1, // width of a single module in points
         'module_height' => 1 // height of a single module in points
         );
-
 
         $this->write2DBarcode($oid, 'QRCODE,L', 155, 10, 50, 50, $style, 'N');
 
