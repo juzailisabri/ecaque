@@ -1,5 +1,4 @@
 <?php
-ini_set('memory_limit', '512M');
 session_start();
 // error_reporting(0);
 
