@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('administrator/conn.php');
+include('administrator/email.php');
 // include('../email.php');
 
 $_POST = array_map('clean', $_POST);
@@ -35,6 +36,7 @@ function insertAgent($data){
   $facebook = $data["facebook"];
   $instagram = $data["instagram"];
   $linkedin = $data["linkedin"];
+
 
   $s = "SELECT es_id FROM e_stockist WHERE es_icno = '$identificationNo'";
   $res = $conn->query($s);
@@ -86,6 +88,7 @@ function insertAgent($data){
     if ($conn->query($i)) {
       $ret["STATUS"] = true;
       $ret["MSG"] = "Pemohonan pendaftaran anda telah berjaya dihantar. Mohon anda bersabar sementara pihak urusan kami mengesahkan maklumat anda";
+      AgentRegistration(0,$email,$fullname,$email);
     } else {
       $ret["STATUS"] = false;
       $ret["MSG"] = "Permohonan gagal dihantar, Sila hubungi pihak urusan eCaque untuk bantuan.";

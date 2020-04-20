@@ -1,15 +1,17 @@
 <?php
 
-if ($_SERVER["HTTP_HOST"] == "localhost") {
+if ($_SERVER["HTTP_HOST"] == "localhost" || $_SERVER["HTTP_HOST"] == "developer.dyndns.org") {
   $servername = "localhost";
   $username = "root";
   $password = "";
   $database = "ecaque";
+  $rootdir = "/ecaque";
 } else {
   $servername = "localhost";
   $username = "ecaquemy";
   $password = "C9:hMJmj!34k6P";
   $database = "ecaquemy_ecaque";
+  $rootdir = "";
 }
 
 // Create connection
