@@ -497,7 +497,7 @@
                     <div class="col-md-5 ">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">No. Kad Pengenalan</label>
-                        <input id="identificationNo" required name="identificationNo" type="text" class="form-control" placeholder="XXXXXX-XX-XXXX">
+                        <input id="identificationNo" required name="identificationNo" type="text" class="form-control" placeholder="XXXXXXXXXXXX">
                       </div>
                     </div>
                   </div>
