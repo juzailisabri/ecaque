@@ -30,8 +30,10 @@ $emailacc = "no-reply";
 $emailaccpass = "a}TdE@f2Uku%";
 $emailhost = "ecaque.my";
 
+$secretKey = "my3c4qu3";
+
 // PASSWORD CONFIGURATION
-$cfg_salt = hash('sha256', "eC@qu32o1G");
+$cfg_salt = hash('sha256', $secretKey);
 
 // FORM CONFIGURATION
 $cfg_enable_form_status = array('1001','102','1002','1004','1005','1006','1007');

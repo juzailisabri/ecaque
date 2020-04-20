@@ -92,7 +92,17 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                           <input id="quantityOrder" pattern="[0-9]*" required name="quantityOrder" type="number" class="form-control" placeholder="">
                         </div>
                       </div>
-
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                          <label class="control-label">Jenis Penghantaran</label>
+                          <select id="jenisPenghantaran" required name="jenisPenghantaran" class="form-control" >
+                            <?php getJenisPenghantaran(); ?>
+                          </select>
+                          <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
+                        </div>
+                      </div>
                     </div>
 
                     <div class="row m-t-20">
@@ -1044,8 +1054,36 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
     $('#form-order').formValidation({
     }).on('success.form.fv', function(e) {
         e.preventDefault();
-        window.open(LINK);
+        order();
     });
+
+    function order(){
+      $("#form-order").find("button").prop("disabled",true);
+      var myform = document.getElementById('form-order');
+      var fd = new FormData(myform);
+      fd.append("func","OrderNow");
+      $.ajax({
+          type: 'POST',
+          url: "db?OrderNow",
+          data: fd,
+          dataType: "json",
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(data) {
+            if(data["STATUS"]){
+              $("#form-order").find("button").prop("disabled",false);
+              LINK = data["link"];
+              window.open(LINK);
+            } else {
+              // saAlert3("Gagal",data["MSG"],"warning");
+            }
+          },
+          error: function(data) {
+            // saAlert3("Error","Session Log Out Error","warning");
+          }
+      });
+    }
 
     var buyNOW = '<?php echo $buyPanel;?>';
 

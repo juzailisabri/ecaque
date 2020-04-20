@@ -107,6 +107,7 @@ if($_POST["func"] == "whatsappOrder"){
 
 function whatsappOrder($data){
   global $conn;
+  global $rootdir;
 
   $name = $data["fullname"];
   $address = $data["address"];
@@ -129,23 +130,6 @@ function whatsappOrder($data){
   if ($q <= $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
   $total = number_format($postagefee + ($q * $rp_price), 2);
 
-$text = "
-Hi, eCaque %0D%0D
-Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut; %0D
-_______ %0D
-Nama : *$name* %0D
-Alamat : *$address* %0D
-No Telefon : *$clientPhone* %0D
-_______ %0D
-Barang : *$rp_name* %0D
-Kuantiti : *$q* %0D
-Caj Penghantaran : RM *$postagefee* %0D
-Jumlah Bayaran : RM *$total*
-";
-
-  $link1 = "https://api.whatsapp.com/send?phone=$phone&text=$text";
-
-  $arr["link"] = $link1;
   $arr["rp_price"] = number_format($rp_price, 2);
   $arr["postagefee"] = number_format($postagefee, 2);
   $arr["total"] = number_format($total, 2);
@@ -153,5 +137,95 @@ Jumlah Bayaran : RM *$total*
 
   return $arr;
 }
+
+if($_POST["func"] == "OrderNow"){
+  echo json_encode(OrderNow($_POST));
+}
+
+function OrderNow($data){
+  global $conn;
+  global $rootdir;
+
+  $name = $data["fullname"];
+  $address = $data["address"];
+  $clientPhone = $data["phone"];
+  $q = $data["quantityOrder"];
+  $ref = "#";
+  $phone = "+60194313041";
+
+  $s = "SELECT * FROM ref_product WHERE rp_id = 1";
+  $res = $conn->query($s);
+  $row = $res->fetch_assoc();
+
+  $rpid = $row["rp_id"];
+  $freepostage = $row["rp_freepostagequantity"];
+  $rp_postage = $row["rp_postage"];
+  $rp_price = $row["rp_price"];
+  $rp_name = $row["rp_name"];
+  $postagefee = number_format(0.00,2);
+  $total = 0.00;
+
+  if ($q <= $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
+  $total = number_format($postagefee + ($q * $rp_price), 2);
+
+  $er_fullname = $data["fullname"];
+  $er_address = $data["address"];
+  $er_phone = $data["phone"];
+  $er_rjp_id = $data["jenisPenghantaran"];
+  $er_postage = $postagefee;
+  $er_totalprice = $total;
+  $link1 = "";
+
+
+  $i = "INSERT INTO e_receipt (er_date,er_fullname,er_address,er_phone,er_rjp_id,er_postage,er_totalprice)
+  VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice)";
+
+  if ($conn->query($i)) {
+    $ref = $conn->insert_id;
+    $refNumber = secretKey($ref);
+    $i2 = "INSERT INTO e_receipt_detail (erd_er_id,erd_rp_id,erd_quantity,erd_rp_price,erd_datetime)
+    VALUES ($ref,$rpid,$q,$rp_price,NOW())";
+    if ($conn->query($i2)) {
+      $url = "http://".$_SERVER["HTTP_HOST"]."$rootdir/status?oid=$refNumber";
+
+      $text = "
+      Hi eCaque, %0D%0D
+      Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut:- %0D
+      _______ %0D
+      Nama : *$name* %0D
+      Alamat : *$address* %0D
+      No Telefon : *$clientPhone* %0D
+      _______ %0D
+      Barang : *$rp_name* %0D
+      Kuantiti : *$q* %0D
+      Caj Penghantaran : RM *$postagefee* %0D
+      Jumlah Bayaran : RM *$total* %0D
+      Jenis Penghantaran : %0D
+      _________%0D
+      Klik Untuk Status: %0D
+      $url
+      ";
+      $link1 = "https://api.whatsapp.com/send?phone=$phone&text=$text";
+      $arr["STATUS"] = true;
+      $arr["MSG"] = "OK";
+    } else {
+      $arr["STATUS"] = false;
+      $arr["MSG"] = "ERROR D";
+    }
+  } else {
+    $arr["STATUS"] = false;
+    $arr["MSG"] = "ERROR M";
+  }
+
+  $arr["link"] = $link1;
+
+  return $arr;
+}
+
+function secretKey($str){
+  global $secretKey;
+  return hash('MD5', $secretKey.$str);
+}
+
 
 ?>
