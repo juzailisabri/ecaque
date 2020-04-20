@@ -31,7 +31,6 @@ $emailaccpass = "a}TdE@f2Uku%";
 $emailhost = "ecaque.my";
 
 $secretKey = "my3c4qu3";
-
 // PASSWORD CONFIGURATION
 $cfg_salt = hash('sha256', $secretKey);
 

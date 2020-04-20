@@ -8,6 +8,11 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
 
 }
 
+$linkmenu = null;
+if (isset($_GET["m"])) {
+  $linkmenu = $_GET["m"];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -114,6 +119,9 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
             </li> -->
             <li class="active">
               <a href="page/admin/stock-record" class="syslink" id="profileSetting">Stock Record</a>
+            </li>
+            <li class="active">
+              <a href="page/admin/customer-order" class="syslink" id="customerOrder">Customer Order</a>
             </li>
             <li class="active">
               <a href="javascript:;" class="syslink2">
@@ -491,7 +499,12 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
 
         $(document).ready(function(e){
           // getMember(NA);
-          $("#mainpage").click();
+          var linkmenu = '<?php echo $linkmenu ?>';
+          if (linkmenu == '') {
+            $("#mainpage").click();
+          } else {
+            $("a[id='"+linkmenu+"']").click();
+          }
         });
 
         function NA(){ }
@@ -565,6 +578,7 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
         });
 
         setInterval(function(){ checksession(); }, 5000);
+
 
     </script>
   </body>

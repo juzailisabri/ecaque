@@ -189,20 +189,20 @@ function OrderNow($data){
       $url = "http://".$_SERVER["HTTP_HOST"]."$rootdir/status?oid=$refNumber";
 
 $text = "
-Hi eCaque, %0D%0D
-Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut:- %0D
-_______ %0D
-Nama : *$name* %0D
-Alamat : *$address* %0D
-No Telefon : *$clientPhone* %0D
-_______ %0D
-Barang : *$rp_name* %0D
-Kuantiti : *$q* %0D
-Caj Penghantaran : RM *$postagefee* %0D
-Jumlah Bayaran : RM *$total* %0D
-Jenis Penghantaran : %0D
-_________%0D
-Status dan Resit : %0D
+Hi eCaque, %0a%0a\n\n
+Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut:- %0a\n
+_______ %0a\n
+Nama : *$name* %0a\n
+Alamat : *$address* %0a\n
+No Telefon : *$clientPhone* %0a\n
+_______ %0a\n
+Barang : *$rp_name* %0a\n
+Kuantiti : *$q* %0a\n
+Caj Penghantaran : RM *$postagefee* %0a\n
+Jumlah Bayaran : RM *$total* %0a\n
+Jenis Penghantaran : %0a\n
+_________%0a\n
+Status dan Resit : %0a\n
 $url
 ";
       $link1 = "https://api.whatsapp.com/send?phone=$phone&text=$text";

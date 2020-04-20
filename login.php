@@ -29,7 +29,7 @@
   </head>
   <body class="pace-white">
     <!-- BEGIN JUMBOTRON -->
-    <section class="jumbotron demo-custom-height xs-full-height bg-black" data-pages-bg-image="assets/slider/slider3.jpg">
+    <section class="jumbotron demo-custom-height xs-full-height bg-black" data-pages-bg-image="assets/slider/Slider3.jpg">
       <div class="container-xs-height full-height">
         <div class="col-xs-height col-middle text-left">
           <div class="container">

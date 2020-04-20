@@ -672,7 +672,7 @@ function AgentRegistration($aaid,$email,$toname,$toemail){
   global $rootdir;
 
   $logoUrl = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/images/Logo_2020_Black_Large.png";
-  $slider = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/slider3.jpg";
+  $slider = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/Slider3.jpg";
 
 
   $text1 = "Anda telah berjaya mendaftarkan diri dalam Program Agen Dropship/Stokis eCaque. Kami berharap pihak tuan/puan mohon bersabar sementara team ecaque membuat kelulusan permohonan anda. Berikut adalah perkara yang boleh dan tidak boleh dilakukan oleh pihak tuan/puan bagi menjalankan urusniaga sebagai Dropship/Stokis eCauqe.";
