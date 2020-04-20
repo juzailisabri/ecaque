@@ -320,7 +320,7 @@ $pdf->AddPage();
 // exit;
 
 // define some HTML content with style
-$html = <<<EOF
+$html = <<<EOD
 <!-- EXAMPLE OF CSS STYLE -->
 <style>
     h1 {
@@ -401,9 +401,7 @@ Thank you.<br><br>
 <b>Faridah Borham</b><br>
 eCaque Enterprise
 
-
-
-EOF;
+EOD;
 
 // output the HTML content
 $pdf->writeHTML($html, true, false, true, false);
