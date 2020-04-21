@@ -188,13 +188,13 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <a id="menuLink" target="home" href="#" class="active  text-white">Home </a>
               </li>
               <li>
-                <a id="menuLink" target="pricing" class="text-white  active"href="#">Buy Now </a>
+                <a id="menuLink" target="pricing" class="text-white  active"href="#">Beli Sekarang </a>
               </li>
               <li>
-                <a id="menuLink" target="agent" class="text-white  active" href="#">Agent eCaque </a>
+                <a id="menuLink" target="agent" class="text-white  active" href="#">Ejen eCaque </a>
               </li>
               <li>
-                <a  id="menuLink" target="contact"  class="text-white active"href="#">Contact Us</a>
+                <a  id="menuLink" target="contact"  class="text-white active"href="#">Hubungi Kami</a>
               </li>
             </ul>
             <a href="login" class="text-white search-toggle hidden-xs hidden-sm" data-toggle="searcha"><i class="fa fa-lock fa-lg"></i></a>
