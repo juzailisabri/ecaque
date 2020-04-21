@@ -185,19 +185,19 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
           <div class="header-inner">
             <ul class="menu ">
               <li>
-                <a href="#" class="active  text-white">Home </a>
+                <a id="menuLink" target="hero" href="#" class="active  text-white">Home </a>
               </li>
               <li>
-                <a class="text-white  active"href="#">Pricing </a>
+                <a id="menuLink" target="pricing" class="text-white  active"href="#">Pricing </a>
               </li>
               <li>
-                <a class="text-white  active" href="#">Where to Buy </a>
+                <a id="menuLink" target="agent" class="text-white  active" href="#">Agent eCauqe </a>
               </li>
               <li>
-                <a class="text-white active"href="#">Contact Us</a>
+                <a  id="menuLink" target="contact"  class="text-white active"href="#">Contact Us</a>
               </li>
             </ul>
-            <a href="#" class="text-white search-toggle hidden-xs hidden-sm" data-toggle="search"><i class="fs-14 pg-search"></i></a>
+            <a href="login" class="text-white search-toggle hidden-xs hidden-sm" data-toggle="searcha"><i class="fa fa-lock fa-lg"></i></a>
             <!-- BEGIN COPYRIGHT FOR MOBILE -->
             <div class="font-arial m-l-35 m-r-35 m-b-20 visible-sm visible-xs m-t-20">
               <!-- <p class="fs-11 no-margin small-text p-b-20">Exclusive only at ,Themeforest. See Standard licenses & Extended licenses
@@ -273,7 +273,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 </div>
               </div> -->
               <!-- BEGIN SLIDE -->
-              
+
               <!-- END SLIDE -->
             </div>
             <!-- BEGIN ANIMATED MOUSE -->
@@ -345,7 +345,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       </section>
       <!-- END CONTENT SECTION -->
       <!-- BEGIN CONTENT SECTION -->
-      <section class="bg-master-dark p-b-85 p-t-75 hidden-xs">
+      <section class="bg-master-dark p-b-85 p-t-75 hidden-xs" id="pricing">
         <div class="container ">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
@@ -436,7 +436,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
         </div>
       </section>
 
-      <section class="bg-master-lightest p-b-85 p-t-75">
+      <section class="bg-master-lightest p-b-85 p-t-75" id="agent">
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin">Pencarian Agen Dropship</h5>
@@ -462,7 +462,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
         </div>
       </section>
 
-      <section class="bg-master-dark p-b-85 p-t-75">
+      <section class="bg-master-dark p-b-85 p-t-75" >
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title text-white hint-text no-margin">Ejen Dropship eCaque</h5>
@@ -865,7 +865,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
         <!-- END TESTIMONIALS -->
       </section>
       <!-- BEGIN FOOTER -->
-      <section class="p-b-55 p-t-75 xs-p-b-20 bg-master-darker ">
+      <section class="p-b-55 p-t-75 xs-p-b-20 bg-master-darker " id="contact">
         <div class="container">
           <div class="row">
             <div class="col-sm-4 col-xs-12 xs-m-b-40">
@@ -970,6 +970,8 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
     <script type="text/javascript" src="assets/plugins/swiper/js/swiper.jquery.min.js"></script>
     <script type="text/javascript" src="assets/plugins/velocity/velocity.min.js"></script>
     <script type="text/javascript" src="assets/plugins/velocity/velocity.ui.js"></script>
+    <script type="text/javascript" src="assets/plugins/vide/jquery.vide.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/vide/jquery.vide.min.js"></script>
     <!-- BEGIN RETINA IMAGE LOADER -->
     <script type="text/javascript" src="assets/plugins/jquery-unveil/jquery.unveil.min.js"></script>
     <!-- END VENDOR JS -->

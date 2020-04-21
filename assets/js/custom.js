@@ -36,16 +36,16 @@ $(document).ready(function() {
         onSearchSubmit: function(searchString) {
             console.log("Search for: " + searchString);
         },
-        // Callback that will be run whenever you enter a key into search box. 
-        // Perform any live search here.  
+        // Callback that will be run whenever you enter a key into search box.
+        // Perform any live search here.
         onKeyEnter: function(searchString) {
             console.log("Live search for: " + searchString);
             var searchField = $('#overlay-search');
             var searchResults = $('.search-results');
 
-            /* 
+            /*
                 Do AJAX call here to get search results
-                and update DOM and use the following block 
+                and update DOM and use the following block
                 'searchResults.find('.result-name').each(function() {...}'
                 inside the AJAX callback to update the DOM
             */
@@ -65,5 +65,20 @@ $(document).ready(function() {
             $(this).data('timer', wait);
 
         }
+    });
+
+    $('#start_tour').click(function() {
+        $("#notifications").velocity("scroll", {
+            duration: 800
+        });
+    })
+
+    $("[id='menuLink']").click(function(e){
+      e.preventDefault();
+      var target = $(this).attr("target");
+
+      $("#"+target+"").velocity("scroll", {
+          duration: 800
+      });
     });
 });
