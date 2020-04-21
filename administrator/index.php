@@ -9,9 +9,7 @@ if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
 }
 
 $linkmenu = null;
-if (isset($_GET["m"])) {
-  $linkmenu = $_GET["m"];
-}
+if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
 
 ?>
 <!DOCTYPE html>
@@ -55,6 +53,113 @@ if (isset($_GET["m"])) {
   </head>
   <body class="fixed-header horizontal-menu horizontal-app-menu ">
     <!-- START HEADER -->
+    <div class="modal stick-up" style="z-index:11000"  id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-center p-0">
+                    <!-- <h5>Sila Tunggu Sebentar <span class="semi-bold"></span></h5> -->
+                    <p class="p-t-15 bold text-center"> <img src="assets/img/loading3.gif" height="60px" alt=""> Loading. Sila Tunggu Sebentar</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade stick-up" style="z-index:11000" id="modalPacking" tabindex="-1" role="dialog" aria-labelledby="modalPacking" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content-wrapper">
+              <div class="modal-content p-b-n">
+                  <div class="modal-header clearfix text-left">
+                      <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="pg-close fs-14"></i>
+                      </button> -->
+                      <h4 class="fs-20">Delivery <span class="semi-bold">Tracking</span> |  eCaque</h4>
+                      <p class="text-black  fs-14">Sila pilih servis kurier dan isikan nombor tracking.</p>
+                  </div>
+                  <div class="modal-body p-b-10">
+                    <form class="m-t-25 m-b-20" id="packingForm">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                            <label class="control-label">Syarikat Courier</label>
+                            <select id="courier" required name="courier" class="form-control" >
+                              <?php refdeliveryCourier(); ?>
+                            </select>
+                            <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                            <label class="control-label">Tracking No.</label>
+                            <input id="trackingNo" required name="trackingNo" type="text" class="form-control" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row m-t-20">
+                        <div class="col-md-12 text-right">
+                          <button data-dismiss="modal" aria-hidden="true" type="button" class="btn btn-dark" name="button"> <i class="fa fa-close"></i></button>
+                          <button type="submit" class="btn btn-primary" name="button">Save <i class="fa fa-send m-l-5"></i></button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+    <div class="modal fade stick-up" style="z-index:11000" id="modalPayment" tabindex="-1" role="dialog" aria-labelledby="modalPayment" aria-hidden="false">
+        <div class="modal-dialog ">
+            <div class="modal-content-wrapper">
+              <div class="modal-content p-b-n">
+                  <div class="modal-header clearfix text-left">
+                      <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="pg-close fs-14"></i>
+                      </button> -->
+                      <h4 class="fs-20">Payment <span class="semi-bold">Record</span> |  eCaque</h4>
+                      <p class="text-black  fs-14">Sila pilih bank dan isikan nombor pengesahan dari bank.</p>
+                  </div>
+                  <div class="modal-body p-b-10">
+                    <form class="m-t-25 m-b-20" id="paymentForm">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                            <label class="control-label">Bank</label>
+                            <select id="bank" required name="bank" class="form-control" >
+                              <?php getBank(); ?>
+                            </select>
+                            <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                            <label class="control-label">Reference No.</label>
+                            <input id="refNo" required name="refNo" type="text" class="form-control" placeholder="">
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-6">
+                          <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                            <label class="control-label">Date Payment</label>
+                            <input id="DatePayment" required name="DatePayment" type="text" class="form-control" placeholder="">
+                          </div>
+                        </div> -->
+                      </div>
+                      <div class="row m-t-20">
+                        <div class="col-md-12 text-right">
+                          <button data-dismiss="modal" aria-hidden="true" type="button" class="btn btn-dark" name="button"> <i class="fa fa-close"></i></button>
+                          <button type="submit" class="btn btn-primary" name="button">Save <i class="fa fa-send m-l-5"></i></button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
     <div class="header bg-dark">
       <div class="container">
         <div class="header-inner header-md-height ">
@@ -63,18 +168,11 @@ if (isset($_GET["m"])) {
           <div class="">
             <!-- START NOTIFICATION LIST -->
             <ul class="d-lg-inline-block d-none notification-list no-margin b-grey b-l b-r no-style p-l-0 p-r-20">
-
               <li class="p-r-10 inline  ">
-                <!-- <a href="#" class="header-icon fa fa-signout"></a> -->
               </li>
-              <!-- <li class="p-r-10 inline">
-                <a href="#" class="header-icon pg pg-thumbs"></a>
-              </li> -->
             </ul>
-            <!-- END NOTIFICATIONS LIST -->
           </div>
           <div class="d-flex align-items-center">
-            <!-- START User Info-->
             <div class="pull-left p-r-10 fs-14 font-heading d-lg-inline-block">
               <span id="username" class="semi-bold"><?php echo $_SESSION["FULLNAME"] ?></span>
             </div>
@@ -85,17 +183,12 @@ if (isset($_GET["m"])) {
                   </span>
               </button>
               <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-                <!-- <a class="dropdown-item syslink" href="page/profile-setting"><i class="pg-settings_small"></i> Profil</a> -->
-                <!-- <hr class="p0 m0"> -->
-
-                <!-- <a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a> -->
                 <a href="#" id="logoutBtn" class="clearfix bg-master-lighter dropdown-item">
                   <span class="pull-left" >Logout</span>
                   <span class="pull-right"><i class="pg-power"></i></span>
                 </a>
               </div>
             </div>
-            <!-- END User Info-->
           </div>
         </div>
         <div class="header-inner justify-content-start header-lg-height title-bar">
@@ -103,7 +196,6 @@ if (isset($_GET["m"])) {
             <img src="../assets/images/Logo_2020_White.png" alt="logo" data-src="../assets/images/Logo_2020_White.png" data-src-retina="../assets/images/Logo_2020_White.png" height="50">
           </div>
           <h2 class="page-title align-self-center hidden-xs p-t-10">
-            <!-- Sistem Hadiah Pengajian IPT -->
             Admin Management
           </h2>
         </div>
@@ -143,31 +235,10 @@ if (isset($_GET["m"])) {
       </div>
     </div>
     <div class="page-container">
-      <div class="modal stick-up" style="z-index:11000"  id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModal" aria-hidden="true">
-          <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header clearfix text-center p-0">
-                      <!-- <h5>Sila Tunggu Sebentar <span class="semi-bold"></span></h5> -->
-                      <p class="p-t-15 bold text-center"> <img src="assets/img/loading3.gif" height="60px" alt=""> Loading. Sila Tunggu Sebentar</p>
-                  </div>
 
-              </div>
-          </div>
-      </div>
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper ">
-        <div class="jumbotron m-b-0" id="jumbotron" style="z-index:2">
-          <div class=" container p-l-0 p-r-0 container-fixed-lg sm-p-l-0 sm-p-r-0">
-            <div class="inner">
-              <!-- START BREADCRUMB -->
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">eCaque</a></li>
-                <li id="breadcrumb" class="breadcrumb-item active">Papan Pemuka</li>
-              </ol>
-              <!-- END BREADCRUMB -->
-            </div>
-          </div>
-        </div>
+
         <!-- START PAGE CONTENT -->
         <div class="content faster" id="content">
           <!-- START JUMBOTRON -->
@@ -202,7 +273,7 @@ if (isset($_GET["m"])) {
     <!-- END PAGE CONTAINER -->
     <!--START QUICKVIEW -->
       <!-- Nav tabs -->
-    </div>
+    <!-- </div> -->
     <!-- END QUICKVIEW-->
     <!-- START OVERLAY -->
 
@@ -576,6 +647,22 @@ if (isset($_GET["m"])) {
               }
           });
         });
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        function getUrlParam(parameter, defaultvalue){
+            var urlparameter = defaultvalue;
+            if(window.location.href.indexOf(parameter) > -1){
+                urlparameter = getUrlVars()[parameter];
+                }
+            return urlparameter;
+        }
 
         setInterval(function(){ checksession(); }, 5000);
 

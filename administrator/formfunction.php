@@ -58,6 +58,20 @@ function getKeturunan(){
   }
 }
 
+function refdeliveryCourier(){
+  global $conn;
+
+  $select = "SELECT * FROM ref_deliveryCourier WHERE rdc_status = 1";
+  $result = $conn->query($select);
+  // echo "<option value=''>-- Syarikat Courier --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rdc_id"];
+    $name=$row["rdc_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
 function getJenisPenghantaran(){
   global $conn;
 
@@ -68,6 +82,20 @@ function getJenisPenghantaran(){
   {
     $id=$row["rjp_id"];
     $name=$row["rjp_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
+function getBank(){
+  global $conn;
+
+  $select = "SELECT * FROM ref_bank WHERE rbnk_status = 1";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Bank --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rbnk_id"];
+    $name=$row["rbnk_name"];
     echo "<option value='$id'>$name</option>";
   }
 }

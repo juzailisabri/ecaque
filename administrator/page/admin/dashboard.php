@@ -151,130 +151,130 @@ input[disabled]{
 
   <script type="text/javascript">
 
-  $("#searchIC").on("keydown", function(e) {
-      if (e.keyCode === 13) {
-        e.preventDefault();
-      $("#searchbtn").click();
-    }
-  });
+  // $("#searchIC").on("keydown", function(e) {
+  //     if (e.keyCode === 13) {
+  //       e.preventDefault();
+  //     $("#searchbtn").click();
+  //   }
+  // });
+  //
+  // var statp1 = true;
+  // var statp2 = true;
+  // var statp3 = true;
+  // var statp4 = true;
+  // var statp5 = true;
+  // var statp6 = true;
+  // var statp7 = true;
+  // var AAP = null;
+  //
+  // $("#tab2").removeClass("active");
+  // $("#tab3").removeClass("active");
+  // $("#tab4").removeClass("active");
+  // $("#tab5").removeClass("active");
+  // $("#tab6").removeClass("active");
+  // $("#tab7").removeClass("active");
+  //
+  // $(function () {
+  //   $('[data-toggle="tooltip"]').tooltip()
+  // });
+  //
+  // $("[id='searchbtn']").click(function(e){
+  //   getPermohonanStatus();
+  // });
+  //
+  // $("#openBorang").click(function(e){
+  //   e.preventDefault();
+  //   var searchIC = $("#searchIC").val();
+  //   console.log(searchIC);
+  //   getPermohonanFormByIC(searchIC);
+  // });
+  //
+  // $("#closeresult").click(function(e){
+  //   $("#searchresultstatus").hide();
+  //   $('.page-container').stop(true, true).animate({
+  //     scrollTop: 176
+  //   });
+  // });
+  //
+  // function getPermohonanStatus() {
+  //   var searchIC = $("#searchIC").val();
+  //   var fd = new FormData();
+  //   fd.append("func","getPermohonanFormStatus");
+  //   fd.append("icno",searchIC);
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: "db",
+  //     data: fd,
+  //     dataType: "json",
+  //     cache: false,
+  //     contentType: false,
+  //     processData: false,
+  //     success: function(data) {
+  //       var count = Object.keys(data["P"]).length;
+  //       if(count != 0){
+  //         $("#searchresultstatus").show();
+  //         $("#sr-name").html(data["P"][0]["pt2_nama_pemohon"]);
+  //         $("#sr-icno").html(data["P"][0]["pt2_no_kp_pemohon"]);
+  //         $("#sr-address").html(data["P"][0]["fulladdress"]);
+  //         $("#sr-university").html(data["P"][0]["university"]);
+  //         $("#sr-phone").html(data["P"][0]["pt2_no_hp_pemohon"]);
+  //         $("#sr-email").html(data["P"][0]["pt2_emel_pemohon"]);
+  //
+  //         changeStat("permohonanDihantar",data["P"][0]["status_permohonan"],data["P"][0]["tarikh_permohonan"]);
+  //         changeStat("Kaunter",data["P"][0]["kaunter_application_stat"],data["P"][0]["kaunter_date"]);
+  //         changeStat("BorangPengesahan",data["P"][0]["kaunter_document_stat"],data["P"][0]["kaunter_date"]);
+  //         changeStat("Penyedia",data["P"][0]["penyedia_stat"],data["P"][0]["penyedia_date"]);
+  //         changeStat("permohonanDisemak",data["P"][0]["penyemak_stat"],data["P"][0]["penyemak_date"]);
+  //         changeStat("permohonanDilulus",data["P"][0]["pelulus_stat"],data["P"][0]["pelulus_date"]);
+  //         changeStat("PembayaranHPIPT",data["P"][0]["pembayaran_hpipt_stat"],data["P"][0]["pembayaran_hpipt_date"]);
+  //         changeStat("PembayaranSD",data["P"][0]["pembayaran_sd_stat"],data["P"][0]["pembayaran_sd_date"]);
+  //         // changeStat("permohonanDilulus",data["P"][0]["status_permohonan"],data["P"][0]["tarikh_permohonan"]);
+  //         // changeStat("Pembayaran",data["P"][0]["status_permohonan"],data["P"][0]["tarikh_permohonan"]);
+  //
+  //         AAP = data["P"][0]["enc_id"];
+  //         SuccessNoti("Berjaya","Data <b>"+data["P"][0]["pt2_nama_pemohon"]+"</b> ditemui");
+  //         $("#searchresultstatus").show();
+  //         $('.page-container').stop(true, true).delay(100).animate({
+  //           scrollTop: $("#searchresultstatus").offset().top - 186
+  //         });
+  //       } else {
+  //         AAP = null;
+  //         $("#searchresultstatus").hide();
+  //         saAlert3("Harap Maaf","Tiada Rekod Permohonan Dijumpai dalam Pengkalan data","warning");
+  //       }
+  //     },
+  //     error: function(data) {
+  //     }
+  //   });
+  // }
 
-  var statp1 = true;
-  var statp2 = true;
-  var statp3 = true;
-  var statp4 = true;
-  var statp5 = true;
-  var statp6 = true;
-  var statp7 = true;
-  var AAP = null;
-
-  $("#tab2").removeClass("active");
-  $("#tab3").removeClass("active");
-  $("#tab4").removeClass("active");
-  $("#tab5").removeClass("active");
-  $("#tab6").removeClass("active");
-  $("#tab7").removeClass("active");
-
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  });
-
-  $("[id='searchbtn']").click(function(e){
-    getPermohonanStatus();
-  });
-
-  $("#openBorang").click(function(e){
-    e.preventDefault();
-    var searchIC = $("#searchIC").val();
-    console.log(searchIC);
-    getPermohonanFormByIC(searchIC);
-  });
-
-  $("#closeresult").click(function(e){
-    $("#searchresultstatus").hide();
-    $('.page-container').stop(true, true).animate({
-      scrollTop: 176
-    });
-  });
-
-  function getPermohonanStatus() {
-    var searchIC = $("#searchIC").val();
-    var fd = new FormData();
-    fd.append("func","getPermohonanFormStatus");
-    fd.append("icno",searchIC);
-    $.ajax({
-      type: 'POST',
-      url: "db",
-      data: fd,
-      dataType: "json",
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function(data) {
-        var count = Object.keys(data["P"]).length;
-        if(count != 0){
-          $("#searchresultstatus").show();
-          $("#sr-name").html(data["P"][0]["pt2_nama_pemohon"]);
-          $("#sr-icno").html(data["P"][0]["pt2_no_kp_pemohon"]);
-          $("#sr-address").html(data["P"][0]["fulladdress"]);
-          $("#sr-university").html(data["P"][0]["university"]);
-          $("#sr-phone").html(data["P"][0]["pt2_no_hp_pemohon"]);
-          $("#sr-email").html(data["P"][0]["pt2_emel_pemohon"]);
-
-          changeStat("permohonanDihantar",data["P"][0]["status_permohonan"],data["P"][0]["tarikh_permohonan"]);
-          changeStat("Kaunter",data["P"][0]["kaunter_application_stat"],data["P"][0]["kaunter_date"]);
-          changeStat("BorangPengesahan",data["P"][0]["kaunter_document_stat"],data["P"][0]["kaunter_date"]);
-          changeStat("Penyedia",data["P"][0]["penyedia_stat"],data["P"][0]["penyedia_date"]);
-          changeStat("permohonanDisemak",data["P"][0]["penyemak_stat"],data["P"][0]["penyemak_date"]);
-          changeStat("permohonanDilulus",data["P"][0]["pelulus_stat"],data["P"][0]["pelulus_date"]);
-          changeStat("PembayaranHPIPT",data["P"][0]["pembayaran_hpipt_stat"],data["P"][0]["pembayaran_hpipt_date"]);
-          changeStat("PembayaranSD",data["P"][0]["pembayaran_sd_stat"],data["P"][0]["pembayaran_sd_date"]);
-          // changeStat("permohonanDilulus",data["P"][0]["status_permohonan"],data["P"][0]["tarikh_permohonan"]);
-          // changeStat("Pembayaran",data["P"][0]["status_permohonan"],data["P"][0]["tarikh_permohonan"]);
-
-          AAP = data["P"][0]["enc_id"];
-          SuccessNoti("Berjaya","Data <b>"+data["P"][0]["pt2_nama_pemohon"]+"</b> ditemui");
-          $("#searchresultstatus").show();
-          $('.page-container').stop(true, true).delay(100).animate({
-            scrollTop: $("#searchresultstatus").offset().top - 186
-          });
-        } else {
-          AAP = null;
-          $("#searchresultstatus").hide();
-          saAlert3("Harap Maaf","Tiada Rekod Permohonan Dijumpai dalam Pengkalan data","warning");
-        }
-      },
-      error: function(data) {
-      }
-    });
-  }
-
-  function changeStat(id,data,date){
-    var icon = "fa fa-"+data["rs_icon"];
-    var bg = "icon-thumbnail bg-"+data["rs_color"]+" pull-left text-white";
-    $("[id='"+id+"'][type='icon-color']").removeClass();
-    $("[id='"+id+"'][type='icon-color']").attr("class",bg);
-    $("[id='"+id+"'][type='status']").html(data["rs_name"]);
-    $("[id='"+id+"'][type='icon']").attr("class",icon);
-    $("[id='"+id+"'][type='date']").html(date);
-  }
-
-  // set up our data series with 50 random data points
-
-  var seriesData = <?php echo $graft; ?>
-
-  var graph = new Rickshaw.Graph( {
-  	element: document.getElementById("chart"),
-  	width: 245,
-  	height: 150,
-  	renderer: 'line',
-    interpolation: 'basis',
-  	series: [
-  		{
-  			color: "#c05020",
-  			data: seriesData,
-  			name: 'Permohonan'
-  		}
-  	]
+  // function changeStat(id,data,date){
+  //   var icon = "fa fa-"+data["rs_icon"];
+  //   var bg = "icon-thumbnail bg-"+data["rs_color"]+" pull-left text-white";
+  //   $("[id='"+id+"'][type='icon-color']").removeClass();
+  //   $("[id='"+id+"'][type='icon-color']").attr("class",bg);
+  //   $("[id='"+id+"'][type='status']").html(data["rs_name"]);
+  //   $("[id='"+id+"'][type='icon']").attr("class",icon);
+  //   $("[id='"+id+"'][type='date']").html(date);
+  // }
+  //
+  // // set up our data series with 50 random data points
+  //
+  // var seriesData = <?php echo $graft; ?>
+  //
+  // var graph = new Rickshaw.Graph( {
+  // 	element: document.getElementById("chart"),
+  // 	width: 245,
+  // 	height: 150,
+  // 	renderer: 'line',
+  //   interpolation: 'basis',
+  // 	series: [
+  // 		{
+  // 			color: "#c05020",
+  // 			data: seriesData,
+  // 			name: 'Permohonan'
+  // 		}
+  // 	]
   } );
 
   // linear: straight lines between points
@@ -282,22 +282,22 @@ input[disabled]{
   // cardinal: smooth curves via cardinal splines (default)
   // basis: smooth curves via B-splines
 
-  graph.render();
-
-  var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-  	graph: graph,
-  	formatter: function(series, x, y) {
-      var invert = x;
-      invert = (invert * -1)+11;
-      var monthnew = moment().subtract(invert, 'months');
-      var df = monthnew.format("MM/YYYY");
-      // var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
-  		var date = '<span class="date">' + df + '</span>';
-  		var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
-  		var content = swatch + series.name + ": " + parseInt(y) + '<br>' + df;
-  		return content;
-  	}
-  });
+  // graph.render();
+  //
+  // var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+  // 	graph: graph,
+  // 	formatter: function(series, x, y) {
+  //     var invert = x;
+  //     invert = (invert * -1)+11;
+  //     var monthnew = moment().subtract(invert, 'months');
+  //     var df = monthnew.format("MM/YYYY");
+  //     // var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
+  // 		var date = '<span class="date">' + df + '</span>';
+  // 		var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+  // 		var content = swatch + series.name + ": " + parseInt(y) + '<br>' + df;
+  // 		return content;
+  // 	}
+  // });
 
 </script>
 <script type="text/javascript" src="assets/js/read.js" />

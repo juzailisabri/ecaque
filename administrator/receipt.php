@@ -2,13 +2,14 @@
 session_start();
 // error_reporting(0);
 
-include("administrator/conn.php");
+include("conn.php");
 $oid = $_GET["oid"];
 
 if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
+  header("Location: ../login");
 } else {
-  header("Location: administrator/index?m=customerOrder&oid=$oid");
 }
+
 
 function getOrderDetail($id){
   global $conn;
@@ -148,7 +149,7 @@ $footertable = "";
  */
 
 // Include the main TCPDF library (search for installation path).
-require_once('tcpdf/tcpdf.php');
+require_once('../tcpdf/tcpdf.php');
 function colorFunction($var,$on,$off){
   if($var == ""){
     return $off;
@@ -261,7 +262,7 @@ class MYPDF extends TCPDF {
 
         $this->writeHTML($tbl, true, false, false, false, '');
 
-        $image_file = 'assets/images/Logo_2020_Black.png';
+        $image_file = '../assets/images/Logo_2020_Black.png';
         $this->Image($image_file, 14, 10, 60, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
     }
 

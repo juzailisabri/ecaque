@@ -520,6 +520,184 @@ function getStokistOrder($data){
   return $json_data;
 }
 
+function colorFunction($var,$on,$off){
+  if($var == ""){
+    return $off;
+  } else {
+    return $on;
+  }
+}
+
+if($_POST["func"] == "getReceipt"){
+  echo json_encode(getReceipt($_POST));
+}
+
+function getReceipt($data){
+  global $conn;
+  global $secretKey;
+
+  $columns = array(
+    // datatable column index  => database column name
+    0 => 'er_id',
+    1 => 'er_fullname',
+    2 => 'er_fullname',
+    3 => 'er_totalprice',
+    4 => 'er_totalprice',
+    5 => 'er_totalprice'
+  );
+
+  $where = "";
+
+  if (isset($data["status"]) && $data["status"] != '') {
+    $where .= " AND er_status = '".$data["status"]."' ";
+  }
+
+  if (isset($data["search"]) && $data["search"] != '') {
+    $search = $data['search'];
+    $where .= " AND (er_fullname  LIKE '%".$search."%' ";
+    $where .= " OR er_phone LIKE '%".$search."%'";
+    $where .= " OR er_address LIKE '%".$search."%'";
+    $where .= " OR MD5(CONCAT('$secretKey',er_id)) = '$search') ";
+  }
+
+  // if (isset($data["statusOrder"]) && $data["statusOrder"] != '') {
+  //   $where .= "AND eos_status = '".$data["statusOrder"]."' ";
+  // }
+
+  $sql = "SELECT COUNT(er_id) as count FROM e_receipt WHERE TRUE $where";
+
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  $numrows = $row["count"];
+  $totalData = $numrows;
+
+  $sql = "SELECT
+  MD5(CONCAT('$secretKey',er_id)) as linkid,
+  SHA2(er_id,256) as enc_id,
+  er_id,
+  er_date,
+  er_fullname,
+  er_address,
+  er_phone,
+  er_rjp_id,
+  er_postage,
+  er_totalprice,
+  er_trackingNo,
+  er_rdc_id,
+  er_payment_date,
+  er_packing_date,
+  er_dispatch_date,
+  er_status
+  FROM e_receipt
+  WHERE TRUE $where
+  ";
+
+  $sql.=" ORDER BY ". $columns[$data['order'][0]['column']]." ".$data['order'][0]['dir']." LIMIT ".$data['start']." ,".$data['length']."   ";
+  $result = $conn->query($sql);
+  $numrows = $result->num_rows;
+  $totalFiltered = $numrows;
+
+  $x = 1;
+  $datadb = array();
+  while ($row = $result->fetch_assoc()) {
+
+    $er_fullname = $row["er_fullname"];
+    $er_address = $row["er_address"];
+    $er_phone = $row["er_phone"];
+    $er_postage = $row["er_postage"];
+    $er_totalprice = "RM ".$row["er_totalprice"];
+    $er_trackingNo = $row["er_trackingNo"];
+    $er_date = $row["er_date"];
+    $linkid = $row["linkid"];
+    $enc_id = $row["enc_id"];
+    $er_payment_date = $row["er_payment_date"];
+    $er_packing_date = $row["er_packing_date"];
+
+    $er_payment_dateC = colorFunction($er_payment_date,"btn-success","btn-muted");
+    $er_packing_dateC = colorFunction($er_packing_date,"btn-success","btn-muted");
+
+    $link = "receipt?oid=$linkid";
+
+    $nestedData=array();
+    $nestedData[] = $row["er_id"];
+    $nestedData[] = "<b>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br>
+                    <button key=\"$enc_id\" id=\"payment\" class='btn $er_payment_dateC btn-sm m-t-10'> <i class='fa fa-money'></i> </button>
+                    <button key=\"$enc_id\" id=\"packing\" class='btn $er_packing_dateC btn-sm m-t-10'> <i class='fa fa-cubes'></i> </button>";
+    $nestedData[] = "$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
+    $nestedData[] = "$er_totalprice <br> (RM $er_postage) ";
+    $nestedData[] = "<button key=\"$enc_id\" id=\"payment\" class='btn $er_payment_dateC btn-sm'> <i class='fa fa-money'></i> </button>";
+    $nestedData[] = "<button key=\"$enc_id\" id=\"packing\" class='btn $er_packing_dateC btn-sm'> <i class='fa fa-cubes'></i> </button>";
+    $nestedData[] = '
+    <div class="btn-group row w-100">
+      <div class="btn-group col-12 p-0">
+        <a href="'.$link.'" target="_blank"  class="btn btn-primary w-100">
+          <span class="p-t-5 p-b-5">
+          <i class="fa fa-edit fs-15"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="row p-t-10 visible-xs">
+      <b>'.$er_totalprice.'</b><br>(RM '.$er_postage.')
+    </div>';
+
+    $datadb[] = $nestedData;
+    $x++;
+  }
+
+  error_log(print_r($data,true),0);
+
+  $json_data = array(
+    "draw"            => intval( $data['draw'] ),   // for every request/draw by clientside , they send a number as a parameter, when they recieve a response/data they first check the draw number, so we are sending same number in draw.
+    "recordsTotal"    => intval( $totalFiltered),  // total number of records
+    "recordsFiltered" => intval( $totalData ), // total number of records after searching, if there is no searching then totalFiltered = totalData
+    "data"            => $datadb
+  );
+
+  return $json_data;
+}
+
+if($_POST["func"] == "getReceiptDetail"){
+  echo json_encode(getReceiptDetail($_POST));
+}
+
+function getReceiptDetail($data){
+  global $conn;
+  global $secretKey;
+
+  $id = $data["er_id"];
+  $s = "SELECT
+  MD5(CONCAT('$secretKey',er_id)) as linkid,
+  SHA2(er_id,256) as enc_id,
+  er_id,
+  er_date,
+  er_fullname,
+  er_address,
+  er_phone,
+  er_rjp_id,
+  er_postage,
+  er_totalprice,
+  er_trackingNo,
+  er_rdc_id,
+  er_payment_date,
+  er_packing_date,
+  er_dispatch_date,
+  er_status,
+  er_rb_id,
+  er_bankref
+  FROM e_receipt
+  WHERE SHA2(er_id,256) = '$id'";
+
+  $arr = [];
+  $result = $conn->query($s);
+  while ($row = $result->fetch_assoc())
+  {
+    $arr[] = $row;
+  }
+
+  return $arr[0];
+}
+
 if($_POST["func"] == "getProduct"){
   echo json_encode(getProduct($_POST));
 }
@@ -983,5 +1161,61 @@ function getStockDetail($data){
   }
 
   return $arr;
+}
+
+if($_POST["func"] == "updatepayment"){
+  echo json_encode(updatepayment($_POST));
+}
+
+function updatepayment($data){
+  global $conn;
+
+  $id = $data["er_id"];
+  $bank = $data["bank"];
+  $refNo = $data["refNo"];
+
+  $i = "UPDATE e_receipt
+  SET
+    er_payment_date = NOW(),
+    er_rb_id = $bank,
+    er_bankref = '$refNo'
+  WHERE SHA2(er_id,256) = '$id'";
+
+  if ($conn->query($i)) {
+    $ret["STATUS"] = true;
+    $ret["MSG"] = "Maklumat Pembayaran Dikemaskini";
+  } else {
+    $ret["STATUS"] = false;
+    $ret["MSG"] = "Maklumat Pembayaran Gagal Dikemaskini, sila hubungi pihak admin sistem";
+  }
+  return $ret;
+}
+
+if($_POST["func"] == "updatePacking"){
+  echo json_encode(updatePacking($_POST));
+}
+
+function updatePacking($data){
+  global $conn;
+
+  $id = $data["er_id"];
+  $courier = $data["courier"];
+  $trackingNo = $data["trackingNo"];
+
+  $i = "UPDATE e_receipt
+  SET
+    er_packing_date = NOW(),
+    er_rdc_id = $courier,
+    er_trackingNo = '$trackingNo'
+  WHERE SHA2(er_id,256) = '$id'";
+
+  if ($conn->query($i)) {
+    $ret["STATUS"] = true;
+    $ret["MSG"] = "Maklumat Pembungkusan Dikemaskini";
+  } else {
+    $ret["STATUS"] = false;
+    $ret["MSG"] = "Maklumat Pembungkusan Gagal Dikemaskini, sila hubungi pihak admin sistem";
+  }
+  return $ret;
 }
 ?>
