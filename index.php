@@ -185,7 +185,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
           <div class="header-inner">
             <ul class="menu ">
               <li>
-                <a id="menuLink" target="hero" href="#" class="active  text-white">Home </a>
+                <a id="menuLink" target="home" href="#" class="active  text-white">Home </a>
               </li>
               <li>
                 <a id="menuLink" target="pricing" class="text-white  active"href="#">Buy Now </a>
@@ -213,7 +213,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
     <!-- END HEADER -->
     <div class="page-wrappers">
       <!-- BEGIN JUMBOTRON -->
-      <section class="jumbotron full-vh" data-pages="parallax">
+      <section class="jumbotron full-vh" data-pages="parallax" id="home">
         <div class="inner full-height">
           <!-- BEGIN SLIDER -->
           <div class="swiper-container" id="hero">
