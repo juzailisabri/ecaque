@@ -191,7 +191,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <a id="menuLink" target="pricing" class="text-white  active"href="#">Pricing </a>
               </li>
               <li>
-                <a id="menuLink" target="agent" class="text-white  active" href="#">Agent eCauqe </a>
+                <a id="menuLink" target="agent" class="text-white  active" href="#">Agent eCaque </a>
               </li>
               <li>
                 <a  id="menuLink" target="contact"  class="text-white active"href="#">Contact Us</a>
