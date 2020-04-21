@@ -20,6 +20,8 @@ function getOrderDetail($id){
   SHA2(er_id,256) as enc_id,
   er_id,
   er_date,
+  DATE_FORMAT(er_date,'%Y') as invyear,
+  DATE_FORMAT(er_date,'%m') as invmonth,
   er_fullname,
   er_address,
   er_phone,
@@ -185,6 +187,12 @@ class MYPDF extends TCPDF {
       $er_packing_dateCA = colorFunction($er_packing_date,array(0, 0, 0),array(200, 200, 200));
       $er_payment_paid = colorFunction($er_payment_date,"PAID","UNPAID");
 
+      $invyear = $data["ER"][0]["invyear"];
+      $invmonth = $data["ER"][0]["invmonth"];
+      $er_id = sprintf("%08d", $data["ER"][0]["er_id"]);
+
+      $invcode = "INV-$invyear$invmonth$er_id";
+
       $style = array(
         'border' => 0,
         'fgcolor' => array(0,0,0),
@@ -216,11 +224,11 @@ class MYPDF extends TCPDF {
             <br>
             <tr>
                 <td><sub>Customer Name:</sub></td>
-                <td><sub>Order Date:</sub></td>
+                <td><sub>Invoice No:</sub></td>
             </tr>
             <tr>
                 <td>$rs_name</td>
-                <td>$er_dateorder</td>
+                <td>$invcode</td>
             </tr>
             <tr>
                 <td><sub>Client Address:</sub></td>
