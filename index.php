@@ -252,62 +252,28 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
               </div>
               <!-- END SLIDE -->
               <!-- BEGIN SLIDE -->
-              <div class="swiper-slide fit">
-                <!-- BEGIN IMAGE PARRALAX -->
+              <!-- <div class="swiper-slide fit">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
-                    <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
-                    <div data-pages-bg-image="assets/images/hero_2.jpeg" draggable="false" class="background"></div>
+                    <<div class="background hidden-xs" data-pages-bg-image="assets/slider/Slider4.jpg"></div>
+                    <div class="background visible-xs" data-pages-bg-image="assets/slider/Slider4m.jpg"></div>
                   </div>
                 </div>
-                <!-- END IMAGE PARRALAX -->
-                <!-- BEGIN CONTENT -->
                 <div class="content-layer">
                   <div class="inner full-height">
                     <div class="container-xs-height full-height">
                       <div class="col-xs-height col-middle text-left">
                         <div class="container">
                           <div class="col-md-6 no-padding col-xs-10 col-xs-offset-1">
-                            <h1 class="light sm-text-center" data-swiper-parallax="-15%"> Twenty & Counting... Unique Website Templates</h1>
-                            <h4 class="sm-text-center">Save time, save money, look more professional and win more clients.</h4>
-                            <h5 class="block-title text-white sm-text-center">Behind the scenes watch tour</h5>
-                            <p class="fs-12 font-arial hint-text sm-text-center">Available at themeforest, envato market place.</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- END CONTENT -->
-              </div>
-              <!-- END SLIDE -->
+              </div> -->
               <!-- BEGIN SLIDE -->
-              <div class="swiper-slide fit">
-                <!-- BEGIN IMAGE PARRALAX -->
-                <div class="slider-wrapper">
-                  <div class="background-wrapper" data-swiper-parallax="30%">
-                    <div data-pages-bg-image="assets/images/hero_5.jpeg" draggable="false" class="background"></div>
-                  </div>
-                </div>
-                <!-- END IMAGE PARRALAX -->
-                <!-- BEGIN CONTENT -->
-                <div class="content-layer">
-                  <div class="inner full-height">
-                    <div class="container-xs-height full-height">
-                      <div class="col-xs-height col-middle text-left">
-                        <div class="container">
-                          <div class="col-sm-6 col-sm-offset-3 text-center">
-                            <h1 class="light" data-swiper-parallax="-15%">Simplicity beats confusion
-                                        </h1>
-                            <p class="fs-12 font-arial hint-text">Available at themeforest, envato market place.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- END CONTENT -->
-              </div>
+              
               <!-- END SLIDE -->
             </div>
             <!-- BEGIN ANIMATED MOUSE -->
