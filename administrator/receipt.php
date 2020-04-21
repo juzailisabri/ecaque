@@ -208,9 +208,7 @@ class MYPDF extends TCPDF {
         $this->Polygon(array(126,$y,160,$y));
         $this->SetLineStyle(array('width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(200, 200, 200)));
         // $this->Polygon(array(15,100,197,100));
-
-        $tbl =
-        "<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\">
+        $htbl = "<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\">
             <tr>
                 <td><b>PURCHASE ORDER</b></td>
                 <td></td>
@@ -240,12 +238,10 @@ class MYPDF extends TCPDF {
                 <td>$er_payment_paid</td>
                 <td>$rdc_name - <a href=\"$rdc_link$er_trackingNo\">$er_trackingNo </a></td>
             </tr>
+        </table>";
 
-        </table>
-        <br>
-        <br>
-        <br>
-
+        $tbl =
+        "
         <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\">
           <tr>
             <td align=\"left\"><b>Order Placed</b></td>
@@ -258,10 +254,10 @@ class MYPDF extends TCPDF {
             <td color=\"$er_packing_dateC\" align=\"right\"><small>$er_packing_date</small></td>
           </tr>
         </table>";
-
-
+        $this->SetY(60);
+        $this->writeHTML($htbl, true, false, false, false, '');
+        $this->SetY(102);
         $this->writeHTML($tbl, true, false, false, false, '');
-
         $image_file = '../assets/images/Logo_2020_Black.png';
         $this->Image($image_file, 14, 10, 60, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
     }
