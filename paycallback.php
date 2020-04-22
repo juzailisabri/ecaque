@@ -8,6 +8,7 @@ include("administrator/conn.php");
 // billcode : Your billcode / permanent link
 // order_id : Your external payment reference no, if specified
 // amount : Payment amount received
+
 $_POST = array_map('clean', $_POST);
 
 function clean($a){

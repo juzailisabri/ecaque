@@ -7,8 +7,8 @@ function makePayment($billname,$description,$invoiceNo,$clientName,$email,$phone
   $arr = [];
   $json = json_encode($arr);
 
-  $callback = "http://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
-  $returnUrl = "http://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
+  $callback = "https://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
+  $returnUrl = "https://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
   $toyyiburl = "https://toyyibpay.com/";
 
   $some_data = array(
