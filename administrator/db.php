@@ -548,8 +548,18 @@ function getReceipt($data){
 
   $where = "";
 
-  if (isset($data["status"]) && $data["status"] != '') {
-    $where .= " AND er_status = '".$data["status"]."' ";
+
+
+  if (isset($data["statusOrder"]) && $data["statusOrder"] != '') {
+    $staorder["3001"] = "AND er_payment_date IS NULL AND er_packing_date IS NULL ";
+    $staorder["3002"] = "AND er_payment_date IS NULL ";
+    $staorder["3003"] = "AND er_payment_date IS NOT NULL AND er_packing_date IS NULL";
+    $staorder["3004"] = "AND er_payment_date IS NOT NULL AND er_packing_date IS NOT NULL AND er_trackingNo IS NOT NULL ";
+
+    $statusOrder = $data["statusOrder"];
+    $str = $staorder[$statusOrder];
+
+    $where .= " $str ";
   }
 
   if (isset($data["search"]) && $data["search"] != '') {
@@ -557,6 +567,8 @@ function getReceipt($data){
     $where .= " AND (er_fullname  LIKE '%".$search."%' ";
     $where .= " OR er_phone LIKE '%".$search."%'";
     $where .= " OR er_address LIKE '%".$search."%'";
+    $where .= " OR er_id LIKE '%".$search."%'";
+    $where .= " OR CONCAT(DATE_FORMAT(er_date,'%Y'),DATE_FORMAT(er_date,'%m'),LPAD(er_id, 8, '0')) = '".$search."'";
     $where .= " OR MD5(CONCAT('$secretKey',er_id)) = '$search') ";
   }
 
@@ -624,7 +636,7 @@ function getReceipt($data){
                     <button key=\"$enc_id\" id=\"payment\" class='btn $er_payment_dateC btn-sm m-t-10'> <i class='fa fa-money'></i> </button>
                     <button key=\"$enc_id\" id=\"packing\" class='btn $er_packing_dateC btn-sm m-t-10'> <i class='fa fa-cubes'></i> </button>";
     $nestedData[] = "$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
-    $nestedData[] = "$er_totalprice <br> (RM $er_postage) ";
+    $nestedData[] = "$er_totalprice ";
     $nestedData[] = "<button key=\"$enc_id\" id=\"payment\" class='btn $er_payment_dateC btn-sm'> <i class='fa fa-money'></i> </button>";
     $nestedData[] = "<button key=\"$enc_id\" id=\"packing\" class='btn $er_packing_dateC btn-sm'> <i class='fa fa-cubes'></i> </button>";
     $nestedData[] = '

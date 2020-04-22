@@ -1,9 +1,8 @@
 <?php
-include("formfunction.php");
+include("../administrator/formfunction.php");
 
-
-if(!isset($_SESSION['ID']) && empty($_SESSION['ID'])) {
-   header("Location: ../loginAdmin");
+if(!isset($_SESSION['AGENT']['ID']) && empty($_SESSION['AGENT']['ID'])) {
+   header("Location: ../login");
 } else {
 
 }
@@ -19,37 +18,37 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
     <meta charset="utf-8" />
     <title>eCaque | Admin Management</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-    <link rel="apple-touch-icon" href="pages/ico/60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
+    <link rel="apple-touch-icon" href="../administrator/pages/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../administrator/pages/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../administrator/pages/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../administrator/pages/ico/152.png">
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta content="" name="description" />
     <meta content="" name="author" />
-    <link href="assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
-    <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
-  	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  	<link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-  	<link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="assets/plugins/select2/css/select2.css" rel="stylesheet" type="text/css" media="screen" />
-  	<link href="assets/plugins/formvalidation/css/formValidation.css" rel="stylesheet" type="text/css" media="screen" />
-  	<link href="assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
-    <link type="text/css" rel="stylesheet" href="assets/plugins/rickshaw/rickshaw.min.css"></link>
-    <link href="assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/jquery-datatable/extensions/button/css/buttons.dataTables.css" rel="stylesheet">
-    <link href="assets/plugins/jquery-datatable/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">
-    <link href="assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../administrator/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="../administrator/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
+  	<link href="../administrator/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  	<link href="../administrator/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+  	<link href="../administrator/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../administrator/assets/plugins/select2/css/select2.css" rel="stylesheet" type="text/css" media="screen" />
+  	<link href="../administrator/assets/plugins/formvalidation/css/formValidation.css" rel="stylesheet" type="text/css" media="screen" />
+  	<link href="../administrator/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../administrator/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
+    <link type="text/css" rel="stylesheet" href="../administrator/assets/plugins/rickshaw/rickshaw.min.css"></link>
+    <link href="../administrator/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../administrator/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css" />
+    <link href="../administrator/assets/plugins/jquery-datatable/extensions/button/css/buttons.dataTables.css" rel="stylesheet">
+    <link href="../administrator/assets/plugins/jquery-datatable/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="../administrator/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
 
-    <link href="assets/css/animate.css" rel="stylesheet" type="text/css">
-    <link media="screen" type="text/css" rel="stylesheet" href="assets/plugins/switchery/css/switchery.min.css">
-    <link href="pages/css/pages-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="pages/css/pages.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/viewer.css" rel="stylesheet" type="text/css">
+    <link href="../administrator/assets/css/animate.css" rel="stylesheet" type="text/css">
+    <link media="screen" type="text/css" rel="stylesheet" href="../administrator/assets/plugins/switchery/css/switchery.min.css">
+    <link href="../administrator/pages/css/pages-icons.css" rel="stylesheet" type="text/css">
+    <link class="main-stylesheet" href="../administrator/pages/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="../administrator/assets/css/viewer.css" rel="stylesheet" type="text/css">
   </head>
   <body class="fixed-header horizontal-menu horizontal-app-menu ">
     <!-- START HEADER -->
@@ -58,7 +57,7 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
             <div class="modal-content">
                 <div class="modal-header clearfix text-center p-0">
                     <!-- <h5>Sila Tunggu Sebentar <span class="semi-bold"></span></h5> -->
-                    <p class="p-t-15 bold text-center"> <img src="assets/img/loading3.gif" height="60px" alt=""> Loading. Sila Tunggu Sebentar</p>
+                    <p class="p-t-15 bold text-center"> <img src="../administrator/assets/img/loading3.gif" height="60px" alt=""> Loading. Sila Tunggu Sebentar</p>
                 </div>
 
             </div>
@@ -174,15 +173,18 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
           </div>
           <div class="d-flex align-items-center">
             <div class="pull-left p-r-10 fs-14 font-heading d-lg-inline-block">
-              <span id="username" class="semi-bold"><?php echo $_SESSION["FULLNAME"] ?></span>
+              <span id="username" class="semi-bold"><?php echo $_SESSION['AGENT']["FULLNAME"] ?></span>
             </div>
             <div class="dropdown pull-right sm-m-r-5">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline">
-                  <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar.jpg" width="32" height="32">
+                  <img src="../administrator/assets/img/profiles/avatar.jpg" alt="" data-src="../administrator/assets/img/profiles/avatar.jpg" data-src-retina="../administrator/assets/img/profiles/avatar.jpg" width="32" height="32">
                   </span>
               </button>
               <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
+                <a href="#" id="editProfile" class="bg-master-lighter dropdown-item">
+                  <span class="pull-left text-black bold" >Kemaskini Profil</span>
+                </a>
                 <a href="#" id="logoutBtn" class="clearfix bg-master-lighter dropdown-item">
                   <span class="pull-left" >Logout</span>
                   <span class="pull-right"><i class="pg-power"></i></span>
@@ -196,40 +198,13 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
             <img src="../assets/images/Logo_2020_White.png" alt="logo" data-src="../assets/images/Logo_2020_White.png" data-src-retina="../assets/images/Logo_2020_White.png" height="50">
           </div>
           <h2 class="page-title align-self-center hidden-xs p-t-10">
-            Admin Management
+            Agent Portal
           </h2>
         </div>
-        <div class="menu-bar header-sm-height" data-pages-init='horizontal-menu' data-hide-extra-li="0">
+        <div class="menu-bar header-sm-height" data-../administrator/pages-init='horizontal-menu' data-hide-extra-li="0">
           <a href="#" class="btn-link toggle-sidebar d-lg-none pg pg-close" data-toggle="horizontal-menu">
           </a>
-          <ul>
-            <li class="active">
-              <a href="page/admin/dashboard" class="syslink" id="mainpage" href="#">Papan Pemuka</a>
-            </li>
-            <!-- <li class="active">
-              <a href="page/kaunter/application" class="syslink" id="profileSetting">Inbox</a>
-            </li> -->
-            <li class="active">
-              <a href="page/admin/stock-record" class="syslink" id="profileSetting">Stock Record</a>
-            </li>
-            <li class="active">
-              <a href="page/admin/customer-order" class="syslink" id="customerOrder">Customer Order</a>
-            </li>
-            <li class="active">
-              <a href="javascript:;" class="syslink2">
-                <span class="title ">Ejen Stokis</span>
-                <span class="arrow"></span>
-              </a>
-              <ul class="">
-                <li class="">
-                  <a class="syslink" href="page/admin/pemohon-tetapan">Senarai Stokis</a>
-                </li>
-                <li class="">
-                  <a class="syslink" href="page/admin/stockist-order">Order Stok</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <?php include("menu.php") ?>
           <a href="#" class="search-link d-flex justify-content-between align-items-center d-lg-none" data-toggle="search">Tap here to search <i class="pg-search float-right"></i></a>
         </div>
       </div>
@@ -280,61 +255,61 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
     <!-- END OVERLAY -->
     <!-- BEGIN VENDOR JS -->
         <!-- BEGIN VENDOR JS -->
-    <script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/popper/umd/popper.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-actual/jquery.actual.min.js"></script>
-    <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../administrator/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/modernizr.custom.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/popper/umd/popper.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery-actual/jquery.actual.min.js"></script>
+    <script src="../administrator/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
 
-    <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/formvalidation/js/formValidation.min.js"></script>
-    <script src="assets/plugins/formvalidation/js/framework/bootstrap.min.js"></script>
+    <script src="../administrator/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/formvalidation/js/formValidation.min.js"></script>
+    <script src="../administrator/assets/plugins/formvalidation/js/framework/bootstrap.min.js"></script>
 
-    <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script src="assets/plugins/summernote/js/summernote.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/moment/moment.min.js"></script>
-    <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="../administrator/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/summernote/js/summernote.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/moment/moment.min.js"></script>
+    <script src="../administrator/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../administrator/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 
-    <script src="assets/plugins/sweetalert/sweetalert.min.js"></script>
-    <script src="assets/plugins/select2/js/select2.full.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/classie/classie.js"></script>
-    <script src="assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-datatable/media/js/dataTables.bootstrap.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../administrator/assets/plugins/select2/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="../administrator/assets/plugins/classie/classie.js"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/media/js/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js" type="text/javascript"></script>
 
-    <script src="assets/plugins/jquery-datatable/extensions/button/js/dataTables.buttons.js"></script>
-    <script src="assets/plugins/jquery-datatable/extensions/button/js/buttons.html5.js"></script>
-    <script src="assets/plugins/jquery-datatable/extensions/button/js/buttons.print.js"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/extensions/button/js/dataTables.buttons.js"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/extensions/button/js/buttons.html5.js"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/extensions/button/js/buttons.print.js"></script>
 
-    <script src="assets/plugins/jquery-datatable/jszip.min.js"></script>
-    <script src="assets/plugins/jquery-datatable/pdfmake.min.js"></script>
-    <script src="assets/plugins/jquery-datatable/vfs_fonts.js"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/jszip.min.js"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/pdfmake.min.js"></script>
+    <script src="../administrator/assets/plugins/jquery-datatable/vfs_fonts.js"></script>
 
 
-    <script type="text/javascript" src="assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
-    <script type="text/javascript" src="assets/plugins/datatables-responsive/js/lodash.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/switchery/js/switchery.min.js"></script>
-    <script src="assets/js/jquery.chained.js"></script>
-    <script src="assets/js/jquery.redirect.js"></script>
-    <!-- <script src="assets/js/jQueryRotate.js"></script> -->
-    <script src="pages/js/pages.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../administrator/assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
+    <script type="text/javascript" src="../administrator/assets/plugins/datatables-responsive/js/lodash.min.js"></script>
+    <script type="text/javascript" src="../administrator/assets/plugins/switchery/js/switchery.min.js"></script>
+    <script src="../administrator/assets/js/jquery.chained.js"></script>
+    <script src="../administrator/assets/js/jquery.redirect.js"></script>
+    <!-- <script src="../administrator/assets/js/jQueryRotate.js"></script> -->
+    <script src="../administrator/pages/js/pages.min.js" type="text/javascript"></script>
 
-    <script src="assets/plugins/d3/d3.min.js"></script>
-    <script src="assets/plugins/rickshaw/rickshaw.min.js"></script>
+    <script src="../administrator/assets/plugins/d3/d3.min.js"></script>
+    <script src="../administrator/assets/plugins/rickshaw/rickshaw.min.js"></script>
     <!-- END CORE TEMPLATE JS -->
     <!-- BEGIN PAGE LEVEL JS -->
-    <script src="assets/js/scripts.js" type="text/javascript"></script>
-    <script src="assets/js/viewer.js" type="text/javascript"></script>
+    <script src="../administrator/assets/js/scripts.js" type="text/javascript"></script>
+    <script src="../administrator/assets/js/viewer.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS -->
 
     <script type="text/javascript">
@@ -496,7 +471,7 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
               closeOnCancel: false,
               showCancelButton: false,
               showConfirmButton: false,
-              imageUrl: "assets/img/loading3.gif",
+              imageUrl: "../administrator/assets/img/loading3.gif",
               imageSize: '200x200'
           }, function(isConfirm){
 
@@ -505,6 +480,10 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
 
         function saLoading(){
           saConfirm3("Memposes Data","Sila Tunggu Sebentar sementara \n pelayan memproses data. \n\n Terima Kasih","loading");
+        }
+
+        function saLoadingPayment(){
+          saConfirm3("Memposes Pembayaran","Jangan tutup tab/browser ini \n sehingga pembayaran selesai \n\n Terima Kasih","loading");
         }
 
         function loading(){
@@ -600,28 +579,28 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
           });
         });
 
-        function checksession(){
-          var fd = new FormData();
-          fd.append("func","logout");
-          $.ajax({
-              type: 'POST',
-              url: "session",
-              data: fd,
-              dataType: "json",
-              cache: false,
-              contentType: false,
-              processData: false,
-              success: function(data) {
-                if (data == false) {
-                  window.location = "index";
-                }
-                // window.location = "login";
-              },
-              error: function(data) {
-                // saAlert3("Error","Session Log Out Error","warning");
-              }
-          });
-        }
+        // function checksession(){
+        //   var fd = new FormData();
+        //   fd.append("func","logout");
+        //   $.ajax({
+        //       type: 'POST',
+        //       url: "session",
+        //       data: fd,
+        //       dataType: "json",
+        //       cache: false,
+        //       contentType: false,
+        //       processData: false,
+        //       success: function(data) {
+        //         if (data == false) {
+        //           window.location = "index";
+        //         }
+        //         // window.location = "login";
+        //       },
+        //       error: function(data) {
+        //         // saAlert3("Error","Session Log Out Error","warning");
+        //       }
+        //   });
+        // }
 
         $("[id='changeRole']").click(function(e){
           var role = $(this).attr("rrid");
@@ -664,7 +643,7 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
             return urlparameter;
         }
 
-        setInterval(function(){ checksession(); }, 5000);
+        // setInterval(function(){ checksession(); }, 5000);
 
 
     </script>

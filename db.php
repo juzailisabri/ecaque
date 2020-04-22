@@ -21,6 +21,7 @@ if($_POST["func"] == "insertAgent"){
 
 function insertAgent($data){
   global $conn;
+  global $cfg_salt;
 
   $fullname = $data["fullname"];
   $identificationNo = $data["identificationNo"];
@@ -37,6 +38,11 @@ function insertAgent($data){
   $instagram = $data["instagram"];
   $linkedin = $data["linkedin"];
 
+  $mmpassword = mysqli_real_escape_string($conn,$data["password"]);
+  $password = $cfg_salt.$mmpassword;
+  $password = hash('sha256', $password);
+
+
 
   $s = "SELECT es_id FROM e_stockist WHERE es_icno = '$identificationNo'";
   $res = $conn->query($s);
@@ -46,6 +52,7 @@ function insertAgent($data){
   if ($numr == 0) {
     $i = "INSERT INTO e_stockist
     (
+      es_password,
       es_name,
       es_icno,
       es_rktrn_id,
@@ -65,6 +72,7 @@ function insertAgent($data){
     )
       VALUES
     (
+      '$password',
       '$fullname',
       '$identificationNo',
       '$bangsa',
@@ -82,7 +90,6 @@ function insertAgent($data){
       '$nationality',
       '1000'
     )";
-
     // echo $i;exit;
 
     if ($conn->query($i)) {
@@ -127,7 +134,7 @@ function whatsappOrder($data){
   $postagefee = number_format(0.00,2);
   $total = 0.00;
 
-  if ($q <= $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
+  if ($q < $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
   $total = number_format($postagefee + ($q * $rp_price), 2);
 
   $arr["rp_price"] = number_format($rp_price, 2);
@@ -165,7 +172,7 @@ function OrderNow($data){
   $postagefee = number_format(0.00,2);
   $total = 0.00;
 
-  if ($q <= $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
+  if ($q < $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
   $total = number_format($postagefee + ($q * $rp_price), 2);
 
   $er_fullname = $data["fullname"];

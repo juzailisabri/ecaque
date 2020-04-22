@@ -1,5 +1,5 @@
 <?php
-include("../../formfunction.php");
+include("../../administrator/formfunction.php");
 $oid = null;
 if (isset($_GET["oid"])) { $oid = $_GET["oid"]; }
 ?>
@@ -275,10 +275,56 @@ var tablePengguna = $('#table-pengguna').on('preXhr.dt', function ( e, settings,
   ], // your case first column "className": "text-center", }],
   fnDrawCallback: function () {
     // $("#counter").html(this.fnSettings().fnRecordsTotal())
-    tablePengguna.$("[id='payment']").click(verifyPayment);
-    tablePengguna.$("[id='packing']").click(packing);
+    // tablePengguna.$("[id='payment']").click(verifyPayment);
+    // tablePengguna.$("[id='packing']").click(packing);
+    tablePengguna.$("[id='makepayment']").click(makepayment);
+
+
   }
 });
+
+var PAYMENTKEY;
+var CHECKPAYMENTINTERVAL;
+
+if (typeof CHECKPAYMENTINTERVAL !== 'undefined') {
+  clearInterval(CHECKPAYMENTINTERVAL);
+}
+
+function makepayment(){
+  saLoadingPayment();
+  PAYMENTKEY = $(this).attr("key");
+  CHECKPAYMENTINTERVAL = setInterval(checkpaymentfunction,2000);
+}
+
+function checkpaymentfunction(key){
+  console.log("REF");
+  var fd = new FormData();
+  fd.append("func","checkPayment");
+  fd.append("er_id",PAYMENTKEY);
+  $.ajax({
+      type: 'POST',
+      url: "db",
+      data: fd,
+      dataType: "json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        var msg = data["MSG"];
+        if (msg == null || msg == "") {
+          // CONTINUE
+        } else {
+          er_paymentRefNo = data["er_paymentRefNo"];
+          saAlert3(data["TITLE"],data["MSG"],data["TYPE"]);
+          clearInterval(CHECKPAYMENTINTERVAL);
+          tablePengguna.ajax.reload(null,false);
+        }
+      },
+      error: function(data) {
+        // saAlert3("Error","Session Log Out Error","warning");
+      }
+  });
+}
 
 $("#filter").on("keydown", function(e) {
     if (e.keyCode === 13) {
@@ -587,9 +633,6 @@ $('#form-stokist-order').formValidation({
     saConfirm4("Muktamat","Anda pasti untuk simpan data pesanan? Sila pastikan butiran pesanan adalah betul. Terima Kasih.","warning","Ya, Pasti",runfunction,"Pasti");
 });
 
-
-
-
 var INSFUNC = 'insertStokist';
 
 function save(){
@@ -623,9 +666,7 @@ var ESOFUNC = "insertOrder";
 function saveOrder(){
   var myform = document.getElementById('form-stokist-order');
   var fd = new FormData(myform);
-  fd.append("func",ESOFUNC);
-  fd.append("CHANGESTABLEPRODUCT",CHANGESTABLEPRODUCT);
-  fd.append("eosid",EOSID);
+  fd.append("func","makeOrder");
   $.ajax({
       type: 'POST',
       url: "db",
@@ -637,6 +678,7 @@ function saveOrder(){
       success: function(data) {
         if(data["STATUS"]){
           saAlert3("Berjaya",data["MSG"],"success");
+          $("#back").click();
         } else {
           saAlert3("Gagal",data["MSG"],"warning");
         }
@@ -687,6 +729,37 @@ $("#tempatPenghantaran").change(function(e){
 
 $("#DatePayment").datepicker({
   format: 'dd-mm-yyyy HH:ii'
+});
+
+function calculateOrder(){
+  var myform = document.getElementById('form-stokist-order');
+  var fd = new FormData(myform);
+  fd.append("func","calculateOrder");
+  $.ajax({
+      type: 'POST',
+      url: "db",
+      data: fd,
+      dataType: "json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        var totals = data["totals"];
+        $("#rpPostage").html(totals["postagetotal"]);
+        $("#rpTotal").html(totals["gtotal"]);
+        $("#rpCommision").html(totals["commision"]);
+        $("#rpGrandTotal").html(totals["gtotalpayment"]);
+        $("#rpGrandTotalPay").html(totals["gtotalpaymentPay"]);
+        rpGrandTotalPay
+      },
+      error: function(data) {
+        // saAlert3("Error","Session Log Out Error","warning");
+      }
+  });
+}
+
+$("[id='quantity[]']").change(function(e){
+  calculateOrder();
 });
 
 

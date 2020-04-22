@@ -50,7 +50,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
     </style>
   </head>
   <body class="pace-dark">
-    <div class="modal fade slide-up disable-scroll" id="modalSlideUp" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+    <div class="modal fade slide-up disable-scrolla" id="modalSlideUp" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
         <div class="modal-dialog ">
             <div class="modal-content-wrapper">
             <div class="modal-content">
@@ -191,13 +191,16 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <a id="menuLink" target="pricing" class="text-white  active"href="#">Beli Sekarang </a>
               </li>
               <li>
-                <a id="menuLink" target="agent" class="text-white  active" href="#">Ejen eCaque </a>
+                <a id="menuLink" target="agent" class="text-white  active" href="#">Daftar Ejen </a>
               </li>
               <li>
                 <a  id="menuLink" target="contact"  class="text-white active"href="#">Hubungi Kami</a>
               </li>
+              <li>
+                <a class="text-white active"href="login">Login Ejen</a>
+              </li>
             </ul>
-            <a href="login" class="text-white search-toggle hidden-xs hidden-sm" data-toggle="searcha"><i class="fa fa-lock fa-lg"></i></a>
+            <a href="loginAdmin" class="text-white search-toggle hidden-xs hidden-sm" data-toggle="searcha"><i class="fa fa-lock fa-lg"></i></a>
             <!-- BEGIN COPYRIGHT FOR MOBILE -->
             <div class="font-arial m-l-35 m-r-35 m-b-20 visible-sm visible-xs m-t-20">
               <!-- <p class="fs-11 no-margin small-text p-b-20">Exclusive only at ,Themeforest. See Standard licenses & Extended licenses
@@ -550,19 +553,33 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                     </div>
                   </div>
 
-                  <h5 class="text-white block-title">Maklumat Telekomunikasi</h5>
+                  <h5 class="text-white block-title">Maklumat Profil Ejen</h5>
 
                   <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">Alamat emel</label>
                         <input id="email" required name="email" type="text" class="form-control" placeholder="">
                       </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                       <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                         <label class="control-label">No. Telefon</label>
                         <input id="phone" required name="phone" type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Katalaluan</label>
+                        <input id="password" required name="password" type="password" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                        <label class="control-label">Ulang Katalaluan</label>
+                        <input id="password2" required name="password2" type="password" class="form-control" placeholder="">
                       </div>
                     </div>
                   </div>
@@ -986,6 +1003,24 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
     <script src="administrator/assets/plugins/formvalidation/js/framework/bootstrap.min.js"></script>
     <script type="text/javascript">
     $('#form-stokist').formValidation({
+      fields: {
+        password: {
+          validators: {
+              stringLength: {
+                  min: 8,
+                  message: 'Must be minimum 8 characters long '
+              }
+          }
+        },
+        password2: {
+          validators: {
+              identical: {
+                  field: 'password',
+                  message: 'Password confirmation does not match '
+              }
+          }
+        }
+      }
     }).on('success.form.fv', function(e) {
         // Prevent form submission
         e.preventDefault();
@@ -1053,13 +1088,15 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       });
     }
 
-    var buyNOW = '<?php echo $buyPanel;?>';
+    $(document).ready(function(e){
+      var buyNOW = '<?php echo $buyPanel;?>';
+      if (buyNOW == 'true') {
+        $("#modalSlideUp").modal();
+        $("#quantityOrder").val(1);
+        getPrice();
+      }
+    });
 
-    if (buyNOW == 'true') {
-      $("#modalSlideUp").modal();
-      $("#quantityOrder").val(1);
-      getPrice();
-    }
 
     $("#form-order").find("input").change(function(e){
       getPrice();

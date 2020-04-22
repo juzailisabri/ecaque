@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>eCaque Agent Portal Login</title>
+    <title>eCaque Admin Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="apple-touch-icon" href="pages/ico/60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
@@ -34,7 +34,7 @@
         <div class="col-xs-height col-middle text-left">
           <div class="container">
             <div class="col-sm-6">
-              <h1 class="light text-white">eCaque.my | Ejen Ecaque</h1>
+              <h1 class="light text-white">eCaque.my | Admin</h1>
               <h4 class="text-white">Login using your email address & password</h4>
               <form class="m-t-25 m-b-20">
                 <div class="form-group form-group-default input-group no-border input-group-attached col-md-12  col-sm-12 col-xs-12">
@@ -118,7 +118,7 @@
     fd.append("func","Login");
     $.ajax({
         type: 'POST',
-        url: "agent/db",
+        url: "administrator/db",
         data: fd,
         dataType: "json",
         cache: false,
@@ -126,7 +126,7 @@
         processData: false,
         success: function(data) {
           if(data["STATUS"]){
-            window.location = "agent/index";
+            window.location = "administrator/index";
           } else {
             saAlert3("Harap Maaf",data["MSG"],"warning")
           }
