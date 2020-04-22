@@ -37,8 +37,6 @@ if ($row2["er_paymentStatus"] != "1") {
   $u = "UPDATE e_receipt SET er_paymentStatus = NULL WHERE SHA2(er_id,256) = '$erid' AND er_paymentStatus IN('3','2')";
   $conn->query($u);
 
-  echo $u;
-
   $invcode = $row2["refNo"];
   $totalpay = $row2["totalpay"];
   $totalpay = 2;
