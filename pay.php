@@ -3,13 +3,12 @@ include("administrator/conn.php");
 // echo makePayment("eCaque Kek Kukus","eCaque Kek Kukus","INV-2020041022313","JUZAILI BIN AHMAD SABRI","juzaili.sabri@gmail.com","0192669420",1);
 function makePayment($billname,$description,$invoiceNo,$clientName,$email,$phone,$amount){
   global $rootdir;
+  global $callback;
+  global $returnUrl;
+  global $toyyiburl;
 
   $arr = [];
   $json = json_encode($arr);
-
-  $callback = "https://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
-  $returnUrl = "https://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
-  $toyyiburl = "https://toyyibpay.com/";
 
   $some_data = array(
     'userSecretKey'=>'uklwto43-1pyw-ff2m-tytv-52fp4llf5eo4',
