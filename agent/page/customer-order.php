@@ -292,12 +292,21 @@ if (typeof CHECKPAYMENTINTERVAL !== 'undefined') {
 
 function makepayment(){
   saLoadingPayment();
+  var link = $(this).attr("link");
   PAYMENTKEY = $(this).attr("key");
   CHECKPAYMENTINTERVAL = setInterval(checkpaymentfunction,2000);
+  PWINDOW = window.open(link, 'paymentWindow');
+}
+
+function makepaymentdirect(key,link){
+  saLoadingPayment();
+  PAYMENTKEY = key;
+  CHECKPAYMENTINTERVAL = setInterval(checkpaymentfunction,2000);
+  PWINDOW = window.open(link, 'paymentWindow');
+  $("#back").click();
 }
 
 function checkpaymentfunction(key){
-  console.log("REF");
   var fd = new FormData();
   fd.append("func","checkPayment");
   fd.append("er_id",PAYMENTKEY);
@@ -311,13 +320,19 @@ function checkpaymentfunction(key){
       processData: false,
       success: function(data) {
         var msg = data["MSG"];
-        if (msg == null || msg == "") {
-          // CONTINUE
+        if ((msg == null || msg == "") && !PWINDOW["closed"]) {
+          // console.log("CHECK PAYMENT");
         } else {
-          er_paymentRefNo = data["er_paymentRefNo"];
-          saAlert3(data["TITLE"],data["MSG"],data["TYPE"]);
-          clearInterval(CHECKPAYMENTINTERVAL);
-          tablePengguna.ajax.reload(null,false);
+          if (PWINDOW["closed"] && (msg == null || msg == "")) {
+            saAlert3("Notification","Payment Trasaction Failed","warning");
+            clearInterval(CHECKPAYMENTINTERVAL);
+            tablePengguna.ajax.reload(null,false);
+          } else {
+            er_paymentRefNo = data["er_paymentRefNo"];
+            saAlert3(data["TITLE"],data["MSG"],data["TYPE"]);
+            clearInterval(CHECKPAYMENTINTERVAL);
+            tablePengguna.ajax.reload(null,false);
+          }
         }
       },
       error: function(data) {
@@ -677,8 +692,9 @@ function saveOrder(){
       processData: false,
       success: function(data) {
         if(data["STATUS"]){
+          console.log(data["LINK"]);
           saAlert3("Berjaya",data["MSG"],"success");
-          $("#back").click();
+          makepaymentdirect(data["KEYMD5"],data["LINK"])
         } else {
           saAlert3("Gagal",data["MSG"],"warning");
         }
@@ -688,6 +704,8 @@ function saveOrder(){
       }
   });
 }
+
+var PWINDOW;
 
 
 

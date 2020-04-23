@@ -39,7 +39,7 @@ if ($row2["er_paymentStatus"] != "1") {
 
   $invcode = $row2["refNo"];
   $totalpay = $row2["totalpay"];
-  $totalpay = 2;
+  // $totalpay = 2;
   $totalpay = $totalpay * 100; // CONVER FROM RINGGIT TO CENT
 
   $url = makePayment("eCaque Kek Kukus","eCaque Kek Kukus",$invcode,$es_name,$es_email,$es_phone,$totalpay);

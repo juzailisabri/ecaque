@@ -233,7 +233,7 @@ function getReceipt($data){
         <i class="fa fa-edit fs-15"></i>
         </span>
       </a>
-      <a href="makepayment?erid='.$enc_id.'" id="makepayment" key="'.$linkid.'" target="_blank"  class="btn btn-primary w-50">
+      <a href="#" id="makepayment" key="'.$linkid.'" link="makepayment?erid='.$enc_id.'"  class="btn btn-primary w-50">
         <span class="p-t-5 p-b-5">
         <i class="fa fa-money fs-15"></i>
         </span>
@@ -430,6 +430,7 @@ if($_POST["func"] == "makeOrder"){
 
 function makeOrder($data){
   global $conn;
+  global $secretKey;
 
   $calc = calculateOrder($data);
   $productlist = $calc["arr"];
@@ -464,6 +465,11 @@ function makeOrder($data){
 
     if ($conn->query($i2)) {
       $ret["STATUS"] = true;
+      $erid = hash('sha256', $insertid);
+      $eridmd5 = md5($secretKey.$insertid);
+      $ret["LINK"] = "makepayment?erid=$erid";
+      // $ret["KEY"] = $erid;
+      $ret["KEYMD5"] = $eridmd5;
       $ret["MSG"] = "Pesanan anda berjaya dihantar. Terima Kasih";
     } else {
       $ret["STATUS"] = false;
@@ -475,7 +481,6 @@ function makeOrder($data){
   }
 
   return $ret;
-
 }
 
 if($_POST["func"] == "checkPayment"){

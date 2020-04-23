@@ -77,7 +77,7 @@
 
         <div class="row m-t-10">
           <div class="col-md-12">
-            <button type="submit" class="btn btn-primary" name="button">Save <i class="fa fa-send m-l-5"></i></button>
+            <button type="submit" class="btn btn-primary" name="button">Order & Pay <i class="fa fa-send m-l-5"></i></button>
           </div>
         </div>
 
@@ -93,9 +93,6 @@
             </div>
           </div>
         </div>
-
-
-
 
       </form>
     </div>
