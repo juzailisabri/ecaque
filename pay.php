@@ -28,7 +28,7 @@ function makePayment($billname,$description,$invoiceNo,$clientName,$email,$phone
     'billSplitPaymentArgs'=>'',
     'billPaymentChannel'=>'0',
     'billDisplayMerchant'=>1,
-    'billContentEmail'=>'Thank you for purchasing our product!',
+    'billContentEmail'=>'',
     'billAdditionalField' => $json,
     'billChargeToCustomer'=>1
   );
