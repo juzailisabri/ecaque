@@ -212,38 +212,35 @@ function getReceipt($data){
     $er_packing_dateC = colorFunction($er_packing_date,"text-success","text-muted");
 
     $er_payment_dateCM = colorFunction($er_payment_date,"btn-success","btn-muted");
+    $er_payment_dateCM2 = colorFunction($er_payment_date,"btn-success","btn-danger");
     $er_packing_dateCM = colorFunction($er_packing_date,"btn-success","btn-muted");
+    $paymentStatus = colorFunction($er_payment_date,"PAID","UNPAID");
+
+    $er_trackingNotext = colorFunction($er_trackingNo,$er_trackingNo,"-");
 
     $link = "receipt?oid=$linkid";
 
     $nestedData=array();
     $nestedData[] = $row["er_id"];
-    $nestedData[] = "<b>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br>
-                    <button id=\"\" class='btn $er_payment_dateCM btn-sm m-t-10'> <i class='fa fa-money'></i> </button>
-                    <button id=\"\" class='btn $er_packing_dateCM btn-sm m-t-10'> <i class='fa fa-cubes'></i> </button>";
+    $nestedData[] = "<b>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br><sub>Tracking No</sub><br>$er_trackingNotext
+                    ";
     $nestedData[] = "$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
     $nestedData[] = "$er_totalprice ";
     $nestedData[] = "<i class=' $er_payment_dateC '> <i class='fa fa-check'></i> </button>";
     $nestedData[] = "<i class=' $er_packing_dateC '> <i class='fa fa-check'></i> </button>";
-    $nestedData[] = '
-    <div class="btn-group row w-100">
-    <div class="btn-group col-12 p-0">
-      <a href="'.$link.'" target="_blank"  class="btn btn-primary w-50">
-        <span class="p-t-5 p-b-5">
-        <i class="fa fa-edit fs-15"></i>
-        </span>
-      </a>
-      <a href="#" id="makepayment" key="'.$linkid.'" link="makepayment?erid='.$enc_id.'"  class="btn btn-primary w-50">
-        <span class="p-t-5 p-b-5">
-        <i class="fa fa-money fs-15"></i>
-        </span>
-      </a>
-    </div>
 
+    if ($er_payment_date == "") {
+      $buttonarray[0] = "<a id=\"makepayment\" key=\"$linkid\" link=\"makepayment?erid=$enc_id\" class=\"dropdown-item\" href=\"#\">Pay</a>";
+    }
+    $buttonarray[1] = "<a href=\"$link\" target=\"ecaqueReceipt\" class=\"dropdown-item\" href=\"#\">Receipt</a>";
+    $btnaction = dropdownButtonstyle1($paymentStatus,$er_payment_dateCM2,$buttonarray);
+
+    $nestedData[] = "
+    $btnaction
     </div>
-    <div class="row p-t-10 visible-xs">
-      <b>'.$er_totalprice.'</b>
-    </div>';
+    <div class=\"row p-t-10 visible-xs\">
+      <b>$er_totalprice</b>
+    </div>";
 
     $datadb[] = $nestedData;
     $x++;
@@ -259,6 +256,23 @@ function getReceipt($data){
   );
 
   return $json_data;
+}
+
+function dropdownButtonstyle1($title,$color,$buttonarray){
+  $sub = "";
+  foreach ($buttonarray as $key => $value) {
+    $sub = $sub.$buttonarray[$key];
+  }
+  $html = "<div class=\"dropdown dropdown-default\" style=\"width: 100%;\">
+  <button aria-label=\"\" class=\"btn dropdown-toggle text-center $color\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"width: 100%;\">
+    <b>$title</b>
+  </button>
+  <div class=\"dropdown-menu\" style=\"width: 100%; will-change: transform;\">
+    $sub
+  </div>
+  </div>";
+
+  return $html;
 }
 
 if($_POST["func"] == "getReceiptDetail"){
