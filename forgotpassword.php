@@ -1,3 +1,37 @@
+<?php
+
+include("administrator/conn.php");
+
+if (!isset($_GET["e"]) || $_GET["e"] == "") {
+  header("index");
+} else {
+  $id = $_GET["e"];
+  $esfp_id = verify($id);
+  if ($esfp_id["num"] == 0) {
+    header("location:index");
+  }
+}
+
+function verify($id){
+  global $conn;
+  global $secretKey;
+
+  $s = "SELECT esfp_id FROM e_stokist_forgotpassword WHERE SHA2(CONCAT('$secretKey',esfp_id),256) = '$id' AND esfp_status = 0";
+  $res = $conn->query($s);
+  $row = $res->fetch_assoc();
+  $num = $res->num_rows;
+
+  $arr["data"] = $row;
+  $arr["num"] = $num;
+  return $arr;
+}
+?>
+
+<script type="text/javascript">
+var ESFP = '<?php echo $id ?>';
+</script>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,64 +64,28 @@
   </head>
   <body class="pace-white">
     <!-- BEGIN JUMBOTRON -->
-    <div class="modal fade stick-up"  id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" >
-            <div class="modal-content">
-
-                <div class="modal-header clearfix text-left">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    <i class="pg-close fs-14"></i>
-                    </button>
-                    <h5> <i class="fa fa-user m-r-5"></i> <span class="semi-bold">Lupa Katalaluan</span> ?</h5>
-                    <p>Sila Masukkan Alamat Emel anda. Kami akan hantar pautan untuk reset password anda.</p>
-                </div>
-                <div class="modal-body">
-                  <form class="" id="forgetPasswordform">
-                    <div class="row m-t-20" >
-                      <div class="col-lg-12">
-                        <div class="form-group form-group-default">
-                          <label>Alamat Emel</label>
-                          <div class="controls">
-                            <input type="text" id="emailfp" name="emailfp" placeholder="cikkiah@abc.com" class="form-control" required="">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row m-t-20">
-                      <div class="col-lg-12">
-                        <button type="submit" class="btn btn-primary" name="button" id="resetPassword">Reset Password</button>
-                      </div>
-                    </div>
-                  </form>
-
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-
-    <section class="jumbotron demo-custom-height xs-full-height bg-black" data-pages-bg-image="assets/slider/Slider3.jpg">
+    <section class="jumbotron demo-custom-height xs-full-height bg-black" data-pagesa-bg-image="assets/slider/Slider3.jpg">
       <div class="container-xs-height full-height">
         <div class="col-xs-height col-middle text-left">
           <div class="container">
             <div class="col-sm-6">
               <h1 class="light text-white">eCaque.my | Ejen Ecaque</h1>
-              <h4 class="text-white">Login using your email address & password</h4>
-              <form class="m-t-25 m-b-20" id="forgotPasswordForm">
+              <h4 class="text-white">Reset Katalaluan</h4>
+              <p class="text-white">Sila Masukkan katalaluan baru anda. Terima kasih</p>
+              <form class="m-t-25 m-b-20" id="forgotPasswordForm" name="forgotPasswordForm">
                 <div class="form-group form-group-default input-group no-border input-group-attached col-md-12  col-sm-12 col-xs-12">
-                  <label class="control-label">Email Address</label>
-                  <input id="email" type="email" class="form-control" placeholder="cikkiah@abc.com">
+                  <label class="control-label">Katalaluan Baru</label>
+                  <input id="password" name="password" required type="password" class="form-control" placeholder="">
                 </div>
                 <div class="form-group form-group-default input-group no-border input-group-attached col-md-12  col-sm-12 col-xs-12">
-                  <label class="control-label">Password</label>
-                  <input type="password" id="password" class="form-control" placeholder="***********">
-                  <span class="input-group-btn">
-                     <button id="login" name="login" class="btn btn-primary  btn-cons" type="button">Login!</button>
-                  </span>
+                  <label class="control-label">Ulang Katalaluan</label>
+                  <input type="password" name="password2" required id="password2" class="form-control" placeholder="">
+
                 </div>
+                <span class="input-group-btn">
+                   <button id="login" name="login" class="btn btn-primary  btn-cons" type="submit">Kemaskini Katalaluan</button>
+                </span>
               </form>
-              <p class="text-white fs-12"><a id="forgetPasswordBtn" href="#">Forgot password? Click Here</a></p>
             </div>
           </div>
         </div>
@@ -136,61 +134,41 @@
 
   <script type="text/javascript">
 
-  $("#username").on("keydown", function(e) {
-      if (e.keyCode === 13) {
-        e.preventDefault();
-      $("[id='login']").click();
-    }
-  });
-
-  $("#password").on("keydown", function(e) {
-      if (e.keyCode === 13) {
-        e.preventDefault();
-      $("[id='login']").click();
-    }
-  });
-
-  $("[id='login']").click(function(e){
-    var email = $("#email").val();
-    var password = $("#password").val();
-    var fd = new FormData();
-    fd.append("email",email);
-    fd.append("password",password);
-    fd.append("func","Login");
-    $.ajax({
-        type: 'POST',
-        url: "agent/db",
-        data: fd,
-        dataType: "json",
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-          if(data["STATUS"]){
-            window.location = "agent/index";
-          } else {
-            saAlert3("Harap Maaf",data["MSG"],"warning")
-          }
-        },
-        error: function(data) {
-          // saAlert3("Error","Session Log Out Error","warning");
-        }
-    });
-  });
 
   $("#forgetPasswordBtn").click(function(e){
     $("#forgotPassword").modal();
   });
 
-  $('#forgetPasswordform').formValidation({
+  $('#forgotPasswordForm').formValidation({
+    fields: {
+      password: {
+        validators: {
+            stringLength: {
+                min: 8,
+                message: 'Must be minimum 8 characters long '
+            }
+        }
+      },
+      password2: {
+        validators: {
+            identical: {
+                field: 'password',
+                message: 'Password confirmation does not match '
+            }
+        }
+      }
+    }
   }).on('success.form.fv', function(e) {
+      // Prevent form submission
       e.preventDefault();
-      forgotPassword();
+      runfunction = save;
+      saConfirm4("Daftar Ejen","Anda pasti maklumat yang dibekalkan adalah benar?","warning","Ya, Pasti",runfunction,"Pasti");
   });
 
-  function forgotPassword(){
-    var fd = new FormData(document.getElementById('forgetPasswordform'));
-    fd.append("func","forgotPassword");
+  function save(){
+    var fd = new FormData(document.getElementById('forgotPasswordForm'));
+    fd.append("func","updateForgotPassword");
+    fd.append("esfp",ESFP);
     $.ajax({
         type: 'POST',
         url: "agent/db",
@@ -201,9 +179,10 @@
         processData: false,
         success: function(data) {
           if(data["STATUS"]){
-            saAlert3("Berjaya",data["MSG"],"success");
-          }  else {
-            saAlert3("Harap Maaf",data["MSG"],"warning");
+            saAlert3("Berjaya",data["MSG"],"success")
+            window.location = "login";
+          } else {
+            saAlert3("Harap Maaf",data["MSG"],"warning")
           }
         },
         error: function(data) {
@@ -213,5 +192,43 @@
   }
 
   function saAlert3(title,msg,status){ swal(title,msg,status); }
+
+  function saConfirm4(title,text,type,confirmbtntext,runfunction,confirmtext){
+    swal({
+        title: title,
+        text: text,
+        type: type,
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: confirmbtntext,
+        cancelButtonText: "Cancel",
+        closeOnConfirm: false,
+        closeOnCancel: true
+    }, function(isConfirm){
+        if (isConfirm) {
+          saLoading();
+          runfunction();
+        }
+    });
+  }
+
+  function saConfirm3(title,text,type){
+    swal({
+        title: title,
+        text: text,
+        closeOnConfirm: false,
+        closeOnCancel: false,
+        showCancelButton: false,
+        showConfirmButton: false,
+        imageUrl: "administrator/assets/img/loading3.gif",
+        imageSize: '200x200'
+    }, function(isConfirm){
+
+    });
+  }
+
+  function saLoading(){
+    saConfirm3("Memposes Data","Sila Tunggu Sebentar sementara \n pelayan memproses data. \n\n Terima Kasih","loading");
+  }
   </script>
 </html>

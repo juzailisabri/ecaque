@@ -6,16 +6,18 @@ if ($_SERVER["HTTP_HOST"] == "localhost" || $_SERVER["HTTP_HOST"] == "developer.
   $password = "";
   $database = "ecaque";
   $rootdir = "/ecaque";
-  $callback = "http://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
-  $returnUrl = "http://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
+  $http = "http";
+  $callback = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
+  $returnUrl = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
 } else {
   $servername = "localhost";
   $username = "ecaquemy";
   $password = "C9:hMJmj!34k6P";
   $database = "ecaquemy_ecaque";
   $rootdir = "";
-  $callback = "https://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
-  $returnUrl = "https://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
+  $http = "https";
+  $callback = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
+  $returnUrl = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
 }
 
 $toyyiburl = "https://toyyibpay.com/";

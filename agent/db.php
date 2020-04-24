@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../administrator/conn.php');
-// include('../email.php');
+include('../administrator/email.php');
 
 $_POST = array_map('clean', $_POST);
 
@@ -100,6 +100,44 @@ function loginUser($data){
     $status["AAS"] = false;
     $status["AAP"] = false;
     $status["AASTATUS"] = false;
+  }
+
+  return $status;
+}
+
+if($_POST["func"] == "updateForgotPassword"){
+  echo json_encode(updateForgotPassword($_POST));
+}
+
+function updateForgotPassword($data){
+  global $conn;
+  global $cfg_salt;
+  global $secretKey;
+
+  $esfp = mysqli_real_escape_string($conn,$data["esfp"]);
+  $mmpassword = mysqli_real_escape_string($conn,$data["password"]);
+  $password = $cfg_salt.$mmpassword;
+  $password = hash('sha256', $password);
+
+  $s = "SELECT esfp_es_id FROM e_stokist_forgotpassword WHERE
+  SHA2(CONCAT('$secretKey',esfp_id),256) = '$esfp' AND esfp_status = 0";
+  $res = $conn->query($s);
+  $row = $res->fetch_assoc();
+  $esid = $row["esfp_es_id"];
+
+  $u = "UPDATE e_stockist SET es_password = '$password' WHERE es_id = ($esid)";
+  if ($conn->query($u)) {
+    $u = "UPDATE e_stokist_forgotpassword SET esfp_status = 1 WHERE esfp_es_id = ($esid)";
+    if ($conn->query($u)) {
+      $status["STATUS"] = true;
+      $status["MSG"] = "Katalaluan Berjaya Dikemaskini";
+    } else {
+      $status["STATUS"] = false;
+      $status["MSG"] = "Katalaluan Tidak Berjaya Dikemaskini (E1)";
+    }
+  } else {
+    $status["STATUS"] = false;
+    $status["MSG"] = "Katalaluan Tidak Berjaya Dikemaskini";
   }
 
   return $status;
@@ -545,5 +583,48 @@ function checkPayment($data){
 
   return $stat;
 }
+
+if($_POST["func"] == "forgotPassword"){
+  echo json_encode(forgotPassword($_POST));
+}
+
+function forgotPassword($data){
+  global $conn;
+  global $secretKey;
+
+  $email = $data["emailfp"];
+
+  $s = "SELECT es_id,es_name,es_email FROM e_stockist WHERE es_email = '$email'";
+  $result = $conn->query($s);
+  $row = $result->fetch_assoc();
+  $es_id = $row["es_id"];
+  $es_name = $row["es_name"];
+  $es_email = $row["es_email"];
+
+  $u = "UPDATE e_stokist_forgotpassword SET esfp_status = 1 WHERE esfp_es_id = $es_id";
+  $conn->query($u);
+
+  $i = "INSERT INTO e_stokist_forgotpassword (esfp_es_id,esfp_datetime) VALUES ($es_id,NOW())";
+  if ($conn->query($i)) {
+    $esfpid = $conn->insert_id;
+    $esfpid = hash('sha256', $secretKey.$esfpid);
+
+    if (forgotPasswordEmail($es_email,$es_name,$esfpid)) {
+      $ret["STATUS"] = true;
+      $ret["MSG"] = "Email Telah Berjaya Dihantar ke $email";
+    } else {
+      $ret["STATUS"] = false;
+      $ret["MSG"] = "Email Tidak Berjaya Dihantar ke $email. Sila hubungi pihak eCaque untuk bantuan (ERR-EM)";
+    }
+  } else {
+    $ret["STATUS"] = false;
+    $ret["MSG"] = "Email Tidak Berjaya Dihantar ke $email. Sila hubungi pihak eCaque untuk bantuan (ERR-INS)";
+  }
+
+  return $ret;
+}
+
+
+
 
 ?>
