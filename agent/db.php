@@ -220,6 +220,8 @@ function getReceipt($data){
   er_payment_date,
   er_packing_date,
   er_dispatch_date,
+  DATE_FORMAT(er_date,'%Y') as invyear,
+  DATE_FORMAT(er_date,'%m') as invmonth,
   er_status
   FROM e_receipt
   WHERE er_devtest IS NULL $where
@@ -233,6 +235,11 @@ function getReceipt($data){
   $x = 1;
   $datadb = array();
   while ($row = $result->fetch_assoc()) {
+
+    $invyear = $row["invyear"];
+    $invmonth = $row["invmonth"];
+    $er_id = sprintf("%08d", $row["er_id"]);
+    $invcode = "INV-$invyear$invmonth$er_id";
 
     $enc_id = $row["enc_id"];
     $er_fullname = $row["er_fullname"];
@@ -259,9 +266,9 @@ function getReceipt($data){
 
     $nestedData=array();
     $nestedData[] = $row["er_id"];
-    $nestedData[] = "<b>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br><sub>Tracking No</sub><br>$er_trackingNotext
+    $nestedData[] = "$invcode<br><b>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br><sub>Tracking No</sub><br>$er_trackingNotext
                     ";
-    $nestedData[] = "$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
+    $nestedData[] = "$invcode<br>$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
     $nestedData[] = "$er_totalprice ";
     $nestedData[] = "<i class=' $er_payment_dateC '> <i class='fa fa-check'></i> </button>";
     $nestedData[] = "<i class=' $er_packing_dateC '> <i class='fa fa-check'></i> </button>";
