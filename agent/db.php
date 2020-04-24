@@ -266,9 +266,9 @@ function getReceipt($data){
 
     $nestedData=array();
     $nestedData[] = $row["er_id"];
-    $nestedData[] = "$invcode<br><b>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br><sub>Tracking No</sub><br>$er_trackingNotext
+    $nestedData[] = "<b>$invcode</b><br><b>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br><sub>Tracking No</sub><br>$er_trackingNotext
                     ";
-    $nestedData[] = "$invcode<br>$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
+    $nestedData[] = "<b>$invcode</b><br>$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
     $nestedData[] = "$er_totalprice ";
     $nestedData[] = "<i class=' $er_payment_dateC '> <i class='fa fa-check'></i> </button>";
     $nestedData[] = "<i class=' $er_packing_dateC '> <i class='fa fa-check'></i> </button>";
