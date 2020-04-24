@@ -239,7 +239,7 @@ function getReceipt($data){
     $er_address = $row["er_address"];
     $er_phone = $row["er_phone"];
     $er_postage = $row["er_postage"];
-    $er_totalprice = "RM ".$row["er_totalprice"];
+    $er_totalprice = "RM ".number_format($row["er_totalprice"]+$er_postage,2);
     $er_trackingNo = $row["er_trackingNo"];
     $er_date = $row["er_date"];
     $linkid = $row["linkid"];
@@ -253,7 +253,6 @@ function getReceipt($data){
     $er_payment_dateCM2 = colorFunction($er_payment_date,"btn-success","btn-danger");
     $er_packing_dateCM = colorFunction($er_packing_date,"btn-success","btn-muted");
     $paymentStatus = colorFunction($er_payment_date,"PAID","UNPAID");
-
     $er_trackingNotext = colorFunction($er_trackingNo,$er_trackingNo,"-");
 
     $link = "receipt?oid=$linkid";
@@ -269,6 +268,8 @@ function getReceipt($data){
 
     if ($er_payment_date == "") {
       $buttonarray[0] = "<a id=\"makepayment\" key=\"$linkid\" link=\"makepayment?erid=$enc_id\" class=\"dropdown-item\" href=\"#\">Pay</a>";
+    } else {
+      $buttonarray[0] = "";
     }
     $buttonarray[1] = "<a href=\"$link\" target=\"ecaqueReceipt\" class=\"dropdown-item\" href=\"#\">Receipt</a>";
     $btnaction = dropdownButtonstyle1($paymentStatus,$er_payment_dateCM2,$buttonarray);

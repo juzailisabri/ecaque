@@ -20,8 +20,6 @@ $es_name = $row["es_name"];
 $es_email = $row["es_email"];
 $es_phone = $row["es_phone"];
 
-
-
 $s2 = "SELECT er_id,
 MD5(CONCAT('$secretKey',er_id)) as refNo,
 DATE_FORMAT(er_date,'%Y') as invyear,
