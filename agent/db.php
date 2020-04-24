@@ -222,7 +222,7 @@ function getReceipt($data){
   er_dispatch_date,
   er_status
   FROM e_receipt
-  WHERE TRUE $where
+  WHERE er_devtest IS NULL $where
   ";
 
   $sql.=" ORDER BY ". $columns[$data['order'][0]['column']]." ".$data['order'][0]['dir']." LIMIT ".$data['start']." ,".$data['length']."   ";
