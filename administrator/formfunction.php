@@ -193,22 +193,22 @@ function getProduct(){
   }
   echo
   "<tr>
-    <td style=\"width:200px;\" class=\"text-left \">Postage</td>
+    <td style=\"width:200px;\" class=\"text-left bold\">Postage</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left \">Total</td>
+    <td style=\"width:200px;\" class=\"text-left bold\">Total</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left \">Commision</td>
+    <td style=\"width:200px;\" class=\"text-left bold\">Commision</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left \">Grand Total</td>
+    <td style=\"width:200px;\" class=\"text-left bold\">Grand Total</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
   </tr>";
@@ -250,32 +250,33 @@ function getProductCustomer(){
     </tr>";
   }
   echo
-  "<tr>
-    <td style=\"width:200px;\" class=\"text-left no-padding\">Postage</td>
+  "
+  <tr class=\"\">
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20 \">Postage</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpPostage\">0.00</b></td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left no-padding\">Total</td>
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20\">Total</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpTotal\">0.00</b></td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left no-padding\">Grand Total</td>
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20\">Grand Total</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpGrandTotal\">0.00</b> </td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left no-padding\">Commision</td>
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20\">Commision</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5 text-success\">RM (<b id=\"rpCommision\">0.00</b>)</td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left no-padding\">You Pay</td>
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20\">You Pay</td>
     <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
     <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpGrandTotalPay\">0.00</b> </td>

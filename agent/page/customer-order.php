@@ -640,7 +640,28 @@ $('#form-stokist').formValidation({
     saConfirm4("Muktamat","Anda pasti untuk stokis data pemohon? Sila pastikan butiran stokis adalah betul. Terima Kasih.","warning","Ya, Pasti",runfunction,"Pasti");
 });
 
-$('#form-stokist-order').formValidation({
+var fvcheck = $('#form-stokist-order').formValidation({
+  fields : {
+    'quantity[]' : {
+      validators: {
+          callback : {
+            message : 'Sila masukkan sekurang kurangnya 1 produk',
+            callback : function(e) {
+              console.log("testing");
+              var ok = false;
+              $("[name='quantity[]']").each(function(e){
+                var value = $(this).val();
+                if (value > 0) {
+                  ok = true;
+                }
+              });
+
+              return ok;
+            }
+          }
+          }
+    }
+  }
 }).on('success.form.fv', function(e) {
     // Prevent form submission
     e.preventDefault();
@@ -779,6 +800,8 @@ function calculateOrder(){
 $("[id='quantity[]']").change(function(e){
   calculateOrder();
 });
+
+$("#divtableproduct").find("small.help-block").addClass("text-danger");
 
 
 </script>

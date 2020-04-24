@@ -5,6 +5,9 @@
   <li class="active">
     <a href="page/customer-order" class="syslink" id="mainpage">Purchase Order</a>
   </li>
+  <li class="active">
+    <a href="page/profile" class="syslink" id="profile">My Profile</a>
+  </li>
 
   <!-- <li class="active">
     <a href="javascript:;" class="syslink2">

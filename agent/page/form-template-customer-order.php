@@ -43,7 +43,7 @@
         </div>
 
         <h5 class="text-black block-title font-montserrat text-uppercase bold small">Senarai Produk</h5>
-        <div class="col-md-12 no-padding">
+        <div class="col-md-12 no-padding form-group form-group-default no-border">
           <table class="table table-condensed" id="table-product">
             <thead>
               <tr>

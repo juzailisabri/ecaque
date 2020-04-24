@@ -624,7 +624,120 @@ function forgotPassword($data){
   return $ret;
 }
 
+if($_POST["func"] == "getStokistDetail"){
+  echo json_encode(getStokistDetail($_POST));
+}
 
+function getStokistDetail($data){
+  global $conn;
+  $esid = $_SESSION["AGENT"]["ID"];
+
+  $s = "SELECT
+  SHA2(es_id,256) as enc_id,
+  es_id,
+  es_name,
+  es_icno,
+  es_rktrn_id,
+  es_address,
+  es_bandar,
+  es_poskod,
+  es_rngri_id,
+  es_email,
+  es_phone,
+  es_facebook,
+  es_instagram,
+  es_linkedin,
+  es_rjan_id,
+  es_rngra_id,
+  es_dateregister,
+  es_dateapproved,
+  es_approvedby
+  FROM e_stockist
+  WHERE es_id = '$esid'";
+
+  $arr = [];
+  $result = $conn->query($s);
+  while ($row = $result->fetch_assoc())
+  {
+    $arr[] = $row;
+  }
+  return $arr;
+}
+
+if($_POST["func"] == "updateProfile"){
+  echo json_encode(updateProfile($_POST));
+}
+
+function updateProfile($data){
+  global $conn;
+  global $secretKey;
+  global $cfg_salt;
+  $addcol = "";
+  $esid = $_SESSION["AGENT"]["ID"];
+
+  if (isset($data["password"]) && isset($data["oldpassword"]) &&
+      $data["password"] != "" && $data["oldpassword"] != "") {
+    // CHANGE PASSWORD
+    $password = $data["password"];
+    $oldpassword = $data["oldpassword"];
+
+    $s = "SELECT es_password FROM e_stockist WHERE es_id = $esid";
+    $result = $conn->query($s);
+    $row = $result->fetch_assoc();
+
+    $oldpassword = $cfg_salt.$oldpassword;
+    $oldpassword = hash('sha256', $oldpassword);
+
+    $password = $cfg_salt.$password;
+    $password = hash('sha256', $password);
+
+    if ($row["es_password"] == $oldpassword) {
+      $addcol = "es_password = '$password',";
+    }
+  }
+
+  $fullname = $data["fullname"];
+  // $identificationNo = $data["identificationNo"];
+  $jantina = $data["jantina"];
+  $nationality = $data["nationality"];
+  $bangsa = $data["bangsa"];
+  $alamat = $data["alamat"];
+  $bandar = $data["bandar"];
+  $negeri = $data["negeri"];
+  $poskod = $data["poskod"];
+  // $email = $data["email"];
+  $phone = $data["phone"];
+  $facebook = $data["facebook"];
+  $instagram = $data["instagram"];
+  $linkedin = $data["linkedin"];
+
+  $i = "UPDATE e_stockist SET
+    $addcol
+    es_name = '$fullname',
+    es_rktrn_id = '$bangsa',
+    es_address = '$alamat',
+    es_bandar = '$bandar',
+    es_poskod = '$poskod',
+    es_rngri_id = '$negeri',
+    es_phone = '$phone',
+    es_facebook = '$facebook',
+    es_instagram = '$instagram',
+    es_linkedin = '$linkedin',
+    es_rjan_id = '$jantina',
+    es_rngra_id = '$nationality'
+
+  WHERE es_id = '$esid'";
+
+  if ($conn->query($i)) {
+    $ret["STATUS"] = true;
+    $ret["MSG"] = "Profil Berjaya Dikemaskini";
+  } else {
+    $ret["STATUS"] = false;
+    $ret["MSG"] = "Profil Tidak Berjaya Dikemaskini, sila hubungi pihak admin sistem";
+  }
+
+  return $ret;
+}
 
 
 ?>
