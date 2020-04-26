@@ -276,6 +276,12 @@ function salesprogressbar(current){
   $("#salespercentage").html(percent+"%");
 }
 
-salesprogressbar();
 getDashboardData();
+
+if (typeof DASHBOARDINT !== 'undefined') {
+  clearInterval(DASHBOARDINT);
+}
+
+DASHBOARDINT = setInterval(getDashboardData,10000);
+
 </script>
