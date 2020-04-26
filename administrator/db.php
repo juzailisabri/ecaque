@@ -1461,9 +1461,10 @@ function makeOrder($data){
 
   $er_bankref = $data["refNoBank"];
   $er_rb_id = $data["bankName"];
-  if ($data["bankName"] == "" ) { $er_rb_id = "NULL"; }
   $er_payment_date = "NULL";
-  if ($er_rb_id != "") { $er_payment_date = "NOW()"; }
+
+  if ($data["bankName"] == "" ) { $er_rb_id = "NULL"; }
+  if ($data["bankName"] != "" || $data["bankName"] != null) { $er_payment_date = "NOW()"; }
 
   $i = "INSERT INTO e_receipt (er_date,er_fullname,er_address,er_phone,er_rjp_id,er_postage,er_totalprice,er_bankref,er_rb_id,er_payment_date)
   VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice,'$er_bankref',$er_rb_id,$er_payment_date)";
