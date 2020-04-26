@@ -49,8 +49,8 @@
               <tr>
                 <th style="width:200px;padding-left:0px;" class="text-left no-padding hidden">#</th>
                 <th style="padding-left:0px;" class="text-left no-padding">Nama Produk</th>
-                <th style="width:100px;" class="ext-center">Harga Seunit</th>
                 <th style="width:100px;" class="text-center">Kuantiti</th>
+                <th style="width:100px;" class="ext-center">Harga Seunit</th>
               </tr>
             </thead>
             <tbody>
@@ -75,6 +75,26 @@
             <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
               <label class="control-label">Delivery Charges</label>
               <input required id="deliveryCharges" name="deliveryCharges" type="text" class="form-control" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <h5 class="text-black block-title m-t-20 m-b-20 font-montserrat text-uppercase bold small">Payment Information</h5>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group form-group-default form-group-default-select2">
+              <label class="control-label">Nama Bank</label>
+              <select data-init-plugin='select2' id="bankName" name="bankName" class="form-control full-width" >
+                <?php getBank(); ?>
+              </select>
+              <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+              <label class="control-label">Nombor Rujukan</label>
+              <input id="refNoBank" name="refNoBank" type="text" class="form-control" placeholder="">
             </div>
           </div>
         </div>
@@ -110,10 +130,6 @@
             </div>
           </div>
         </div>
-
-
-
-
       </form>
     </div>
   </div>

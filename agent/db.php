@@ -471,12 +471,12 @@ function calculateOrder($data){
     $postagetotal = $postagetotal + $arr[$rpid[$key]]["rp_postage"];
   }
 
-  $total["gtotal"] = number_format($gtotal,2);
-  $total["gtotalds"] = number_format($gtotalds,2);
-  $total["postagetotal"] = number_format($postagetotal,2);
-  $total["commision"] = number_format($gtotal - $gtotalds,2);
-  $total["gtotalpayment"] = number_format($gtotal + $postagetotal,2);
-  $total["gtotalpaymentPay"] = number_format($gtotalds + $postagetotal ,2);
+  $total["gtotal"] = ($gtotal);
+  $total["gtotalds"] = ($gtotalds);
+  $total["postagetotal"] = ($postagetotal);
+  $total["commision"] = ($gtotal - $gtotalds);
+  $total["gtotalpayment"] = ($gtotal + $postagetotal);
+  $total["gtotalpaymentPay"] = ($gtotalds + $postagetotal);
 
   $arrset["arr"] = $arr;
   $arrset["totals"] = $total;

@@ -183,34 +183,31 @@ function getProduct(){
     echo "<tr>
       <td style=\"width:200px;\" class=\"text-left no-padding\">$rp_name</td>
       <td style=\"width:50px;\" class=\"text-center padding-5\">
+       <input min=\"0\" required id=\"quantity[]\" name=\"quantity[]\" key=\"$rp_id\" type=\"number\" class=\"form-control text-center no-border\" value=\"0\" defvalue=\"0\">
+      </td>
+      <td style=\"width:50px;\" class=\"text-center padding-5\">
        $rp_price
        <input required id=\"rpid[]\" name=\"rpid[]\" key=\"$rp_id\" type=\"hidden\" class=\"form-control text-center no-border\" value=\"$rp_id\" defvalue=\"$rp_id\">
       </td>
-      <td style=\"width:50px;\" class=\"text-center padding-5\">
-       <input min=\"0\" required id=\"quantity[]\" name=\"quantity[]\" key=\"$rp_id\" type=\"number\" class=\"form-control text-center no-border\" value=\"0\" defvalue=\"0\">
-      </td>
+
     </tr>";
   }
   echo
-  "<tr>
-    <td style=\"width:200px;\" class=\"text-left bold\">Postage</td>
-    <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
-    <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
+  "
+  <tr class=\"\">
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20 \">Postage</td>
+    <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
+    <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpPostage\">0.00</b></td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left bold\">Total</td>
-    <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
-    <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20\">Total</td>
+    <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
+    <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpTotal\">0.00</b></td>
   </tr>
   <tr>
-    <td style=\"width:200px;\" class=\"text-left bold\">Commision</td>
-    <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
-    <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
-  </tr>
-  <tr>
-    <td style=\"width:200px;\" class=\"text-left bold\">Grand Total</td>
-    <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
-    <td style=\"width:50px;\" class=\"text-center padding-5\"> </td>
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20\">Grand Total</td>
+    <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
+    <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpGrandTotal\">0.00</b> </td>
   </tr>";
 }
 

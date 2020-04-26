@@ -580,6 +580,44 @@ $('#form-stokist').formValidation({
 });
 
 $('#form-stokist-order').formValidation({
+  fields : {
+    'quantity[]' : {
+      validators: {
+          callback : {
+            message : 'Sila masukkan sekurang kurangnya 1 produk',
+            callback : function(e) {
+              var ok = false;
+              $("[name='quantity[]']").each(function(e){
+                var value = $(this).val();
+                if (value > 0) {
+                  ok = true;
+                }
+              });
+
+              return ok;
+            }
+          }
+        }
+    },
+    'refNoBank' : {
+      validators: {
+          callback : {
+            message : 'Sila masukkan no rujukan bank',
+            callback : function(e) {
+              var bank = $("#bankName").val();
+              var val = $("#refNoBank").val();
+              if (bank != "" && val == "") {
+                ok = false
+              } else {
+                ok = true;
+              }
+              console.log(ok,bank,val);
+              return ok;
+            }
+          }
+        }
+    }
+  }
 }).on('success.form.fv', function(e) {
     // Prevent form submission
     e.preventDefault();
@@ -623,9 +661,7 @@ var ESOFUNC = "insertOrder";
 function saveOrder(){
   var myform = document.getElementById('form-stokist-order');
   var fd = new FormData(myform);
-  fd.append("func",ESOFUNC);
-  fd.append("CHANGESTABLEPRODUCT",CHANGESTABLEPRODUCT);
-  fd.append("eosid",EOSID);
+  fd.append("func","makeOrder");
   $.ajax({
       type: 'POST',
       url: "db",
@@ -637,6 +673,7 @@ function saveOrder(){
       success: function(data) {
         if(data["STATUS"]){
           saAlert3("Berjaya",data["MSG"],"success");
+          $("#back").click();
         } else {
           saAlert3("Gagal",data["MSG"],"warning");
         }
@@ -647,8 +684,6 @@ function saveOrder(){
   });
 }
 
-
-
 $("#orderDate").datepicker({
   format: 'dd-mm-yyyy'
 });
@@ -658,20 +693,7 @@ $("#pickupDate").datepicker({
 });
 
 $("#JenisPenghantaran").change(function(e){
-  $('#form-stokist-order').formValidation("resetForm",false);
-  var val = $(this).val();
-  if (val == "1") {
-    $("#tempatPenghantaran").prop("disabled",false);
-    $("#deliveryCharges").val("").change();
-    $("#deliveryCharges").prop("disabled",true);
-  } else if (val == "2") {
-    $("#tempatPenghantaran").prop("disabled",true);
-    $("#deliveryCharges").prop("disabled",false);
-  } else {
-    $("#tempatPenghantaran").prop("disabled",true);
-    $("#deliveryCharges").prop("disabled",true);
-    $("#tempatPenghantaran").val("").change();
-  }
+
 });
 
 $("#tempatPenghantaran").change(function(e){
@@ -689,5 +711,33 @@ $("#DatePayment").datepicker({
   format: 'dd-mm-yyyy HH:ii'
 });
 
+function calculateOrder(){
+  var myform = document.getElementById('form-stokist-order');
+  var fd = new FormData(myform);
+  fd.append("func","calculateOrder");
+  $.ajax({
+      type: 'POST',
+      url: "db",
+      data: fd,
+      dataType: "json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        var totals = data["totals"];
+        $("#rpPostage").html(totals["postagetotal"]);
+        $("#deliveryCharges").val(totals["postagetotal"]);
+        $("#rpTotal").html(totals["gtotal"]);
+        $("#rpGrandTotal").html(totals["gtotalpayment"]);
+      },
+      error: function(data) {
+        // saAlert3("Error","Session Log Out Error","warning");
+      }
+  });
+}
+
+$("[id='quantity[]']").change(function(e){
+  calculateOrder();
+});
 
 </script>

@@ -1389,4 +1389,120 @@ function formatDashboardSalesTr2($code,$total){
     </td>
   </tr>";
 }
+
+if($_POST["func"] == "calculateOrder"){
+  echo json_encode(calculateOrder($_POST));
+}
+
+function calculateOrder($data){
+  global $conn;
+  global $rootdir;
+  $rpid = $data["rpid"];
+  $quantity = $data["quantity"];
+
+  $s = "SELECT * FROM ref_product WHERE rp_status = 1";
+  $res = $conn->query($s);
+
+  $arr = [];
+  while ($row = $res->fetch_assoc()) {
+    $arr[$row["rp_id"]] = $row;
+  }
+
+  $gtotal = 0.00;
+  $postagetotal = 0.00;
+  $gtotalds = 0.00;
+
+  foreach ($rpid as $key => $value) {
+    $freepostagequantity = $arr[$rpid[$key]]["rp_freepostagequantity"];
+    $rp_price = $arr[$rpid[$key]]["rp_price"];
+    $arr[$rpid[$key]]["rp_postage"] = $quantity[$key] * $arr[$rpid[$key]]["rp_postage"];
+    $arr[$rpid[$key]]["rp_total_ds"] = $quantity[$key] * $arr[$rpid[$key]]["rp_price_ds"];
+    $arr[$rpid[$key]]["rp_total"] = $quantity[$key] * $arr[$rpid[$key]]["rp_price"];
+    $arr[$rpid[$key]]["quantity"] = $quantity[$key];
+    $gtotal = $gtotal + $arr[$rpid[$key]]["rp_total"];
+    $gtotalds = $gtotalds + $arr[$rpid[$key]]["rp_total_ds"];
+    if ($quantity[$key] >= $freepostagequantity) {
+      $arr[$rpid[$key]]["rp_postage"] = 0.00;
+    }
+    $postagetotal = $postagetotal + $arr[$rpid[$key]]["rp_postage"];
+  }
+
+  $total["gtotal"] = ($gtotal);
+  $total["gtotalds"] = ($gtotalds);
+  $total["postagetotal"] = ($postagetotal);
+  $total["commision"] = ($gtotal - $gtotalds);
+  $total["gtotalpayment"] = ($gtotal + $postagetotal);
+  $total["gtotalpaymentPay"] = ($gtotalds + $postagetotal );
+
+  $arrset["arr"] = $arr;
+  $arrset["totals"] = $total;
+
+  return $arrset;
+}
+
+if($_POST["func"] == "makeOrder"){
+  echo json_encode(makeOrder($_POST));
+}
+
+function makeOrder($data){
+  global $conn;
+  global $secretKey;
+
+  $calc = calculateOrder($data);
+  $productlist = $calc["arr"];
+  $totals = $calc["totals"];
+
+  $er_fullname = $data["fullname"];
+  $er_address = $data["address"];
+  $er_phone = $data["phone"];
+  $er_rjp_id = $data["JenisPenghantaran"];
+  $er_postage = $totals["postagetotal"];
+  $er_totalprice = $totals["gtotalpayment"];
+
+  $er_bankref = $data["refNoBank"];
+  $er_rb_id = $data["bankName"];
+  $er_payment_date = "NULL";
+
+  if ($er_rb_id != "") {
+    $er_payment_date = "NOW()";
+  }
+
+  $i = "INSERT INTO e_receipt (er_date,er_fullname,er_address,er_phone,er_rjp_id,er_postage,er_totalprice,er_bankref,er_rb_id,er_payment_date)
+  VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice,'$er_bankref',$er_rb_id,$er_payment_date)";
+
+  if ($conn->query($i)) {
+    $insertid = $conn->insert_id;
+    $iconcat = [];
+    foreach ($productlist as $key => $value) {
+      $rpid = $productlist[$key]["rp_id"];
+      $q = $productlist[$key]["quantity"];
+      $rp_price = $productlist[$key]["rp_price"];
+      $str = "($insertid,$rpid,$q,$rp_price,NOW())";
+      if ($q > 0) { array_push($iconcat,$str); }
+    }
+
+    $values = implode(",",$iconcat);
+
+    $i2 = "INSERT INTO e_receipt_detail (erd_er_id,erd_rp_id,erd_quantity,erd_rp_price,erd_datetime)
+    VALUES $values";
+
+    if ($conn->query($i2)) {
+      $ret["STATUS"] = true;
+      $erid = hash('sha256', $insertid);
+      $eridmd5 = md5($secretKey.$insertid);
+      $ret["LINK"] = "makepayment?erid=$erid";
+      // $ret["KEY"] = $erid;
+      $ret["KEYMD5"] = $eridmd5;
+      $ret["MSG"] = "Pesanan anda berjaya dihantar. Terima Kasih";
+    } else {
+      $ret["STATUS"] = false;
+      $ret["MSG"] = "Harap Maaf, Pesanan Gagal Didaftarkan (ERD)";
+    }
+  } else {
+    $ret["STATUS"] = false;
+    $ret["MSG"] = "Harap Maaf, Pesanan Gagal Didaftarkan (ER)";
+  }
+
+  return $ret;
+}
 ?>

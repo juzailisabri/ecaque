@@ -653,7 +653,6 @@ var fvcheck = $('#form-stokist-order').formValidation({
           callback : {
             message : 'Sila masukkan sekurang kurangnya 1 produk',
             callback : function(e) {
-              console.log("testing");
               var ok = false;
               $("[name='quantity[]']").each(function(e){
                 var value = $(this).val();
