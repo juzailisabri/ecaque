@@ -1336,7 +1336,7 @@ function getDashboardSales(){
 	CONCAT(
 	'INV-', DATE_FORMAT( er_date, '%Y' ), DATE_FORMAT( er_date, '%m' ), LPAD( er_id, 8, '0' ) ) AS invCode,
 	DATE_FORMAT( er_payment_date, '%d-%m-%Y %h:%i' ) as paymentdate,
-  (er_totalprice + er_postage) as totalpayment
+  (er_totalprice) as totalpayment
   FROM e_receipt
   LEFT JOIN e_stockist ON es_id = er_es_id
   WHERE er_payment_date IS NOT NULL AND er_devtest IS NULL ORDER BY er_payment_date DESC LIMIT 0,10";
