@@ -1303,7 +1303,7 @@ if($_POST["func"] == "getDashboardAdmin"){
 function getDashboardAdmin($data){
   global $conn;
 
-  $s1 = "SELECT SUM(er_totalprice + er_postage) as total FROM e_receipt WHERE er_payment_date IS NOT NULL AND er_devtest IS NULL";
+  $s1 = "SELECT SUM(er_totalprice) as total FROM e_receipt WHERE er_payment_date IS NOT NULL AND er_devtest IS NULL";
   $s2 = "SELECT COUNT(er_id) as pendingpayment FROM e_receipt WHERE er_payment_date IS NULL AND er_devtest IS NULL";
   $s3 = "SELECT COUNT(er_id) as pendingdelivery FROM e_receipt WHERE er_payment_date IS NOT NULL AND er_packing_date IS NULL AND er_devtest IS NULL";
   $s4 = "SELECT COUNT(es_id) as agentCount FROM e_stockist WHERE es_status = 1001";
