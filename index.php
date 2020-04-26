@@ -394,7 +394,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
         </div>
       </section>
 
-      <section class="bg-master-dark p-b-85 p-t-75 visible-xs">
+      <section class="bg-master-dark p-b-85 p-t-75 visible-xs" id="pricing">
         <div class="container ">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
