@@ -715,7 +715,7 @@ function getReceipt($data){
       </div>
     </div>
     <div class="row p-t-10 visible-xs">
-      <b>'.$er_totalprice.'</b><br>(RM '.$er_postage.')
+      <b>'.$er_totalprice.'</b>
     </div>';
 
     $datadb[] = $nestedData;

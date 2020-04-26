@@ -279,7 +279,7 @@ var tablePengguna = $('#table-pengguna').on('preXhr.dt', function ( e, settings,
     }
   },
   columnDefs: [
-    { targets: [0,3,4,5], class: "text-center hidden-xs" },
+    { targets: [0,3,4,5,6], class: "text-center hidden-xs" },
     { targets: [2], class: "hidden-xs" },
     { targets: [1], class: "visible-xs" }
   ], // your case first column "className": "text-center", }],
