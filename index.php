@@ -348,8 +348,8 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       </section>
       <!-- END CONTENT SECTION -->
       <!-- BEGIN CONTENT SECTION -->
-      <section class="bg-master-dark p-b-85 p-t-75 hidden-xs" id="pricing">
-        <div class="container ">
+      <section class="bg-master-dark p-b-85 p-t-75 " id="pricing">
+        <div class="container hidden-xs">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
             <div class="row m-t-40">
@@ -392,10 +392,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="bg-master-dark p-b-85 p-t-75 visible-xs" id="pricing">
-        <div class="container ">
+        <div class="container visible-xs">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
             <div class="row m-t-40">
