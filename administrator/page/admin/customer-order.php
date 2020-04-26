@@ -106,7 +106,7 @@ if (isset($_GET["oid"])) { $oid = $_GET["oid"]; }
         <div class="col-md-3 no-padding">
           <div class="form-group form-group-default form-group-default-select2">
             <label>Dropship</label>
-            <select id="dropship" data-init-plugin='select2' class="full-width" name="dropship">
+            <select id="filterdropship" data-init-plugin='select2' class="full-width" name="filterdropship">
               <?php dropship() ?>
             </select>
           </div>
@@ -274,6 +274,7 @@ var tablePengguna = $('#table-pengguna').on('preXhr.dt', function ( e, settings,
       d.negeri = $("#filterNegeri").val();
       d.status = $("#filterStatus").val();
       d.statusOrder = $("#filterStatusOrder").val();
+      d.dropship = $("#filterdropship").val();
       // d.kaunterStat = $("#kaunterStatus").val();
     }
   },
@@ -406,7 +407,7 @@ function updatePayment(){
   });
 }
 
-$("#filterNegeri, #filterStatusOrder, #filterStatus").change(function(e){
+$("#filterNegeri, #filterStatusOrder, #filterStatus, #filterdropship").change(function(e){
   tablePengguna.ajax.reload();
 });
 

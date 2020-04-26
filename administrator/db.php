@@ -583,10 +583,11 @@ function getReceipt($data){
     // datatable column index  => database column name
     0 => 'er_id',
     1 => 'er_fullname',
-    2 => 'er_fullname',
-    3 => 'er_totalprice',
+    2 => 'es_name',
+    3 => 'er_fullname',
     4 => 'er_totalprice',
-    5 => 'er_totalprice'
+    5 => 'er_totalprice',
+    6 => 'er_totalprice'
   );
 
   $where = " AND er_devtest IS NULL ";
@@ -603,6 +604,12 @@ function getReceipt($data){
     $str = $staorder[$statusOrder];
 
     $where .= " $str ";
+  }
+
+  if (isset($data["dropship"]) && $data["dropship"] != '') {
+    $dropship = $data["dropship"];
+
+    $where .= " AND er_es_id = $dropship ";
   }
 
   if (isset($data["search"]) && $data["search"] != '') {
