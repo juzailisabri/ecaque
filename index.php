@@ -200,7 +200,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <a class="text-white active"href="login">Login Ejen</a>
               </li>
               <li>
-                <a class="text-white active"href="loginAdmin">Login Admin</a>
+                <a class="text-white active visible-xs" href="loginAdmin">Login Admin</a>
               </li>
             </ul>
             <a href="loginAdmin" class="text-white search-toggle hidden-xs hidden-sm" data-toggle="searcha"><i class="fa fa-lock fa-lg"></i></a>
