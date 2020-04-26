@@ -264,3 +264,79 @@ function forgotPasswordEmail($toemail,$toname,$encrypt){
   // echo $body;
   return email($toemail,$toname,$body,$subject);
 }
+
+function agentVerification($toemail,$toname){
+  global $logoUrl;
+  global $header;
+  global $footer;
+  global $rootdir;
+  global $slider;
+  global $http;
+
+  $url = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/login";
+
+  $title = "Permohonan Ejen eCaque";
+  $subtitle = "Permohonan anda diluluskan. anda boleh membuat pesanan dan pembayaran online melalui sistem.";
+  $banner = banner1($title,$subtitle);
+  $text1 = "Terima kasih kerana berminat menyertai program ejen eCaque. kami berbesar hati untuk bekerjasama dengan pihak anda. <br><br>Sila tekan link dibawah untuk log masuk dan mula membuat pesanan. <br> <a target=\"_blank\" href=\"$url\">$url</a>";
+  $text2 = "<h4 class=\"text-white\">Do</h4>
+  <ul class=\"text-white\">
+    <li>Hanya ejen yang berdaftar secara sah di bawah eCaque Enterprise sahaja dibenarkan untuk berhubung terus dengan pihak HQ di mana kami akan memberi tip-tip dan panduan serta tunjuk ajar bagi memasarkan produk eCaque.</li>
+    <li>Untuk tujuan pemasaran, ejen dibenarkan untuk menggunakan platform seperti  FB Personal, FB Ads, Instagram, group-group business, personal wall, e-commerce personal, blog personal, google ads, website personal, group WeChat, group WhatsApp dan lain-lain.</li>
+    <li>Ejen adalah <b>DIBENARKAN</b> untuk melantik staff jualan bagi tujuan membuat pemasaran secara dalam talian (online) atau secara jualan langsung (offline)</li>
+    <!-- <li>Ejen <b>DIWAJIBKAN</b> untuk mengambil stok sekurang-kurangnya <b>LIMA(5) KOTAK</b> untuk setiap pesanan stok.</li> -->
+  </ul>
+  <h4 class=\"text-white\">Don't</h4>
+  <ul class=\"text-white\">
+    <li>Ejen adalah <b>TIDAK DIBENARKAN</b> untuk menjual di <b>PLATFORM MARKETPLACE</b> seperti di Shopee, Mudah.my, Lazada, marketplace FB dan lain-lain. Ini bagi mengelakkan berlakunya isu salah faham mengenai harga oleh pelanggan.</li>
+    <li><b>DILARANG</b> mengubah harga secara sengaja atau tidak sengaja tanpa kebenaran pihak HQ.</li>
+    <li>Ejen <b>DILARANG</b> melakukan apa-apa tindakan berunsurkan sabotaj atau perkara-perkara yang boleh menjatuhkan reputasi HQ / Pemilik eCaque / Ejen / pelanggan Ecaque.</li>
+    <li><b>DILARANG</b> menjual kepada pihak ketiga seperti Pemborong, Kedai Kek, Bazaar Expo dan sebagainya.</li>
+  </ul>";
+
+  $body = $header."
+  <table class=\"container\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" bgcolor=\"#FFFFFF\" width=\"600\">
+    <tbody><tr>
+      <td>
+        $banner
+        <table align=\"center\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" width=\"100%\" style=\"background-color:#FFFFFF\">
+          <tbody><tr>
+            <td align=\"center\" class=\"col p-sm-30\" width=\"400\" style=\"vertical-align: middle; padding: 50px 50px\">
+              <table align=\"center\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" width=\"100%\">
+                <tbody><tr>
+                  <td align=\"left\" class=\"col\" width=\"500\" style=\"vertical-align: middle;\">
+                    <h2 mc:edit=\"\" data-color=\"Simple Title\" style=\"font-family: \"Quicksand\", Arial, sans-serif;font-size: 22px;line-height: 26px;font-weight: 700;; color:#242424;margin-top: 0; margin-bottom: 15px;\">
+                      Hi, <span data-color=\"Simple Title Span\" style=\"color:#400A91;\">$toname</span>
+                    </h2>
+                    <p mc:edit=\"\" data-color=\"Simple Text text\" style=\"font-family: \"Roboto\", Arial, sans-serif;font-size: 18px;line-height:24px;font-weight: 400;margin: 0;color:#595959; text-transform: none;\">
+                    $text1</p>
+                    <hr>
+                    <p mc:edit=\"\" data-color=\"Simple Text text\" style=\"font-family: \"Roboto\", Arial, sans-serif;font-size: 18px;line-height:24px;font-weight: 400;margin: 0;color:#595959; text-transform: none;\">
+                    $text2</p>
+                    <div class=\"spacer py-sm-20\" style=\"line-height: 50px;\">‌</div>
+                    <!-- Custom: center-aligned on mobile only -->
+                    <table align=\"center\" class=\"full-width-sm\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">
+                      <tbody><tr>
+                        <th data-bgcolor=\"Button Color\" bgcolor=\"#93EFE0\" style=\" line-height: 100%; mso-padding-alt: 5px 50px 10px;\">
+                          <!-- <a mc:edit=\"\" href=\"http://exemple.com\" data-color=\"Buton Text\" style=\"color: #400A91; display: block; font-size: 18px; padding: 15px 40px; text-decoration: none;\">
+                            CONFIRME
+                          </a> -->
+                        </th>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        <!-- /Content -->
+
+      </td>
+    </tr>
+  </tbody></table>".$footer;
+
+  $subject = '[No-Reply] Permohonan ejen eCaque Diluluskan';
+  // echo $body;
+  return email($toemail,$toname,$body,$subject);
+}

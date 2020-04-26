@@ -41,5 +41,5 @@ include("email.php");
 //   }
 // }
 
-forgotPasswordEmail("juzaili.sabri@gmail.com","Juzaili Sabri","Juzaili Ahmad Sabri","juzaili.sabri@gmail.com","test","test");
+agentVerification("juzaili.sabri@gmail.com","Juzaili Sabri","Juzaili Ahmad Sabri","juzaili.sabri@gmail.com","test","test");
 ?>

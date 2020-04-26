@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('conn.php');
-// include('../email.php');
+include('email.php');
 
 $_POST = array_map('clean', $_POST);
 
@@ -136,9 +136,12 @@ function getStokist($data){
   es_linkedin,
   es_dateregister,
   es_dateapproved,
-  es_approvedby
+  es_approvedby,
+  rs_name,
+  rs_color
   FROM e_stockist
   LEFT JOIN ref_negeri ON rngri_id = es_rngri_id
+  LEFT JOIN ref_status ON es_status = rs_id
   WHERE TRUE $where
   ";
 
@@ -163,6 +166,14 @@ function getStokist($data){
   $x = 1;
   $datadb = array();
   while ($row = $result->fetch_assoc()) {
+    $encid = $row["enc_id"];
+    $rs_name = $row["rs_name"];
+    $rs_color = $row["rs_color"];
+    $buttonarray[0] = "<a id=\"edituser\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Edit</a>";
+    $buttonarray[1] = "<a id=\"changeStatus\" stat=\"approve\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Approve</a>";
+    $buttonarray[2] = "<a id=\"changeStatus\" stat=\"ban\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Ban</a>";
+
+    $button = dropdownButtonstyle1($rs_name,"btn-$rs_color",$buttonarray);
     $nestedData=array();
     $nestedData[] = $row["es_id"];
     $nestedData[] = $row["es_name"]."<br>".$row["es_icno"]."<br>".$row["es_email"]."<br>".$row["es_phone"]."<br>".$row["rngri_name"]."<br>".$row["es_dateregister"];
@@ -170,23 +181,7 @@ function getStokist($data){
     $nestedData[] = $row["es_email"]."<br>".$row["es_phone"]."<br>";
     $nestedData[] = $row["es_dateregister"];
     $nestedData[] = $row["rngri_name"];
-    $nestedData[] = '
-    <div class="btn-group row w-100">
-      <div class="btn-group col-6 p-0">
-        <button id="edituser" key="'.$row["enc_id"].'" type="button" class="btn btn-primary w-100">
-          <span class="p-t-5 p-b-5">
-          <i class="fa fa-edit fs-15"></i>
-          </span>
-        </button>
-      </div>
-      <div class="btn-group col-6 p-0">
-        <button id="resetUser" key="'.$row["enc_id"].'" type="button" class="btn btn-danger w-100">
-          <span class="p-t-5 p-b-5">
-          <i class="fa fa-refresh fs-15"></i>
-          </span>
-        </button>
-      </div>
-    </div>';
+    $nestedData[] = $button;
 
     $datadb[] = $nestedData;
     $x++;
@@ -202,6 +197,54 @@ function getStokist($data){
   );
 
   return $json_data;
+}
+
+function dropdownButtonstyle1($title,$color,$buttonarray){
+  $sub = "";
+  foreach ($buttonarray as $key => $value) {
+    $sub = $sub.$buttonarray[$key];
+  }
+  $html = "<div class=\"dropdown dropdown-default\" style=\"width: 100%;\">
+  <button aria-label=\"\" class=\"btn dropdown-toggle text-center $color\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"width: 100%;\">
+    <b>$title</b>
+  </button>
+  <div class=\"dropdown-menu\" style=\"width: 100%; will-change: transform;\">
+    $sub
+  </div>
+  </div>";
+
+  return $html;
+}
+
+if($_POST["func"] == "changeStatusStokist"){
+  $s["approve"] = 1001;
+  $s["ban"] = 1003;
+  echo json_encode(changeStatusStokist($_POST,$s[$_POST["subfunc"]]));
+}
+
+function changeStatusStokist($data,$statusChange){
+  global $conn;
+  $esid = $data["esid"];
+
+  $u = "UPDATE e_stockist SET es_status = '$statusChange' WHERE SHA2(es_id,256) = '$esid'";
+  if ($conn->query($u)) {
+    $ret["STATUS"] = true;
+    $msg[1001] = "Ejen telah berjaya di Verify";
+    $msg[1003] = "Ejen telah berjaya di Ban";
+    $ret["MSG"] = $msg[$statusChange];
+
+    if ($statusChange == 1001) {
+      $stokis = getStokistDetail($_POST);
+      agentVerification($stokis[0]["es_email"],$stokis[0]["es_name"]);
+    }
+  } else {
+    $ret["STATUS"] = false;
+    $msg[1001] = "Ejen tidak berjaya di Verify";
+    $msg[1003] = "Ejen tidak berjaya di Ban";
+    $ret["MSG"] = $msg[$statusChange];
+  }
+
+  return $ret;
 }
 
 if($_POST["func"] == "getStokistDetail"){

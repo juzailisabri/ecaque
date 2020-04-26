@@ -111,10 +111,7 @@
           <div class="form-group form-group-default form-group-default-select2">
             <label>Status</label>
             <select id="filterStatus" data-init-plugin='select2' class="full-width" name="filterStatus">
-              <option value="">-- Pilih Status --</option>
-              <option value="1000">Not Verified</option>
-              <option value="1001">Verified</option>
-              <option value="1002">Barred</option>
+              <?php getStatus(1); ?>
             </select>
           </div>
         </div>
@@ -202,8 +199,47 @@ var tablePengguna = $('#table-pengguna').on('preXhr.dt', function ( e, settings,
   fnDrawCallback: function () {
     // $("#counter").html(this.fnSettings().fnRecordsTotal())
     tablePengguna.$("[id='edituser']").click(edituserFunc);
+    tablePengguna.$("[id='changeStatus']").click(changeStatusFunc);
   }
 });
+
+function changeStatusFunc(){
+  var esid = $(this).attr("key");
+  var stat = $(this).attr("stat");
+  ESID = esid;
+  SUBFUNC = stat;
+  runfunction = changeStatus;
+  saConfirm4("Tukar Status?","Anda pasti untuk tukar status ejen?","warning","Ya, Pasti",runfunction,"Pasti");
+}
+
+var SUBFUNC;
+
+function changeStatus(){
+  var fd = new FormData();
+  fd.append("func","changeStatusStokist");
+  fd.append("subfunc",SUBFUNC);
+  fd.append("esid",ESID);
+  $.ajax({
+      type: 'POST',
+      url: "db",
+      data: fd,
+      dataType: "json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        if (data["STATUS"]) {
+          tablePengguna.ajax.reload(null, false);
+          saAlert3("Berjaya",data["MSG"],"success");
+        } else {
+          saAlert3("Berjaya",data["MSG"],"warning");
+        }
+      },
+      error: function(data) {
+        // saAlert3("Error","Session Log Out Error","warning");
+      }
+  });
+}
 
 $("#filter").on("keydown", function(e) {
     if (e.keyCode === 13) {
