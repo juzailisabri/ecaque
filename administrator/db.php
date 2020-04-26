@@ -1240,7 +1240,7 @@ function updatepayment($data){
     er_payment_date = NOW(),
     er_rb_id = $bank,
     er_bankref = '$refNo'
-  WHERE SHA2(er_id,256) = '$id' AND er_paymentStatus != 1";
+  WHERE SHA2(er_id,256) = '$id'";
 
   if ($conn->query($i)) {
     $ret["STATUS"] = true;
