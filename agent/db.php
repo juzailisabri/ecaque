@@ -169,7 +169,7 @@ function getReceipt($data){
     5 => 'er_totalprice'
   );
 
-  $where = " AND er_es_id = $uid";
+  $where = " AND er_es_id = $uid AND er_devtest IS NULL ";
 
   if (isset($data["statusOrder"]) && $data["statusOrder"] != '') {
     $staorder["3001"] = "AND er_payment_date IS NULL AND er_packing_date IS NULL ";
@@ -224,7 +224,7 @@ function getReceipt($data){
   DATE_FORMAT(er_date,'%m') as invmonth,
   er_status
   FROM e_receipt
-  WHERE er_devtest IS NULL $where
+  WHERE TRUE $where
   ";
 
   $sql.=" ORDER BY ". $columns[$data['order'][0]['column']]." ".$data['order'][0]['dir']." LIMIT ".$data['start']." ,".$data['length']."   ";
