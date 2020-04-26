@@ -315,8 +315,6 @@ input[disabled]{
                   <b class="font-montserrat text-uppercase">Feedback Testimoni </b><br>
                   <a target="_blank" href="https://t.me/feedbackecaque">t.me/feedbackecaque</a>
                 </p>
-
-                Video Feedback Kek
               </div>
             </div>
           </div>
