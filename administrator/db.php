@@ -644,8 +644,10 @@ function getReceipt($data){
   er_dispatch_date,
   DATE_FORMAT(er_date,'%Y') as invyear,
   DATE_FORMAT(er_date,'%m') as invmonth,
-  er_status
+  er_status,
+  es_name
   FROM e_receipt
+  LEFT JOIN e_stockist ON es_id = er_es_id
   WHERE TRUE $where
   ";
 
@@ -673,6 +675,10 @@ function getReceipt($data){
     $enc_id = $row["enc_id"];
     $er_payment_date = $row["er_payment_date"];
     $er_packing_date = $row["er_packing_date"];
+    $es_name = $row["es_name"];
+    if ($row["es_name"] == "") {
+      $es_name = "-";
+    }
 
     $er_payment_dateC = colorFunction($er_payment_date,"btn-success","btn-muted");
     $er_packing_dateC = colorFunction($er_packing_date,"btn-success","btn-muted");
@@ -681,10 +687,13 @@ function getReceipt($data){
 
     $nestedData=array();
     $nestedData[] = $row["er_id"];
-    $nestedData[] = "<b>$invcode<br>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br>
+    $nestedData[] = "<b>$invcode<br>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br> <sub>Stokist/Dropship</sub><br>$es_name<br>
                     <button key=\"$enc_id\" id=\"payment\" class='btn $er_payment_dateC btn-sm m-t-10'> <i class='fa fa-money'></i> </button>
                     <button key=\"$enc_id\" id=\"packing\" class='btn $er_packing_dateC btn-sm m-t-10'> <i class='fa fa-cubes'></i> </button>";
     $nestedData[] = "<b>$invcode</b><br>$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
+    $nestedData[] = "$es_name";
+
+
     $nestedData[] = "$er_totalprice ";
     $nestedData[] = "<button key=\"$enc_id\" id=\"payment\" class='btn $er_payment_dateC btn-sm'> <i class='fa fa-money'></i> </button>";
     $nestedData[] = "<button key=\"$enc_id\" id=\"packing\" class='btn $er_packing_dateC btn-sm'> <i class='fa fa-cubes'></i> </button>";
@@ -1448,6 +1457,15 @@ function makeOrder($data){
   global $conn;
   global $secretKey;
 
+  $er_bankref = $data["refNoBank"];
+  $er_rb_id = $data["bankName"];
+  $er_payment_date = "NULL";
+  $dropship = $data["dropship"];
+  $dropshipprice = false;
+  if ($data["dropship"] == "" ) { $dropship = "NULL"; } else { $dropshipprice = true; }
+  if ($data["bankName"] == "" ) { $er_rb_id = "NULL"; }
+  if ($data["bankName"] != "" || $data["bankName"] != null) { $er_payment_date = "NOW()"; }
+
   $calc = calculateOrder($data);
   $productlist = $calc["arr"];
   $totals = $calc["totals"];
@@ -1457,17 +1475,11 @@ function makeOrder($data){
   $er_phone = $data["phone"];
   $er_rjp_id = $data["JenisPenghantaran"];
   $er_postage = $totals["postagetotal"];
-  $er_totalprice = $totals["gtotalpayment"];
 
-  $er_bankref = $data["refNoBank"];
-  $er_rb_id = $data["bankName"];
-  $er_payment_date = "NULL";
+  if ($dropshipprice) { $er_totalprice = $totals["gtotalpaymentPay"]; } else { $er_totalprice = $totals["gtotalpayment"]; }
 
-  if ($data["bankName"] == "" ) { $er_rb_id = "NULL"; }
-  if ($data["bankName"] != "" || $data["bankName"] != null) { $er_payment_date = "NOW()"; }
-
-  $i = "INSERT INTO e_receipt (er_date,er_fullname,er_address,er_phone,er_rjp_id,er_postage,er_totalprice,er_bankref,er_rb_id,er_payment_date)
-  VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice,'$er_bankref',$er_rb_id,$er_payment_date)";
+  $i = "INSERT INTO e_receipt (er_date,er_fullname,er_address,er_phone,er_rjp_id,er_postage,er_totalprice,er_bankref,er_rb_id,er_payment_date,er_es_id)
+  VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice,'$er_bankref',$er_rb_id,$er_payment_date,$dropship)";
 
   if ($conn->query($i)) {
     $insertid = $conn->insert_id;
@@ -1475,7 +1487,12 @@ function makeOrder($data){
     foreach ($productlist as $key => $value) {
       $rpid = $productlist[$key]["rp_id"];
       $q = $productlist[$key]["quantity"];
-      $rp_price = $productlist[$key]["rp_price"];
+      if ($dropshipprice) {
+        $rp_price = $productlist[$key]["rp_price_ds"];
+      } else {
+        $rp_price = $productlist[$key]["rp_price"];
+      }
+
       $str = "($insertid,$rpid,$q,$rp_price,NOW())";
       if ($q > 0) { array_push($iconcat,$str); }
     }

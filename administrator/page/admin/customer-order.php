@@ -97,10 +97,18 @@ if (isset($_GET["oid"])) { $oid = $_GET["oid"]; }
         </div>
       </div>
       <div class="row m-b-20 padding-20">
-        <div class="col-md-9 no-padding">
+        <div class="col-md-6 no-padding">
           <div class="form-group form-group-default">
             <label>Carian Order</label>
             <input id="filter" name="filter" value="<?php echo $oid; ?>" type="text" class="form-control" required="">
+          </div>
+        </div>
+        <div class="col-md-3 no-padding">
+          <div class="form-group form-group-default form-group-default-select2">
+            <label>Dropship</label>
+            <select id="dropship" data-init-plugin='select2' class="full-width" name="dropship">
+              <?php dropship() ?>
+            </select>
           </div>
         </div>
         <div class="col-md-3 no-padding">
@@ -127,6 +135,7 @@ if (isset($_GET["oid"])) { $oid = $_GET["oid"]; }
                   <th style="width:10px;"  class="text-center">#</th>
                   <th class="">Nama Pelanggan</th>
                   <th class="">Nama Pelanggan</th>
+                  <th class="">Stokist/Dropship</th>
                   <th style="width:100px;" class="text-center">Jumlah</th>
                   <th style="width:50px;" class="text-center"> <i class="fa fa-lg fa-money"></i> </th>
                   <th style="width:50px;" class="text-center"> <i class="fa fa-lg fa-cubes"></i> </th>

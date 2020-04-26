@@ -128,6 +128,20 @@ function getStatus($module){
   }
 }
 
+function dropship(){
+  global $conn;
+
+  $select = "SELECT es_id, es_name FROM e_stockist WHERE es_status = 1001";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Pilih Dropship --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["es_id"];
+    $name=$row["es_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
 function getStokist(){
   global $conn;
 

@@ -99,6 +99,19 @@
           </div>
         </div>
 
+        <h5 class="text-black block-title m-t-20 m-b-20 font-montserrat text-uppercase bold small">Payment Information</h5>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group form-group-default form-group-default-select2">
+              <label class="control-label">Dropship</label>
+              <select data-init-plugin='select2' id="dropship" name="dropship" class="form-control full-width" >
+                <?php dropship(); ?>
+              </select>
+              <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
+            </div>
+          </div>
+        </div>
+
         <!-- <h5 class="text-black block-title m-t-10 m-b-20 font-montserrat text-uppercase bold small">Status Pesanan</h5>
 
         <div class="row">
