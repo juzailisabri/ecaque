@@ -307,7 +307,7 @@ function makepaymentdirect(key,link){
 
 function pay(){
   saLoadingPayment();
-  window.open(LINK, 'paymentWindow'+PAYMENTKEY);
+  PWINDOW = window.open(LINK, 'paymentWindow'+PAYMENTKEY);
   CHECKPAYMENTINTERVAL = setInterval(checkpaymentfunction,2000);
   $("#back").click();
 }
