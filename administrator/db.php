@@ -1316,7 +1316,7 @@ function getDashboardSales(){
   (er_totalprice + er_postage) as totalpayment
   FROM e_receipt
   LEFT JOIN e_stockist ON es_id = er_es_id
-  WHERE er_payment_date IS NOT NULL ORDER BY er_payment_date DESC LIMIT 0,10";
+  WHERE er_payment_date IS NOT NULL AND er_devtest IS NULL ORDER BY er_payment_date DESC LIMIT 0,10";
 
   $arr = [];
   $result = $conn->query($s);
