@@ -592,7 +592,7 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
               contentType: false,
               processData: false,
               success: function(data) {
-                window.location = "../login";
+                window.location = "../loginAdmin";
               },
               error: function(data) {
                 // saAlert3("Error","Session Log Out Error","warning");

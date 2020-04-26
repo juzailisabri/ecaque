@@ -29,11 +29,11 @@
   </head>
   <body class="pace-white">
     <!-- BEGIN JUMBOTRON -->
-    <section class="jumbotron demo-custom-height xs-full-height bg-black" data-pages-bg-image="assets/slider/Slider3.jpg">
+    <section class="jumbotron demo-custom-height xs-full-height bg-black" data-pages-bg-image="assets/slider/login.jpg">
       <div class="container-xs-height full-height">
         <div class="col-xs-height col-middle text-left">
           <div class="container">
-            <div class="col-sm-6">
+            <div class="col-sm-6 bg-black padding-40">
               <h1 class="light text-white">eCaque.my | Admin</h1>
               <h4 class="text-white">Login using your email address & password</h4>
               <form class="m-t-25 m-b-20">
@@ -64,10 +64,10 @@
             <img src="assets/images/Logo_2020_Black_Large.png" width="280" data-src-retina="assets/images/Logo_2020_Black_Large.png" class="logo inline m-r-50" alt="">
             <div class="m-t-10 ">
               <ul class="no-style fs-11 no-padding font-arial">
-                <li class="inline no-padding"><a href="index/#" class=" text-master p-r-10 b-r b-grey">Home</a></li>
-                <li class="inline no-padding"><a href="index/#" class="hint-text text-master p-l-10 p-r-10 b-r b-grey">Beli Sekarang</a></li>
-                <li class="inline no-padding"><a href="index/#" class="hint-text text-master p-l-10 p-r-10 b-r b-grey">Where To Buy</a></li>
-                <li class="inline no-padding"><a href="index/#" class="hint-text text-master p-l-10 p-r-10 xs-no-padding xs-m-t-10">Contact Us</a></li>
+                <li class="inline no-padding"><a href="index" class=" text-master p-r-10 b-r b-grey">Home</a></li>
+                <li class="inline no-padding"><a href="index" class="hint-text text-master p-l-10 p-r-10 b-r b-grey">Beli Sekarang</a></li>
+                <li class="inline no-padding"><a href="index" class="hint-text text-master p-l-10 p-r-10 b-r b-grey">Where To Buy</a></li>
+                <li class="inline no-padding"><a href="index" class="hint-text text-master p-l-10 p-r-10 xs-no-padding xs-m-t-10">Contact Us</a></li>
               </ul>
             </div>
           </div>
