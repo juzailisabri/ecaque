@@ -1461,7 +1461,7 @@ function makeOrder($data){
 
   $er_bankref = $data["refNoBank"];
   $er_rb_id = $data["bankName"];
-  if ($data["bankName"] == "" ) { $er_rb_id = "NULL" }
+  if ($data["bankName"] == "" ) { $er_rb_id = "NULL"; }
   $er_payment_date = "NULL";
   if ($er_rb_id != "") { $er_payment_date = "NOW()"; }
 
