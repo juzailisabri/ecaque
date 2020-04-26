@@ -69,7 +69,7 @@
       <div class="padding-25 mt-auto">
         <p class="small no-margin">
           <a href="#"><i class="fa fs-16 fa-arrow-circle-o-down text-success m-r-10"></i></a>
-          <span class="hint-text ">See Details in Customer Order</span>
+          <span class="hint-text ">System Summary Dashboard</span>
         </p>
       </div>
     </div>
