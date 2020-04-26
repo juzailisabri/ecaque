@@ -1273,4 +1273,76 @@ function updatePacking($data){
   }
   return $ret;
 }
+
+if($_POST["func"] == "getDashboardAdmin"){
+  echo json_encode(getDashboardAdmin($_POST));
+}
+
+function getDashboardAdmin($data){
+  global $conn;
+
+  $s1 = "SELECT SUM(er_totalprice + er_postage) as total FROM e_receipt WHERE er_payment_date IS NOT NULL AND er_devtest IS NULL";
+  $s2 = "SELECT COUNT(er_id) as pendingpayment FROM e_receipt WHERE er_payment_date IS NULL AND er_devtest IS NULL";
+  $s3 = "SELECT COUNT(er_id) as pendingdelivery FROM e_receipt WHERE er_payment_date IS NOT NULL AND er_packing_date IS NULL AND er_devtest IS NULL";
+  $s4 = "SELECT COUNT(es_id) as agentCount FROM e_stockist WHERE es_status = 1001";
+
+  $s = "SELECT
+  ($s1) as s1,
+  ($s2) as s2,
+  ($s3) as s3,
+  ($s4) as s4
+  ";
+
+  $arr = [];
+  $result = $conn->query($s);
+  while ($row = $result->fetch_assoc())
+  {
+    $row["t1"] = getDashboardSales();
+    $arr[] = $row;
+  }
+
+  return $arr[0];
+}
+
+function getDashboardSales(){
+  global $conn;
+
+  $s = "SELECT
+  er_id,
+	er_fullname,
+	CONCAT(
+	'INV-', DATE_FORMAT( er_date, '%Y' ), DATE_FORMAT( er_date, '%m' ), LPAD( er_id, 8, '0' ) ) AS invCode,
+	DATE_FORMAT( er_payment_date, '%d-%m-%Y %h:%i' ) as paymentdate,
+  (er_totalprice + er_postage) as totalpayment
+  FROM e_receipt
+  LEFT JOIN e_stockist ON es_id = er_es_id
+  WHERE er_payment_date IS NOT NULL ORDER BY er_payment_date DESC LIMIT 0,10";
+
+  $arr = [];
+  $result = $conn->query($s);
+
+  $tablebody = "";
+  while ($row = $result->fetch_assoc())
+  {
+    $code = $row["invCode"];
+    $name = $row["er_fullname"];
+    $total = $row["totalpayment"];
+    $tablebody .= formatDashboardSalesTr($code,$name,$total);
+    $arr[] = $row;
+  }
+
+  return $tablebody;
+}
+
+function formatDashboardSalesTr($code,$name,$total){
+  return "<tr>
+    <td class=\"font-montserrat all-caps fs-12 w-50\">$code</td>
+    <td class=\"text-right b-r b-dashed b-grey w-25\">
+      <span class=\"hint-text small\">$name</span>
+    </td>
+    <td class=\"w-50 text-right\">
+      <span class=\"font-montserrat fs-18 \"> <sup class=\"p-r-5\">MYR </sup><b>$total</b></span>
+    </td>
+  </tr>";
+}
 ?>
