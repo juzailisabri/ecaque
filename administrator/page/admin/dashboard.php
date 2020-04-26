@@ -163,6 +163,42 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-lg-3 sm-m-t-10 d-flex align-items-stretch">
+        <div class="widget-11-2 card no-border card-condensed no-margin widget-loader-circle d-flex flex-column align-self-stretch">
+          <div class="card-header top-right">
+            <div class="card-controls">
+              <ul>
+                <li><a data-toggle="refresh" class="portlet-refresh text-black" href="#"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="padding-25">
+            <div class="pull-left">
+              <h2 class="text-success no-margin font-montserrat text-uppercase">Cakes #</h2>
+              <p class="no-margin">Number of Cake Needed</p>
+            </div>
+            <!-- <h3 class="pull-right semi-bold"><sup>
+              <small class="semi-bold m-r-10">RM </small>
+            </sup> <span id="salesValue">00.00</span>
+          </h3> -->
+          <div class="clearfix"></div>
+        </div>
+        <div class="auto-overflow widget-11-2-table">
+          <table class="table table-condensed table-hover">
+            <tbody id="tbodyCakeNeeded">
+
+            </tbody>
+          </table>
+        </div>
+        <div class="padding-25 mt-auto">
+          <p class="small no-margin">
+            <a href="#"><i class="fa fs-16 fa-arrow-circle-o-down text-success m-r-10"></i></a>
+            <span class="hint-text ">See Details in Customer Order</span>
+          </p>
+        </div>
+      </div>
+    </div>
       <div class="col-lg-9 sm-m-t-10 d-flex align-items-stretch">
         <div class="widget-11-2 card no-border card-condensed no-margin widget-loader-circle d-flex flex-column align-self-stretch">
           <div class="card-header top-right">
@@ -199,6 +235,7 @@
         </div>
       </div>
     </div>
+
   </div>
   </div>
 </div>
@@ -222,7 +259,8 @@ function getDashboardData(){
         $("#totalSales").html(data["s1"]);
         $("#dropshipAgentCount").html(data["s4"]);
 
-        $("#tbodyLatestTransaction").html(data["t1"])
+        $("#tbodyLatestTransaction").html(data["t1"]);
+        $("#tbodyCakeNeeded").html(data["t2"]);
         salesprogressbar(data["s1"]);
       },
       error: function(data) {

@@ -1298,6 +1298,7 @@ function getDashboardAdmin($data){
   while ($row = $result->fetch_assoc())
   {
     $row["t1"] = getDashboardSales();
+    $row["t2"] = getDashboardCakeNeeded();
     $arr[] = $row;
   }
 
@@ -1340,8 +1341,45 @@ function formatDashboardSalesTr($code,$name,$total){
     <td class=\"text-right b-r b-dashed b-grey w-25\">
       <span class=\"hint-text small\">$name</span>
     </td>
-    <td class=\"w-50 text-right\">
+    <td class=\"w-25 text-right\">
       <span class=\"font-montserrat fs-18 \"> <sup class=\"p-r-5\">MYR </sup><b>$total</b></span>
+    </td>
+  </tr>";
+}
+
+
+
+function getDashboardCakeNeeded(){
+  global $conn;
+
+  $s = "SELECT rp_name, SUM(erd_quantity) as totalneeded FROM e_receipt_detail
+  LEFT JOIN e_receipt ON er_id = erd_er_id
+  LEFT JOIN ref_product ON rp_id = erd_rp_id
+  WHERE
+  er_payment_date IS NOT NULL AND er_packing_date IS NULL AND er_devtest IS NULL AND rp_status = 1
+  GROUP BY rp_id";
+
+  $arr = [];
+  $result = $conn->query($s);
+
+  $tablebody = "";
+  while ($row = $result->fetch_assoc())
+  {
+    $code = $row["rp_name"];
+    $name = $row["totalneeded"];
+    $tablebody .= formatDashboardSalesTr2($code,$name);
+    $arr[] = $row;
+  }
+
+  return $tablebody;
+}
+
+function formatDashboardSalesTr2($code,$total){
+  return "
+  <tr>
+    <td class=\"font-montserrat all-caps fs-12 w-75\">$code</td>
+    <td class=\"w-25 text-center\">
+      <span class=\"font-montserrat fs-18 \"><b>$total</b></span>
     </td>
   </tr>";
 }
