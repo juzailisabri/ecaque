@@ -1307,12 +1307,14 @@ function getDashboardAdmin($data){
   $s2 = "SELECT COUNT(er_id) as pendingpayment FROM e_receipt WHERE er_payment_date IS NULL AND er_devtest IS NULL";
   $s3 = "SELECT COUNT(er_id) as pendingdelivery FROM e_receipt WHERE er_payment_date IS NOT NULL AND er_packing_date IS NULL AND er_devtest IS NULL";
   $s4 = "SELECT COUNT(es_id) as agentCount FROM e_stockist WHERE es_status = 1001";
+  $s5 = "SELECT COUNT(es_id) as agentCount FROM e_stockist WHERE es_status = 1000";
 
   $s = "SELECT
   ($s1) as s1,
   ($s2) as s2,
   ($s3) as s3,
-  ($s4) as s4
+  ($s4) as s4,
+  ($s5) as s5
   ";
 
   $arr = [];
