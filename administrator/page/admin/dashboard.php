@@ -176,7 +176,7 @@
           <div class="padding-25">
             <div class="pull-left">
               <h2 class="text-success no-margin font-montserrat text-uppercase">eCaque's Fruit Cake</h2>
-              <p class="no-margin">Today's sales</p>
+              <p class="no-margin">Latest sales transaction</p>
             </div>
             <h3 class="pull-right semi-bold"><sup>
               <small class="semi-bold m-r-10">RM </small>
