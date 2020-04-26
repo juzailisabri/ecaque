@@ -589,7 +589,7 @@ function getReceipt($data){
     5 => 'er_totalprice'
   );
 
-  $where = "";
+  $where = " AND er_devtest IS NULL ";
 
 
 
