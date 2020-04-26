@@ -210,10 +210,10 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
               <a href="page/kaunter/application" class="syslink" id="profileSetting">Inbox</a>
             </li> -->
             <li class="active">
-              <a href="page/admin/stock-record" class="syslink" id="profileSetting">Stock Record</a>
+              <a href="page/admin/customer-order" class="syslink" id="customerOrder">Customer Order</a>
             </li>
             <li class="active">
-              <a href="page/admin/customer-order" class="syslink" id="customerOrder">Customer Order</a>
+              <a href="page/admin/stock-record" class="syslink" id="profileSetting">Stock Record</a>
             </li>
             <li class="active">
               <a href="javascript:;" class="syslink2">
