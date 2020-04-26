@@ -383,11 +383,7 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
 
         $(document).ready(function(e){
           $("body").on("click",".syslink",function(e){
-            if (typeof DASHBOARDINT !== 'undefined') {
-              clearInterval(DASHBOARDINT);
-            }
-
-
+            if (typeof DASHBOARDINT !== 'undefined') { clearInterval(DASHBOARDINT); }
             loadingMain();
             $(".syslink").removeClass("text-success");
             $(".syslink").removeClass("bold");
