@@ -1468,9 +1468,7 @@ function makeOrder($data){
   }
 
   $i = "INSERT INTO e_receipt (er_date,er_fullname,er_address,er_phone,er_rjp_id,er_postage,er_totalprice,er_bankref,er_rb_id,er_payment_date)
-  VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice,'$er_bankref',$er_rb_id,$er_payment_date)";
-
-  echo $i;exit;
+  VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice,'$er_bankref','$er_rb_id',$er_payment_date)";
 
   if ($conn->query($i)) {
     $insertid = $conn->insert_id;
