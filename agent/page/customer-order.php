@@ -285,7 +285,7 @@ var tablePengguna = $('#table-pengguna').on('preXhr.dt', function ( e, settings,
 
 var PAYMENTKEY;
 var CHECKPAYMENTINTERVAL;
-
+var LINK;
 if (typeof CHECKPAYMENTINTERVAL !== 'undefined') {
   clearInterval(CHECKPAYMENTINTERVAL);
 }
@@ -294,15 +294,21 @@ function makepayment(){
   saLoadingPayment();
   var link = $(this).attr("link");
   PAYMENTKEY = $(this).attr("key");
+  PWINDOW = window.open(link, 'paymentWindow'+PAYMENTKEY);
   CHECKPAYMENTINTERVAL = setInterval(checkpaymentfunction,2000);
-  PWINDOW = window.open(link, 'paymentWindow');
 }
 
 function makepaymentdirect(key,link){
-  saLoadingPayment();
+  LINK = link;
   PAYMENTKEY = key;
+  var runfunction = pay;
+  saConfirm4("Pembayaran","Anda mahu buat pembayaran untuk pesanan ini?","warning","Ya, Pasti",runfunction,"Pasti");
+}
+
+function pay(){
+  saLoadingPayment();
+  window.open(LINK, 'paymentWindow'+PAYMENTKEY);
   CHECKPAYMENTINTERVAL = setInterval(checkpaymentfunction,2000);
-  PWINDOW = window.open(link, 'paymentWindow');
   $("#back").click();
 }
 
@@ -713,9 +719,9 @@ function saveOrder(){
       processData: false,
       success: function(data) {
         if(data["STATUS"]){
-          console.log(data["LINK"]);
-          saAlert3("Berjaya",data["MSG"],"success");
-          makepaymentdirect(data["KEYMD5"],data["LINK"])
+          // console.log(data["LINK"]);
+          // saAlert3("Berjaya",data["MSG"],"success");
+          makepaymentdirect(data["KEYMD5"],data["LINK"]);
         } else {
           saAlert3("Gagal",data["MSG"],"warning");
         }
