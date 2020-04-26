@@ -642,6 +642,8 @@ function getReceipt($data){
   er_payment_date,
   er_packing_date,
   er_dispatch_date,
+  DATE_FORMAT(er_date,'%Y') as invyear,
+  DATE_FORMAT(er_date,'%m') as invmonth,
   er_status
   FROM e_receipt
   WHERE TRUE $where
@@ -655,6 +657,10 @@ function getReceipt($data){
   $x = 1;
   $datadb = array();
   while ($row = $result->fetch_assoc()) {
+    $invyear = $row["invyear"];
+    $invmonth = $row["invmonth"];
+    $er_id = sprintf("%08d", $row["er_id"]);
+    $invcode = "INV-$invyear$invmonth$er_id";
 
     $er_fullname = $row["er_fullname"];
     $er_address = $row["er_address"];
@@ -675,10 +681,10 @@ function getReceipt($data){
 
     $nestedData=array();
     $nestedData[] = $row["er_id"];
-    $nestedData[] = "<b>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br>
+    $nestedData[] = "<b>$invcode<br>$er_fullname</b><br>$er_phone<br>$er_address<br> <sub>Order Date</sub><br>$er_date<br>
                     <button key=\"$enc_id\" id=\"payment\" class='btn $er_payment_dateC btn-sm m-t-10'> <i class='fa fa-money'></i> </button>
                     <button key=\"$enc_id\" id=\"packing\" class='btn $er_packing_dateC btn-sm m-t-10'> <i class='fa fa-cubes'></i> </button>";
-    $nestedData[] = "$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
+    $nestedData[] = "<b>$invcode</b><br>$er_fullname<br>$er_phone<br>$er_address<br>$er_date";
     $nestedData[] = "$er_totalprice ";
     $nestedData[] = "<button key=\"$enc_id\" id=\"payment\" class='btn $er_payment_dateC btn-sm'> <i class='fa fa-money'></i> </button>";
     $nestedData[] = "<button key=\"$enc_id\" id=\"packing\" class='btn $er_packing_dateC btn-sm'> <i class='fa fa-cubes'></i> </button>";
@@ -1234,7 +1240,7 @@ function updatepayment($data){
     er_payment_date = NOW(),
     er_rb_id = $bank,
     er_bankref = '$refNo'
-  WHERE SHA2(er_id,256) = '$id'";
+  WHERE SHA2(er_id,256) = '$id' AND er_paymentStatus != 1";
 
   if ($conn->query($i)) {
     $ret["STATUS"] = true;
