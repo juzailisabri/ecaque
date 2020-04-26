@@ -1461,7 +1461,7 @@ function makeOrder($data){
 
   $er_bankref = $data["refNoBank"];
   $er_rb_id = $data["bankName"];
-  $er_payment_date = null;
+  $er_payment_date = "NULL";
 
   if ($er_rb_id != "") {
     $er_payment_date = "NOW()";
@@ -1469,6 +1469,8 @@ function makeOrder($data){
 
   $i = "INSERT INTO e_receipt (er_date,er_fullname,er_address,er_phone,er_rjp_id,er_postage,er_totalprice,er_bankref,er_rb_id,er_payment_date)
   VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice,'$er_bankref',$er_rb_id,$er_payment_date)";
+
+  echo $i;exit;
 
   if ($conn->query($i)) {
     $insertid = $conn->insert_id;
