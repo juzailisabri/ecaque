@@ -346,6 +346,12 @@ function getReceiptDetail(){
         $("#trackingNo").val(data["er_trackingNo"]);
         $("#bank").val(data["er_rb_id"]).change();
         $("#refNo").val(data["er_bankref"]);
+        $("#sendWhatsapp").attr("href",data["whatsapp"]);
+        if (data["er_trackingNo"] == "" || data["er_trackingNo"] == null) {
+          $("#sendWhatsapp").hide();
+        } else {
+          $("#sendWhatsapp").show();
+        }
       },
       error: function(data) {
         // saAlert3("Error","Session Log Out Error","warning");
@@ -370,6 +376,7 @@ function updatePacking(){
         if(data["STATUS"]){
           saAlert3("Berjaya",data["MSG"],"success");
           tablePengguna.ajax.reload(null,false);
+          getReceiptDetail();
         } else {
           saAlert3("Gagal",data["MSG"],"warning");
         }

@@ -5,6 +5,11 @@ include('email.php');
 
 $_POST = array_map('clean', $_POST);
 
+function secretKey($str){
+  global $secretKey;
+  return hash('MD5', $secretKey.$str);
+}
+
 function clean($a){
   global $conn;
   if (!is_array($a)) {
@@ -741,6 +746,7 @@ if($_POST["func"] == "getReceiptDetail"){
 function getReceiptDetail($data){
   global $conn;
   global $secretKey;
+  global $rootdir;
 
   $id = $data["er_id"];
   $s = "SELECT
@@ -761,14 +767,66 @@ function getReceiptDetail($data){
   er_dispatch_date,
   er_status,
   er_rb_id,
-  er_bankref
+  er_bankref,
+  DATE_FORMAT(er_date,'%Y') as invyear,
+  DATE_FORMAT(er_date,'%m') as invmonth,
+  rdc_name,
+  rdc_link,
+  es_name,
+  es_phone
   FROM e_receipt
+  LEFT JOIN ref_deliveryCourier ON rdc_id = er_rdc_id
+  LEFT JOIN e_stockist ON es_id = er_es_id
   WHERE SHA2(er_id,256) = '$id'";
 
   $arr = [];
   $result = $conn->query($s);
   while ($row = $result->fetch_assoc())
   {
+    $refNumber = $row["linkid"];
+    $url = "http://".$_SERVER["HTTP_HOST"]."$rootdir/status?oid=$refNumber";
+
+    $name = $row["er_fullname"];
+    $address = $row["er_address"];
+    $invyear = $row["invyear"];
+    $invmonth = $row["invmonth"];
+    $er_id = sprintf("%08d", $row["er_id"]);
+    $invcode = "INV-$invyear$invmonth$er_id";
+    $er_trackingNo = $row["er_trackingNo"];
+    $rdc_name = $row["rdc_name"];
+    $rdc_link = $row["rdc_link"];
+    $clientPhone = $row["er_phone"];
+    $es_name = $row["es_name"];
+
+    if ($row["es_name"] == "") {
+      $clientPhone = $row["er_phone"];
+      $es_name = "";
+    } else {
+      $clientPhone = $row["es_phone"];
+      $es_name = "Dropship: $es_name";
+    }
+
+    if ($clientPhone[0] == "0") {
+      $clientPhone = "6".$clientPhone;
+    }
+
+    $trackinglink = $rdc_link.$er_trackingNo;
+
+$text = "
+Hi $name, %0a%0a\n\n
+Berikut adalah butiran pesanan anda dari eCaque %0a\n
+_______ %0a\n
+Order No : $invcode %0a\n
+Nama : *$name* %0a\n
+Alamat : *$address* %0a\n
+No Telefon : *$clientPhone* %0a\n
+_______ %0a\n
+Tracking No : *$trackinglink* %0a\n
+$es_name
+";
+
+    $link1 = "https://api.whatsapp.com/send?phone=$clientPhone&text=$text";
+    $row["whatsapp"] = $link1;
     $arr[] = $row;
   }
 

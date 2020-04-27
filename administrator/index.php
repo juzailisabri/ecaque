@@ -98,6 +98,7 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
                       </div>
                       <div class="row m-t-20">
                         <div class="col-md-12 text-right">
+                          <a id="sendWhatsapp" type="button" target="_blank" href="#" class="btn btn-primary pull-left" name="button">Send WhatsApp <i class="fa fa-send m-l-5"></i></a>
                           <button data-dismiss="modal" aria-hidden="true" type="button" class="btn btn-dark" name="button"> <i class="fa fa-close"></i></button>
                           <button type="submit" class="btn btn-primary" name="button">Save <i class="fa fa-send m-l-5"></i></button>
                         </div>
