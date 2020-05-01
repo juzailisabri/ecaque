@@ -1081,7 +1081,8 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
             if(data["STATUS"]){
               $("#form-order").find("button").prop("disabled",false);
               LINK = data["link"];
-              window.open(LINK,"_blank");
+              // window.open(LINK, "_blank");
+              window.location.assign(LINK);
             } else {
               // saAlert3("Gagal",data["MSG"],"warning");
             }
