@@ -648,7 +648,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       </section>
 
       <?php include("dropshiplist.php") ?>
-      
+
 
 
       <!-- END CONTENT SECTION -->
@@ -1081,7 +1081,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
             if(data["STATUS"]){
               $("#form-order").find("button").prop("disabled",false);
               LINK = data["link"];
-              window.open(LINK);
+              window.open(LINK,"_blank");
             } else {
               // saAlert3("Gagal",data["MSG"],"warning");
             }
