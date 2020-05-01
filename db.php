@@ -183,6 +183,10 @@ function OrderNow($data){
   $er_totalprice = $total;
   $link1 = "";
 
+  $s = "SELECT rjp_name FROM ref_jenisPenghantaran WHERE rjp_id = $er_rjp_id";
+  $res = $conn->query($s);
+  $row = $res->fetch_assoc();
+  $rjp_name = $row["rjp_name"];
 
   $i = "INSERT INTO e_receipt (er_date,er_fullname,er_address,er_phone,er_rjp_id,er_postage,er_totalprice)
   VALUES (NOW(),'$er_fullname','$er_address','$er_phone',$er_rjp_id,$er_postage,$er_totalprice)";
@@ -194,22 +198,23 @@ function OrderNow($data){
     VALUES ($ref,$rpid,$q,$rp_price,NOW())";
     if ($conn->query($i2)) {
       $url = "http://".$_SERVER["HTTP_HOST"]."$rootdir/status?oid=$refNumber";
-
+      $removeChar = array('\r','\n');
+      $addressWhatsapp = str_replace($removeChar, "", $address);
 $text = "
-Hi eCaque, %0a%0a\n\n
-Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut:- %0a\n
-_______ %0a\n
-Nama : *$name* %0a\n
-Alamat : *$address* %0a\n
-No Telefon : *$clientPhone* %0a\n
-_______ %0a\n
-Barang : *$rp_name* %0a\n
-Kuantiti : *$q* %0a\n
-Caj Penghantaran : RM *$postagefee* %0a\n
-Jumlah Bayaran : RM *$total* %0a\n
-Jenis Penghantaran : %0a\n
-_________%0a\n
-Status dan Resit : %0a\n
+Hi eCaque, %0a%0a
+Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut:- %0a
+_______ %0a
+Nama : *$name* %0a
+Alamat : *$addressWhatsapp* %0a
+No Telefon : *$clientPhone* %0a
+_______ %0a
+Barang : *$rp_name* %0a
+Kuantiti : *$q* %0a
+Caj Penghantaran : RM *$postagefee* %0a
+Jumlah Bayaran : RM *$total* %0a
+Jenis Penghantaran : *$rjp_name* %0a
+_________%0a
+Status dan Resit : %0a
 $url
 ";
       $link1 = "https://api.whatsapp.com/send?phone=$phone&text=$text";
@@ -232,6 +237,121 @@ $url
 function secretKey($str){
   global $secretKey;
   return hash('MD5', $secretKey.$str);
+}
+
+if($_POST["func"] == "getStokistList"){
+  echo json_encode(getStokistList($_POST));
+}
+
+function getStokistList($data){
+  global $conn;
+
+  $s = "SELECT rngri_id, rngri_name FROM ref_negeri WHERE rngri_status = 1 AND rngri_id IN (SELECT es_rngri_id FROM e_stockist WHERE es_status = 1001 GROUP BY es_rngri_id)";
+  $negeri = [];
+  $result = $conn->query($s);
+  while ($row = $result->fetch_assoc())
+  {
+    $negeri[$row["rngri_id"]]["list"] = [];
+    $negeri[$row["rngri_id"]] = $row;
+  }
+
+  $s = "SELECT es_name, es_bandar, rngri_name, es_phone, es_email, rngri_id FROM e_stockist
+  LEFT JOIN ref_negeri ON rngri_id = es_rngri_id WHERE es_status = 1001";
+  $arr = [];
+  $result = $conn->query($s);
+  while ($row = $result->fetch_assoc())
+  {
+    $es_name = $row["es_name"];
+    $es_bandar = $row["es_bandar"];
+    $rngri_name = $row["rngri_name"];
+    $es_phone = convertPhone($row["es_phone"]);
+    $es_email = $row["es_email"];
+    $link = agentButtonLink($es_phone,$row["es_name"]);
+    $row["html"] = dropshiplistformat($es_name,$es_bandar,$rngri_name,$es_phone,$es_email,$link);
+    $negeri[$row["rngri_id"]]["list"][] = $row;
+  }
+
+  // return $negeri;
+  return formatlistDropship($negeri);
+}
+
+function convertPhone($es_phone){
+  if ($es_phone[0] == "0") {
+    $es_phone = "+6".$es_phone;
+  } else if ($es_phone[0] == "6") {
+    $es_phone = "".$es_phone;
+  } else {
+    $es_phone = "+60".$es_phone;
+  }
+
+  return $es_phone;
+}
+
+function dropshiplistformat($es_name,$es_bandar,$rngri_name,$es_phone,$es_email,$link){
+  $html =
+  "<div class=\"col-sm-4 m-t-10\" style=\"height:160px\">
+    <div class=\"p-r-40 md-pr-30\">
+      <h6 class=\"block-title p-b-5 text-success\">$es_name <i class=\"pg-arrowa_right m-l-10\"></i></h6>
+      <p class=\"p-l-10 no-margin text-uppercase\">$es_bandar, $rngri_name</p>
+      <p class=\"p-l-10 no-margin black font-arial bold no-padding\">$es_phone</p>
+      <p class=\"p-l-10 no-margin muted font-arial small-text no-padding\">$es_email</p>
+      <a type=\"button\" href=\"$link\" target=\"_blank\" class=\"m-t-10 m-l-10 btn btn-success\" name=\"button\">Whatsapp Now</a>
+    </div>
+    <div class=\"visible-xs b-b b-grey-light m-t-30 m-b-30\"></div>
+  </div>";
+
+  return $html;
+}
+
+function dropshipheading($heading){
+  $html ="
+  <div class=\"row\">
+  <div class=\"col-lg-12\">
+    <hr>
+  </div>
+  </div>
+  <div class=\"row m-t-0\">
+    <div class=\"col-lg-12\">
+      <h3 class=\"font-montserrat text-uppercase p-l-10\">$heading</h3>
+    </div>
+  </div>";
+
+  return $html;
+}
+
+function agentButtonLink($phone,$name){
+  $text = "
+  Hi $name, %0a%0a
+  Saya berminat untuk membeli kek dari eCaque Enterprise. Butiran adalah seperti berikut:- %0a
+  _______ %0a
+  Nama :  %0a
+  Alamat :  %0a
+  No Telefon :  %0a
+  _______ %0a
+  Barang : *Kek Kukus eCaque 1Kg* %0a
+  Kuantiti : ** %0a
+  Jenis Penghantaran : Postage%0a
+  ";
+  $link1 = "https://api.whatsapp.com/send?phone=$phone&text=$text";
+
+  return $link1;
+}
+
+function formatlistDropship($negeri){
+  // print_r($negeri);
+  $html = "";
+  foreach ($negeri as $key => $value) {
+    $html = $html.dropshipheading($negeri[$key]["rngri_name"]);
+    if (isset($negeri[$key]["list"])) {
+      $list = $negeri[$key]["list"];
+      foreach ($list as $key2 => $value2) {
+        $html = $html.$list[$key2]["html"];
+      }
+    }
+
+  }
+
+  return $html;
 }
 
 

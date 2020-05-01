@@ -465,6 +465,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
         </div>
       </section>
 
+
       <section class="bg-master-dark p-b-85 p-t-75" >
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
@@ -645,6 +646,9 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
 
         </div>
       </section>
+
+      <?php include("dropshiplist.php") ?>
+      
 
 
       <!-- END CONTENT SECTION -->
@@ -1245,7 +1249,31 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       $("#loadingModal").modal('hide');
     }
 
+    function getStokistList(){
+      var fd = new FormData();
+      fd.append("func","getStokistList");
+      $.ajax({
+          type: 'POST',
+          url: "db?getStokistList",
+          data: fd,
+          dataType: "json",
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(data) {
+            $("#stokistlist").empty();
+              $("#stokistlist").html(data);
+            // $.each(data, function( index, value ) {
+            //   $("#stokistlist").append(data[index]["html"]);
+            // });
+          },
+          error: function(data) {
+            // saAlert3("Error","Session Log Out Error","warning");
+          }
+      });
+    }
 
+    getStokistList();
 
     </script>
   </body>

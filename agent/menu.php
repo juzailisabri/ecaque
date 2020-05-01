@@ -1,9 +1,9 @@
 <ul>
-  <!-- <li class="active">
-    <a href="page/dashboard" class="syslink" id="mainpage" href="#">Papan Pemuka</a>
-  </li> -->
   <li class="active">
-    <a href="page/customer-order" class="syslink" id="mainpage">Purchase Order</a>
+    <a href="page/dashboard" class="syslink" id="mainpage" href="#">Papan Pemuka</a>
+  </li>
+  <li class="active">
+    <a href="page/customer-order" class="syslink" id="customer-order">Purchase Order</a>
   </li>
   <li class="active">
     <a href="page/profile" class="syslink" id="profile">My Profile</a>
