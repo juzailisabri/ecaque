@@ -305,14 +305,14 @@ function dropshiplistformat($es_name,$es_bandar,$rngri_name,$es_phone,$es_email,
 
 function dropshipheading($heading){
   $html ="
-  <div class=\"row\">
-  <div class=\"col-lg-12\">
+  <div class=\"row hidden-xs\">
+  <div class=\"col-lg-12 \">
     <hr>
   </div>
   </div>
   <div class=\"row m-t-0\">
     <div class=\"col-lg-12\">
-      <h3 class=\"font-montserrat text-uppercase p-l-10\">$heading</h3>
+      <h3 class=\"font-montserrat text-uppercase p-l-15\">$heading</h3>
     </div>
   </div>";
 
