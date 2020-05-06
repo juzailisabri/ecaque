@@ -246,7 +246,7 @@ function getReceipt($data){
     $er_address = $row["er_address"];
     $er_phone = $row["er_phone"];
     $er_postage = $row["er_postage"];
-    $er_totalprice = "RM ".number_format($row["er_totalprice"]+$er_postage,2);
+    $er_totalprice = "RM ".number_format($row["er_totalprice"],2);
     $er_trackingNo = $row["er_trackingNo"];
     $er_date = $row["er_date"];
     $linkid = $row["linkid"];

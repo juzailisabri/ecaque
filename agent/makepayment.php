@@ -24,7 +24,7 @@ $s2 = "SELECT er_id,
 MD5(CONCAT('$secretKey',er_id)) as refNo,
 DATE_FORMAT(er_date,'%Y') as invyear,
 DATE_FORMAT(er_date,'%m') as invmonth,
-(er_postage + er_totalprice) as totalpay,
+(er_totalprice) as totalpay,
 er_paymentStatus
 FROM e_receipt WHERE SHA2(er_id,256) = '$erid'";
 
