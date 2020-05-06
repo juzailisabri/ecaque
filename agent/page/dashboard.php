@@ -57,12 +57,6 @@
                 <span class="font-montserrat fs-18 "><b id="dropshipAgentCount"></b> Agents</span>
               </td>
             </tr>
-            <tr>
-              <td class="font-montserrat all-caps fs-12 w-75a">Agent Pending Approval</td>
-              <td class="w-25a text-right">
-                <span class="font-montserrat fs-18 "><b id="pendingdropshipAgentCount"></b> Agents</span>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
