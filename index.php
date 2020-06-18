@@ -1,10 +1,12 @@
 <?php
 include("administrator/formfunction.php");
 $buyPanel = "false"; if (isset($_GET["l"])) { $buyPanel = $_GET["l"]; }
+$rpid = ""; if (isset($_GET["rpid"])) { $rpid = $_GET["rpid"]; }
 $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
 
 $rp1 = getProductEnc(1);
 $rp5 = getProductEnc(5);
+
 ?>
 
 <!DOCTYPE html>
@@ -1297,7 +1299,7 @@ $rp5 = getProductEnc(5);
       getPrice();
     });
 
-    var RPID;
+    var RPID = '<?php echo $rpid; ?>';
 
     $("[id='buyNow']").click(function(e){
       $("#modalSlideUp").modal();
