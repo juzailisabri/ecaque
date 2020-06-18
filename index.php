@@ -263,8 +263,8 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
                     <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
-                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/Slider5.jpg"></div>
-                    <div class="background visible-xs" data-pages-bg-image="assets/slider/Slider5-p.jpg"></div>
+                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/slider5.jpg"></div>
+                    <div class="background visible-xs" data-pages-bg-image="assets/slider/slider5-p.jpg"></div>
                   </div>
                 </div>
                 <!-- END IMAGE PARRALAX -->
