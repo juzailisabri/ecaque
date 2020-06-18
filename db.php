@@ -295,7 +295,7 @@ function convertPhone($es_phone){
 
 function dropshiplistformat($es_name,$es_bandar,$rngri_name,$es_phone,$es_email,$link){
   $html =
-  "<div class=\"col-sm-4 m-t-30\" style=\"height:170px\">
+  "<div class=\"col-sm-4 m-t-30\" style=\"height:180px\">
     <div class=\"p-r-40 md-pr-30\">
       <h6 class=\"block-title p-b-5 text-success\">$es_name <i class=\"pg-arrowa_right m-l-10\"></i></h6>
       <p class=\"p-l-10 no-margin text-uppercase\">$es_bandar, $rngri_name</p>
@@ -316,7 +316,7 @@ function dropshipheading($heading){
     <hr>
   </div>
   </div>
-  <div class=\"row m-t-0\">
+  <div class=\"row m-t-10\">
     <div class=\"col-lg-12\">
       <h3 class=\"font-montserrat text-uppercase p-l-15\">$heading</h3>
     </div>

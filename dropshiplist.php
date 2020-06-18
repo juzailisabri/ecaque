@@ -7,7 +7,7 @@
           <h1 class="m-t-5">Senarai Mengikut Negeri </h1>
         </div>
       </div>
-      <div class="row" id="stokistlist">
+      <div class="" id="stokistlist">
 
       </div>
     </div>

@@ -55,7 +55,7 @@ $rp5 = getProductEnc(5);
   </head>
   <body class="pace-dark">
     <div class="modal fade slide-up disable-scrolla" id="modalSlideUp" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
-        <div class="modal-dialog ">
+        <div class="modal-dialog " style="margin-bottom:100px;">
             <div class="modal-content-wrapper">
             <div class="modal-content">
                 <div class="modal-header clearfix text-left">
@@ -63,7 +63,7 @@ $rp5 = getProductEnc(5);
                       <i class="pg-close fs-14"></i>
                     </button> -->
                     <h4 class="fs-20">Order <span class="semi-bold">eCaque</span> |  Whatsapp</h4>
-                    <p class="text-black  fs-12">Sila masukkan maklumat Nama, Alamat, No. Telefon dan kuantiti kek yang anda perlukan bagi pesanan ini. Pesanan ini akan dihantar melalui aplikasi WhatsApp.</p>
+                    <p class="text-black  fs-13">Sila masukkan maklumat Nama, Alamat, No. Telefon dan kuantiti kek yang anda perlukan bagi pesanan ini. Pesanan ini akan dihantar melalui aplikasi WhatsApp.</p>
                 </div>
                 <div class="modal-body">
                   <form class="m-t-25 m-b-20" id="form-order">
@@ -159,7 +159,6 @@ $rp5 = getProductEnc(5);
             <!-- /.modal-content -->
         </div>
     </div>
-
     <div class="modal fade slide-up disable-scrolla " id="modalPromo" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
         <div class="modal-dialog modal-lg ">
             <div class="modal-content-wrapper">
@@ -649,10 +648,7 @@ $rp5 = getProductEnc(5);
                 </div>
               </div>
             </div>
-
           </div>
-
-
         </div>
       </section>
 
@@ -839,8 +835,6 @@ $rp5 = getProductEnc(5);
       </section>
 
       <?php include("dropshiplist.php") ?>
-
-
 
       <!-- END CONTENT SECTION -->
       <!-- BEGIN CONTENT SECTION -->
