@@ -916,6 +916,8 @@ function insertOrder($data){
   $stokist = $data["stokist"];
   $orderDate = convertdate($data["orderDate"]);
   $pickupDate = convertdate($data["pickupDate"]);
+  $orderdata = calculateOrderStokist($data);
+  
   $JenisPenghantaran = $data["JenisPenghantaran"];
   (isset($data["tempatPenghantaran"]))?$tempatPenghantaran = $data["tempatPenghantaran"]:$tempatPenghantaran = "";
   (isset($data["tempatOthers"]))?$tempatOthers = $data["tempatOthers"]:$tempatOthers = "";
@@ -1475,6 +1477,13 @@ function calculateOrder($data){
   global $rootdir;
   $rpid = $data["rpid"];
   $quantity = $data["quantity"];
+  $deliveryChargesManual = $data["deliveryCharges"];
+
+  if (isset($data["dropship"]) && $data["dropship"] != "") {
+    $dropship = true;
+  } else {
+    $dropship = false;
+  }
 
   $s = "SELECT * FROM ref_product WHERE rp_status = 1";
   $res = $conn->query($s);
@@ -1495,20 +1504,34 @@ function calculateOrder($data){
     $arr[$rpid[$key]]["rp_total_ds"] = $quantity[$key] * $arr[$rpid[$key]]["rp_price_ds"];
     $arr[$rpid[$key]]["rp_total"] = $quantity[$key] * $arr[$rpid[$key]]["rp_price"];
     $arr[$rpid[$key]]["quantity"] = $quantity[$key];
+
     $gtotal = $gtotal + $arr[$rpid[$key]]["rp_total"];
     $gtotalds = $gtotalds + $arr[$rpid[$key]]["rp_total_ds"];
-    if ($quantity[$key] >= $freepostagequantity) {
-      $arr[$rpid[$key]]["rp_postage"] = 0.00;
-    }
+
+    if ($quantity[$key] >= $freepostagequantity) { $arr[$rpid[$key]]["rp_postage"] = 0.00; }
+
     $postagetotal = $postagetotal + $arr[$rpid[$key]]["rp_postage"];
+  }
+
+  if ($deliveryChargesManual != "") {
+    $postagetotal = $deliveryChargesManual;
   }
 
   $total["gtotal"] = ($gtotal);
   $total["gtotalds"] = ($gtotalds);
   $total["postagetotal"] = ($postagetotal);
   $total["commision"] = ($gtotal - $gtotalds);
-  $total["gtotalpayment"] = ($gtotal + $postagetotal);
-  $total["gtotalpaymentPay"] = ($gtotalds + $postagetotal );
+
+  if ($dropship) {
+    $total["gtotal"] = ($gtotalds);
+    $total["gtotalpayment"] = ($gtotalds + $postagetotal);
+  } else {
+    $total["gtotal"] = ($gtotal);
+    $total["gtotalpayment"] = ($gtotal + $postagetotal);
+  }
+
+  $total["gtotalpaymentPay"] = ($gtotalds + $postagetotal);
+  $total["dropship"] = $dropship;
 
   $arrset["arr"] = $arr;
   $arrset["totals"] = $total;
@@ -1587,5 +1610,62 @@ function makeOrder($data){
   }
 
   return $ret;
+}
+
+if($_POST["func"] == "calculateOrderStokist"){
+  echo json_encode(calculateOrderStokist($_POST));
+}
+
+function calculateOrderStokist($data){
+  global $conn;
+  global $rootdir;
+  $rpid = $data["rpid"];
+  $quantity = $data["quantity"];
+  $deliveryChargesManual = $data["deliveryCharges"];
+
+  $s = "SELECT * FROM ref_product WHERE rp_status = 1";
+  $res = $conn->query($s);
+
+  $arr = [];
+  while ($row = $res->fetch_assoc()) {
+    $arr[$row["rp_id"]] = $row;
+  }
+
+  $gtotal = 0.00;
+  $postagetotal = 0.00;
+  $gtotalds = 0.00;
+
+  foreach ($rpid as $key => $value) {
+    $freepostagequantity = $arr[$rpid[$key]]["rp_freepostagequantity"];
+    $rp_price = $arr[$rpid[$key]]["rp_price"];
+    $arr[$rpid[$key]]["rp_postage"] = $quantity[$key] * $arr[$rpid[$key]]["rp_postage"];
+    $arr[$rpid[$key]]["rp_price_st"] = $quantity[$key] * $arr[$rpid[$key]]["rp_price_st"];
+    $arr[$rpid[$key]]["rp_total"] = $quantity[$key] * $arr[$rpid[$key]]["rp_price"];
+    $arr[$rpid[$key]]["quantity"] = $quantity[$key];
+
+    $gtotal = $gtotal + $arr[$rpid[$key]]["rp_price_st"];
+    $gtotalds = $gtotalds + $arr[$rpid[$key]]["rp_price_st"];
+
+    if ($quantity[$key] >= $freepostagequantity) { $arr[$rpid[$key]]["rp_postage"] = 0.00; }
+
+    $postagetotal = $postagetotal + $arr[$rpid[$key]]["rp_postage"];
+  }
+
+  if ($deliveryChargesManual != "") {
+    $postagetotal = $deliveryChargesManual;
+  }
+
+  $total["gtotal"] = ($gtotal);
+  $total["gtotalds"] = ($gtotalds);
+  $total["postagetotal"] = ($postagetotal);
+  $total["commision"] = ($gtotal - $gtotalds);
+  $total["gtotal"] = ($gtotal);
+  $total["gtotalpayment"] = ($gtotal + $postagetotal);
+  $total["gtotalpaymentPay"] = ($gtotalds + $postagetotal);
+
+  $arrset["arr"] = $arr;
+  $arrset["totals"] = $total;
+
+  return $arrset;
 }
 ?>
