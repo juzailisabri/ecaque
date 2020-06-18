@@ -282,12 +282,16 @@ function getStokistList($data){
 }
 
 function convertPhone($es_phone){
+  if ($es_phone[0] == "+") {
+    $es_phone = substr($es_phone, 1, strlen($es_phone));
+  }
+
   if ($es_phone[0] == "0") {
-    $es_phone = "+6".$es_phone;
+    $es_phone = "6".$es_phone;
   } else if ($es_phone[0] == "6") {
     $es_phone = "".$es_phone;
   } else {
-    $es_phone = "+60".$es_phone;
+    $es_phone = "60".$es_phone;
   }
 
   return $es_phone;

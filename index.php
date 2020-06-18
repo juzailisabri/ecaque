@@ -395,63 +395,43 @@ $rp5 = getProductEnc(5);
       </section>
       <!-- END JUMBOTRON -->
       <!-- BEGIN CONTENT SECTION -->
-      <section class=" p-b-85 p-t-75 no-overflow">
-        <div class="container">
-          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin">PENGENALAN</h5>
-            <div class="row">
-              <div class="col-sm-12">
-                <h1 class="m-t-5 m-b-20">KEK BUAH KUKUS eCAQUE</h1>
-              </div>
+
+      <section class=" ap-b-85 ap-t-75 no-overflow bg-master-darker">
+        <div class="container p-t-0 p-b-0">
+          <div class="row">
+            <div class="col-lg-6 no-padding">
+              <img src="assets/ecauqe_images/packaging_3.jpg" class="m-b-20a" width="100%" alt="">
             </div>
-            <div class="row">
-              <div class="col-sm-10">
-                <p class="m-b-20 text-justify">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek adalah moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p>
-              </div>
+            <div class="col-lg-6 m-t-0 padding-15 p-l-20 text-white">
+              <h5 class="block-title hint-text no-margin b-t-0 text-white">PENGENALAN</h5>
+              <h2 class="m-t-0 m-b-10 text-white">KEK BUAH KUKUS eCaque</h2>
+              <p class="m-b-20 text-justify">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek adalah moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p>
+              <p class="hint-text text-white font-arial text-black bold small-text no-padding no-margin">Berat & Ukuran Kek:: </p>
+              <p class="m-b-20">1.0 Kilogram / 1000 gram (6 inch x 6 inch)</p>
+
+              <p class="hint-text text-white font-arial text-black bold small-text no-padding no-margin">Keistimewaan</p>
+              <ul class="p-l-20 p-t-0 m-t-0">
+                <li><p>Tekstur Kek Moist, Gebu Kerana Dihasilkan Dengan Menggunakan Cara Kukus</p></li>
+                <li><p>Boleh Bertahan Selama 2 Bulan Pada Suhu Bilik</p></li>
+                <li><p>Kotak Eksklusif Sesuai Untuk Hadiah</p></li>
+                <li><p>Ramuan Yang Digunakan Adalah Premium</p></li>
+                <li><p>Menggunakan Pure Butter Jenama Anchor</p></li>
+                <li><p>Tiada Sebarang Bahan Pengawet</p></li>
+                <li><p>Produk Kek Kukus Termasuk Bekas Tertutup Diberikan Secara Percuma</p></li>
+              </ul>
+              <p class="hint-text text-white font-arial text-black bold small-text no-padding no-margin">Bahan-bahan: </p>
+              <p class="m-b-20 text-justify" >100% mentega tulen, Tepung Gandum Penuh Berprotein Tinggi,  Gula pasir, Buah-buahan Campuran Bermutu Tinggi dan Telur Gred A</p>
+
+              <p class="hint-text text-white font-arial text-black bold small-text no-padding no-margin">Cara Penyimpanan / Storage Condition:</p>
+              <p class="m-b-0 text-justify">Simpan yang optimum adalah disimpan di dalam tempat yang sejuk dan kering untuk membenarkan kek untuk bertahan hingga 4 bulan. kek akan bertahan selama 2 bulan jika disimpan pada suhu bilik</p>
 
             </div>
-            <div class="row">
-              <div class="col-sm-12">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-5">
-                <!-- <img src="assets/ecauqe_images/packaging_1.jpg" class="m-b-20" width="100%" alt=""> -->
-                <img src="assets/ecauqe_images/packaging_3.jpg" class="m-b-20" width="100%" alt="">
 
-
-
-              </div>
-              <div class="col-sm-5 no-padding xs-p-l-15 xs-p-r-15 p-l-20">
-
-                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Berat: </p>
-                <p class="m-b-20">1.0 Kilogram / 1000 gram</p>
-
-                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Ukuran Kek: </p>
-                <p class="m-b-20">6 inch x 6 inch</p>
-
-                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Keistimewaan</p>
-                <ul class="p-l-20 p-t-0 m-t-0">
-                  <li><p>Tekstur Kek Moist, Gebu Kerana Dihasilkan Dengan Menggunakan Cara Kukus</p></li>
-                  <li><p>Boleh Bertahan Selama 2 Bulan Pada Suhu Bilik</p></li>
-                  <li><p>Kotak Eksklusif Sesuai Untuk Hadiah</p></li>
-                  <li><p>Ramuan Yang Digunakan Adalah Premium</p></li>
-                  <li><p>Menggunakan Pure Butter Jenama Anchor</p></li>
-                  <li><p>Tiada Sebarang Bahan Pengawet</p></li>
-                  <li><p>Produk Kek Kukus Termasuk Bekas Tertutup Diberikan Secara Percuma</p></li>
-                </ul>
-                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Bahan-bahan: </p>
-                <p class="m-b-20 text-justify" >100% mentega tulen, Tepung Gandum Penuh Berprotein Tinggi,  Gula pasir, Buah-buahan Campuran Bermutu Tinggi dan Telur Gred A</p>
-
-                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Cara Penyimpanan / Storage Condition:</p>
-                <p class="m-b-20 text-justify">Simpan yang optimum adalah disimpan di dalam tempat yang sejuk dan kering untuk membenarkan kek untuk bertahan hingga 4 bulan. kek akan bertahan selama 2 bulan jika disimpan pada suhu bilik</p>
-              </div>
-            </div>
           </div>
+
         </div>
       </section>
-      <!-- END CONTENT SECTION -->
-      <!-- BEGIN CONTENT SECTION -->
+
       <section class="bg-master-dark p-b-85 p-t-75 " id="promotion" style="background:#f4d508">
         <div class="container hidden-xs" >
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
@@ -520,7 +500,8 @@ $rp5 = getProductEnc(5);
           </div>
         </div>
       </section>
-
+      <!-- END CONTENT SECTION -->
+      <!-- BEGIN CONTENT SECTION -->
       <section class="bg-master-dark p-b-85 p-t-75 " id="pricing">
         <div class="container hidden-xs">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
