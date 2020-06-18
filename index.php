@@ -397,12 +397,12 @@ $rp5 = getProductEnc(5);
       <!-- BEGIN CONTENT SECTION -->
 
       <section class=" ap-b-85 ap-t-75 no-overflow bg-master-darker">
-        <div class="container p-t-0 p-b-0">
+        <div class="container p-t-0 p-b-0 no-padding">
           <div class="row">
             <div class="col-lg-6 no-padding">
               <img src="assets/ecauqe_images/packaging_3.jpg" class="m-b-20a" width="100%" alt="">
             </div>
-            <div class="col-lg-6 m-t-0 padding-15 p-l-20 text-white">
+            <div class="col-lg-6 m-t-10 xs-m-l-15 xs-m-r-15 m-b-10 p-l-20 text-white" >
               <h5 class="block-title hint-text no-margin b-t-0 text-white">PENGENALAN</h5>
               <h2 class="m-t-0 m-b-10 text-white">KEK BUAH KUKUS eCaque</h2>
               <p class="m-b-20 text-justify">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek adalah moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p>
