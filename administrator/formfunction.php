@@ -86,6 +86,20 @@ function getJenisPenghantaran(){
   }
 }
 
+function getJenisPenghantaranAll(){
+  global $conn;
+
+  $select = "SELECT * FROM ref_jenisPenghantaran";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Jenis Penghantaran --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rjp_id"];
+    $name=$row["rjp_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
 function getBank(){
   global $conn;
 
@@ -183,7 +197,8 @@ function getProduct(){
   rp_id,
   rp_name,
   rp_desc,
-  rp_price
+  rp_price,
+  rp_price_ds
   FROM ref_product
   WHERE rp_status = 1";
   $result = $conn->query($select);
@@ -194,16 +209,68 @@ function getProduct(){
     $rp_name=$row["rp_name"];
     $rp_desc=$row["rp_desc"];
     $rp_price=$row["rp_price"];
+    $rp_price_ds=$row["rp_price_ds"];
     echo "<tr>
       <td style=\"width:200px;\" class=\"text-left no-padding\">$rp_name</td>
       <td style=\"width:50px;\" class=\"text-center padding-5\">
        <input min=\"0\" required id=\"quantity[]\" name=\"quantity[]\" key=\"$rp_id\" type=\"number\" class=\"form-control text-center no-border\" value=\"0\" defvalue=\"0\">
       </td>
-      <td style=\"width:50px;\" class=\"text-center padding-5\">
+      <td id=\"td-normal\" style=\"width:50px;\" class=\"text-center padding-5\">
        $rp_price
        <input required id=\"rpid[]\" name=\"rpid[]\" key=\"$rp_id\" type=\"hidden\" class=\"form-control text-center no-border\" value=\"$rp_id\" defvalue=\"$rp_id\">
       </td>
+      <td id=\"td-ds\" style=\"width:50px;display:none;\" class=\"text-center padding-5\">
+       $rp_price_ds
+      </td>
 
+    </tr>";
+  }
+  echo
+  "
+  <tr class=\"\">
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20 \">Postage</td>
+    <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
+    <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpPostage\">0.00</b></td>
+  </tr>
+  <tr>
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20\">Total</td>
+    <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
+    <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpTotal\">0.00</b></td>
+  </tr>
+  <tr>
+    <td style=\"width:200px;\" class=\"text-left no-padding bold p-l-20\">Grand Total</td>
+    <td style=\"width:50px;\" class=\"hidden-xs text-center padding-5\"> </td>
+    <td style=\"width:50px;\" class=\"text-center padding-5\">RM <b id=\"rpGrandTotal\">0.00</b> </td>
+  </tr>";
+}
+
+function getProductStokist(){
+  global $conn;
+
+  $select = "SELECT
+  rp_id,
+  rp_name,
+  rp_desc,
+  rp_price_st
+  FROM ref_product
+  WHERE rp_status = 1";
+  $result = $conn->query($select);
+
+  while ($row = $result->fetch_assoc())
+  {
+    $rp_id=$row["rp_id"];
+    $rp_name=$row["rp_name"];
+    $rp_desc=$row["rp_desc"];
+    $rp_price_st=$row["rp_price_st"];
+    echo "<tr>
+      <td style=\"width:200px;\" class=\"text-left no-padding\">$rp_name</td>
+      <td style=\"width:50px;\" class=\"text-center padding-5\">
+       <input min=\"0\" required id=\"quantity[]\" name=\"quantity[]\" key=\"$rp_id\" type=\"number\" class=\"form-control text-center no-border\" value=\"0\" defvalue=\"0\">
+      </td>
+      <td id=\"td-normal\" style=\"width:50px;\" class=\"text-center padding-5\">
+       $rp_price_st
+       <input required id=\"rpid[]\" name=\"rpid[]\" key=\"$rp_id\" type=\"hidden\" class=\"form-control text-center no-border\" value=\"$rp_id\" defvalue=\"$rp_id\">
+      </td>
     </tr>";
   }
   echo

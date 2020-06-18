@@ -121,7 +121,7 @@ function whatsappOrder($data){
   $clientPhone = $data["phone"];
   $q = $data["quantityOrder"];
 
-  $phone = "+60194313041";
+  $phone = "60194313041";
 
   $s = "SELECT * FROM ref_product WHERE rp_id = 1";
   $res = $conn->query($s);
@@ -158,7 +158,7 @@ function OrderNow($data){
   $clientPhone = $data["phone"];
   $q = $data["quantityOrder"];
   $ref = "#";
-  $phone = "+60194313041";
+  $phone = "60194313041";
 
   $s = "SELECT * FROM ref_product WHERE rp_id = 1";
   $res = $conn->query($s);

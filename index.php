@@ -147,6 +147,30 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
             <!-- /.modal-content -->
         </div>
     </div>
+
+    <div class="modal fade slide-up disable-scrolla " id="modalPromo" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content-wrapper">
+            <div class="modal-content bg-black no-border">
+                <!-- <div class="modal-header clearfix text-left bg-darker">
+                    <h4 class="fs-20 text-white"><span class="semi-bold">eCaque</span> |  Promo Hari Bapa 2020</h4>
+                </div> -->
+                <div class="modal-body no-padding  bg-black">
+                  <div class="">
+                    <img src="assets/promo/promo-fathersday-2020.jpg" width="100%" alt="">
+                  </div>
+                  <!-- <div class="row">
+                    <div class="col-lg-12 padding-10">
+                      <button type="button" class="btn  btn-success pull-right m-r-15" name="button">Saya Berminat</button>
+                      <button type="button" class="btn  btn-muted pull-right m-r-10" name="button"> <i class="fa fa-close"></i> </button>
+                    </div>
+                  </div> -->
+                </div>
+            </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
     <!-- BEGIN HEADER -->
     <nav class="header bg-header transparent-dark " data-pages="header" data-pages-header="autoresize" data-pages-resize-class="dark">
       <div class="container relative">
@@ -225,6 +249,41 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
           <div class="swiper-container" id="hero">
             <div class="swiper-wrapper">
               <!-- BEGIN SLIDE -->
+
+              <!-- <div class="swiper-slide fit">
+                <div class="slider-wrapper">
+                  <div class="background-wrapper" data-swiper-parallax="30%">
+                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/FathersDaySlider.jpg"></div>
+                    <div class="background visible-xs" data-pages-bg-image="assets/slider/FathersDaySlider-p.jpg"></div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="swiper-slide fit">
+                <!-- BEGIN IMAGE PARRALAX -->
+                <div class="slider-wrapper">
+                  <div class="background-wrapper" data-swiper-parallax="30%">
+                    <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
+                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/Slider5.jpg"></div>
+                    <div class="background visible-xs" data-pages-bg-image="assets/slider/Slider5-p.jpg"></div>
+                  </div>
+                </div>
+                <!-- END IMAGE PARRALAX -->
+                <!-- BEGIN CONTENT -->
+                <div class="content-layer">
+                  <div class="inner full-height">
+                    <div class="container-xs-height full-height">
+                      <div class="col-xs-height col-bottom text-left">
+                        <div class="container ">
+                          <div class="col-md-offset-6a col-md-12  m-b-100 col-xs-12 ">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- END CONTENT -->
+              </div>
               <div class="swiper-slide fit">
                 <!-- BEGIN IMAGE PARRALAX -->
                 <div class="slider-wrapper">
@@ -318,10 +377,10 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
             </div>
             <div class="row">
               <div class="col-sm-5">
-                <img src="assets/ecauqe_images/packaging_1.jpg" class="m-b-20" width="100%" alt="">
+                <!-- <img src="assets/ecauqe_images/packaging_1.jpg" class="m-b-20" width="100%" alt=""> -->
+                <img src="assets/ecauqe_images/packaging_3.jpg" class="m-b-20" width="100%" alt="">
 
-                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Cara Penyimpanan / Storage Condition:</p>
-                <p class="m-b-20 text-justify">Simpan yang optimum adalah disimpan di dalam tempat yang sejuk dan kering untuk membenarkan kek untuk bertahan hingga 4 bulan. kek akan bertahan selama 2 bulan jika disimpan pada suhu bilik</p>
+
 
               </div>
               <div class="col-sm-5 no-padding xs-p-l-15 xs-p-r-15 p-l-20">
@@ -344,6 +403,9 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 </ul>
                 <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Bahan-bahan: </p>
                 <p class="m-b-20 text-justify" >100% mentega tulen, Tepung Gandum Penuh Berprotein Tinggi,  Gula pasir, Buah-buahan Campuran Bermutu Tinggi dan Telur Gred A</p>
+
+                <p class="hint-text font-arial text-black bold small-text no-padding no-margin">Cara Penyimpanan / Storage Condition:</p>
+                <p class="m-b-20 text-justify">Simpan yang optimum adalah disimpan di dalam tempat yang sejuk dan kering untuk membenarkan kek untuk bertahan hingga 4 bulan. kek akan bertahan selama 2 bulan jika disimpan pada suhu bilik</p>
               </div>
             </div>
           </div>

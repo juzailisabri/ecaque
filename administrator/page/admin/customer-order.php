@@ -531,7 +531,7 @@ function setFormOrder(data){
   $("#JenisPenghantaran").val(eos_rjp_id).change();
   $("#tempatPenghantaran").val(eos_rtp_id).change();
   $("#tempatOthers").val(eos_otherPlace).change();
-  $("#deliveryCharges").val(eos_deliveryCharges).change();
+  // $("#deliveryCharges").val(eos_deliveryCharges).change();
   $("#setStatus").val(eos_status).change();
 
   $("#mainDiv").hide();
@@ -743,7 +743,7 @@ function calculateOrder(){
       success: function(data) {
         var totals = data["totals"];
         $("#rpPostage").html(totals["postagetotal"]);
-        $("#deliveryCharges").val(totals["postagetotal"]);
+        // $("#deliveryCharges").val(totals["postagetotal"]);
         $("#rpTotal").html(totals["gtotal"]);
         $("#rpGrandTotal").html(totals["gtotalpayment"]);
       },
@@ -756,5 +756,26 @@ function calculateOrder(){
 $("[id='quantity[]']").change(function(e){
   calculateOrder();
 });
+
+$("#dropship").change(function(e){
+  $("[id='td-normal']").hide();
+  $("[id='td-ds']").hide();
+  if ($(this).val()=="") {
+    $("[id='td-normal']").show();
+    $("[name='agentType']").prop("checked",false);
+    $("[name='agentType']").attr("disabled",true);
+  } else {
+    $("[id='td-ds']").show();
+    $("[name='agentType'][value='0']").prop("checked",true);
+    $("[name='agentType']").attr("disabled",false);
+  }
+
+  calculateOrder();
+});
+
+$("#deliveryCharges").change(function(e){
+  calculateOrder();
+});
+
 
 </script>

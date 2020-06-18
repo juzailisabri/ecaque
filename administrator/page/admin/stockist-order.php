@@ -576,13 +576,13 @@ $("#JenisPenghantaran").change(function(e){
   if (val == "1") {
     $("#tempatPenghantaran").prop("disabled",false);
     $("#deliveryCharges").val("").change();
-    $("#deliveryCharges").prop("disabled",true);
+    // $("#deliveryCharges").prop("disabled",true);
   } else if (val == "2") {
     $("#tempatPenghantaran").prop("disabled",true);
-    $("#deliveryCharges").prop("disabled",false);
+    // $("#deliveryCharges").prop("disabled",false);
   } else {
     $("#tempatPenghantaran").prop("disabled",true);
-    $("#deliveryCharges").prop("disabled",true);
+    // $("#deliveryCharges").prop("disabled",true);
     $("#tempatPenghantaran").val("").change();
   }
 });
@@ -597,5 +597,38 @@ $("#tempatPenghantaran").change(function(e){
     $("#tempatOthers").val("").change();
   }
 });
+
+$("[id='quantity[]']").change(function(e){
+  calculateOrder();
+});
+
+$("#deliveryCharges").change(function(e){
+  calculateOrder();
+});
+
+function calculateOrder(){
+  var myform = document.getElementById('form-stokist-order');
+  var fd = new FormData(myform);
+  fd.append("func","calculateOrderStokist");
+  $.ajax({
+      type: 'POST',
+      url: "db",
+      data: fd,
+      dataType: "json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        var totals = data["totals"];
+        $("#rpPostage").html(totals["postagetotal"]);
+        // $("#deliveryCharges").val(totals["postagetotal"]);
+        $("#rpTotal").html(totals["gtotal"]);
+        $("#rpGrandTotal").html(totals["gtotalpayment"]);
+      },
+      error: function(data) {
+        // saAlert3("Error","Session Log Out Error","warning");
+      }
+  });
+}
 
 </script>

@@ -42,7 +42,7 @@
               </tr>
             </thead>
             <tbody>
-              <?php getProduct(); ?>
+              <?php getProductStokist(); ?>
             </tbody>
           </table>
         </div>
@@ -71,7 +71,7 @@
             <div class="form-group form-group-default form-group-default-select2">
               <label class="control-label">Jenis Penghantaran</label>
               <select required data-init-plugin='select2' id="JenisPenghantaran" name="JenisPenghantaran" class="form-control full-width" >
-                <?php getJenisPenghantaran(); ?>
+                <?php getJenisPenghantaranAll(); ?>
               </select>
               <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
             </div>
@@ -96,7 +96,7 @@
           <div class="col-md-6">
             <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
               <label class="control-label">Delivery Charges</label>
-              <input required id="deliveryCharges" name="deliveryCharges" type="text" class="form-control" placeholder="" disabled>
+              <input id="deliveryCharges" name="deliveryCharges" type="text" class="form-control" placeholder="">
             </div>
           </div>
         </div>

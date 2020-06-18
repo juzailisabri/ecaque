@@ -18,6 +18,38 @@
           </div>
         </div>
 
+        <h5 class="text-black block-title m-t-20 m-b-20 font-montserrat text-uppercase bold small">Dropship/Stokist Information</h5>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group form-group-default form-group-default-select2">
+              <label class="control-label">Dropship</label>
+              <select data-init-plugin='select2' id="dropship" name="dropship" class="form-control full-width" >
+                <?php dropship(); ?>
+              </select>
+              <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col-md-12">
+            <div class="form-check form-check-inline complete">
+            	<input required type="radio" name="agentType" id="agentTypeAgent" value="0" disabled>
+            	<label for="agentTypeAgent" class="m-t-10 m-l-10">
+            		Dropship Agent
+            	</label>
+            </div>
+            <div class="form-check form-check-inline">
+            	<input required type="radio" name="agentType" id="agentTypeStokist" value="1" disabled>
+            	<label for="agentTypeStokist" class="m-t-10 m-l-10">
+            		Stokist
+            	</label>
+            </div>
+          </div>
+        </div> -->
+
+        <h5 class="text-black block-title m-t-20 m-b-20 font-montserrat text-uppercase bold small">Customer Information</h5>
+
         <div class="row m-t-5">
           <div class="col-md-6">
             <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
@@ -99,18 +131,7 @@
           </div>
         </div>
 
-        <h5 class="text-black block-title m-t-20 m-b-20 font-montserrat text-uppercase bold small">Payment Information</h5>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group form-group-default form-group-default-select2">
-              <label class="control-label">Dropship</label>
-              <select data-init-plugin='select2' id="dropship" name="dropship" class="form-control full-width" >
-                <?php dropship(); ?>
-              </select>
-              <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
-            </div>
-          </div>
-        </div>
+
 
         <!-- <h5 class="text-black block-title m-t-10 m-b-20 font-montserrat text-uppercase bold small">Status Pesanan</h5>
 
