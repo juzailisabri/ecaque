@@ -115,7 +115,9 @@ if($_POST["func"] == "whatsappOrder"){
 function whatsappOrder($data){
   global $conn;
   global $rootdir;
+  global $secretKey;
 
+  $rpid = $data["rpid"];
   $name = $data["fullname"];
   $address = $data["address"];
   $clientPhone = $data["phone"];
@@ -123,10 +125,11 @@ function whatsappOrder($data){
 
   $phone = "60194313041";
 
-  $s = "SELECT * FROM ref_product WHERE rp_id = 1";
+  $s = "SELECT * FROM ref_product WHERE SHA2(CONCAT('$secretKey',rp_id),256) = '$rpid'";
   $res = $conn->query($s);
   $row = $res->fetch_assoc();
 
+  $rpname = $row["rp_name"];
   $freepostage = $row["rp_freepostagequantity"];
   $rp_postage = $row["rp_postage"];
   $rp_price = $row["rp_price"];
@@ -137,6 +140,7 @@ function whatsappOrder($data){
   if ($q < $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
   $total = number_format($postagefee + ($q * $rp_price), 2);
 
+  $arr["rp_name"] = $rpname;
   $arr["rp_price"] = number_format($rp_price, 2);
   $arr["postagefee"] = number_format($postagefee, 2);
   $arr["total"] = number_format($total, 2);
@@ -152,7 +156,9 @@ if($_POST["func"] == "OrderNow"){
 function OrderNow($data){
   global $conn;
   global $rootdir;
+  global $secretKey;
 
+  $rpid = $data["rpid"];
   $name = $data["fullname"];
   $address = $data["address"];
   $clientPhone = $data["phone"];
@@ -160,7 +166,7 @@ function OrderNow($data){
   $ref = "#";
   $phone = "60194313041";
 
-  $s = "SELECT * FROM ref_product WHERE rp_id = 1";
+  $s = "SELECT * FROM ref_product WHERE SHA2(CONCAT('$secretKey',rp_id),256) = '$rpid'";
   $res = $conn->query($s);
   $row = $res->fetch_assoc();
 

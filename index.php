@@ -3,6 +3,8 @@ include("administrator/formfunction.php");
 $buyPanel = "false"; if (isset($_GET["l"])) { $buyPanel = $_GET["l"]; }
 $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
 
+$rp1 = getProductEnc(1);
+$rp5 = getProductEnc(5);
 ?>
 
 <!DOCTYPE html>
@@ -59,10 +61,18 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                       <i class="pg-close fs-14"></i>
                     </button> -->
                     <h4 class="fs-20">Order <span class="semi-bold">eCaque</span> |  Whatsapp</h4>
-                    <p class="text-black  fs-14">Sila masukkan maklumat Nama, Alamat, No. Telefon dan kuantiti kek yang anda perlukan bagi pesanan ini. Pesanan ini akan dihantar melalui aplikasi WhatsApp.</p>
+                    <p class="text-black  fs-12">Sila masukkan maklumat Nama, Alamat, No. Telefon dan kuantiti kek yang anda perlukan bagi pesanan ini. Pesanan ini akan dihantar melalui aplikasi WhatsApp.</p>
                 </div>
                 <div class="modal-body">
                   <form class="m-t-25 m-b-20" id="form-order">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
+                          <label class="control-label">Nama Produk / Kombo</label>
+                          <input id="productname" readonly name="productname" type="text" class="text-black bold form-control" placeholder="">
+                        </div>
+                      </div>
+                    </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
@@ -75,7 +85,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                       <div class="col-md-12">
                         <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                           <label class="control-label">Alamat Penghantaran</label>
-                          <textarea id="address" style="height:100px" required name="address" type="text" class="form-control" placeholder=""></textarea>
+                          <textarea id="address" style="height:60px" required name="address" type="text" class="form-control" placeholder=""></textarea>
                         </div>
                       </div>
                     </div>
@@ -98,7 +108,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                         <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                           <label class="control-label">Jenis Penghantaran</label>
                           <select id="jenisPenghantaran" required name="jenisPenghantaran" class="form-control" >
-                            <?php getJenisPenghantaran(); ?>
+                            <?php getJenisPenghantaran2(); ?>
                           </select>
                           <!-- <input type="fullname" class="form-control" placeholder="johnsmith@abc.com"> -->
                         </div>
@@ -107,7 +117,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
 
                     <div class="row m-t-20">
                       <div class="col-xs-8">
-                        <div class="text-whitea text-right block-title">Total</div>
+                        <div class="text-whitea text-right block-title">Price/Item</div>
                       </div>
                       <div class="col-xs-4 text-right ">
                         RM <span id="sTotal">00.00</span>
@@ -258,8 +268,36 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                   </div>
                 </div>
               </div> -->
+              <div class="swiper-slide fit" id="promoBuy">
+                <!-- BEGIN IMAGE PARRALAX -->
+
+                <div class="slider-wrapper">
+                  <div class="background-wrapper" data-swiper-parallax="30%">
+                    <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
+                    <div class="background hidden-xs" style="background-position: center center;" data-pages-bg-image="assets/slider/SliderHariBapa.jpg"></div>
+                    <div class="background visible-xs" style="background-position: center center;" data-pages-bg-image="assets/slider/SliderHariBapaMobile.jpg"></div>
+                  </div>
+                </div>
+                <!-- END IMAGE PARRALAX -->
+                <!-- BEGIN CONTENT -->
+                <div class="content-layer">
+                  <div class="inner full-height">
+                    <div class="container-xs-height full-height">
+                      <div class="col-xs-height col-bottom text-left">
+                        <div class="container ">
+                          <div class="col-md-offset-6a col-md-12  m-b-100 col-xs-12 ">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- END CONTENT -->
+              </div>
               <div class="swiper-slide fit">
                 <!-- BEGIN IMAGE PARRALAX -->
+
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
                     <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
@@ -413,12 +451,81 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       </section>
       <!-- END CONTENT SECTION -->
       <!-- BEGIN CONTENT SECTION -->
+      <section class="bg-master-dark p-b-85 p-t-75 " id="promotion" style="background:#f4d508">
+        <div class="container hidden-xs" >
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <h5 class="block-title hint-text no-margin text-black bold">PROMOSI HARI BAPA</h5>
+            <!-- <h1 class="font-montserrat text-uppercase text-black no-margin text-black ">Special Combo Pack</h1> -->
+            <div class="row m-t-40" s>
+              <div class="col-sm-3 text-center" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1" style="cursor: pointer;">
+                <h1 class="m-t-5 text-black">Hari Bapa Combo Pack</h1>
+                <h5 class="hint-texta no-margin text-black"><b>2 x</b> Kek Buah Kukus 1kg  </h5>
+                <h5 class="hint-texta no-margin text-black"><b>FREE</b> Kad Ucapan Hari Bapa </h5>
+                <h5 class="hint-texta no-margin text-black"><b>FREE</b> De'Xandra<sup>TM</sup> Miniature</h5>
+                <hr class="text-black" style="background-color: black; height: 1px; border: 0; ">
+                <h1 class="m-t-0 text-black  m-b-0 bold" style="line-height: 0.95"><strike class="text-danger"> RM 120 </strike> </h1>
+                <h1 class="m-t-0 text-black bold m-b-10" style="line-height: 0.95">RM 100 </h1>
+                <h5 class="hint-texta no-margin text-black bold">FREE POSTAGE </h5>
+                <h5 class="hint- no-margin text-black">Jimat <b class="text-black">RM20</b> </h5>
+                <div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1">Order Combo Now</button>
+                </div>
+              </div>
+
+              <div class="col-sm-9 text-center full-height" id="" quantity="">
+                <img src="assets/slider/PromoPackWebste.png" width="100%" alt="">
+              </div>
+            </div>
+            <div class="row m-t-50">
+              <div class="col-sm-12  text-black">
+                <p class="m-b-0"><sup>*</sup>  Promosi ini adalah Terhad Kepada <b>500 set</b> sahaja. </p>
+                <p class="m-b-0"><sup>**</sup> Promosi Hari Bapa oleh pihak kami akan berakhir pada <b>30 Jun 2020</b>.</p>
+                <p class="m-t-0"><sup>***</sup> Barangan Percuma (De'Xandra Miniature & Kad Ucapan) akan disertakan bersama parcel.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container visible-xs">
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <h5 class="block-title hint-text no-margin text-black bold">PROMOSI HARI BAPA</h5>
+            <!-- <h1 class="font-montserrat text-uppercase text-black no-margin text-black ">Special Combo Pack</h1> -->
+            <div class="row m-t-40">
+              <div class="col-sm-12 text-center full-height" id="" quantity="">
+                <img src="assets/slider/PromoPackWebste.png" width="100%" alt="">
+              </div>
+              <div class="col-sm-12 text-center m-t-40" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1" style="cursor: pointer;">
+                <h1 class="m-t-5 text-black">Hari Bapa <br> Combo Pack</h1>
+                <h5 class="hint-texta no-margin text-black"><b>2 x</b> Kek Buah Kukus 1kg  </h5>
+                <h5 class="hint-texta no-margin text-black"><b>FREE</b> Kad Ucapan Hari Bapa </h5>
+                <h5 class="hint-texta no-margin text-black"><b>FREE</b> De'Xandra<sup>TM</sup> Miniature</h5>
+                <hr class="text-black" style="background-color: black; height: 1px; border: 0; ">
+                <h1 class="m-t-0 text-black  m-b-0 bold" style="line-height: 0.95"><strike class="text-danger"> RM 120 </strike> </h1>
+                <h1 class="m-t-0 text-black bold m-b-10" style="line-height: 0.95">RM 100 </h1>
+                <h5 class="hint-texta no-margin text-black bold">FREE POSTAGE </h5>
+                <h5 class="hint- no-margin text-black">Jimat <b class="text-black">RM20</b> </h5>
+                <div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1">Order Combo Now</button>
+                </div>
+              </div>
+
+            </div>
+            <div class="row m-t-50">
+              <div class="col-sm-12 text-black">
+                <p class="m-b-0 fs-12"><sup>*</sup>  Promosi ini adalah Terhad Kepada <b>500 set</b> sahaja. </p>
+                <p class="m-b-0 fs-12"><sup>**</sup> Promosi Hari Bapa oleh pihak kami berakhir pada <b>30 Jun 2020</b>.</p>
+                <p class="m-t-0 fs-12"><sup>***</sup> Barangan Percuma (De'Xandra Miniature & Kad Ucapan) akan disertakan bersama parcel.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="bg-master-dark p-b-85 p-t-75 " id="pricing">
         <div class="container hidden-xs">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
             <div class="row m-t-40">
-              <div class="col-sm-3 text-center" id="buyNow" quantity="1">
+              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="1">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
@@ -426,8 +533,11 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <h1 class="m-t-20 text-white">RM 50 </h1>
                 <h5 class="hint-text no-margin text-white">+ RM10 Postage </h5>
                 <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5>
+                <div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="1">Order 1 Now</button>
+                </div>
               </div>
-              <div class="col-sm-3 text-center" id="buyNow" quantity="3">
+              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="3">
                 <h5 class="block-title m-t-5 text-whitea bg-success"> <i class="fa fa-star m-r-10"></i> Most Popular </h5>
                 <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
@@ -435,8 +545,11 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <h1 class="m-t-20 text-white">RM 150 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5>
+                <div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="3">Order 3 Now</button>
+                </div>
               </div>
-              <div class="col-sm-3 text-center" id="buyNow" quantity="4">
+              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="4">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
@@ -444,8 +557,11 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <h1 class="m-t-20 text-white">RM 200 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5>
+                <div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="4">Order 4 Now</button>
+                </div>
               </div>
-              <div class="col-sm-3 text-center" id="buyNow" quantity="5">
+              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="5">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
@@ -453,6 +569,9 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
                 <h1 class="m-t-20 text-white">RM 250 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5>
+                <div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="5">Order 5 Now</button>
+                </div>
               </div>
             </div>
           </div>
@@ -461,40 +580,48 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
             <div class="row m-t-40">
-              <div class="col-sm-3 text-center" id="buyNow" quantity="1">
+              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="1">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
                 <h1 class="m-t-20 text-white">RM 50 </h1>
                 <h5 class="hint-text no-margin text-white">+ RM10 Postage </h5>
-                <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5>
+                <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5><div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="1">Order 1 Now</button>
+                </div>
               </div>
-              <hr>
-              <div class="col-sm-3 text-center" id="buyNow" quantity="3">
-                <h5 class="block-title m-t-5 text-whitea bg-success"> <i class="fa fa-star m-r-10"></i> Most Popular </h5>
+              <!-- <hr class="text-black" style="background-color: darkgrey; height: 1px; border: 0; "> -->
+              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="3">
+                <h5 class="block-title m-t-5 text-whitea bg-successa"> &nbsp; </h5>
                 <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
                 <h1 class="m-t-20 text-white">RM 150 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5><div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="3">Order 3 Now</button>
+                </div>
               </div>
-              <hr>
-              <div class="col-sm-3 text-center" id="buyNow" quantity="4">
+              <!-- <hr class="text-black" style="background-color: darkgrey; height: 1px; border: 0; "> -->
+              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="4">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
                 <h1 class="m-t-20 text-white">RM 200 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5><div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="4">Order 4 Now</button>
+                </div>
               </div>
-              <hr>
-              <div class="col-sm-3 text-center" id="buyNow" quantity="5">
+              <!-- <hr class="text-black" style="background-color: darkgrey; height: 1px; border: 0; "> -->
+              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="5">
                 <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
                 <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
                 <h1 class="m-t-20 text-white">RM 250 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5>
+                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5><div class="m-t-20">
+                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="5">Order 5 Now</button>
+                </div>
               </div>
             </div>
           </div>
@@ -1131,6 +1258,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       var myform = document.getElementById('form-order');
       var fd = new FormData(myform);
       fd.append("func","OrderNow");
+      fd.append("rpid",RPID);
       $.ajax({
           type: 'POST',
           url: "db?OrderNow",
@@ -1169,10 +1297,13 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       getPrice();
     });
 
+    var RPID;
+
     $("[id='buyNow']").click(function(e){
       $("#modalSlideUp").modal();
       var quantity = $(this).attr("quantity");
       $("#quantityOrder").val(quantity);
+      RPID = $(this).attr("rpid");
       getPrice();
     });
 
@@ -1183,6 +1314,7 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
       var myform = document.getElementById('form-order');
       var fd = new FormData(myform);
       fd.append("func","whatsappOrder");
+      fd.append("rpid",RPID);
       $.ajax({
           type: 'POST',
           url: "db?whatsappOrder",
@@ -1197,12 +1329,16 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
               rp_price = data["rp_price"];
               postagefee = data["postagefee"];
               total = data["total"];
+              rp_name = data["rp_name"];
               LINK = link;
 
               $("#sTotal").html(rp_price);
               $("#sPostage").html(postagefee);
               $("#sGtotal").html(total);
+              $("#productname").val(rp_name);
               $("#form-order").find("button").prop("disabled",false);
+
+
             } else {
               // saAlert3("Gagal",data["MSG"],"warning");
             }
@@ -1338,6 +1474,15 @@ $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
 
     getStokistList();
 
+    </script>
+
+    <script type="text/javascript">
+    // FOR PROMO FUNCTION ONLY
+
+    $("#promoBuy").click(function(e){
+      console.log("asd");
+      $("[id='buyNow'][rpid='<?php echo $rp5 ?>']").click();
+    });
     </script>
   </body>
 </html>

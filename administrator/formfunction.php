@@ -86,6 +86,19 @@ function getJenisPenghantaran(){
   }
 }
 
+function getJenisPenghantaran2(){
+  global $conn;
+
+  $select = "SELECT * FROM ref_jenisPenghantaran WHERE rjp_status = 1";
+  $result = $conn->query($select);
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rjp_id"];
+    $name=$row["rjp_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
 function getJenisPenghantaranAll(){
   global $conn;
 
@@ -188,6 +201,21 @@ function getProductSelect(){
     $name=$row["rp_name"];
     echo "<option value='$id'>$name</option>";
   }
+}
+
+function getProductEnc($id){
+  global $conn;
+  global $secretKey;
+
+  $select = "SELECT
+  SHA2(CONCAT('$secretKey',rp_id),256) as productID FROM ref_product WHERE rp_id = $id";
+  $arr = [];
+  $result = $conn->query($select);
+  while ($row = $result->fetch_assoc())
+  {
+    $arr[] = $row;
+  }
+  return $arr[0]["productID"];
 }
 
 function getProduct(){
