@@ -400,7 +400,7 @@ $rp5 = getProductEnc(5);
         <div class="container p-t-0 p-b-0 no-padding">
           <div class="row">
             <div class="col-lg-6 no-padding">
-              <img src="assets/ecauqe_images/packaging_3.jpg" class="m-b-20a" width="100%" alt="">
+              <img src="assets/ecauqe_images/packaging_3.png" class="m-b-20a" width="100%" alt="">
             </div>
             <div class="col-lg-6 m-t-10 xs-m-l-15 xs-m-r-15 m-b-10 p-l-20 text-white" >
               <h5 class="block-title hint-text no-margin b-t-0 text-white">PENGENALAN</h5>
