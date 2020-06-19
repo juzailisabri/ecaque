@@ -432,49 +432,87 @@ $rp5 = getProductEnc(5);
         </div>
       </section>
 
-      <section class="bg-master-dark p-b-85 p-t-75 " id="promotion" style="background:#f4d508">
-        <div class="container hidden-xs" >
+      <section class=" p-b-85 p-t-75 no-overflow">
+        <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin text-black bold">PROMOSI HARI BAPA</h5>
-            <!-- <h1 class="font-montserrat text-uppercase text-black no-margin text-black ">Special Combo Pack</h1> -->
-            <div class="row m-t-40" s>
-              <div class="col-sm-3 text-center" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1" style="cursor: pointer;">
-                <h1 class="m-t-5 text-black">Hari Bapa Combo Pack</h1>
-                <h5 class="hint-texta no-margin text-black"><b>2 x</b> Kek Buah Kukus 1kg  </h5>
-                <h5 class="hint-texta no-margin text-black"><b>FREE</b> Kad Ucapan Hari Bapa </h5>
-                <h5 class="hint-texta no-margin text-black"><b>FREE</b> De'Xandra<sup>TM</sup> Miniature</h5>
-                <hr class="text-black" style="background-color: black; height: 1px; border: 0; ">
-                <h1 class="m-t-0 text-black  m-b-0 bold" style="line-height: 0.95"><strike class="text-danger"> RM 120 </strike> </h1>
-                <h1 class="m-t-0 text-black bold m-b-10" style="line-height: 0.95">RM 100 </h1>
-                <h5 class="hint-texta no-margin text-black bold">FREE POSTAGE </h5>
-                <h5 class="hint- no-margin text-black">Jimat <b class="text-black">RM20</b> </h5>
-                <div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1">Order Combo Now</button>
-                </div>
-              </div>
-
-              <div class="col-sm-9 text-center full-height" id="" quantity="">
-                <img src="assets/slider/PromoPackWebste.png" width="100%" alt="">
+            <h5 class="block-title hint-text no-margin">Frequently Asked Questions</h5>
+            <div class="row">
+              <div class="col-sm-12">
+                <h1 class="m-t-5 m-b-20">SOALAN LAZIM</h1>
               </div>
             </div>
-            <div class="row m-t-50">
-              <div class="col-sm-12  text-black">
-                <p class="m-b-0"><sup>*</sup>  Promosi ini adalah Terhad Kepada <b>500 set</b> sahaja. </p>
-                <p class="m-b-0"><sup>**</sup> Promosi Hari Bapa oleh pihak kami akan berakhir pada <b>30 Jun 2020</b>.</p>
-                <p class="m-t-0"><sup>***</sup> Barangan Percuma (De'Xandra Miniature & Kad Ucapan) akan disertakan bersama parcel.</p>
+            <div class="row">
+
+              <div class="col-sm-5 xs-p-l-15 xs-p-r-15">
+                <p class=" font-arial no-padding no-margin">BERAPA LAMA KEK DAPAT BERTAHAN / Expiry</p>
+                <p class="bold text-black m-b-20">2 Bulan jika disimpan pada suhu bilik & 4 Bulan jika disimpan ditempat yang sejuk & kering.</p>
+
+                <p class=" font-arial no-padding no-margin">BERAT PRODUK / Product weight</p>
+                <p class="bold text-black m-b-20">Berat kek adalah 1 Kilogram bersamaan 1000 gram</p>
+
+                <!-- <p class=" font-arial no-padding no-margin">SIJIL HALAL / Halal Certificate</p>
+                <p class="bold text-black m-b-20">Tiada, Produk Dihasilkan Dirumah</p> -->
+
+                <p class=" font-arial no-padding no-margin">BAHAN ADA SIJIL HALAL / Ingredients Halal Certificate</p>
+                <p class="bold text-black m-b-20">Ya, Semua Ramuan Mempunyai Sijil Halal</p>
+
+                <p class=" font-arial no-padding no-margin">ADAKAH PRODUK BOLEH DI POS / Is the product can be deliver via courier</p>
+                <p class="bold text-black m-b-20">Ya, Produk Boleh Di Pos</p>
+
+
+
+              </div>
+              <div class="col-sm-5 xs-p-l-15 xs-p-r-15">
+                <p class=" font-arial no-padding no-margin">CARA PEMBUATAN / ways of making</p>
+                <p class="bold text-black m-b-20">Kek Dikukus selama 4 jam untuk memastikan kek boleh tahan lama.</p>
+
+                <p class=" font-arial no-padding no-margin">PRODUK BUMIPUTRA / Bumi Product</p>
+                <p class="bold text-black m-b-20">Ya, eCaque Enterprise dimiliki penuh oleh Pn. Faridah Borham.</p>
+
+                <p class=" font-arial no-padding no-margin">CARA PENYIMPANAN / Storage Condition</p>
+                <p class="bold text-black m-b-20">Simpan Di Tempat Yang Sejuk Dan Kering</p>
+
+                <p class=" font-arial no-padding no-margin">PRODUK BERASAL DARI MANA / Origin of Product</p>
+                <p class="bold text-black m-b-20">Sungai Besar, Selangor</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="container visible-xs">
-          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin text-black bold">PROMOSI HARI BAPA</h5>
-            <!-- <h1 class="font-montserrat text-uppercase text-black no-margin text-black ">Special Combo Pack</h1> -->
-            <div class="row m-t-40">
-              <div class="col-sm-12 text-center full-height" id="" quantity="">
-                <img src="assets/slider/PromoPackWebste.png" width="100%" alt="">
+      </section>
+
+      <section class="bg-master-dark ap-b-85 ap-t-75 " id="promotion" style="background:#f4d508">
+        <div class="container hidden-xs no-padding" >
+          <div class="row">
+            <div class="col-lg-3">
+              <h5 class="block-title hint-text no-margin text-black bold p-t-40">PROMOSI HARI BAPA</h5>
+              <h1 class="m-t-5 text-black">Hari Bapa Combo Pack</h1>
+              <h5 class="hint-texta no-margin text-black"><b>2 x</b> Kek Buah Kukus 1kg  </h5>
+              <h5 class="hint-texta no-margin text-black"><b>FREE</b> Kad Ucapan Hari Bapa </h5>
+              <h5 class="hint-texta no-margin text-black"><b>FREE</b> De'Xandra<sup>TM</sup> Miniature</h5>
+              <hr class="text-black" style="background-color: black; height: 1px; border: 0; ">
+              <h1 class="m-t-0 text-black  m-b-0 bold" style="line-height: 0.95"><strike class="text-danger"> RM 120 </strike> </h1>
+              <h1 class="m-t-0 text-black bold m-b-10" style="line-height: 0.95">RM 100 </h1>
+              <h5 class="hint-texta no-margin text-black bold">FREE POSTAGE </h5>
+              <h5 class="hint- no-margin text-black">Jimat <b class="text-black">RM20</b> </h5>
+              <div class="m-t-20">
+                <button type="button" class="btn btn-lg btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1">Order Combo Now!</button>
               </div>
-              <div class="col-sm-12 text-center m-t-40" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1" style="cursor: pointer;">
+              <p class="text-black m-b-0 fs-12 m-t-30"><sup>*</sup>  Promosi ini adalah Terhad Kepada <b>500 set</b> sahaja. <sup>**</sup> Promosi Hari Bapa oleh pihak kami akan berakhir pada <b>30 Jun 2020</b>. <sup>***</sup> Barangan Percuma (De'Xandra Miniature & Kad Ucapan) akan disertakan bersama parcel.</p>
+            </div>
+            <div class="col-lg-9">
+              <img src="assets/slider/PromoPackWebste2.jpg" width="100%" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="container visible-xs no-padding">
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <!-- <h5 class="block-title hint-text no-margin text-black bold p-t-20">PROMOSI HARI BAPA</h5> -->
+            <!-- <h1 class="font-montserrat text-uppercase text-black no-margin text-black ">Special Combo Pack</h1> -->
+            <div class="row m-t-0 no-padding no-margin">
+              <div class="col-sm-12 no-padding text-center full-height" id="" quantity="">
+                <img src="assets/slider/PromoPackWebsteMobile2.jpg" width="100%" alt="">
+              </div>
+              <div class="m-l-15 m-r-15 col-sm-12 text-center m-t-40" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1" style="cursor: pointer;">
                 <h1 class="m-t-5 text-black">Hari Bapa <br> Combo Pack</h1>
                 <h5 class="hint-texta no-margin text-black"><b>2 x</b> Kek Buah Kukus 1kg  </h5>
                 <h5 class="hint-texta no-margin text-black"><b>FREE</b> Kad Ucapan Hari Bapa </h5>
@@ -485,18 +523,12 @@ $rp5 = getProductEnc(5);
                 <h5 class="hint-texta no-margin text-black bold">FREE POSTAGE </h5>
                 <h5 class="hint- no-margin text-black">Jimat <b class="text-black">RM20</b> </h5>
                 <div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1">Order Combo Now</button>
+                  <button type="button" class="btn btn-lg btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1">Order Combo Now</button>
                 </div>
+                <p class="text-black m-b-30 fs-12 m-t-30"><sup>*</sup>  Promosi ini adalah Terhad Kepada <b>500 set</b> sahaja. <sup>**</sup> Promosi Hari Bapa oleh pihak kami akan berakhir pada <b>30 Jun 2020</b>. <sup>***</sup> Barangan Percuma (De'Xandra Miniature & Kad Ucapan) akan disertakan bersama parcel.</p>
               </div>
+            </div>
 
-            </div>
-            <div class="row m-t-50">
-              <div class="col-sm-12 text-black">
-                <p class="m-b-0 fs-12"><sup>*</sup>  Promosi ini adalah Terhad Kepada <b>500 set</b> sahaja. </p>
-                <p class="m-b-0 fs-12"><sup>**</sup> Promosi Hari Bapa oleh pihak kami berakhir pada <b>30 Jun 2020</b>.</p>
-                <p class="m-t-0 fs-12"><sup>***</sup> Barangan Percuma (De'Xandra Miniature & Kad Ucapan) akan disertakan bersama parcel.</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -928,53 +960,7 @@ $rp5 = getProductEnc(5);
         </div>
       </section> -->
       <!-- END CONTENT SECTION -->
-      <section class=" p-b-85 p-t-75 no-overflow">
-        <div class="container">
-          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin">Frequent Ask Question</h5>
-            <div class="row">
-              <div class="col-sm-12">
-                <h1 class="m-t-5 m-b-20">SOALAN LAZIM</h1>
-              </div>
-            </div>
-            <div class="row">
 
-              <div class="col-sm-5 xs-p-l-15 xs-p-r-15">
-                <p class=" font-arial no-padding no-margin">BERAPA LAMA KEK DAPAT BERTAHAN / Expiry</p>
-                <p class="bold text-black m-b-20">2 Bulan jika disimpan pada suhu bilik & 4 Bulan jika disimpan ditempat yang sejuk & kering.</p>
-
-                <p class=" font-arial no-padding no-margin">BERAT PRODUK / Product weight</p>
-                <p class="bold text-black m-b-20">Berat kek adalah 1 Kilogram bersamaan 1000 gram</p>
-
-                <!-- <p class=" font-arial no-padding no-margin">SIJIL HALAL / Halal Certificate</p>
-                <p class="bold text-black m-b-20">Tiada, Produk Dihasilkan Dirumah</p> -->
-
-                <p class=" font-arial no-padding no-margin">BAHAN ADA SIJIL HALAL / Ingredients Halal Certificate</p>
-                <p class="bold text-black m-b-20">Ya, Semua Ramuan Mempunyai Sijil Halal</p>
-
-                <p class=" font-arial no-padding no-margin">ADAKAH PRODUK BOLEH DI POS / Is the product can be deliver via courier</p>
-                <p class="bold text-black m-b-20">Ya, Produk Boleh Di Pos</p>
-
-
-
-              </div>
-              <div class="col-sm-5 xs-p-l-15 xs-p-r-15">
-                <p class=" font-arial no-padding no-margin">CARA PEMBUATAN / ways of making</p>
-                <p class="bold text-black m-b-20">Kek Dikukus selama 4 jam untuk memastikan kek boleh tahan lama.</p>
-
-                <p class=" font-arial no-padding no-margin">PRODUK BUMIPUTRA / Bumi Product</p>
-                <p class="bold text-black m-b-20">Ya, eCaque Enterprise dimiliki penuh oleh Pn. Faridah Borham.</p>
-
-                <p class=" font-arial no-padding no-margin">CARA PENYIMPANAN / Storage Condition</p>
-                <p class="bold text-black m-b-20">Simpan Di Tempat Yang Sejuk Dan Kering</p>
-
-                <p class=" font-arial no-padding no-margin">PRODUK BERASAL DARI MANA / Origin of Product</p>
-                <p class="bold text-black m-b-20">Sungai Besar, Selangor</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <section class="p-b-85 p-t-75 ">
         <!-- BEGIN TESTIMONIALS SLIDER-->
         <div class="swiper-container" id="testimonials_slider">
