@@ -101,7 +101,11 @@ $rp5 = getProductEnc(5);
                       <div class="col-md-6">
                         <div class="form-group form-group-default input-group no-bordera input-group-attached col-xs-12">
                           <label class="control-label">Kuantiti</label>
-                          <input id="quantityOrder" pattern="[0-9]*" required name="quantityOrder" type="number" class="form-control" placeholder="">
+                          <!-- <input id="quantityOrder" pattern="[0-9]*" required name="quantityOrder" type="number" class="form-control" placeholder=""> -->
+                          <select id="quantityOrder"  name="quantityOrder" class="form-control" required>
+                            <?php getKuantiti(); ?>
+                          </select>
+
                         </div>
                       </div>
                     </div>
@@ -1267,6 +1271,10 @@ $rp5 = getProductEnc(5);
       var quantity = $(this).attr("quantity");
       $("#quantityOrder").val(quantity);
       RPID = $(this).attr("rpid");
+      getPrice();
+    });
+
+    $("#quantityOrder").change(function(e){
       getPrice();
     });
 

@@ -517,5 +517,12 @@ function dashboardViewPemohon(){
   <?php
 }
 
+function getKuantiti(){
+  global $conn;
+  for ($i=1; $i < 99; $i++) {
+    echo "<option value='$i'>$i</option>";
+  }
+}
+
 
  ?>
