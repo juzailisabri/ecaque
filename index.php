@@ -262,29 +262,15 @@ $rp5 = getProductEnc(5);
         <div class="inner full-height">
           <!-- BEGIN SLIDER -->
           <div class="swiper-container" id="hero">
-            <div class="swiper-wrapper">
-              <!-- BEGIN SLIDE -->
+            <!-- <div class="swiper-wrapper">
 
-              <!-- <div class="swiper-slide fit">
-                <div class="slider-wrapper">
-                  <div class="background-wrapper" data-swiper-parallax="30%">
-                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/FathersDaySlider.jpg"></div>
-                    <div class="background visible-xs" data-pages-bg-image="assets/slider/FathersDaySlider-p.jpg"></div>
-                  </div>
-                </div>
-              </div> -->
               <div class="swiper-slide fit" id="promoBuy">
-                <!-- BEGIN IMAGE PARRALAX -->
 
-                <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
-                    <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
                     <div class="background hidden-xs" style="background-position: center center;" data-pages-bg-image="assets/slider/SliderHariBapa.jpg"></div>
                     <div class="background visible-xs" style="background-position: center center;" data-pages-bg-image="assets/slider/SliderHariBapaMobile.jpg"></div>
                   </div>
                 </div>
-                <!-- END IMAGE PARRALAX -->
-                <!-- BEGIN CONTENT -->
                 <div class="content-layer">
                   <div class="inner full-height">
                     <div class="container-xs-height full-height">
@@ -298,8 +284,7 @@ $rp5 = getProductEnc(5);
                     </div>
                   </div>
                 </div>
-                <!-- END CONTENT -->
-              </div>
+              </div> -->
               <div class="swiper-slide fit">
                 <!-- BEGIN IMAGE PARRALAX -->
 
@@ -484,7 +469,7 @@ $rp5 = getProductEnc(5);
         </div>
       </section>
 
-      <section class="bg-master-dark ap-b-85 ap-t-75 " id="promotion" style="background:#f4d508">
+      <section class="bg-master-dark ap-b-85 ap-t-75 hidden" id="promotion" style="background:#f4d508">
         <div class="container hidden-xs no-padding" >
           <div class="row">
             <div class="col-lg-3">
