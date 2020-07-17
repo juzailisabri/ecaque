@@ -16,7 +16,7 @@ function getProductEncA($id){
   return $arr[0]["productID"];
 }
 
-$rp1 = getProductEncA(5);
+$rp1 = getProductEncA(6);
 $_GET["l"] = "true";
 $_GET["rpid"] = $rp1;
 include("index.php");

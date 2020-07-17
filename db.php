@@ -125,7 +125,7 @@ function whatsappOrder($data){
 
   $phone = "60194313041";
 
-  $s = "SELECT * FROM ref_product WHERE SHA2(CONCAT('$secretKey',rp_id),256) = '$rpid'";
+  $s = "SELECT * FROM ref_product WHERE SHA2(CONCAT('$secretKey',rp_id),256) = '$rpid' AND rp_status = 1";
   $res = $conn->query($s);
   $row = $res->fetch_assoc();
 

@@ -5,7 +5,7 @@ $rpid = ""; if (isset($_GET["rpid"])) { $rpid = $_GET["rpid"]; }
 $ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/slider/ws.jpg";
 
 $rp1 = getProductEnc(1);
-$rp5 = getProductEnc(5);
+$rp6 = getProductEnc(6);
 
 ?>
 
@@ -262,13 +262,13 @@ $rp5 = getProductEnc(5);
         <div class="inner full-height">
           <!-- BEGIN SLIDER -->
           <div class="swiper-container" id="hero">
-            <!-- <div class="swiper-wrapper">
+            <div class="swiper-wrapper" >
 
               <div class="swiper-slide fit" id="promoBuy">
-
+                <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
-                    <div class="background hidden-xs" style="background-position: center center;" data-pages-bg-image="assets/slider/SliderHariBapa.jpg"></div>
-                    <div class="background visible-xs" style="background-position: center center;" data-pages-bg-image="assets/slider/SliderHariBapaMobile.jpg"></div>
+                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/D_SliderWebsite_rayakorbam2020.jpg"></div>
+                    <div class="background visible-xs" style="background-position: center center" data-pages-bg-image="assets/slider/D_SliderWebsite_rayakorbam2020Mobile.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -284,19 +284,14 @@ $rp5 = getProductEnc(5);
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
               <div class="swiper-slide fit">
-                <!-- BEGIN IMAGE PARRALAX -->
-
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
-                    <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
                     <div class="background hidden-xs" data-pages-bg-image="assets/slider/slider5.jpg"></div>
                     <div class="background visible-xs" data-pages-bg-image="assets/slider/slider5-p.jpg"></div>
                   </div>
                 </div>
-                <!-- END IMAGE PARRALAX -->
-                <!-- BEGIN CONTENT -->
                 <div class="content-layer">
                   <div class="inner full-height">
                     <div class="container-xs-height full-height">
@@ -310,7 +305,6 @@ $rp5 = getProductEnc(5);
                     </div>
                   </div>
                 </div>
-                <!-- END CONTENT -->
               </div>
               <div class="swiper-slide fit">
                 <!-- BEGIN IMAGE PARRALAX -->
@@ -424,50 +418,56 @@ $rp5 = getProductEnc(5);
       <section class=" p-b-85 p-t-75 no-overflow">
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin">Frequently Asked Questions</h5>
+            <h5 class="block-title hint-text no-margin">CABUTAN BERTUAH PROMO RAYA KORBAN 2020</h5>
             <div class="row">
               <div class="col-sm-12">
-                <h1 class="m-t-5 m-b-20">SOALAN LAZIM</h1>
+                <h1 class="m-t-5 m-b-20">Terma & Syarat</h1>
               </div>
             </div>
             <div class="row">
 
-              <div class="col-sm-5 xs-p-l-15 xs-p-r-15">
-                <p class=" font-arial no-padding no-margin">BERAPA LAMA KEK DAPAT BERTAHAN / Expiry</p>
-                <p class="bold text-black m-b-20">2 Bulan jika disimpan pada suhu bilik & 4 Bulan jika disimpan ditempat yang sejuk & kering.</p>
 
-                <p class=" font-arial no-padding no-margin">BERAT PRODUK / Product weight</p>
-                <p class="bold text-black m-b-20">Berat kek adalah 1 Kilogram bersamaan 1000 gram</p>
+              <div class="col-sm-3 xs-p-l-15 xs-p-r-15 ">
+                <p class="bold font-arial no-padding no-margin">Penganjur </p>
+                <p class=" text-black m-b-20">Cabutan Bertuah Ecaque bersempena Raya Haji 2020 ini dianjurkan oleh Ecaque Enterprise.</p>
 
-                <!-- <p class=" font-arial no-padding no-margin">SIJIL HALAL / Halal Certificate</p>
-                <p class="bold text-black m-b-20">Tiada, Produk Dihasilkan Dirumah</p> -->
-
-                <p class=" font-arial no-padding no-margin">BAHAN ADA SIJIL HALAL / Ingredients Halal Certificate</p>
-                <p class="bold text-black m-b-20">Ya, Semua Ramuan Mempunyai Sijil Halal</p>
-
-                <p class=" font-arial no-padding no-margin">ADAKAH PRODUK BOLEH DI POS / Is the product can be deliver via courier</p>
-                <p class="bold text-black m-b-20">Ya, Produk Boleh Di Pos</p>
-
-
-
+                <p class="bold font-arial no-padding no-margin">Tempoh Masa</p>
+                <p class=" text-black m-b-20">Peraduan ini bermula dari 18 Julai 2020 hingga 31 Julai 2020
+Pihak penganjur berhak melanjutkan tempoh pada bila-bila masa dan segala perubahan tempoh masa akan diberitahu melalui platform media sosial pihak penganjur.
+Sebarang penyertaan selepas tarikh peraduan akan terbatal serta merta.</p>
+                <p class="bold  font-arial no-padding no-margin"> Syarat Kelayakan</p>
+                <p class="text-black m-b-20">Terbuka kepada semua kecuali kakitangan Ecaque dan ejen dropship & stokis berdaftar.</p>
               </div>
-              <div class="col-sm-5 xs-p-l-15 xs-p-r-15">
-                <p class=" font-arial no-padding no-margin">CARA PEMBUATAN / ways of making</p>
-                <p class="bold text-black m-b-20">Kek Dikukus selama 4 jam untuk memastikan kek boleh tahan lama.</p>
-
-                <p class=" font-arial no-padding no-margin">PRODUK BUMIPUTRA / Bumi Product</p>
-                <p class="bold text-black m-b-20">Ya, eCaque Enterprise dimiliki penuh oleh Pn. Faridah Borham.</p>
-
-                <p class=" font-arial no-padding no-margin">CARA PENYIMPANAN / Storage Condition</p>
-                <p class="bold text-black m-b-20">Simpan Di Tempat Yang Sejuk Dan Kering</p>
-
-                <p class=" font-arial no-padding no-margin">PRODUK BERASAL DARI MANA / Origin of Product</p>
-                <p class="bold text-black m-b-20">Sungai Besar, Selangor</p>
+              <div class="col-sm-5 xs-p-l-30 xs-p-r-30 p-l-3">
+                <p class="bold  font-arial no-padding no-margin">Penerangan Peraduan</p>
+                  <ol class="text-black fs-15 p-l-15">
+                    <li>Dengan setiap satu pembelian Promo Raya Korban 2020 anjuran Ecaque, anda layak untuk menyertai cabutan bertuah. </li>
+                    <li>Pihak penganjur akan menghubungi pemenang </li>
+                    <li>Satu pembelian Promo Raya Korban bersamaan satu entri.</li>
+                    <li>Peserta boleh menyertai sebanyak mana penyertaan sepanjang tempoh peraduan.</li>
+                    <li>Pihak Penganjur akan merekod penyertaan secara automatik bagi setiap pembelian Promo Raya Korban 2020.</li>
+                    <li>Pihak Penganjur akan memaklumkan rekod penyertaan sepanjang tempoh peraduan dari masa ke semasa di media sosial.</li>
+                    <li>Pemenang cabutan bertuah akan diumumkan di IG Live / FB Live pada masa dan waktu yang akan dimaklumkan kelak.</li>
+                    <li>Hadiah hendaklah dituntut dalam masa 24 jam selepas nama pemenang diumumkan. Sekiranya tidak dituntut dalam masa tersebut, kemenangan akan dibatalkan dan cabutan baru akan dibuat untuk menggantikan pemenang tersebut.</li>
+                    <li>Nilai hadiah tidak boleh ditukar dengan wang tunai.</li>
+                    <li>Keputusan penganjur adalah muktamad.</li>
+                    <li>Penganjur mempunyai hak eksklusif untuk menyiarkan dan/atau memaparkan butiran dan/atau gambar pemenang untuk tujuan pengiklanan dan publisiti, serta untuk tujuan pengumuman pemenang sama ada dalam media percetakan, elektronik atau media-media lain.</li>
+                  </ol>
+              </div>
+              <div class="col-sm-4 xs-p-l-15 xs-p-r-15 p-l-30">
+                <p class="bold  font-arial no-padding no-margin">Hadiah Peraduan</p>
+                <ol class="text-black fs-15 p-l-15">
+                  <li>Gold Bar 1g beserta Resit</li>
+                  <li>Telekung Siti Khadijah</li>
+                  <li>Tudung Naelofar</li>
+                </ol>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
 
       <section class="bg-master-dark ap-b-85 ap-t-75 hidden" id="promotion" style="background:#f4d508">
         <div class="container hidden-xs no-padding" >
@@ -1026,6 +1026,53 @@ $rp5 = getProductEnc(5);
         </div>
         <!-- END TESTIMONIALS -->
       </section>
+      <section class=" p-b-85 p-t-75 no-overflow">
+        <div class="container">
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <h5 class="block-title hint-text no-margin">Frequently Asked Questions</h5>
+            <div class="row">
+              <div class="col-sm-12">
+                <h1 class="m-t-5 m-b-20">SOALAN LAZIM</h1>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-5 xs-p-l-15 xs-p-r-15">
+                <p class=" font-arial no-padding no-margin">BERAPA LAMA KEK DAPAT BERTAHAN / Expiry</p>
+                <p class="bold text-black m-b-20">2 Bulan jika disimpan pada suhu bilik & 4 Bulan jika disimpan ditempat yang sejuk & kering.</p>
+
+                <p class=" font-arial no-padding no-margin">BERAT PRODUK / Product weight</p>
+                <p class="bold text-black m-b-20">Berat kek adalah 1 Kilogram bersamaan 1000 gram</p>
+
+                <!-- <p class=" font-arial no-padding no-margin">SIJIL HALAL / Halal Certificate</p>
+                <p class="bold text-black m-b-20">Tiada, Produk Dihasilkan Dirumah</p> -->
+
+                <p class=" font-arial no-padding no-margin">BAHAN ADA SIJIL HALAL / Ingredients Halal Certificate</p>
+                <p class="bold text-black m-b-20">Ya, Semua Ramuan Mempunyai Sijil Halal</p>
+
+                <p class=" font-arial no-padding no-margin">ADAKAH PRODUK BOLEH DI POS / Is the product can be deliver via courier</p>
+                <p class="bold text-black m-b-20">Ya, Produk Boleh Di Pos</p>
+
+
+
+              </div>
+              <div class="col-sm-5 xs-p-l-15 xs-p-r-15">
+                <p class=" font-arial no-padding no-margin">CARA PEMBUATAN / ways of making</p>
+                <p class="bold text-black m-b-20">Kek Dikukus selama 4 jam untuk memastikan kek boleh tahan lama.</p>
+
+                <p class=" font-arial no-padding no-margin">PRODUK BUMIPUTRA / Bumi Product</p>
+                <p class="bold text-black m-b-20">Ya, eCaque Enterprise dimiliki penuh oleh Pn. Faridah Borham.</p>
+
+                <p class=" font-arial no-padding no-margin">CARA PENYIMPANAN / Storage Condition</p>
+                <p class="bold text-black m-b-20">Simpan Di Tempat Yang Sejuk Dan Kering</p>
+
+                <p class=" font-arial no-padding no-margin">PRODUK BERASAL DARI MANA / Origin of Product</p>
+                <p class="bold text-black m-b-20">Sungai Besar, Selangor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- BEGIN FOOTER -->
       <section class="p-b-55 p-t-75 xs-p-b-20 bg-master-darker " id="contact">
         <div class="container">
@@ -1437,7 +1484,10 @@ $rp5 = getProductEnc(5);
 
     $("#promoBuy").click(function(e){
       console.log("asd");
-      $("[id='buyNow'][rpid='<?php echo $rp5 ?>']").click();
+      $("#modalSlideUp").modal();
+      $("#quantityOrder").val(1);
+      RPID = '<?php echo $rp6 ?>';
+      getPrice();
     });
     </script>
   </body>
