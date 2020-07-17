@@ -134,16 +134,17 @@ function whatsappOrder($data){
   $rp_postage = $row["rp_postage"];
   $rp_price = $row["rp_price"];
   $rp_name = $row["rp_name"];
-  $postagefee = number_format(0.00,2);
+  $postagefee = number_format(0.00,2,".","");
   $total = 0.00;
 
-  if ($q < $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
-  $total = number_format($postagefee + ($q * $rp_price), 2);
+
+  if ($q < $freepostage) { number_format($postagefee = $rp_postage * $q,2,".",""); }
+  $total = number_format($postagefee + ($q * $rp_price), 2,".","");
 
   $arr["rp_name"] = $rpname;
-  $arr["rp_price"] = number_format($rp_price, 2);
-  $arr["postagefee"] = number_format($postagefee, 2);
-  $arr["total"] = number_format($total, 2);
+  $arr["rp_price"] = number_format($rp_price, 2,".","");
+  $arr["postagefee"] = number_format($postagefee, 2,".","");
+  $arr["total"] = number_format($total, 2,".","");
   $arr["STATUS"] = true;
 
   return $arr;
@@ -175,11 +176,11 @@ function OrderNow($data){
   $rp_postage = $row["rp_postage"];
   $rp_price = $row["rp_price"];
   $rp_name = $row["rp_name"];
-  $postagefee = number_format(0.00,2);
+  $postagefee = number_format(0.00,2,".","");
   $total = 0.00;
 
-  if ($q < $freepostage) { number_format($postagefee = $rp_postage * $q,2); }
-  $total = number_format($postagefee + ($q * $rp_price), 2);
+  if ($q < $freepostage) { number_format($postagefee = $rp_postage * $q,2,".",""); }
+  $total = number_format($postagefee + ($q * $rp_price), 2,".","");
 
   $er_fullname = $data["fullname"];
   $er_address = $data["address"];
