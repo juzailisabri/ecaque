@@ -267,7 +267,7 @@ $rp6 = getProductEnc(6);
               <div class="swiper-slide fit" id="promoBuy">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
-                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/D_SliderWebsite_rayakorbam2020.jpg"></div>
+                    <div class="background hidden-xs" style="background-position: center bottom" data-pages-bg-image="assets/slider/D_SliderWebsite_rayakorbam2020.jpg"></div>
                     <div class="background visible-xs" style="background-position: center center" data-pages-bg-image="assets/slider/D_SliderWebsite_rayakorbam2020Mobile.jpg"></div>
                   </div>
                 </div>
