@@ -264,7 +264,7 @@ $rp6 = getProductEnc(6);
           <div class="swiper-container" id="hero">
             <div class="swiper-wrapper" >
 
-              <div class="swiper-slide fit" id="promoBuy">
+              <!-- <div class="swiper-slide fit" id="promoBuy">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
                     <div class="background hidden-xs" style="background-position: center bottom" data-pages-bg-image="assets/slider/D_SliderWebsite_rayakorbam2020.jpg"></div>
@@ -284,7 +284,7 @@ $rp6 = getProductEnc(6);
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="swiper-slide fit">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
@@ -415,7 +415,7 @@ $rp6 = getProductEnc(6);
         </div>
       </section>
 
-      <section class=" p-b-85 p-t-75 no-overflow">
+      <!-- <section class=" p-b-85 p-t-75 no-overflow">
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin">CABUTAN BERTUAH PROMO RAYA KORBAN 2020</h5>
@@ -465,7 +465,7 @@ Sebarang penyertaan selepas tarikh peraduan akan terbatal serta merta.</p>
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
 
 
