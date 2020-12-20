@@ -1087,7 +1087,7 @@ Sebarang penyertaan selepas tarikh peraduan akan terbatal serta merta.</p>
                 <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Alamat Pejabat :</a></li>
                 <li class="m-b-5 no-padding bold text-white">No. 23, Jalan Purnama 2/3, Taman Purnama 2, 45300 Sungai Besar, Selangor Darul Ehsan</li>
                 <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Contact (WhatsApp/Call) :</a></li>
-                <li class="m-b-5 no-padding bold text-white">+6012 354 3797</li>
+                <li class="m-b-5 no-padding bold text-white">+6018 378 8508</li>
                 <li class="m-b-5 no-padding"><a href="#" class="link text-white ">Alamat Email :</a></li>
                 <li class="m-b-5 no-padding bold text-white">sales@ecaque.my</li>
               </ul>

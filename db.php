@@ -123,7 +123,7 @@ function whatsappOrder($data){
   $clientPhone = $data["phone"];
   $q = $data["quantityOrder"];
 
-  $phone = "60194313041";
+  $phone = "60183788508";
 
   $s = "SELECT * FROM ref_product WHERE SHA2(CONCAT('$secretKey',rp_id),256) = '$rpid' AND rp_status = 1";
   $res = $conn->query($s);
@@ -165,7 +165,7 @@ function OrderNow($data){
   $clientPhone = $data["phone"];
   $q = $data["quantityOrder"];
   $ref = "#";
-  $phone = "60194313041";
+  $phone = "60183788508";
 
   $s = "SELECT * FROM ref_product WHERE SHA2(CONCAT('$secretKey',rp_id),256) = '$rpid'";
   $res = $conn->query($s);
