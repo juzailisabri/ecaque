@@ -15,6 +15,16 @@ $(document).ready(function() {
         speed: 1000,
     });
 
+    var slider = new Swiper('#hero2', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 1,
+        parallax: true,
+        speed: 1000,
+    });
+
     //Intialize Testamonials
     var testimonials_slider = new Swiper('#testimonials_slider', {
         pagination: '.swiper-pagination',
