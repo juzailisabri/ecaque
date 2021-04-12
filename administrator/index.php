@@ -230,7 +230,22 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
                 </li>
               </ul>
             </li>
+            <li class="active">
+              <a href="javascript:;" class="syslink2">
+                <span class="title ">Voucher</span>
+                <span class="arrow"></span>
+              </a>
+              <ul class="">
+                <li class="">
+                  <a class="syslink" href="page/admin/create-voucher">Create Voucher</a>
+                </li>
+                <li class="">
+                  <a class="syslink" href="page/admin/record-voucher">Record Voucher</a>
+                </li>
+              </ul>
+            </li>
           </ul>
+
           <a href="#" class="search-link d-flex justify-content-between align-items-center d-lg-none" data-toggle="search">Tap here to search <i class="pg-search float-right"></i></a>
         </div>
       </div>

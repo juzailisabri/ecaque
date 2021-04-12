@@ -31,6 +31,21 @@ function getNegara(){
   }
 }
 
+
+function getVoucher(){
+  global $conn;
+
+  $select = "SELECT rv_id, rv_name FROM ref_voucher WHERE rv_status = 1 ORDER BY rv_id";
+  $result = $conn->query($select);
+  echo "<option value=''>-- Pilih Voucher --</option>";
+  while ($row = $result->fetch_assoc())
+  {
+    $id=$row["rv_id"];
+    $name=$row["rv_name"];
+    echo "<option value='$id'>$name</option>";
+  }
+}
+
 function getNegeri(){
   global $conn;
 

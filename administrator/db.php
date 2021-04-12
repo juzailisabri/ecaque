@@ -917,7 +917,7 @@ function insertOrder($data){
   $orderDate = convertdate($data["orderDate"]);
   $pickupDate = convertdate($data["pickupDate"]);
   $orderdata = calculateOrderStokist($data);
-  
+
   $JenisPenghantaran = $data["JenisPenghantaran"];
   (isset($data["tempatPenghantaran"]))?$tempatPenghantaran = $data["tempatPenghantaran"]:$tempatPenghantaran = "";
   (isset($data["tempatOthers"]))?$tempatOthers = $data["tempatOthers"]:$tempatOthers = "";
@@ -1667,5 +1667,200 @@ function calculateOrderStokist($data){
   $arrset["totals"] = $total;
 
   return $arrset;
+}
+
+if($_POST["func"] == "getVoucher"){
+  echo json_encode(getVoucher($_POST));
+}
+
+function getVoucher($data){
+  global $conn;
+
+  $columns = array(
+    // datatable column index  => database column name
+    0 => 'ev_id',
+    1 => 'ev_id',
+    2 => 'rv_name',
+    3 => 'ev_customerphone',
+    4 => 'ev_status'
+  );
+
+  $where = "";
+
+  if (isset($data["voucher"]) && $data["voucher"] != '') {
+    $where .= "AND rv_id = ".$data["voucher"]." ";
+  }
+
+  if (isset($data["status"]) && $data["status"] != '') {
+    $where .= "AND ev_status = '".$data["status"]."' ";
+  }
+
+  if (isset($data["vno"]) && $data["vno"] != '') {
+    $where .= "AND ev_id IN (".$data["vno"].") ";
+  }
+
+  $sql = "SELECT COUNT(ev_id) as count FROM e_voucher LEFT JOIN ref_voucher ON rv_id = ev_rv_id WHERE TRUE $where";
+
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  $numrows = $row["count"];
+  $totalData = $numrows;
+
+  $sql = "SELECT
+  SHA2(ev_id,256) as enc_id,
+  ev_id,
+  rv_name,
+  ev_customerphone,
+  ev_status,
+  rs_name,
+  rs_color
+  FROM e_voucher
+  LEFT JOIN ref_voucher ON rv_id = ev_rv_id
+  LEFT JOIN ref_status ON rs_id = ev_status
+  WHERE TRUE $where
+  ";
+
+  if(!empty($data['search'])) {
+    $search = $data['search'];
+    $sql.=" AND (ev_id  LIKE '%".$search."%' ";
+    $sql.=" OR ev_customerphone LIKE '%".$search."%')";
+
+    $sql.=" ORDER BY ". $columns[$data['order'][0]['column']]." ".$data['order'][0]['dir']." LIMIT ".$data['start']." ,".$data['length']."   ";
+
+    $result = $conn->query($sql);
+    $numrows = $result->num_rows;
+    $totalFiltered = $numrows;
+  } else {
+    $sql.=" ORDER BY ". $columns[$data['order'][0]['column']]." ".$data['order'][0]['dir']." LIMIT ".$data['start']." ,".$data['length']."   ";
+    $result = $conn->query($sql);
+    $numrows = $result->num_rows;
+    $totalFiltered = $numrows;
+  }
+
+  $x = 1;
+  $datadb = array();
+  while ($row = $result->fetch_assoc()) {
+    $encid = $row["enc_id"];
+    $rs_name = $row["rs_name"];
+    $rs_color = $row["rs_color"];
+    $buttonarray[0] = "<a id=\"open\" href=\"voucher?id=$encid\" target=\"_blank\" class=\"dropdown-item\" >Open</a>";
+    $buttonarray[1] = "<a id=\"sendVoucher\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Send</a>";
+    $buttonarray[2] = "<a id=\"changeStatus\" stat=\"Use\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Use</a>";
+    // $buttonarray[2] = "<a id=\"changeStatus\" stat=\"ban\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Ban</a>";
+    $button = dropdownButtonstyle1($rs_name,"btn-$rs_color",$buttonarray);
+    // $button = "";
+
+    $code = "ECQ".sprintf("%011d", $row["ev_id"]);
+    $nestedData=array();
+    $nestedData[] = $row["ev_id"];
+    $nestedData[] = "<b>".$code."</b><br>".$row["rv_name"]."<br>".$row["ev_customerphone"];
+    $nestedData[] = $code."<br>";
+
+    $nestedData[] = $row["rv_name"];
+    $nestedData[] = $row["ev_customerphone"];
+    $nestedData[] = $button;
+
+    $datadb[] = $nestedData;
+    $x++;
+  }
+
+  error_log(print_r($data,true),0);
+
+  $json_data = array(
+    "draw"            => intval( $data['draw'] ),   // for every request/draw by clientside , they send a number as a parameter, when they recieve a response/data they first check the draw number, so we are sending same number in draw.
+    "recordsTotal"    => intval( $totalFiltered),  // total number of records
+    "recordsFiltered" => intval( $totalData ), // total number of records after searching, if there is no searching then totalFiltered = totalData
+    "data"            => $datadb
+  );
+
+  return $json_data;
+}
+
+if($_POST["func"] == "insertVoucher"){
+  echo json_encode(insertVoucher($_POST));
+}
+
+function insertVoucher($data){
+  global $conn;
+
+  $voucher = $data["voucher"];
+  $bilvoucher = $data["bilvoucher"];
+  $customerNoPhone = $data["customerNoPhone"];
+
+  $iarray = array();
+  for ($i=0; $i < $bilvoucher; $i++) {
+    array_push($iarray,"($voucher, '$customerNoPhone', '4001')");
+  }
+
+  $iarrayStr = implode(",",$iarray);
+
+  $i = "INSERT INTO e_voucher
+  (
+    ev_rv_id,
+    ev_customerphone,
+    ev_status
+  )
+  VALUES
+  $iarrayStr";
+
+  if ($conn->query($i)) {
+    $ret["STATUS"] = true;
+    $ret["MSG"] = "Voucher Berjaya Didaftarkan, sila verify stokist dalam senarai pending verification";
+    $arrayinsert = array();
+    for ($i=$conn->insert_id; $i < $conn->insert_id+$bilvoucher; $i++) {
+      array_push($arrayinsert,$i);
+    }
+    $ret["INSERTID"] = implode(",",$arrayinsert);
+    $ret["INSERTIDORI"] = $conn->insert_id;
+;
+  } else {
+    $ret["STATUS"] = false;
+    $ret["MSG"] = "Voucher Tidak Berjaya Didaftarkan, sila hubungi pihak admin sistem";
+  }
+
+  return $ret;
+}
+
+if($_POST["func"] == "sendVoucher"){
+  echo json_encode(sendVoucher($_POST));
+}
+
+function sendVoucher($data){
+  global $conn;
+  global $baseurl;
+
+  $id = $data["id"];
+
+  $sql = "SELECT
+  SHA2(ev_id,256) as enc_id,
+  ev_customerphone,
+  rv_name,
+  ev_id,
+  rv_value
+  FROM e_voucher
+  LEFT JOIN ref_voucher ON rv_id = ev_rv_id
+  LEFT JOIN ref_status ON rs_id = ev_status
+  WHERE SHA2(ev_id,256) = '$id'";
+
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+
+  $code = "ECQ".sprintf("%011d", $row["ev_id"]);
+  $customerNoPhone = $row["ev_customerphone"];
+  $rv_name = $row["rv_name"];
+  $rv_value = $row["rv_value"];
+
+  $u = "UPDATE e_voucher SET ev_status = '4002' WHERE SHA2(ev_id,256) = '$id' AND ev_status = '4001'";
+  $conn->query($u);
+
+  $l = "Tahniah! %0a\n%0a\nAnda telah berjaya menebus $rv_name ($code) bernilai *RM$rv_value.00*. Baucar boleh digunakan oleh anda atau kenalan anda dengan hanya menyatakan no. telefon anda. %0a\n%0a\nSila Tekan Link untuk muat turun baucar %0a\n%0a\n$baseurl/v/$id";
+  $ret["WLINK"] = sendWhatsapp($l,$customerNoPhone);
+
+  return $ret;
+}
+
+
+function sendWhatsapp($text,$clientPhone){
+  return "https://api.whatsapp.com/send?phone=$clientPhone&text=$text";
 }
 ?>

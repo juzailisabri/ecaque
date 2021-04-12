@@ -9,6 +9,7 @@ if ($_SERVER["HTTP_HOST"] == "localhost" || $_SERVER["HTTP_HOST"] == "developer.
   $http = "http";
   $callback = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
   $returnUrl = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
+  $baseurl = "$http://developer.dyndns.org/ecaque";
 } else {
   $servername = "localhost";
   $username = "ecaquemy";
@@ -18,6 +19,7 @@ if ($_SERVER["HTTP_HOST"] == "localhost" || $_SERVER["HTTP_HOST"] == "developer.
   $http = "https";
   $callback = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/paycallback";
   $returnUrl = "$http://".$_SERVER["HTTP_HOST"]."$rootdir/payreturn";
+  $baseurl = "$http://ecaque.my";
 }
 
 $toyyiburl = "https://toyyibpay.com/";

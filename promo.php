@@ -2,14 +2,14 @@
 include("administrator/formfunction.php");
 $buyPanel = "false"; if (isset($_GET["l"])) { $buyPanel = $_GET["l"]; }
 $rpid = ""; if (isset($_GET["rpid"])) { $rpid = $_GET["rpid"]; }
-$ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/promo/CNY2021/square/promologo.png";
+$ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/promo/RMDN2021/s7.jpg";
 
-$rp7 = getProductEnc(7);
-$rp8 = getProductEnc(8);
-$rp9 = getProductEnc(9);
-$rp10 = getProductEnc(10);
-$rp11 = getProductEnc(11);
-$rp12 = getProductEnc(12);
+$rp7 = getProductEnc(13);
+$rp8 = getProductEnc(14);
+$rp9 = getProductEnc(15);
+$rp10 = getProductEnc(16);
+$rp11 = getProductEnc(17);
+$rp12 = getProductEnc(18);
 
 ?>
 
@@ -21,7 +21,7 @@ $rp12 = getProductEnc(12);
     <title>eCaque - Homemade Fruit Cake</title>
 
     <meta property="og:site_name" content="eCaque.my | Homemade Fruit Cake">
-    <meta property="og:title" content="eCaque | Promosi Istimewa CNY2021" />
+    <meta property="og:title" content="eCaque | Promosi Istimewa Ramadan 2021" />
     <meta property="og:description" content="Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek adalah moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang." />
     <meta property="og:image" itemprop="image" content="<?php echo $ogimage ?>">
     <meta property="og:type" content="website" />
@@ -66,7 +66,7 @@ $rp12 = getProductEnc(12);
                     <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                       <i class="pg-close fs-14"></i>
                     </button> -->
-                    <h4 class="fs-20">Promo CNY2021 <span class="semi-bold">eCaque</span> |  Whatsapp</h4>
+                    <h4 class="fs-20">Ramadan Tiba <span class="semi-bold">eCaque</span> |  Whatsapp</h4>
                     <!-- <p class="text-black  fs-13">Sila masukkan maklumat Nama, Alamat, No. Telefon dan kuantiti kek yang anda perlukan bagi pesanan ini. Pesanan ini akan dihantar melalui aplikasi WhatsApp.</p> -->
                 </div>
                 <div class="modal-body">
@@ -271,8 +271,8 @@ $rp12 = getProductEnc(12);
               <div class="swiper-slide fit" id="">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="0%">
-                    <div class="background hidden-xs"  style="background-position: center top" data-pages-bg-image="assets/promo/CNY2021/desktopBanner.jpg"></div>
-                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/CNY2021/mobileBanner.png"></div>
+                    <div class="background hidden-xs"  style="background-position: center top" data-pages-bg-image="assets/promo/RMDN2021/desktopBanner.jpg"></div>
+                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/RMDN2021/mobileBanner.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -323,7 +323,7 @@ $rp12 = getProductEnc(12);
               <div class="swiper-slide fit" id="promoBuy" prod="<?php echo $rp7; ?>">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="0%">
-                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/CNY2021/square/CNY2021-02.jpg"></div>
+                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/RMDN2021/s3.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -343,7 +343,7 @@ $rp12 = getProductEnc(12);
               <div class="swiper-slide fit" id="promoBuy" prod="<?php echo $rp8; ?>">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="0%">
-                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/CNY2021/square/CNY2021-03.jpg"></div>
+                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/RMDN2021/s1.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -363,7 +363,7 @@ $rp12 = getProductEnc(12);
               <div class="swiper-slide fit" id="promoBuy" prod="<?php echo $rp9; ?>">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="0%">
-                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/CNY2021/square/CNY2021-04.jpg"></div>
+                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/RMDN2021/s2.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -383,7 +383,7 @@ $rp12 = getProductEnc(12);
               <div class="swiper-slide fit" id="promoBuy" prod="<?php echo $rp10; ?>">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="0%">
-                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/CNY2021/square/CNY2021-05.jpg"></div>
+                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/RMDN2021/s4.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -402,7 +402,7 @@ $rp12 = getProductEnc(12);
               <div class="swiper-slide fit" id="promoBuy" prod="<?php echo $rp11; ?>">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="0%">
-                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/CNY2021/square/CNY2021-06.jpg"></div>
+                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/RMDN2021/s5.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -422,7 +422,7 @@ $rp12 = getProductEnc(12);
               <div class="swiper-slide fit" id="promoBuy" prod="<?php echo $rp12; ?>">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="0%">
-                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/CNY2021/square/CNY2021-07.jpg"></div>
+                    <div class="background visible-xs"  style="background-position: center center" data-pages-bg-image="assets/promo/RMDN2021/s6.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -465,23 +465,23 @@ $rp12 = getProductEnc(12);
             </div>
           </div>
           <div class="text-center">
-            <div class="col-md-2 no-padding no-margin" id="promoBuy" prod="<?php echo $rp7; ?>">
-              <img src="assets/promo/CNY2021/CNY2021_story-02.png" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            <div class="col-md-4 no-padding no-margin" id="promoBuy" prod="<?php echo $rp7; ?>">
+              <img src="assets/promo/RMDN2021/s3.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
             </div>
-            <div class="col-md-2 no-padding no-margin" id="promoBuy" prod="<?php echo $rp8; ?>">
-              <img src="assets/promo/CNY2021/CNY2021_story-03.png" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            <div class="col-md-4 no-padding no-margin" id="promoBuy" prod="<?php echo $rp8; ?>">
+              <img src="assets/promo/RMDN2021/s1.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
             </div>
-            <div class="col-md-2 no-padding no-margin" id="promoBuy" prod="<?php echo $rp9; ?>">
-              <img src="assets/promo/CNY2021/CNY2021_story-04.png" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            <div class="col-md-4 no-padding no-margin" id="promoBuy" prod="<?php echo $rp9; ?>">
+              <img src="assets/promo/RMDN2021/s2.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
             </div>
-            <div class="col-md-2 no-padding no-margin" id="promoBuy" prod="<?php echo $rp10; ?>">
-              <img src="assets/promo/CNY2021/CNY2021_story-05.png" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            <div class="col-md-4 no-padding no-margin" id="promoBuy" prod="<?php echo $rp10; ?>">
+              <img src="assets/promo/RMDN2021/s4.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
             </div>
-            <div class="col-md-2 no-padding no-margin" id="promoBuy" prod="<?php echo $rp11; ?>">
-              <img src="assets/promo/CNY2021/CNY2021_story-06.png" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            <div class="col-md-4 no-padding no-margin" id="promoBuy" prod="<?php echo $rp11; ?>">
+              <img src="assets/promo/RMDN2021/s5.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
             </div>
-            <div class="col-md-2 no-padding no-margin" id="promoBuy" prod="<?php echo $rp12; ?>">
-              <img src="assets/promo/CNY2021/CNY2021_story-07.png" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            <div class="col-md-4 no-padding no-margin" id="promoBuy" prod="<?php echo $rp12; ?>">
+              <img src="assets/promo/RMDN2021/s6.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
             </div>
           </div>
       </section>
@@ -496,8 +496,37 @@ $rp12 = getProductEnc(12);
 
       <section class="jumbotron full-vha visible-xs" style="padding-top:100%;position:relative;" data-pages="parallax" id="home2">
         <div class="inner full-height bg-danger" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
-          <img src="assets/promo/CNY2021/square/CNY2021-08.jpg" width="100%" alt="">
+          <img src="assets/promo/RMDN2021/teaser3.jpg" width="100%" alt="">
         </div>
+      </section>
+      <section class="jumbotron full-vha visible-xs" style="padding-top:100%;position:relative;" data-pages="parallax" id="home2">
+        <div class="inner full-height bg-danger" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+          <img src="assets/promo/RMDN2021/teaser2.jpg" width="100%" alt="">
+        </div>
+      </section>
+      <section class="jumbotron full-vha visible-xs" style="padding-top:100%;position:relative;" data-pages="parallax" id="home2">
+        <div class="inner full-height bg-danger" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+          <img src="assets/promo/RMDN2021/teaser1.jpg" width="100%" alt="">
+        </div>
+      </section>
+
+      <section class="jumbotron full-vha hidden-xs padding-20a"  data-pages="" id="home2">
+          <div class="row bg-master-darkest">
+            <div class="padding-20 text-center text-white ">
+             <b>Klik gambar promo dibawah untuk membuat pesanan</b> / <i>Click at promotion image Below to Order</i>
+            </div>
+          </div>
+          <div class="text-center">
+            <div class="col-md-4 no-padding no-margin" >
+              <img src="assets/promo/RMDN2021/teaser3.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            </div>
+            <div class="col-md-4 no-padding no-margin" >
+              <img src="assets/promo/RMDN2021/teaser2.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            </div>
+            <div class="col-md-4 no-padding no-margin" >
+              <img src="assets/promo/RMDN2021/teaser1.jpg" style="display: block; cursor:pointer;" class="no-padding no-margin" width="100%" alt="">
+            </div>
+          </div>
       </section>
 
       <!-- END JUMBOTRON -->
@@ -556,7 +585,7 @@ $rp12 = getProductEnc(12);
                   <h3 class="text-center text-white">
                   Saya sudah beli 5 biji,4 biji saya bagi emak dan akak-akak, menyesal saya cuma 1 biji sahaja sebab dah habis separuh sebelum raya… Saya dan suami tidak jemu makan kek  ni, tidak ada sama kek buah yang lain yang pernah saya makan sebelum ni..  Betul2 sedap <br> <small>– Hjh Zuraidah (Brunei)</small>
                   </h3>
-                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.jpg"> -->
                 </div>
               </div>
             </div>
@@ -566,7 +595,7 @@ $rp12 = getProductEnc(12);
                   <h3 class="text-center text-white">
                   Dah banyak saya cuba tapi kek ni paling sedap dan moist keknya… saya brpuas hati sangat, keknya rasanya sedap.. keknya di potong tak berderai...manisnya pun cukup.. Sekarang saya nak order lagi, 3pek <br> <small>- Ema Shadan (Brunei)</small>
                   </h3>
-                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.jpg"> -->
                 </div>
               </div>
             </div>
@@ -578,7 +607,7 @@ $rp12 = getProductEnc(12);
                   <h3 class="text-center text-white">
                   Alhamdulillah sedap sungguh kek buah ni. Makannya pun tak jemu sebab tidak terlalu manis. <br> <small>– Nurdin (Alor Setar, Kedah)</small>
                   </h3>
-                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.jpg"> -->
                 </div>
               </div>
             </div>
@@ -590,7 +619,7 @@ $rp12 = getProductEnc(12);
                   <h3 class="text-center text-white">
                   Dah makan pun. Allah, sedap betul kek buah nii. Rasa moist dan bau butternya. Buah pun banyak. Sedap sungguh! <br> <small>- Pn Norida Mohamed (Subang, Selangor)</small>
                   </h3>
-                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.jpg"> -->
                 </div>
               </div>
             </div>
@@ -600,7 +629,7 @@ $rp12 = getProductEnc(12);
                   <h3 class="text-center text-white">
                   Saya dengar cerita sedap kek ni, saya pun beli lah 1 bekas.. Subhanallah memang sedap rasanya lembut dan moist lembab rasa kek tu.. penuh buahnya… Tak cukup satu nak lagi..  <br> <small>- Wadiananty Abdullah (Miri, Sarawak)</small>
                   </h3>
-                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.png"> -->
+                  <!-- <img alt="" class="m-t-20" src="assets/images/signature_sample.jpg"> -->
                 </div>
               </div>
             </div>
