@@ -2,7 +2,7 @@
 include("administrator/formfunction.php");
 $buyPanel = "false"; if (isset($_GET["l"])) { $buyPanel = $_GET["l"]; }
 $rpid = ""; if (isset($_GET["rpid"])) { $rpid = $_GET["rpid"]; }
-$ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/promo/RMDN2021/desktopBanner.jpg";
+$ogimage = "http://".$_SERVER["HTTP_HOST"]."$rootdir/assets/promo/RMDN2021/desktopBanner.png";
 
 $rp7 = getProductEnc(13);
 $rp8 = getProductEnc(14);
