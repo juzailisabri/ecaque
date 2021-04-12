@@ -513,7 +513,7 @@ $rp12 = getProductEnc(18);
       <section class="jumbotron full-vha hidden-xs padding-20a"  data-pages="" id="home2">
           <div class="row bg-master-darkest">
             <div class="padding-20 text-center text-white ">
-             <b>Klik gambar promo dibawah untuk membuat pesanan</b> / <i>Click at promotion image Below to Order</i>
+             <b>Klik gambar promo diatas untuk membuat pesanan</b> / <i>Click at promotion image Below to Order</i>
             </div>
           </div>
           <div class="text-center">
