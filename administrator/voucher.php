@@ -56,8 +56,6 @@ $code = "ECQ".sprintf("%011d", $ev["ev_id"]);
  * @since 2010-05-02
  */
 
-
-
 // Include the main TCPDF library (search for installation path).
 require_once('../tcpdf/tcpdf.php');
 
@@ -176,7 +174,7 @@ $pdf->SetFont('helvetica', '', 8);
 // $pdf->Output('example_058.pdf', 'D');
 
 ob_end_clean();
-$pdf->Output("$name $code.pdf", 'I');
+$pdf->Output("test.pdf", 'I');
 
 //============================================================+
 // END OF FILE
