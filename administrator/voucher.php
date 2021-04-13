@@ -176,7 +176,7 @@ $pdf->SetFont('helvetica', '', 8);
 // $pdf->Output('example_058.pdf', 'D');
 
 ob_end_clean();
-$pdf->Output("$name $code", 'D');
+$pdf->Output("$name $code", 'I');
 
 //============================================================+
 // END OF FILE
