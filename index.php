@@ -533,7 +533,7 @@ Sebarang penyertaan selepas tarikh peraduan akan terbatal serta merta.</p>
                 <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
                 <hr>
-                <h1 class="m-t-20 text-white">RM 50 </h1>
+                <h1 class="m-t-20 text-white">RM 60 </h1>
                 <h5 class="hint-text no-margin text-white">+ RM10 Postage </h5>
                 <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5>
                 <div class="m-t-20">
@@ -545,7 +545,7 @@ Sebarang penyertaan selepas tarikh peraduan akan terbatal serta merta.</p>
                 <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
                 <hr>
-                <h1 class="m-t-20 text-white">RM 150 </h1>
+                <h1 class="m-t-20 text-white">RM 180 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5>
                 <div class="m-t-20">
@@ -557,7 +557,7 @@ Sebarang penyertaan selepas tarikh peraduan akan terbatal serta merta.</p>
                 <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
                 <hr>
-                <h1 class="m-t-20 text-white">RM 200 </h1>
+                <h1 class="m-t-20 text-white">RM 240 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5>
                 <div class="m-t-20">
@@ -569,7 +569,7 @@ Sebarang penyertaan selepas tarikh peraduan akan terbatal serta merta.</p>
                 <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
                 <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
                 <hr>
-                <h1 class="m-t-20 text-white">RM 250 </h1>
+                <h1 class="m-t-20 text-white">RM 300 </h1>
                 <h5 class="hint-text no-margin text-white">Free Postage </h5>
                 <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5>
                 <div class="m-t-20">
