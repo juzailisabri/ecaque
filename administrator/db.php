@@ -1746,6 +1746,7 @@ function getVoucher($data){
     $buttonarray[0] = "<a id=\"open\" href=\"voucher?id=$encid\" target=\"_blank\" class=\"dropdown-item\" >Open</a>";
     $buttonarray[1] = "<a id=\"sendVoucher\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Send</a>";
     $buttonarray[2] = "<a id=\"changeStatus\" stat=\"Use\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Use</a>";
+    // $buttonarray[3] = "<a id=\"changeStatus\" stat=\"Reset\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Reset</a>";
     // $buttonarray[2] = "<a id=\"changeStatus\" stat=\"ban\" key=\"$encid\" class=\"dropdown-item\" href=\"#\">Ban</a>";
     $button = dropdownButtonstyle1($rs_name,"btn-$rs_color",$buttonarray);
     // $button = "";
@@ -1855,6 +1856,38 @@ function sendVoucher($data){
 
   $l = "Tahniah! %0a\n%0a\nAnda telah berjaya menebus $rv_name ($code) bernilai *RM$rv_value.00*. Baucar boleh digunakan oleh anda atau kenalan anda dengan hanya menyatakan no. telefon anda. %0a\n%0a\nSila Tekan Link untuk muat turun baucar %0a\n%0a\n$baseurl/v/$id";
   $ret["WLINK"] = sendWhatsapp($l,$customerNoPhone);
+
+  return $ret;
+}
+
+
+if($_POST["func"] == "changeStatusVoucher"){
+  $s["Use"] = 4003;
+  $s["Reset"] = 4002;
+  echo json_encode(changeStatusVoucher($_POST,$s[$_POST["subfunc"]]));
+}
+
+function changeStatusVoucher($data,$statusChange){
+  global $conn;
+  $evid = $data["evid"];
+
+  $u = "UPDATE e_voucher SET ev_status = '$statusChange' WHERE SHA2(ev_id,256) = '$evid'";
+  if ($conn->query($u)) {
+    $ret["STATUS"] = true;
+    $msg[4003] = "Voucher telah berjaya digunakan";
+    $msg[4001] = "Voucher telah berjaya direset";
+    $ret["MSG"] = $msg[$statusChange];
+
+    if ($statusChange == 1001) {
+      $stokis = getStokistDetail($_POST);
+      agentVerification($stokis[0]["es_email"],$stokis[0]["es_name"]);
+    }
+  } else {
+    $ret["STATUS"] = false;
+    $msg[4003] = "Voucher tidak berjaya digunakan";
+    $msg[4001] = "Voucher tidak berjaya direset";
+    $ret["MSG"] = $msg[$statusChange];
+  }
 
   return $ret;
 }

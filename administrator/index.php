@@ -239,9 +239,9 @@ if (isset($_GET["m"])) { $linkmenu = $_GET["m"]; }
                 <li class="">
                   <a class="syslink" href="page/admin/create-voucher">Create Voucher</a>
                 </li>
-                <li class="">
+                <!-- <li class="">
                   <a class="syslink" href="page/admin/record-voucher">Record Voucher</a>
-                </li>
+                </li> -->
               </ul>
             </li>
           </ul>

@@ -211,21 +211,21 @@ var tablePengguna = $('#table-pengguna').on('preXhr.dt', function ( e, settings,
 });
 
 function changeStatusFunc(){
-  var esid = $(this).attr("key");
+  var evid = $(this).attr("key");
   var stat = $(this).attr("stat");
-  ESID = esid;
+  EVID = evid;
   SUBFUNC = stat;
   runfunction = changeStatus;
-  saConfirm4("Tukar Status?","Anda pasti untuk tukar status ejen?","warning","Ya, Pasti",runfunction,"Pasti");
+  saConfirm4("Tukar Status?","Anda pasti untuk tukar status voucher?","warning","Ya, Pasti",runfunction,"Pasti");
 }
 
 var SUBFUNC;
 
 function changeStatus(){
   var fd = new FormData();
-  fd.append("func","changeStatusStokist");
+  fd.append("func","changeStatusVoucher");
   fd.append("subfunc",SUBFUNC);
-  fd.append("esid",ESID);
+  fd.append("evid",EVID);
   $.ajax({
       type: 'POST',
       url: "db",
@@ -275,27 +275,27 @@ $("#voucherNo").on("keydown", function(e) {
 
 
 
-var ESID = null;
+var EVID = null;
 
 function enableFunc(){
-  var esid = $(this).attr("key");
-  ESID = esid;
+  var evid = $(this).attr("key");
+  EVID = evid;
   T_FUNC = "enable-user";
   runfunction = toogleStatus;
   saConfirm4("Aktifkan pengguna?","Anda pasti untuk aktifkan pengguna?","warning","Ya, Pasti",runfunction,"Pasti");
 }
 
 function disabledFunc(){
-  var esid = $(this).attr("key");
-  ESID = esid;
+  var evid = $(this).attr("key");
+  EVID = evid;
   T_FUNC = "disable-user";
   runfunction = toogleStatus;
   saConfirm4("Nyah-Aktifkan pengguna?","Anda pasti untuk Nyah-Aktifkankan pengguna?","warning","Ya, Pasti",runfunction,"Pasti");
 }
 
 function edituserFunc(){
-  var esid = $(this).attr("key");
-  ESID = esid;
+  var evid = $(this).attr("key");
+  EVID = evid;
   INSFUNC = 'updateStockist';
   getStockistInfos();
 }
@@ -304,7 +304,7 @@ function getStockistInfos(){
   loading();
   var fd = new FormData();
   fd.append("func","getStokistDetail");
-  fd.append("esid",ESID);
+  fd.append("evid",EVID);
   $.ajax({
       type: 'POST',
       url: "db",
@@ -359,7 +359,7 @@ function setForm(data){
 function toogleStatus(){
   var fd = new FormData();
   fd.append("func",T_FUNC);
-  fd.append("esid",ESID);
+  fd.append("evid",EVID);
   $.ajax({
       type: 'POST',
       url: "db",
@@ -421,7 +421,7 @@ function save(){
   var myform = document.getElementById('form-stokist');
   var fd = new FormData(myform);
   fd.append("func",INSFUNC);
-  fd.append("esid",ESID);
+  fd.append("evid",EVID);
   $.ajax({
       type: 'POST',
       url: "db",
@@ -448,8 +448,8 @@ function save(){
 }
 
 function sendWhatsappFunction(){
-  var esid = $(this).attr("key");
-  ESID = esid;
+  var evid = $(this).attr("key");
+  EVID = evid;
   sendWhatsapp();
 }
 
@@ -463,7 +463,7 @@ function iOSversion() {
 function sendWhatsapp(){
   var fd = new FormData();
   fd.append("func","sendVoucher");
-  fd.append("id",ESID);
+  fd.append("id",EVID);
   $.ajax({
       type: 'POST',
       url: "db",
