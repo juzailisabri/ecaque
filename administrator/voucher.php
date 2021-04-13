@@ -1,7 +1,7 @@
 <?php
-
+require_once('../tcpdf/tcpdf.php');
 include("conn.php");
-
+ob_start();
 function getVoucher($id){
   global $conn;
   global $secretKey;
@@ -57,7 +57,6 @@ $code = "ECQ".sprintf("%011d", $ev["ev_id"]);
  */
 
 // Include the main TCPDF library (search for installation path).
-require_once('../tcpdf/tcpdf.php');
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -174,7 +173,7 @@ $pdf->SetFont('helvetica', '', 8);
 // $pdf->Output('example_058.pdf', 'D');
 
 ob_end_clean();
-$pdf->Output("test.pdf", 'I');
+$pdf->Output("$name $code.pdf", 'I');
 
 //============================================================+
 // END OF FILE
