@@ -295,10 +295,12 @@ $rp6 = getProductEnc(6);
                 <div class="content-layer">
                   <div class="inner full-height">
                     <div class="container-xs-height full-height">
-                      <div class="col-xs-height col-bottom text-left">
+                      <div class="col-xs-height col-middle text-center">
                         <div class="container ">
-                          <div class="col-md-offset-6a col-md-12  m-b-100 col-xs-12 ">
-
+                          <div class="col-md-offset-6a col-md-12 col-xs-12">
+                            <h3 class="text-white" >Kek Kukus Premium eCaque</h3>
+                            <h1 class="text-white p-b-20" style="font-size:80px">Rasa yang Asli</h1>
+                            <a href="https://kekbuahviral.com/products/" target="_blank" type="button" class="btn btn-primary btn-lg bold m-t-20" name="button">Jom Beli Sekarang</a>
                           </div>
                         </div>
                       </div>
@@ -316,10 +318,12 @@ $rp6 = getProductEnc(6);
                 <div class="content-layer">
                   <div class="inner full-height">
                     <div class="container-xs-height full-height">
-                      <div class="col-xs-height col-bottom text-left">
+                      <div class="col-xs-height col-middle text-center">
                         <div class="container ">
-                          <div class="col-md-offset-6a col-md-12  m-b-100 col-xs-12 ">
-
+                          <div class="col-md-offset-6a col-md-12 col-xs-12">
+                            <h3 class="text-white" >Kek Kukus Premium eCaque</h3>
+                            <h1 class="text-white p-b-20" style="font-size:80px">Bahan Premium</h1>
+                            <a href="https://kekbuahviral.com/products/" target="_blank" type="button" class="btn btn-primary btn-lg bold m-t-20" name="button">Jom Beli Sekarang</a>
                           </div>
                         </div>
                       </div>
