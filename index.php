@@ -227,7 +227,7 @@ $rp6 = getProductEnc(6);
                 <a id="menuLink" target="home" href="#" class="active  text-white">Home </a>
               </li>
               <li>
-                <a id="menuLink" target="pricing" class="text-white  active"href="#">Beli Sekarang </a>
+                <a id="menuLinkAA" target="pricing" class="text-white  active" target="_blank" href="https://kekbuahviral.com/products/">Beli Sekarang </a>
               </li>
               <li>
                 <a id="menuLink" target="agent" class="text-white  active" href="#">Daftar Ejen </a>
@@ -288,8 +288,8 @@ $rp6 = getProductEnc(6);
               <div class="swiper-slide fit">
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
-                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/slider5.jpg"></div>
-                    <div class="background visible-xs" data-pages-bg-image="assets/slider/slider5-p.jpg"></div>
+                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/slider6.jpg"></div>
+                    <div class="background visible-xs" data-pages-bg-image="assets/slider/slider6-p.jpg"></div>
                   </div>
                 </div>
                 <div class="content-layer">
@@ -307,35 +307,25 @@ $rp6 = getProductEnc(6);
                 </div>
               </div>
               <div class="swiper-slide fit">
-                <!-- BEGIN IMAGE PARRALAX -->
                 <div class="slider-wrapper">
                   <div class="background-wrapper" data-swiper-parallax="30%">
-                    <!-- YOUR BACKGROUND IMAGE HERE, YOU CAN ALSO USE IMG with the same classes -->
-                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/Slider3.jpg"></div>
-                    <div class="background visible-xs" data-pages-bg-image="assets/slider/Slider3-p.jpg"></div>
+                    <div class="background hidden-xs" data-pages-bg-image="assets/slider/slider5.jpg"></div>
+                    <div class="background visible-xs" data-pages-bg-image="assets/slider/slider5-p.jpg"></div>
                   </div>
                 </div>
-                <!-- END IMAGE PARRALAX -->
-                <!-- BEGIN CONTENT -->
                 <div class="content-layer">
                   <div class="inner full-height">
                     <div class="container-xs-height full-height">
                       <div class="col-xs-height col-bottom text-left">
                         <div class="container ">
                           <div class="col-md-offset-6a col-md-12  m-b-100 col-xs-12 ">
-                            <!-- <h1 class="hidden-sm hidden-xs text-white sm-text-center no-padding no-margin" data-swiper-parallax="-15%">Rasai keenakkannya... <br>Pasti sedap..  pasti nak lagi! <br> Kek Buah Kukus eCaque</h1>
-                            <h1 class="hidden-sm visible-xs text-white sm-text-center no-padding no-margin" data-swiper-parallax="-15%">Rasai keenakkannya... <br>Pasti sedap..  pasti nak lagi! <br> Kek Buah Kukus eCaque</h1>
-                            <h2 class="visible-sm text-white sm-text-center no-padding no-margin" data-swiper-parallax="-15%">Rasai keenakkannya... <br>Pasti sedap..  pasti nak lagi! <br> Kek Buah Kukus eCaque</h2>
-                            <hr class="">
-                            <h5 class="block-title text-white sm-text-center">KEK BUAH KUKUS eCAQUE</h5>
-                            <p class="hidden-xs hidden-sm text-white" style="text-align: justify;">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi .Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek yang moist, tidak terlalu manis dengan gabungan aroma butter , caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p> -->
+
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- END CONTENT -->
               </div>
               <!-- END SLIDE -->
               <!-- BEGIN SLIDE -->
@@ -379,259 +369,85 @@ $rp6 = getProductEnc(6);
       <!-- END JUMBOTRON -->
       <!-- BEGIN CONTENT SECTION -->
 
-      <section class=" ap-b-85 ap-t-75 no-overflow bg-master-darker">
-        <div class="container p-t-0 p-b-0 no-padding">
-          <div class="row">
-            <div class="col-lg-6 no-padding">
-              <img src="assets/ecauqe_images/packaging_3.png" class="m-b-20a" width="100%" alt="">
-            </div>
-            <div class="col-lg-6 m-t-10 xs-m-l-15 xs-m-r-15 m-b-10 p-l-20 text-white" >
-              <h5 class="block-title hint-text no-margin b-t-0 text-white">PENGENALAN</h5>
-              <h2 class="m-t-0 m-b-10 text-white">KEK BUAH KUKUS eCaque</h2>
-              <p class="m-b-20 text-justify">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek adalah moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p>
-              <p class="hint-text text-white font-arial text-black bold small-text no-padding no-margin">Berat & Ukuran Kek:: </p>
-              <p class="m-b-20">1.0 Kilogram / 1000 gram (6 inch x 6 inch)</p>
 
-              <p class="hint-text text-white font-arial text-black bold small-text no-padding no-margin">Keistimewaan</p>
-              <ul class="p-l-20 p-t-0 m-t-0">
-                <li><p>Tekstur Kek Moist, Gebu Kerana Dihasilkan Dengan Menggunakan Cara Kukus</p></li>
-                <li><p>Boleh Bertahan Selama 2 Bulan Pada Suhu Bilik</p></li>
-                <li><p>Kotak Eksklusif Sesuai Untuk Hadiah</p></li>
-                <li><p>Ramuan Yang Digunakan Adalah Premium</p></li>
-                <li><p>Menggunakan Pure Butter Jenama Anchor</p></li>
-                <li><p>Tiada Sebarang Bahan Pengawet</p></li>
-                <li><p>Produk Kek Kukus Termasuk Bekas Tertutup Diberikan Secara Percuma</p></li>
-              </ul>
-              <p class="hint-text text-white font-arial text-black bold small-text no-padding no-margin">Bahan-bahan: </p>
-              <p class="m-b-20 text-justify" >100% mentega tulen, Tepung Gandum Penuh Berprotein Tinggi,  Gula pasir, Buah-buahan Campuran Bermutu Tinggi dan Telur Gred A</p>
 
-              <p class="hint-text text-white font-arial text-black bold small-text no-padding no-margin">Cara Penyimpanan / Storage Condition:</p>
-              <p class="m-b-0 text-justify">Simpan yang optimum adalah disimpan di dalam tempat yang sejuk dan kering untuk membenarkan kek untuk bertahan hingga 4 bulan. kek akan bertahan selama 2 bulan jika disimpan pada suhu bilik</p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- <section class=" p-b-85 p-t-75 no-overflow">
+      <section class="bg-white p-b-50 p-t-50" id="">
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin">CABUTAN BERTUAH PROMO RAYA KORBAN 2020</h5>
-            <div class="row">
+            <h5 class="block-title hint-text no-margin bold">TENTANG ECAQUE</h5>
+            <div class="row p-t-20">
               <div class="col-sm-12">
-                <h1 class="m-t-5 m-b-20">Terma & Syarat</h1>
+                <p class="m-t-5">Kek buah kukus Ecaque adalah satu produk muslim homemade yang telah dipasarkan bermula dari tahun 2016. Dihasilkan mengikut resepi asal pemiliknya, Pn Faridah Borham, ianya diadun menggunakan bahan-bahan yang berkualiti tinggi. Kek buah ini dikukus selama 4 jam untuk menghasilkn kek yang lebih tahan lama. Struktur kek adalah moist, tidak terlalu manis dengan gabungan aroma butter, caramel dan buah-buahan campuran kering serta tiada bahan pengawet. Ia amat sesuai dihidangkan untuk minum petang, majlis-majlis dan dihadiahkn kepada yang tersayang.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class=" ap-b-85 ap-t-75 no-overflow bg-white">
+        <div class="container p-t-0 p-b-0 no-padding">
+          <div class="row ">
+            <div class="col-lg-12 no-padding">
+              <img src="assets/ecauqe_images/packaging_6.jpg" class="m-b-20a" width="100%" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-master-lightest p-b-20 p-t-20" id="">
+        <div class="container">
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <h5 class="block-title hint-text no-margin bold p-b-30">Berat & Ukuran Kek</h5>
             <div class="row">
-
-
-              <div class="col-sm-3 xs-p-l-15 xs-p-r-15 ">
-                <p class="bold font-arial no-padding no-margin">Penganjur </p>
-                <p class=" text-black m-b-20">Cabutan Bertuah Ecaque bersempena Raya Haji 2020 ini dianjurkan oleh Ecaque Enterprise.</p>
-
-                <p class="bold font-arial no-padding no-margin">Tempoh Masa</p>
-                <p class=" text-black m-b-20">Peraduan ini bermula dari 18 Julai 2020 hingga 31 Julai 2020
-Pihak penganjur berhak melanjutkan tempoh pada bila-bila masa dan segala perubahan tempoh masa akan diberitahu melalui platform media sosial pihak penganjur.
-Sebarang penyertaan selepas tarikh peraduan akan terbatal serta merta.</p>
-                <p class="bold  font-arial no-padding no-margin"> Syarat Kelayakan</p>
-                <p class="text-black m-b-20">Terbuka kepada semua kecuali kakitangan Ecaque dan ejen dropship & stokis berdaftar.</p>
+              <div class="col-sm-4">
+                <h3 class="m-t-5 bold">Original 1.0 Kilogram</h3>
               </div>
-              <div class="col-sm-5 xs-p-l-30 xs-p-r-30 p-l-3">
-                <p class="bold  font-arial no-padding no-margin">Penerangan Peraduan</p>
-                  <ol class="text-black fs-15 p-l-15">
-                    <li>Dengan setiap satu pembelian Promo Raya Korban 2020 anjuran Ecaque, anda layak untuk menyertai cabutan bertuah. </li>
-                    <li>Pihak penganjur akan menghubungi pemenang </li>
-                    <li>Satu pembelian Promo Raya Korban bersamaan satu entri.</li>
-                    <li>Peserta boleh menyertai sebanyak mana penyertaan sepanjang tempoh peraduan.</li>
-                    <li>Pihak Penganjur akan merekod penyertaan secara automatik bagi setiap pembelian Promo Raya Korban 2020.</li>
-                    <li>Pihak Penganjur akan memaklumkan rekod penyertaan sepanjang tempoh peraduan dari masa ke semasa di media sosial.</li>
-                    <li>Pemenang cabutan bertuah akan diumumkan di IG Live / FB Live pada masa dan waktu yang akan dimaklumkan kelak.</li>
-                    <li>Hadiah hendaklah dituntut dalam masa 24 jam selepas nama pemenang diumumkan. Sekiranya tidak dituntut dalam masa tersebut, kemenangan akan dibatalkan dan cabutan baru akan dibuat untuk menggantikan pemenang tersebut.</li>
-                    <li>Nilai hadiah tidak boleh ditukar dengan wang tunai.</li>
-                    <li>Keputusan penganjur adalah muktamad.</li>
-                    <li>Penganjur mempunyai hak eksklusif untuk menyiarkan dan/atau memaparkan butiran dan/atau gambar pemenang untuk tujuan pengiklanan dan publisiti, serta untuk tujuan pengumuman pemenang sama ada dalam media percetakan, elektronik atau media-media lain.</li>
-                  </ol>
+              <div class="col-sm-4">
+                <h3 class="m-t-5 bold">Original 500 gram</h3>
               </div>
-              <div class="col-sm-4 xs-p-l-15 xs-p-r-15 p-l-30">
-                <p class="bold  font-arial no-padding no-margin">Hadiah Peraduan</p>
-                <ol class="text-black fs-15 p-l-15">
-                  <li>Gold Bar 1g beserta Resit</li>
-                  <li>Telekung Siti Khadijah</li>
-                  <li>Tudung Naelofar</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-
-
-
-      <section class="bg-master-dark ap-b-85 ap-t-75 hidden" id="promotion" style="background:#f4d508">
-        <div class="container hidden-xs no-padding" >
-          <div class="row">
-            <div class="col-lg-3">
-              <h5 class="block-title hint-text no-margin text-black bold p-t-40">PROMOSI HARI BAPA</h5>
-              <h1 class="m-t-5 text-black">Hari Bapa Combo Pack</h1>
-              <h5 class="hint-texta no-margin text-black"><b>2 x</b> Kek Buah Kukus 1kg  </h5>
-              <h5 class="hint-texta no-margin text-black"><b>FREE</b> Kad Ucapan Hari Bapa </h5>
-              <h5 class="hint-texta no-margin text-black"><b>FREE</b> De'Xandra<sup>TM</sup> Miniature</h5>
-              <hr class="text-black" style="background-color: black; height: 1px; border: 0; ">
-              <h1 class="m-t-0 text-black  m-b-0 bold" style="line-height: 0.95"><strike class="text-danger"> RM 120 </strike> </h1>
-              <h1 class="m-t-0 text-black bold m-b-10" style="line-height: 0.95">RM 100 </h1>
-              <h5 class="hint-texta no-margin text-black bold">FREE POSTAGE </h5>
-              <h5 class="hint- no-margin text-black">Jimat <b class="text-black">RM20</b> </h5>
-              <div class="m-t-20">
-                <button type="button" class="btn btn-lg btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1">Order Combo Now!</button>
-              </div>
-              <p class="text-black m-b-0 fs-12 m-t-30"><sup>*</sup>  Promosi ini adalah Terhad Kepada <b>500 set</b> sahaja. <sup>**</sup> Promosi Hari Bapa oleh pihak kami akan berakhir pada <b>30 Jun 2020</b>. <sup>***</sup> Barangan Percuma (De'Xandra Miniature & Kad Ucapan) akan disertakan bersama parcel.</p>
-            </div>
-            <div class="col-lg-9">
-              <img src="assets/slider/PromoPackWebste2.jpg" width="100%" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="container visible-xs no-padding">
-          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <!-- <h5 class="block-title hint-text no-margin text-black bold p-t-20">PROMOSI HARI BAPA</h5> -->
-            <!-- <h1 class="font-montserrat text-uppercase text-black no-margin text-black ">Special Combo Pack</h1> -->
-            <div class="row m-t-0 no-padding no-margin">
-              <div class="col-sm-12 no-padding text-center full-height" id="" quantity="">
-                <img src="assets/slider/PromoPackWebsteMobile2.jpg" width="100%" alt="">
-              </div>
-              <div class="m-l-15 m-r-15 col-sm-12 text-center m-t-40" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1" style="cursor: pointer;">
-                <h1 class="m-t-5 text-black">Hari Bapa <br> Combo Pack</h1>
-                <h5 class="hint-texta no-margin text-black"><b>2 x</b> Kek Buah Kukus 1kg  </h5>
-                <h5 class="hint-texta no-margin text-black"><b>FREE</b> Kad Ucapan Hari Bapa </h5>
-                <h5 class="hint-texta no-margin text-black"><b>FREE</b> De'Xandra<sup>TM</sup> Miniature</h5>
-                <hr class="text-black" style="background-color: black; height: 1px; border: 0; ">
-                <h1 class="m-t-0 text-black  m-b-0 bold" style="line-height: 0.95"><strike class="text-danger"> RM 120 </strike> </h1>
-                <h1 class="m-t-0 text-black bold m-b-10" style="line-height: 0.95">RM 100 </h1>
-                <h5 class="hint-texta no-margin text-black bold">FREE POSTAGE </h5>
-                <h5 class="hint- no-margin text-black">Jimat <b class="text-black">RM20</b> </h5>
-                <div class="m-t-20">
-                  <button type="button" class="btn btn-lg btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp5 ?>" quantity="1">Order Combo Now</button>
-                </div>
-                <p class="text-black m-b-30 fs-12 m-t-30"><sup>*</sup>  Promosi ini adalah Terhad Kepada <b>500 set</b> sahaja. <sup>**</sup> Promosi Hari Bapa oleh pihak kami akan berakhir pada <b>30 Jun 2020</b>. <sup>***</sup> Barangan Percuma (De'Xandra Miniature & Kad Ucapan) akan disertakan bersama parcel.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <!-- END CONTENT SECTION -->
-      <!-- BEGIN CONTENT SECTION -->
-      <section class="bg-master-dark p-b-85 p-t-75 " id="pricing">
-        <div class="container hidden-xs">
-          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
-            <div class="row m-t-40">
-              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="1">
-                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
-                <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
-                <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
-                <hr>
-                <h1 class="m-t-20 text-white">RM 60 </h1>
-                <h5 class="hint-text no-margin text-white">+ RM10 Postage </h5>
-                <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5>
-                <div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="1">Order 1 Now</button>
-                </div>
-              </div>
-              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="3">
-                <h5 class="block-title m-t-5 text-whitea bg-success"> <i class="fa fa-star m-r-10"></i> Most Popular </h5>
-                <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
-                <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
-                <hr>
-                <h1 class="m-t-20 text-white">RM 180 </h1>
-                <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5>
-                <div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="3">Order 3 Now</button>
-                </div>
-              </div>
-              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="4">
-                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
-                <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
-                <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
-                <hr>
-                <h1 class="m-t-20 text-white">RM 240 </h1>
-                <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5>
-                <div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="4">Order 4 Now</button>
-                </div>
-              </div>
-              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="5">
-                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
-                <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
-                <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
-                <hr>
-                <h1 class="m-t-20 text-white">RM 300 </h1>
-                <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5>
-                <div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="5">Order 5 Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container visible-xs">
-          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
-            <h5 class="block-title hint-text no-margin text-white">Harga Jualan eCaque</h5>
-            <div class="row m-t-40">
-              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="1">
-                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
-                <h1 class="m-t-5 text-white">1 Kek 1kg </h1>
-                <h5 class="hint-text no-margin text-white">Harga Biasa </h5>
-                <h1 class="m-t-20 text-white">RM 50 </h1>
-                <h5 class="hint-text no-margin text-white">+ RM10 Postage </h5>
-                <h5 class="hint-text no-margin text-white">Tiada Penjimatan </h5><div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="1">Order 1 Now</button>
-                </div>
-              </div>
-              <!-- <hr class="text-black" style="background-color: darkgrey; height: 1px; border: 0; "> -->
-              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="3">
-                <h5 class="block-title m-t-5 text-whitea bg-successa"> &nbsp; </h5>
-                <h1 class="m-t-5 text-white">3 Kek 1kg </h1>
-                <h5 class="hint-text no-margin text-white">Pakej Jimat </h5>
-                <h1 class="m-t-20 text-white">RM 150 </h1>
-                <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM30</b> </h5><div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="3">Order 3 Now</button>
-                </div>
-              </div>
-              <!-- <hr class="text-black" style="background-color: darkgrey; height: 1px; border: 0; "> -->
-              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="4">
-                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
-                <h1 class="m-t-5 text-white">4 Kek 1kg </h1>
-                <h5 class="hint-text no-margin text-white">Pakej Pakej Mur-Mur </h5>
-                <h1 class="m-t-20 text-white">RM 200 </h1>
-                <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM40</b> </h5><div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="4">Order 4 Now</button>
-                </div>
-              </div>
-              <!-- <hr class="text-black" style="background-color: darkgrey; height: 1px; border: 0; "> -->
-              <div class="col-sm-3 text-center" id="buyNow" style="cursor: pointer;" rpid="<?php echo $rp1 ?>" quantity="5">
-                <h5 class="block-title m-t-5 text-white">&nbsp;</h5>
-                <h1 class="m-t-5 text-white">5 Kek 1kg </h1>
-                <h5 class="hint-text no-margin text-white">Pakej Terlajak Laku </h5>
-                <h1 class="m-t-20 text-white">RM 250 </h1>
-                <h5 class="hint-text no-margin text-white">Free Postage </h5>
-                <h5 class="hint-text no-margin text-white">Jimat <b class="text-success">RM50</b> </h5><div class="m-t-20">
-                  <button type="button" class="btn btn-success text-black bold btn-block" name="button" id="buyNow" rpid="<?php echo $rp1 ?>" quantity="5">Order 5 Now</button>
-                </div>
+              <div class="col-sm-4">
+                <h3 class="m-t-5 bold">Kurang Manis 1.0 Kilogram</h3>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="bg-master-lightest p-b-85 p-t-75" id="agent">
+      <section class="bg-master-lightest p-b-85 p-t-20" id="">
+        <div class="container">
+          <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+            <h5 class="block-title hint-text no-margin bold p-b-30">Keistimewaan</h5>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="m-t-5">Tekstur Kek Moist, Gebu Kerana Dihasilkan Dengan Menggunakan Cara Kukus</p>
+              </div>
+              <div class="col-sm-3">
+                <p class="m-t-5">Boleh Bertahan Selama 2 Bulan Pada Suhu Bilik dan 3 bulan didalam peti sejuk</p>
+              </div>
+              <div class="col-sm-3">
+                <p class="m-t-5">Kotak Eksklusif yang sesuai untuk dijadikan Hadiah untuk sahabat & keluarga</p>
+              </div>
+              <div class="col-sm-3">
+                <p class="m-t-5">Ramuan Yang Digunakan Adalah 100% Premium dan original.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="m-t-5">Menggunakan 100% Pure Butter Jenama Anchor yang diperakui Halal Jakim</p>
+              </div>
+              <div class="col-sm-3">
+                <p class="m-t-5">Tiada Sebarang Bahan Pengawet dimasukkan kedalam bancuhan kek.</p>
+              </div>
+              <div class="col-sm-3">
+                <p class="m-t-5">Produk Kek Kukus Termasuk Bekas Tertutup Diberikan Secara Percuma</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-master-light p-b-65 p-t-75" id="agent">
         <div class="container">
           <div class="md-p-l-20 md-p-r-20 xs-no-padding">
             <h5 class="block-title hint-text no-margin">Pencarian Agen Dropship</h5>

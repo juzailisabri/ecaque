@@ -125,6 +125,7 @@
         <div class="col-md-12">
           <button id="filterbtn" type="button" class="btn btn-primary" name="button">Filter</button>
           <button id="resetbtn" type="button" class="btn btn-primary" name="button">Reset</button>
+          <button id="copyMessage" type="button" class="m-r-5 btn btn-success " name="button"> <i class="fa fa-plus m-r-5"></i> Copy Message</button>
           <button id="addnewstockist" type="button" class="btn btn-success pull-right" name="button"> <i class="fa fa-plus m-r-5"></i> Add New Voucher</button>
         </div>
       </div>
@@ -481,6 +482,34 @@ function sendWhatsapp(){
           var a = window.open(data["WLINK"], target);
         }
 
+        tablePengguna.ajax.reload(null, false);
+      },
+      error: function(data) {
+        // saAlert3("Error","Session Log Out Error","warning");
+      }
+  });
+}
+
+function copyMessage(){
+  var fd = new FormData();
+  fd.append("func","sendMultiVoucher");
+  fd.append("id",$("#voucherNo").val());
+  $.ajax({
+      type: 'POST',
+      url: "db",
+      data: fd,
+      dataType: "json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        console.log(iOSversion());
+        if (iOSversion()) {
+          window.location.assign(data["WLINK"]);
+        } else {
+          var target = "_blank";
+          var a = window.open(data["WLINK"], target);
+        }
         tablePengguna.ajax.reload(null, false);
       },
       error: function(data) {
